@@ -81,9 +81,9 @@
     </control>
     <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="703" y="246" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Join%20Private%20Screen%26bm%3BJoin%20Private%20Screen.bmml%26bm%3BJoin%20Private%20Screen.bmml%26bm%3BJoin%20Private%20Screen.bmml</href>
+        <href>Join%20Private%20PopUp%26bm%3BJoin%20Private%20PopUp.bmml%26bm%3BJoin%20Private%20PopUp.bmml%26bm%3BJoin%20Private%20PopUp.bmml</href>
         <icon>LockIcon%7Cxsmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22683%2C226%2C699%2C242%22%20href%3D%22Join%2520Private%2520Screen.bmml%22%20alt%3D%22Join%20Private%20Screen%22%20id%3D%2215%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22683%2C226%2C699%2C242%22%20href%3D%22Join%2520Private%2520PopUp.bmml%22%20alt%3D%22Join%20Private%20PopUp%22%20id%3D%2215%22/%3E</map>
       </controlProperties>
     </control>
   </controls>
