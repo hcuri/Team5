@@ -114,8 +114,8 @@
     <control controlID="87" controlTypeID="com.balsamiq.mockups::Button" x="317" y="322" w="44" h="21" measuredW="44" measuredH="27" zOrder="22" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
-        <href>Edit%20Presentation%20Screen%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C302%2C341%2C323%22%20href%3D%22Edit%2520Presentation%2520Screen.bmml%22%20alt%3D%22Edit%20Presentation%20Screen%22%20id%3D%2287%22/%3E</map>
+        <href>Editor%20Screen%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C302%2C341%2C323%22%20href%3D%22Editor%2520Screen.bmml%22%20alt%3D%22Editor%20Screen%22%20id%3D%2287%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
         <text>Edit</text>
@@ -133,8 +133,8 @@
     <control controlID="89" controlTypeID="com.balsamiq.mockups::Button" x="317" y="297" w="44" h="21" measuredW="44" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
-        <href>Edit%20Presentation%20Screen%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C277%2C341%2C298%22%20href%3D%22Edit%2520Presentation%2520Screen.bmml%22%20alt%3D%22Edit%20Presentation%20Screen%22%20id%3D%2289%22/%3E</map>
+        <href>Editor%20Screen%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C277%2C341%2C298%22%20href%3D%22Editor%2520Screen.bmml%22%20alt%3D%22Editor%20Screen%22%20id%3D%2289%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
         <text>Edit</text>
@@ -152,8 +152,8 @@
     <control controlID="91" controlTypeID="com.balsamiq.mockups::Button" x="317" y="269" w="44" h="21" measuredW="44" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
-        <href>Edit%20Presentation%20Screen%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C249%2C341%2C270%22%20href%3D%22Edit%2520Presentation%2520Screen.bmml%22%20alt%3D%22Edit%20Presentation%20Screen%22%20id%3D%2291%22/%3E</map>
+        <href>Editor%20Screen%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C249%2C341%2C270%22%20href%3D%22Editor%2520Screen.bmml%22%20alt%3D%22Editor%20Screen%22%20id%3D%2291%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
         <text>Edit</text>
@@ -171,8 +171,8 @@
     <control controlID="93" controlTypeID="com.balsamiq.mockups::Button" x="317" y="242" w="44" h="21" measuredW="44" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
-        <href>Edit%20Presentation%20Screen%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml%26bm%3BEdit%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C222%2C341%2C243%22%20href%3D%22Edit%2520Presentation%2520Screen.bmml%22%20alt%3D%22Edit%20Presentation%20Screen%22%20id%3D%2293%22/%3E</map>
+        <href>Editor%20Screen%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml%26bm%3BEditor%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22297%2C222%2C341%2C243%22%20href%3D%22Editor%2520Screen.bmml%22%20alt%3D%22Editor%20Screen%22%20id%3D%2293%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
         <text>Edit</text>
