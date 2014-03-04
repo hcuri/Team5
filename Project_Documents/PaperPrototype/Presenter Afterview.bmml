@@ -2,7 +2,7 @@
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="20" y="20" w="900" h="540" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
       <controlProperties>
-        <text>UPresent%20-%20AfterView%20%22UPresent%20Title%22%0Ahttps%3A//upresent.org/afterview%3Ftitle</text>
+        <text>UPresent%20-%20Presenter%20AfterView%20%22UPresent%20Title%22%0Ahttps%3A//upresent.org/p-afterview%3Ftitle</text>
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="35" y="494" w="870" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="-1"/>
@@ -84,12 +84,12 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::FieldSet" x="575" y="140" w="317" h="223" measuredW="200" measuredH="170" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::FieldSet" x="575" y="140" w="317" h="347" measuredW="200" measuredH="170" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Viewers%20Chat</text>
       </controlProperties>
     </control>
-    <control controlID="44" controlTypeID="com.balsamiq.mockups::RoundButton" x="584" y="329" w="230" h="24" measuredW="32" measuredH="32" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::RoundButton" x="584" y="455" w="230" h="24" measuredW="32" measuredH="32" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <align>left</align>
         <shape>roundRect</shape>
@@ -97,12 +97,12 @@
         <text>You%20can%20comment%20and%20chat%20here</text>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::Icon" x="765" y="332" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Icon" x="765" y="458" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>IBeamIcon%7Cxsmall</icon>
       </controlProperties>
     </control>
-    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="821" y="330" w="56" h="23" measuredW="51" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="821" y="456" w="56" h="23" measuredW="51" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
         <menuIcon>false</menuIcon>
@@ -111,7 +111,7 @@
         <text>Send</text>
       </controlProperties>
     </control>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::HRule" x="584" y="316" w="293" h="-1" measuredW="100" measuredH="10" zOrder="17" locked="false" isInGroup="-1"/>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::HRule" x="584" y="442" w="293" h="-1" measuredW="100" measuredH="10" zOrder="17" locked="false" isInGroup="-1"/>
     <control controlID="48" controlTypeID="com.balsamiq.mockups::Tooltip" x="584" y="172" w="212" h="33" measuredW="219" measuredH="0" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <text>I%20really%20liked%20Raley%27s%20UPresent</text>
@@ -138,32 +138,53 @@
     </control>
     <control controlID="56" controlTypeID="com.balsamiq.mockups::HRule" x="112" y="134" w="343" h="-1" measuredW="100" measuredH="10" zOrder="22" locked="false" isInGroup="-1"/>
     <control controlID="57" controlTypeID="com.balsamiq.mockups::VRule" x="543" y="153" w="-1" h="334" measuredW="10" measuredH="100" zOrder="23" locked="false" isInGroup="-1"/>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::Button" x="648" y="396" w="171" h="32" measuredW="171" measuredH="28" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Label" x="866" y="26" w="-1" h="-1" measuredW="39" measuredH="21" zOrder="24" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>14540253</color>
-        <size>20</size>
-        <text>Download%20Slides</text>
-      </controlProperties>
-    </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::Button" x="637" y="439" w="-1" h="-1" measuredW="192" measuredH="28" zOrder="25" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>14540253</color>
-        <size>20</size>
-        <text>Contact%20Presenter</text>
-      </controlProperties>
-    </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::HRule" x="584" y="372" w="300" h="-1" measuredW="100" measuredH="10" zOrder="26" locked="false" isInGroup="-1"/>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::Label" x="866" y="26" w="-1" h="-1" measuredW="39" measuredH="21" zOrder="27" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22846%2C6%2C885%2C27%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2261%22/%3E</map>
+        <href>Presenting%20Screen%26bm%3BPresenting%20Screen.bmml%26bm%3BPresenting%20Screen.bmml%26bm%3BPresenting%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22846%2C6%2C885%2C27%22%20href%3D%22Presenting%2520Screen.bmml%22%20alt%3D%22Presenting%20Screen%22%20id%3D%2261%22/%3E</map>
         <text>%28Back%29</text>
       </controlProperties>
     </control>
-    <control controlID="63" controlTypeID="com.balsamiq.mockups::ColumnChart" x="215" y="183" w="132" h="105" measuredW="187" measuredH="175" zOrder="28" locked="false" isInGroup="-1"/>
-    <control controlID="64" controlTypeID="com.balsamiq.mockups::Label" x="252" y="288" w="-1" h="-1" measuredW="61" measuredH="21" zOrder="29" locked="false" isInGroup="-1">
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::ColumnChart" x="215" y="183" w="132" h="105" measuredW="187" measuredH="175" zOrder="25" locked="false" isInGroup="-1"/>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Label" x="252" y="288" w="-1" h="-1" measuredW="61" measuredH="21" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Some%20text</text>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Tooltip" x="586" y="262" w="212" h="33" measuredW="201" measuredH="0" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Did%20anyone%20take%20notes%3F</text>
+        <tooltipDirection>NW</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Label" x="584" y="243" w="36" h="-1" measuredW="36" measuredH="21" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>User1</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Tooltip" x="674" y="300" w="212" h="33" measuredW="204" measuredH="0" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>I%20did%2C%20do%20you%20need%20them%3F</text>
+        <tooltipDirection>NE</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Label" x="847" y="279" w="39" h="-1" measuredW="39" measuredH="21" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>User2</text>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Tooltip" x="588" y="350" w="212" h="46" measuredW="206" measuredH="0" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Yes%2C%20please%20send%20them%20to%20user1@me.com</text>
+        <tooltipDirection>NW</tooltipDirection>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Label" x="586" y="323" w="36" h="-1" measuredW="36" measuredH="21" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>User1</text>
       </controlProperties>
     </control>
   </controls>

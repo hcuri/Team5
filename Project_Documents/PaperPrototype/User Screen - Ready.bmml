@@ -138,8 +138,8 @@
     <control controlID="93" controlTypeID="com.balsamiq.mockups::Button" x="310" y="242" w="69" h="21" measuredW="65" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
-        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22290%2C222%2C359%2C243%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2293%22/%3E</map>
+        <href>Presenting%20Screen%26bm%3BPresenting%20Screen.bmml%26bm%3BPresenting%20Screen.bmml%26bm%3BPresenting%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22290%2C222%2C359%2C243%22%20href%3D%22Presenting%2520Screen.bmml%22%20alt%3D%22Presenting%20Screen%22%20id%3D%2293%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
         <text>Present</text>
@@ -148,8 +148,8 @@
     <control controlID="95" controlTypeID="com.balsamiq.mockups::Button" x="310" y="270" w="69" h="21" measuredW="48" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
-        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22290%2C250%2C359%2C271%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2295%22/%3E</map>
+        <href>Presenter%20Afterview%26bm%3BPresenter%20Afterview.bmml%26bm%3BPresenter%20Afterview.bmml%26bm%3BPresenter%20Afterview.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22290%2C250%2C359%2C271%22%20href%3D%22Presenter%2520Afterview.bmml%22%20alt%3D%22Presenter%20Afterview%22%20id%3D%2295%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
         <text>View</text>
