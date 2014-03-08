@@ -74,14 +74,14 @@
     </control>
     <control controlID="64" controlTypeID="__group__" x="426" y="214" w="400" h="248" measuredW="400" measuredH="248" zOrder="12" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
-        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="2" y="0" w="230" h="26" measuredW="272" measuredH="100" zOrder="0" locked="false" isInGroup="64">
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="2" y="0" w="230" h="26" measuredW="251" measuredH="100" zOrder="0" locked="false" isInGroup="64">
           <controlProperties>
             <bold>true</bold>
             <color>13421772</color>
             <hrefs>User%20Screen%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%2C</hrefs>
             <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22428%2C194%2C500%2C221%22%20href%3D%22User%2520Screen.bmml%22%20alt%3D%22User%20Screen%22%20id%3D%220%22/%3E</map>
             <selectedIndex>1</selectedIndex>
-            <text>Upcoming%2C%20Past%20Presentations</text>
+            <text>Upcoming%2C%20Past%20UPresents</text>
           </controlProperties>
         </control>
         <control controlID="2" controlTypeID="com.balsamiq.mockups::DataGrid" x="0" y="24" w="400" h="224" measuredW="320" measuredH="51" zOrder="1" locked="false" isInGroup="64">

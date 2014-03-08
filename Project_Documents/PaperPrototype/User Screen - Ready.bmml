@@ -74,11 +74,11 @@
     </control>
     <control controlID="64" controlTypeID="__group__" x="426" y="214" w="400" h="248" measuredW="400" measuredH="248" zOrder="12" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
-        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="2" y="0" w="222" h="26" measuredW="266" measuredH="100" zOrder="0" locked="false" isInGroup="64">
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="2" y="0" w="222" h="26" measuredW="247" measuredH="100" zOrder="0" locked="false" isInGroup="64">
           <controlProperties>
             <hrefs>%2CUser%20Screen%20-%20Past%20Presentations%26bm%3BUser%20Screen%20-%20Past%20Presentations.bmml%26bm%3BUser%20Screen%20-%20Past%20Presentations.bmml%26bm%3BUser%20Screen%20-%20Past%20Presentations.bmml</hrefs>
-            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22500%2C194%2C624%2C221%22%20href%3D%22User%2520Screen%2520-%2520Past%2520Presentations.bmml%22%20alt%3D%22User%20Screen%20-%20Past%20Presentations%22%20id%3D%220%22/%3E</map>
-            <text>Upcoming%2C%20Past%20Presentations</text>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22500%2C194%2C605%2C221%22%20href%3D%22User%2520Screen%2520-%2520Past%2520Presentations.bmml%22%20alt%3D%22User%20Screen%20-%20Past%20Presentations%22%20id%3D%220%22/%3E</map>
+            <text>Upcoming%2C%20Past%20UPresents</text>
           </controlProperties>
         </control>
         <control controlID="1" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="115" h="30" measuredW="155" measuredH="100" zOrder="1" locked="false" isInGroup="64">

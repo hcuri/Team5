@@ -36,10 +36,10 @@
         <text>Log%20In</text>
       </controlProperties>
     </control>
-    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="648" y="292" w="187" h="-1" measuredW="153" measuredH="30" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="648" y="292" w="187" h="-1" measuredW="83" measuredH="30" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
-        <text>Create%20A%20Password</text>
+        <text>Password</text>
       </controlProperties>
     </control>
     <control controlID="9" controlTypeID="com.balsamiq.mockups::HRule" x="676" y="215" w="130" h="-1" measuredW="100" measuredH="10" zOrder="7" locked="false" isInGroup="-1"/>

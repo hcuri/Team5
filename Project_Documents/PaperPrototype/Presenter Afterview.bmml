@@ -19,14 +19,14 @@
         <text>Created%20with</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="47" y="502" w="-1" h="-1" measuredW="115" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="47" y="502" w="-1" h="-1" measuredW="98" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <color>14540253</color>
         <href>User%20Screen%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2227%2C482%2C142%2C509%22%20href%3D%22User%2520Screen.bmml%22%20alt%3D%22User%20Screen%22%20id%3D%2218%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2227%2C482%2C125%2C509%22%20href%3D%22User%2520Screen.bmml%22%20alt%3D%22User%20Screen%22%20id%3D%2218%22/%3E</map>
         <menuIcon>false</menuIcon>
         <size>12</size>
-        <text>Exit%20Presentation</text>
+        <text>Exit%20UPresent</text>
       </controlProperties>
     </control>
     <control controlID="19" controlTypeID="com.balsamiq.mockups::SubTitle" x="127" y="113" w="-1" h="-1" measuredW="117" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
