@@ -1,0 +1,93 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="920" measuredH="560" mockupW="900" mockupH="540">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="20" y="20" w="900" h="540" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>UPresent%20-%20Searched%20for%20%22searchterms%22%0Ahttps%3A//upresent.org/search%3Fsearchterms</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::VSplitter" x="35" y="157" w="870" h="-1" measuredW="100" measuredH="11" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::HRule" x="35" y="490" w="870" h="-1" measuredW="100" measuredH="10" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::LinkBar" x="301" y="504" w="-1" h="-1" measuredW="339" measuredH="19" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <color>0</color>
+        <hrefs/>
+        <text>UPresent%20%A9%202014%2C%20About%2C%20Terms%2C%20Privacy%2C%20Contact</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="192" y="103" w="50" h="50" measuredW="212" measuredH="240" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/MiniLogo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::SearchBox" x="267" y="116" w="349" h="-1" measuredW="120" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <text>searchterms</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="641" y="116" w="-1" h="-1" measuredW="62" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>16</size>
+        <text>Hi%2C%20User</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Link" x="710" y="124" w="-1" h="-1" measuredW="38" measuredH="16" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>10</size>
+        <text>Log%20Out</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::DataGrid" x="192" y="221" w="556" h="250" measuredW="460" measuredH="51" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hasHeader>true</hasHeader>
+        <text>Title%20%5E%2C%20Author%2C%20Organization%2C%20Rating%2C%20Date%2C%20Join%0ALecture%2011%2C%20Christopher%20Raley%2C%20CSE%203345%2C%205.0/5.0%2C%20Mar%2018%5C%2C%202014%0A%7B20L%2C%2020L%2C%2015C%2C%2010C%2C%2015C%2C%2010C%7D</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::SubTitle" x="192" y="183" w="-1" h="-1" measuredW="445" measuredH="23" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>Found%20175%20UPresents%20that%20contain%20%22searchterms%22%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="746" y="222" w="-1" h="250" measuredW="16" measuredH="100" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="110" y="221" w="88" h="107" measuredW="200" measuredH="122" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>%2C</hrefs>
+        <text>Show%20Public%0AShow%20Private</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="106" y="249" w="133" h="72" measuredW="200" measuredH="100" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.25</backgroundAlpha>
+        <bold>true</bold>
+        <color>16777215</color>
+        <text>Show%20Private%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="703" y="246" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>LockIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Alert" x="289" y="208" w="362" h="165" measuredW="270" measuredH="117" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>Search%20Private%20Screen%26bm%3BSearch%20Private%20Screen.bmml%26bm%3BSearch%20Private%20Screen.bmml%26bm%3BSearch%20Private%20Screen.bmml%2CUser%20Screen%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22279%2C303%2C445%2C343%22%20href%3D%22Search%2520Private%2520Screen.bmml%22%20alt%3D%22Search%20Private%20Screen%22%20id%3D%2218%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22455%2C303%2C621%2C343%22%20href%3D%22User%2520Screen.bmml%22%20alt%3D%22User%20Screen%22%20id%3D%2218%22/%3E</map>
+        <text>Lecture%2011%20by%20Christopher%20Raley%0APlease%20enter%204%20digit%20code%3A%0ACancel%2C%20Join</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="__group__" x="394" y="266" w="152" h="48" measuredW="152" measuredH="48" zOrder="15" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="32" h="48" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="23"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="39" y="0" w="32" h="48" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="23"/>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Canvas" x="79" y="0" w="32" h="48" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="23"/>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Canvas" x="120" y="0" w="32" h="48" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="23"/>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

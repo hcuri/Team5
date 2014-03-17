@@ -1,0 +1,168 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="920" measuredH="560" mockupW="900" mockupH="540">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="20" y="20" w="900" h="540" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>UPresent%20-%20Welcome%20User%0Ahttps%3A//upresent.org/user</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::VSplitter" x="35" y="157" w="870" h="-1" measuredW="100" measuredH="11" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::HRule" x="35" y="490" w="870" h="-1" measuredW="100" measuredH="10" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::LinkBar" x="301" y="504" w="-1" h="-1" measuredW="339" measuredH="19" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16777215</borderColor>
+        <color>0</color>
+        <hrefs>%2CLogin%20Screen%26bm%3BLogin%20Screen.bmml%26bm%3BLogin%20Screen.bmml%26bm%3BLogin%20Screen.bmml%2CTerms%20Screen%26bm%3BTerms%20Screen.bmml%26bm%3BTerms%20Screen.bmml%26bm%3BTerms%20Screen.bmml%2CPrivacy%20Screen%26bm%3BPrivacy%20Screen.bmml%26bm%3BPrivacy%20Screen.bmml%26bm%3BPrivacy%20Screen.bmml%2CContact%20Screen%26bm%3BContact%20Screen.bmml%26bm%3BContact%20Screen.bmml%26bm%3BContact%20Screen.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22403%2C486%2C438%2C499%22%20href%3D%22Login%2520Screen.bmml%22%20alt%3D%22Login%20Screen%22%20id%3D%2233%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22456%2C486%2C493%2C499%22%20href%3D%22Terms%2520Screen.bmml%22%20alt%3D%22Terms%20Screen%22%20id%3D%2233%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22511%2C486%2C554%2C499%22%20href%3D%22Privacy%2520Screen.bmml%22%20alt%3D%22Privacy%20Screen%22%20id%3D%2233%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22572%2C486%2C620%2C499%22%20href%3D%22Contact%2520Screen.bmml%22%20alt%3D%22Contact%20Screen%22%20id%3D%2233%22/%3E</map>
+        <text>UPresent%20%A9%202014%2C%20About%2C%20Terms%2C%20Privacy%2C%20Contact</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="192" y="103" w="50" h="50" measuredW="212" measuredH="240" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>User%20Screen%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22172%2C83%2C222%2C133%22%20href%3D%22User%2520Screen.bmml%22%20alt%3D%22User%20Screen%22%20id%3D%2234%22/%3E</map>
+        <src>./assets/MiniLogo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::SearchBox" x="267" y="116" w="349" h="-1" measuredW="207" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Search%20Results%20Screen%26bm%3BSearch%20Results%20Screen.bmml%26bm%3BSearch%20Results%20Screen.bmml%26bm%3BSearch%20Results%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22247%2C96%2C596%2C121%22%20href%3D%22Search%2520Results%2520Screen.bmml%22%20alt%3D%22Search%20Results%20Screen%22%20id%3D%2248%22/%3E</map>
+        <text>Search%20for%20users%20or%20UPresents</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Label" x="641" y="116" w="-1" h="-1" measuredW="62" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <href>User%20Profile%20Screen%26bm%3BUser%20Profile%20Screen.bmml%26bm%3BUser%20Profile%20Screen.bmml%26bm%3BUser%20Profile%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22621%2C96%2C683%2C120%22%20href%3D%22User%2520Profile%2520Screen.bmml%22%20alt%3D%22User%20Profile%20Screen%22%20id%3D%2250%22/%3E</map>
+        <size>16</size>
+        <text>Hi%2C%20User</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Link" x="710" y="124" w="-1" h="-1" measuredW="38" measuredH="16" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Login%20Screen%26bm%3BLogin%20Screen.bmml%26bm%3BLogin%20Screen.bmml%26bm%3BLogin%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22690%2C104%2C728%2C120%22%20href%3D%22Login%2520Screen.bmml%22%20alt%3D%22Login%20Screen%22%20id%3D%2251%22/%3E</map>
+        <size>10</size>
+        <text>Log%20Out</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::SubTitle" x="187" y="187" w="-1" h="-1" measuredW="155" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>My%20UPresents</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::List" x="142" y="236" w="244" h="190" measuredW="100" measuredH="126" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <alternateRowColor>12303802</alternateRowColor>
+        <borderStyle>square</borderStyle>
+        <hasHeader>false</hasHeader>
+        <rowHeight>27</rowHeight>
+        <size>14</size>
+        <text>Next%20UPresent%20%20%20%203/5/14%0AOld%20UPresent%20%20%20%20%20%202/8/14</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::VRule" x="401" y="232" w="-1" h="232" measuredW="10" measuredH="100" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::SubTitle" x="590" y="183" w="-1" h="-1" measuredW="72" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>Joined</text>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="__group__" x="426" y="214" w="400" h="248" measuredW="400" measuredH="248" zOrder="12" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="2" y="0" w="222" h="26" measuredW="247" measuredH="100" zOrder="0" locked="false" isInGroup="64">
+          <controlProperties>
+            <hrefs>%2CUser%20Screen%20-%20Past%20Presentations%26bm%3BUser%20Screen%20-%20Past%20Presentations.bmml%26bm%3BUser%20Screen%20-%20Past%20Presentations.bmml%26bm%3BUser%20Screen%20-%20Past%20Presentations.bmml</hrefs>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22500%2C194%2C605%2C221%22%20href%3D%22User%2520Screen%2520-%2520Past%2520Presentations.bmml%22%20alt%3D%22User%20Screen%20-%20Past%20Presentations%22%20id%3D%220%22/%3E</map>
+            <text>Upcoming%2C%20Past%20UPresents</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="115" h="30" measuredW="155" measuredH="100" zOrder="1" locked="false" isInGroup="64">
+          <controlProperties>
+            <bold>true</bold>
+            <text>Upcoming</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::DataGrid" x="0" y="24" w="400" h="224" measuredW="369" measuredH="141" zOrder="2" locked="false" isInGroup="64">
+          <controlProperties>
+            <hasHeader>true</hasHeader>
+            <text>Title%20%5E%2C%20Author%2C%20Date%2C%20View%0AHow%20to%20Design%2C%20Christopher%20Raley%2CFeb%2029%5C%2C%202015%0AIntro%20to%20iOS%2C%20Hector%20Curi%2CMar%201%5C%2C%202015%0AMy%20Search%20Engine%2C%20Larry%20Page%2CJan%2015%5C%2C%202015%0AHow%20to%20Design%2C%20Jay%20Bhatt%2CAug%208%5C%2C%202014%0A%7B22L%2C%2022L%2C%2018C%2C%2010C%7D</text>
+            <verticalScrollbar>false</verticalScrollbar>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Button" x="152" y="435" w="228" h="36" measuredW="233" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>14540253</color>
+        <href>Create%20New%20Screen%26bm%3BCreate%20New%20Screen.bmml%26bm%3BCreate%20New%20Screen.bmml%26bm%3BCreate%20New%20Screen.bmml</href>
+        <icon>AddPageIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22132%2C415%2C360%2C451%22%20href%3D%22Create%2520New%2520Screen.bmml%22%20alt%3D%22Create%20New%20Screen%22%20id%3D%2265%22/%3E</map>
+        <menuIcon>false</menuIcon>
+        <size>18</size>
+        <text>%20Create%20New%20UPresent</text>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Icon" x="779" y="261" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
+        <icon>GtCircledIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22759%2C241%2C783%2C265%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2266%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Icon" x="779" y="290" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
+        <icon>GtCircledIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22759%2C270%2C783%2C294%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2268%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Icon" x="779" y="320" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
+        <icon>GtCircledIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22759%2C300%2C783%2C324%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2269%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Icon" x="779" y="349" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>View%20Presentation%20Screen%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml%26bm%3BView%20Presentation%20Screen.bmml</href>
+        <icon>GtCircledIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22759%2C329%2C783%2C353%22%20href%3D%22View%2520Presentation%2520Screen.bmml%22%20alt%3D%22View%20Presentation%20Screen%22%20id%3D%2270%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="93" controlTypeID="com.balsamiq.mockups::Button" x="310" y="242" w="69" h="21" measuredW="65" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>14540253</color>
+        <href>Presenting%20Screen%26bm%3BPresenting%20Screen.bmml%26bm%3BPresenting%20Screen.bmml%26bm%3BPresenting%20Screen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22290%2C222%2C359%2C243%22%20href%3D%22Presenting%2520Screen.bmml%22%20alt%3D%22Presenting%20Screen%22%20id%3D%2293%22/%3E</map>
+        <menuIcon>false</menuIcon>
+        <size>12</size>
+        <text>Present</text>
+      </controlProperties>
+    </control>
+    <control controlID="95" controlTypeID="com.balsamiq.mockups::Button" x="310" y="270" w="69" h="21" measuredW="48" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>14540253</color>
+        <href>Presenter%20Afterview%26bm%3BPresenter%20Afterview.bmml%26bm%3BPresenter%20Afterview.bmml%26bm%3BPresenter%20Afterview.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22290%2C250%2C359%2C271%22%20href%3D%22Presenter%2520Afterview.bmml%22%20alt%3D%22Presenter%20Afterview%22%20id%3D%2295%22/%3E</map>
+        <menuIcon>false</menuIcon>
+        <size>12</size>
+        <text>View</text>
+      </controlProperties>
+    </control>
+    <control controlID="96" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="88" y="236" w="298" h="190" measuredW="200" measuredH="122" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <hrefs>User%20Screen%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%26bm%3BUser%20Screen.bmml%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2268%2C236%2C128%2C266%22%20href%3D%22User%2520Screen.bmml%22%20alt%3D%22User%20Screen%22%20id%3D%2296%22/%3E</map>
+        <selectedIndex>1</selectedIndex>
+        <text>Current%20%0AReady%20</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
