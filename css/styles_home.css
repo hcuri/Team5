@@ -18,7 +18,8 @@
 	height:300px;
 	margin-left:100px;
 	margin-top:100px;
-	background-color:#fff;
+	background-color:#6ea56b;
+	border:3px solid #2a2a2a;
 }
 
 #infoHeader {
@@ -34,6 +35,7 @@
 #infoContent {
 	color:#000;
 	font-size:20px;
+	background-color:#6ea56b;
 }
 
 #signUpWindow {
@@ -43,6 +45,8 @@
 	margin-right:100px;
 	float:right;
 	background-color:#FFF;
+	background-color:#6ea56b;
+	border:3px solid #2a2a2a;
 }
 
 #signUpHeader {
@@ -58,4 +62,16 @@
 #signUpContent {
 	padding-left:45px;
 	padding-top:50px;	
+}
+
+input {
+	border:3px solid #2a2a2a;	
+	border-radius:8px;
+	height:25px;
+	margin-bottom:5px;
+}
+::-webkit-input-placeholder {
+   color: #2a2a2a;
+   font-size:12px;
+   font-weight:bold;
 }
