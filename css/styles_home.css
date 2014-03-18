@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#logInPane {
+	width:500px;
+	height:100px;
+	float:right;
+}
+
+#login{
+	padding-top:40px;
+	padding-left:75px;
+}
+
+#info {
+	position:fixed;
+	width:500px;
+	height:300px;
+	margin-left:100px;
+	margin-top:100px;
+	background-color:#fff;
+}
+
+#infoHeader {
+	background-color:#2a2a2a;
+	padding-left:10px;
+	padding-top:10px;
+	color:#fff;
+	font-size:25px;
+	width:auto;
+	height:75px;
+}
+
+#infoContent {
+	color:#000;
+	font-size:20px;
+}
+
+#signUpWindow {
+	width:250px;
+	height:300px;
+	margin-top:100px;
+	margin-right:100px;
+	float:right;
+	background-color:#FFF;
+}
+
+#signUpHeader {
+	width:250px;
+	height:75px;
+	color:#fff;
+	font-size:25px;
+	text-align:center;
+	padding-top:10px;
+	background-color:#2a2a2a;	
+}
+
+#signUpContent {
+	padding-left:45px;
+	padding-top:50px;	
+}

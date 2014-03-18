@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@charset "UTF-8";
+@font-face {
+  font-family: "Montserrat";
+  src: url(http://fonts.googleapis.com/css?family=Montserrat) format("sans-serif");
+}
+
+body{
+	min-width:1000px;
+}
+
+#header {
+	margin:auto;
+	width:1000px;
+	height:100px;
+	background-color:#4486f7;
+}
+
+#logo {
+	padding-left:50px;	
+}
+
+#top {
+	width:auto;
+}
+
+#content {
+	position:relative;
+	margin:auto;
+	width:1000px;
+	height:500px;
+	background-color:#ededed;
+}
+
+#middle {
+	width:auto;
+}
+
+#footer {
+	margin:auto;
+	height:50px;
+	width:1000px;
+	color:#fff;
+	font-size:20px;
+	text-align:center;
+	background-color:#6ea56b;
+}
+
+#bottom {
+	width:auto;
+}
+
+/*
+gray - 2a2a2a
+blue - 4486f7
+green - 6ea56b
+*/
