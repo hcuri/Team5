@@ -28,23 +28,21 @@ CREATE TABLE Users
 );
 
 /*
-Table: Presentations
+Table: Groups
 Info:
-        presId - auto incremented
-        presURL - Drive URL to presentation
-        chatURL - URL to chat XML doc in drive
-        sessionId - ID of session this presentation belongs to
-        ownerId - userId of presentation owner
+	groupId - Auto incremented
+	groupName - Name of group the owner chose when making it
+	ownerId - userId of owner of group
+	Code - 4-digit alphanumeric code to join the group when searching for it
 */
-CREATE TABLE Presentations
+CREATE TABLE Groups
 (
-        presId                  INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
-        presURL                 VARCHAR(256)                    NOT NULL,
-        chatURL                 VARCHAR(256)                    NOT NULL,
-        sessionId               VARCHAR(256)                    NOT NULL,
-        ownerId			VARCHAR(255)                    NOT NULL,
-        PRIMARY KEY             (presId)
-	FOREIGN KEY		(sessionId)			
+        groupId                 INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
+        groupName               VARCHAR(256)                    NOT NULL,
+        ownerId                 INT UNSIGNED                    NOT NULL,
+        Code               		VARCHAR(4)                      NOT NULL,
+        PRIMARY KEY             (groupId),
+		FOREIGN KEY				(ownerId)						REFERENCES Users(userId)
 );
 
 /*
@@ -61,29 +59,32 @@ CREATE TABLE Sessions
         sessionId               INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
         groupId                 INT UNSIGNED                    NOT NULL,
         ownerId                 INT UNSIGNED                    NOT NULL,
-        isPrivate               BIN(1)                          NOT NULL,
+        isPrivate               INT UNSIGNED                    NOT NULL,
         date                    VARCHAR(255)                    NOT NULL,
-        PRIMARY KEY             (sessionId)
-	FOREIGN KEY		(groupId)			REFERENCES Groups(groupId)
-	FOREIGN KEY		(ownerId)			REFERENCES Groups(ownerId)
+        PRIMARY KEY             (sessionId),
+		FOREIGN KEY				(groupId)						REFERENCES Groups(groupId),
+		FOREIGN KEY				(ownerId)						REFERENCES Groups(ownerId)
 );
 
 /*
-Table: Groups
+Table: Presentations
 Info:
-	groupId - Auto incremented
-	groupName - Name of group the owner chose when making it
-	ownerId - userId of owner of group
-	Code - 4-digit alphanumeric code to join the group when searching for it
+        presId - auto incremented
+        presURL - Drive URL to presentation
+        chatURL - URL to chat XML doc in drive
+        sessionId - ID of session this presentation belongs to
+        ownerId - userId of presentation owner
 */
-CREATE TABLE Groups
+CREATE TABLE Presentations
 (
-        groupId                 INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
-        groupName               VARCHAR(256)                    NOT NULL,
-        ownerId                 INT UNSIGNED                    NOT NULL,
-        Code               	VARCHAR(4)                      NOT NULL,
-        PRIMARY KEY             (groupId)
-	FOREIGN KEY		(ownerId)			Users(userId)
+        presId                  INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
+        presURL                 VARCHAR(256)                    NOT NULL,
+        chatURL                 VARCHAR(256)                    NOT NULL,
+        sessionId               INT UNSIGNED                    NOT NULL,
+        ownerId					INT UNSIGNED                    NOT NULL,
+        PRIMARY KEY             (presId),
+		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
+		FOREIGN KEY				(ownerId)						REFERENCES Users(userId)
 );
 
 /*
@@ -102,9 +103,9 @@ CREATE TABLE Poll
         slideNum                INT UNSIGNED                    NOT NULL,
         question                VARCHAR(256)                    NOT NULL,
         numOptions              INT UNSIGNED                    NOT NULL,
-	pollURL			VARCHAR(256)			NOT NULL,
-        PRIMARY KEY             (pollId)
-	FOREIGN KEY		(presId)			Presentations(presId)
+		pollURL					VARCHAR(256)					NOT NULL,
+        PRIMARY KEY             (pollId),
+		FOREIGN KEY				(presId)						REFERENCES Presentations(presId)
 );
 
 /*
@@ -117,7 +118,7 @@ CREATE TABLE Poll_Options
 (
         pollId                  INT UNSIGNED                    NOT NULL,
         option_text             VARCHAR(256)                    NOT NULL,
-        FOREIGN KEY             (pollId)			REFERENCES Poll(pollId)
+        FOREIGN KEY             (pollId)						REFERENCES Poll(pollId)
 );
 
 /*
@@ -128,10 +129,10 @@ Info:
 */
 CREATE TABLE Session_Users
 (
-        sessionId		INT UNSIGNED                    NOT NULL,
+        sessionId				INT UNSIGNED                    NOT NULL,
         userId                  INT UNSIGNED                    NOT NULL,
-	FOREIGN KEY		(sessionId)			REFERENCES Sessions(sessionId)
-	FOREIGN KEY		(userId)			REFERENCES Users(userId)
+		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
+		FOREIGN KEY				(userId)						REFERENCES Users(userId)
 );
 
 /*
@@ -143,9 +144,9 @@ Info:
 CREATE TABLE Session_Presentations
 (
         sessionId               INT UNSIGNED                    NOT NULL,
-        presId			INT UNSIGNED                    NOT NULL,
-	FOREIGN KEY		(sessionId)			REFERENCES Sessions(sessionId)
-	FOREIGN KEY		(presId)			REFERENCES Presentations(presId)
+        presId					INT UNSIGNED                    NOT NULL,
+		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
+		FOREIGN KEY				(presId)						REFERENCES Presentations(presId)
 );
 
 /*
@@ -156,9 +157,9 @@ Info:
 */
 CREATE TABLE Group_Users
 (
-        groupId			INT UNSIGNED                    NOT NULL,
+        groupId					INT UNSIGNED                    NOT NULL,
         userId                  INT UNSIGNED                    NOT NULL,
-	FOREIGN KEY		(groupId)			REFERENCES Groups(groupId)
-	FOREIGN KEY		(userId)			REFERENCES Users(userId)
+		FOREIGN KEY				(groupId)						REFERENCES Groups(groupId),
+		FOREIGN KEY				(userId)						REFERENCES Users(userId)
 );
 
