@@ -4,6 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<SCRIPT SRC="js/jQuery.js"></SCRIPT>
+<SCRIPT SRC="js/main.js"></SCRIPT>
 <title>UPresent.org</title>
 </head>
 
@@ -25,10 +27,12 @@
   <div id="signUpWindow">
     <div id="signUpHeader">Sign Up!</div>
     <div id="signUpContent">
-      <form id="signUp">
+
+      <!--JOHN: ADD FIRST NAME AND LAST NAME TO THIS FORM, AND VALIDATE THAT THERE ARE NO SPACES IN EITHER NAME-->
+      <form id="signUp" ACTION="index.html" METHOD="POST" onSubmit="return checkRegister(this)">
         <input id="signUpUsername" type="text" name="username" placeholder="Username"/>
         <input id="signUpEmail" type="email" name="email" placeholder="Email" />
-        <input id="signUpPassword" type="password" name="password" placeholder="Password" />
+        <input id="signUpPassword" type="password" name="pwd" placeholder="Password" />
         <input id="signUpSubmit" type="submit" name="submit" value="Sign Up" />
       </form>
     </div>

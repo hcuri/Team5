@@ -9,7 +9,7 @@ $app->get('/verify/:username/:pass', 'verifyRegistered');
 $app->get('/registered/:email', 'checkIfRegistered');
 $app->post('/register', 'registerUser');
 
-$app->run();]
+$app->run();
 
 function verifyRegistered($username, $password) {
 	$sql = "SELECT * FROM Users WHERE username=:username";
@@ -53,7 +53,8 @@ function registerUser() {
 	error_log('addUser\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
-	$pass = password_hash($user->pw, PASSWORD_DEFAULT);
+	//$pass = password_hash($user->pw, PASSWORD_DEFAULT);
+	$pass = $user->pwd;
 	$sql = "INSERT INTO Users VALUES (DEFAULT, 'NONE', 'NONE', :username, :pass, :email, 'NONE')";
 	try {
 		$db = dbconnect();
