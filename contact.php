@@ -9,7 +9,12 @@
 </head>
 <body>
 	<div id="header"> <img id="logo" src="img/logo.png"/>
-
+		<form>
+			<input type="text" name="search">
+		</form>
+		<p id="greeting">Hi User</p>
+		<a href="index.php">Log Out</a>
+	</div>
 
 	<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
 </body>
