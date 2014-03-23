@@ -8,6 +8,12 @@
 	<title>UPresent -- Searchterms</title>
 </head>
 <body>
+	<div id="header"> <img id="logo" src="img/logo.png"/>
+		<form>
+			<input type="text" name="search">
+		</form>
+	</div>
+
 
 
 </body>
