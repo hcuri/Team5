@@ -26,6 +26,8 @@
     <div id="signUpHeader">Sign Up!</div>
     <div id="signUpContent">
       <form id="signUp">
+      <input id="fname" type="text" name="fname" placeholder="First Name"/>
+      <input id="lname" type="text" name="lname" placeholder="Last Name" />
         <input id="signUpUsername" type="text" name="username" placeholder="Username"/>
         <input id="signUpEmail" type="email" name="email" placeholder="Email" />
         <input id="signUpPassword" type="password" name="password" placeholder="Password" />
