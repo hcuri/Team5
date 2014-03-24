@@ -55,7 +55,7 @@ function registerUser() {
 	$user = json_decode($request->getBody());
 	//$pass = password_hash($user->pw, PASSWORD_DEFAULT);
 	$pass = $user->pwd;
-	$sql = "INSERT INTO Users VALUES (DEFAULT, 'NONE', 'NONE', :username, :pass, :email, 'NONE')";
+	$sql = "INSERT INTO Users VALUES (DEFAULT, 'NONE', 'NONE', :username, :email, :pass, 'NONE')";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
