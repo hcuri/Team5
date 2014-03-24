@@ -11,6 +11,34 @@
         </div>
         
         <div id="PollAdderForm">
+            <form id="PollData">
+                <fieldset>
+                    <legend>Add Poll</legend>
+                    <label for="PollQuestion">Question</label>
+                    <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50"/>
+                    <br><BR>Correct<br>
+                    <label for="OptionA">A</label>
+                    <input id="OptionA" name="OptionA" type="text" placeholder="Option A - Answer" size="50"/>
+                    <input type="radio" name="options" value="a" checked/>
+                    <br>
+                    <label for="OptionB">B</label>
+                    <input id="OptionB" name="OptionB" type="text" placeholder="Option B - Answer" size="50"/>
+                    <input type="radio" name="options" value="b" />
+                    <br>
+                    <label for="OptionC">C</label>
+                    <input id="OptionC" name="OptionC" type="text" placeholder="Option C - Answer" size="50"/>
+                    <input type="radio" name="options" value="c" />
+                    <br>
+                    <label for="OptionD">D</label>
+                    <input id="OptionD" name="OptionD" type="text" placeholder="Option D - Answer" size="50"/>
+                    <input type="radio" name="options" value="d" />
+                    <br>
+                    <input type="checkbox" name="showGraph" value="true" />
+                    <label for="showGraph">Show Poll Graph on next slide?</label>
+                    <br><br>
+                    <input type="submit" value="Add Poll to Slide" />
+                </fieldset>
+            </form>
         </div>
         
         <div id="SlidesPreview">
