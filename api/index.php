@@ -53,8 +53,7 @@ function registerUser() {
 	error_log('addUser\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
-	//$pass = password_hash($user->pw, PASSWORD_DEFAULT);
-	$pass = $user->pwd;
+	$pass = password_hash($user->pass, PASSWORD_DEFAULT);
 	$sql = "INSERT INTO Users VALUES (DEFAULT, 'NONE', 'NONE', :username, :email, :pass, 'NONE')";
 	try {
 		$db = dbconnect();

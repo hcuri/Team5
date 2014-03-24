@@ -1,7 +1,6 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
 function checkRegister(pform) {
-	alert("Checking if registered...");
 	var username = pform.username.value;
 	var email = pform.email.value;
 	var pwd = pform.pwd.value;
@@ -11,7 +10,6 @@ function checkRegister(pform) {
 		dataType: "json", // data type of response
 		async: false,
 	});
-	alert(JSON.stringify(check));
 	check = check.responseJSON;
 	check = check.email_registered;
 	if(check === true) {
@@ -19,14 +17,11 @@ function checkRegister(pform) {
 	}
 	else {
 		register(pform);
-		alert("Email is not registered");
 	}
 	return !check;
 }
 
 function register(rform) {
-alert("Registering...");
-
 	$.ajax({
 		type: 'POST',
 		url: root_url + 'register',
