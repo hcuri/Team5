@@ -19,6 +19,39 @@ body{
 	border-bottom:3px solid #2a2a2a;
 }
 
+#headerS {
+	margin:auto;
+	width:1000px;
+	height:50px;
+	background-color:#4486f7;
+	border-bottom:3px solid #2a2a2a;
+}
+
+#navButtons {
+	float:right;
+	width:400px;
+	height:50px;
+}
+
+#navButtons div {
+	width:100px;
+	height:45px;
+	display:inline-block;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	text-align:center;
+}
+
+#navButtons div:hover {
+	border-bottom: 5px solid white;	
+}
+
+#navButtons div a {
+	color:white;
+	text-decoration:none;
+	font-size:25px;	
+}
+
 #logo {
 	padding-left:50px;	
 }
