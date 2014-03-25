@@ -5,13 +5,14 @@
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
 <script src="js/main.js"></script>
+<script src="js/jQuery.js"></script>
 <title>UPresent.org</title>
 </head>
 
 <body>
 <div id="header"> <img id="logo" src="img/logo.png"/>
   <div id="logInPane">
-    <form name="login" action="" method="post" onSubmit="return checkLogin(this)">
+    <form id="login" action="" method="post" onSubmit="return checkLogin(this)">
       <input id="logInUsername" type="username" name="username" placeholder="Username"/>
       <input id="logInPassword" type="password" name="password" placeholder="Password"/>
       <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
@@ -29,9 +30,10 @@
       <form id="signUp" action="" method="post" onSubmit="return checkRegister(this)">
         <input id="signUpFname" type="text" name="fname" placeholder="First Name"/>
         <input id="signUpLname" type="text" name="lname" placeholder="Last Name" />
-        <input id="signUpUsername" type="text" name="username" placeholder="Username"/>
-        <input id="signUpEmail" type="email" name="email" placeholder="Email" />
+        <input id="signUpUsername" type="text" name="username" placeholder="Username" />
+        <input id="signUpEmail" type="email" name="email" placeholder="Email"/>
         <input id="signUpPassword" type="password" name="password" placeholder="Password" />
+        <input id="signUpPasswordC" type="password" name="passwordC" placeholder="Confirm Password" />
         <input id="signUpSubmit" type="submit" name="submit" value="Sign Up" />
       </form>
     </div>

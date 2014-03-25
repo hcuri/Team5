@@ -1,11 +1,11 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
 function checkLogin(lForm) {
-	var email = lForm.email.value;
-	var pw = lForm.pwd.value;
+	var username = lForm.logInUsername.value;
+	var pw = lForm.logInPassword.value;
 	var check = $.ajax({
 		type: 'GET',
-		url: root_url + 'verify/' + email + '/' + pw,
+		url: root_url + 'verify/' + username + '/' + pw,
 		dataType: "json", // data type of response
 		async: false,
 	});
@@ -20,9 +20,15 @@ function checkLogin(lForm) {
 
 
 function checkRegister(pform) {
-	var username = pform.username.value;
-	var email = pform.email.value;
-	var pwd = pform.pwd.value;
+	var username = pform.signUpUsername.value;
+	var email = pform.signUpEmail.value;
+	var pwd = pform.signUpPassword.value;
+	var pwdC = pform.signUpPasswordC.value
+	if(pwd!==pwdC) {
+		alert("Password and Confirm Password Do Not Match");
+		document.getElementById("signUp").reset();
+		return false;
+	}
 	var check = $.ajax({
 		type: 'GET',
 		url: root_url + 'registered/' + email,
@@ -60,7 +66,6 @@ function regFormToJSON() {
 	return JSON.stringify({
 		"fName": $('#signUpFname').val(),
 		"lName": $('#signUpLname').val(),
-		"username": $('#signUpUsername').val(), 
 		"email": $('#signUpEmail').val(),
 		"pass": $('#signUpPassword').val()
 	});
