@@ -1,22 +1,36 @@
+<?php
+  echo "fuck your cookies " . $_COOKIE['user'];
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="css/styles_home.css" rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
-<script src="js/main.js"></script>
-<script src="js/jQuery.js"></script>
-<title>UPresent.org</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="css/styles_home.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="js/main.js"></script>
+  <script src="js/jQuery.js"></script>
+  <title>UPresent.org</title>
 </head>
 
 <body>
 <div id="header"> <img id="logo" src="img/logo.png"/>
   <div id="logInPane">
-    <form id="login" action="" method="post" onSubmit="return checkLogin(this)">
-      <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
-      <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
-      <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
-    </form>
+    <?php
+      $logInForm =  '<form id="login" action="" method="post" onSubmit="return checkLogin(this)">
+                      <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
+                      <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
+                      <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
+                    </form>';
+      if (!empty($_COOKIE['user'])) {
+        $logout = 'Welcome, ' . $_COOKIE["user"] . '!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" />';
+        echo $logout;
+      }
+      else {
+        echo $logInForm;
+      }
+      //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
+    ?>
   </div>
 </div>
 <div id="content">

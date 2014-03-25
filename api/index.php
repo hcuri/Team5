@@ -7,6 +7,7 @@ $app = new Slim();
 
 $app->get('/verify/:username/:pass', 'verifyRegistered');
 $app->get('/registered/:email/:username', 'checkIfRegistered');
+$app->get('/logout', 'logoutUser');
 $app->post('/register', 'registerUser');
 
 $app->run();
@@ -16,12 +17,15 @@ function verifyRegistered($username, $password) {
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);  
-		$stmt->bindParam("email", $email);
+		$stmt->bindParam("username", $username);
 		$stmt->execute();
 		if($stmt->rowCount() == 1) {
 			$userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-			if(password_verify($password, $userInfo['Password']))
+			if(password_verify($password, $userInfo['password'])) {
 				echo '{"registered": true}';
+				unset($_COOKIE['user']);
+				setcookie("user", $username, time()+3600);
+			}
 			else echo '{"registered": false}';	
 		}
 		else echo '{"registered": false}';
@@ -74,7 +78,7 @@ function registerUser() {
 		$stmt->bindParam("lName", $user->lName);
 		$stmt->bindParam("username", $user->username);
 		$stmt->bindParam("email", $user->email);
-		$stmt->bindParam("pass", $user->pass);
+		$stmt->bindParam("pass", $pass);
 	       	$stmt->execute();
 		$db = null; 
 		echo json_encode($user); 
@@ -82,5 +86,10 @@ function registerUser() {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
+}
+
+function logoutUser() {
+    setcookie("user", "", time() - 3600);
+	echo '{"loggedOut": "true"}';
 }
 ?>

@@ -1,6 +1,8 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
 function checkLogin(lForm) {
+	alert("Checking login...");
+
 	var username = lForm.logInUsername.value;
 	var pw = lForm.logInPassword.value;
 	var check = $.ajax({
@@ -9,12 +11,38 @@ function checkLogin(lForm) {
 		dataType: "json", // data type of response
 		async: false,
 	});
+	alert(check.responseJSON);
 	check = check.responseJSON;
 	check = check.registered;
 	if(check === false){
-		alert("Email and Password Do Not Match");
+		alert("Username and Password Do Not Match");
+	}
+	else {
+		alert("Logged in successfully");
 	}
 	return check;
+}
+function logout() {
+	alert("Logging out...");
+	var check = $.ajax({
+		type: 'GET',
+		url: root_url + 'logout',
+		dataType: "json", // data type of response
+		async: false,
+		error: function(jqXHR, textStatus, errorThrown) {
+			alert('Something went wrong\n logout() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
+	check = check.responseJSON;
+	check = check.loggedOut;
+	if(check == true) {
+		alert("Successfully logged out");
+		window.location = "http://localhost/UPresent";
+	}
+	else {
+		alert("You are not currently logged in.");
+		window.location = "http://localhost/UPresent";
+	}
 }
 
 function checkRegister(pform) {
