@@ -12,7 +12,7 @@
 		<form>
 			<input type="text" name="search">
 		</form>
-		<p id="greeting">Hi User</p>
+		<p id="greeting">Hi, User</p>
 		<a href="index.php">Log Out</a>
 	</div>
 
