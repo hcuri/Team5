@@ -16,7 +16,7 @@
 <div id="content">
   <div id="viewer">
     <div id="info"> Lecture 11 by Chris Raley</div>
-    <div id="slide"> </div>
+    <div id="slidePane"> <img id="slide" src="img/slide1.jpg"/></div>
     <div id="status"> Slide 10/20</div>
   </div>
   <div id="tabs">
@@ -24,8 +24,18 @@
       <li><a href="#tabs-1">Notes</a></li>
       <li><a href="#tabs-2">Polls</a></li>
     </ul>
-    <div id="tabs-1">Put your notes here</div>
-    <div id="tabs-2">Answer polls here</div>
+    <div id="tabs-1">
+      <div id="notesTab">
+        <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
+        <input id="question" type="submit" value="Question?"/>
+      </div>
+    </div>
+    <div id="tabs-2">
+      <div id="pollsTab">
+        <div id="poll"></div>
+        <div id="pollResults"></div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>

@@ -12,11 +12,17 @@
 	padding-right:25px;
 }
 
-#slide {
+#slidePane {
 	float:left;
 	width:700px;
 	height:394px;
 	background-color:yellow;
+}
+
+#slide {
+	border: 4px solid #000;	
+	width:100%;
+	height:100%;
 }
 
 #status {
@@ -32,15 +38,37 @@
 	height:600px;	
 }
 
+#tabs {
+	background-color:#ededed;	
+}
+
+#poll {
+	width:300px;
+	height:100px;
+	float:right;
+	background-color:yellow;
+}
+
+#pollResults {
+	width:300px;
+	height:100px;
+	float:left;
+	background-color:red;
+}
+
 
 /*styling for the tabs*/
 .ui-tabs-vertical {
-	width: 55em;
+	width: 950px;
+	margin-left:20px;
 }
 .ui-tabs-vertical .ui-tabs-nav {
+	background-color:#ededed;
+	border: none;
 	padding: .2em .1em .2em .2em;
 	float: left;
-	width: 12em;
+	width: 85px;
+	height:50px;
 }
 .ui-tabs-vertical .ui-tabs-nav li {
 	clear: left;
@@ -53,6 +81,8 @@
 	display: block;
 }
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+	background-color:#4486f7;
+	color:white;
 	padding-bottom: 0;
 	padding-right: .1em;
 	border-right-width: 1px;
@@ -62,5 +92,6 @@
 	padding: 1em;
 	float: right;
 	width: 40em;
+	background-color:red;
 }
 /*end styling for the tabs*/
