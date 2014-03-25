@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_viewer.css" rel="stylesheet" />
+<link href="css/jQuery.css" rel="stylesheet" />
+<script src="js/jQuery.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/jquery-1.10.2.js"></script>
+<title>UPresent Viewer</title>
+</head>
+
+<body>
+<div id="header"> <img id="logo" src="img/logo.png"/> </div>
+<div id="content">
+  <div id="viewer">
+    <div id="info"> Lecture 11 by Chris Raley</div>
+    <div id="slidePane"> <img id="slide" src="img/slide1.jpg"/></div>
+    <div id="status"> Slide 10/20</div>
+  </div>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Notes</a></li>
+      <li><a href="#tabs-2">Polls</a></li>
+    </ul>
+    <div id="tabs-1">
+      <div id="notesTab">
+        <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
+        <input id="question" type="submit" value="Question?"/>
+      </div>
+    </div>
+    <div id="tabs-2">
+      <div id="pollsTab">
+        <div id="poll"></div>
+        <div id="pollResults"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+</body>
+</html>
