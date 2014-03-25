@@ -15,6 +15,15 @@
 		<p id="greeting">Hi, User</p>
 		<a href="index.php">Log Out</a>
 	</div>
+	<div id="contact">
+		<form>
+			<h1>Contact UPresent</h1>
+			<p>We are here to help you with any questions or comments.</p>
+
+
+
+		</form>
+	</div>
 
 	<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
 </body>
