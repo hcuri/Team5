@@ -4,13 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<script src="js/main.js"></script>
 <title>UPresent.org</title>
 </head>
 
 <body>
 <div id="header"> <img id="logo" src="img/logo.png"/>
   <div id="logInPane">
-    <form id="login">
+    <form name="login" action="" method="post" onSubmit="return checkLogin(this)">
       <input id="logInUsername" type="username" name="username" placeholder="Username"/>
       <input id="logInPassword" type="password" name="password" placeholder="Password"/>
       <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
@@ -25,9 +26,9 @@
   <div id="signUpWindow">
     <div id="signUpHeader">Sign Up!</div>
     <div id="signUpContent">
-      <form id="signUp">
-      <input id="fname" type="text" name="fname" placeholder="First Name"/>
-      <input id="lname" type="text" name="lname" placeholder="Last Name" />
+      <form id="signUp" action="" method="post" onSubmit="return checkRegister(this)">
+        <input id="signUpFname" type="text" name="fname" placeholder="First Name"/>
+        <input id="signUpLname" type="text" name="lname" placeholder="Last Name" />
         <input id="signUpUsername" type="text" name="username" placeholder="Username"/>
         <input id="signUpEmail" type="email" name="email" placeholder="Email" />
         <input id="signUpPassword" type="password" name="password" placeholder="Password" />
