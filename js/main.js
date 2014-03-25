@@ -26,7 +26,11 @@ function checkRegister(pform) {
 	var pwdC = pform.signUpPasswordC.value
 	if(pwd!==pwdC) {
 		alert("Password and Confirm Password Do Not Match");
-		document.getElementById("signUp").reset();
+		var obj = document.getElementById("signUpPassword");
+		obj.value = obj.defaultValue;
+		obj.focus();
+		obj = document.getElementById("signUpPasswordC");
+		obj.value = obj.defaultValue;
 		return false;
 	}
 	var check = $.ajax({

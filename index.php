@@ -13,8 +13,8 @@
 <div id="header"> <img id="logo" src="img/logo.png"/>
   <div id="logInPane">
     <form id="login" action="" method="post" onSubmit="return checkLogin(this)">
-      <input id="logInUsername" type="username" name="username" placeholder="Username"/>
-      <input id="logInPassword" type="password" name="password" placeholder="Password"/>
+      <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
+      <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
       <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
     </form>
   </div>
@@ -28,12 +28,12 @@
     <div id="signUpHeader">Sign Up!</div>
     <div id="signUpContent">
       <form id="signUp" action="" method="post" onSubmit="return checkRegister(this)">
-        <input id="signUpFname" type="text" name="fname" placeholder="First Name"/>
-        <input id="signUpLname" type="text" name="lname" placeholder="Last Name" />
-        <input id="signUpUsername" type="text" name="username" placeholder="Username" />
-        <input id="signUpEmail" type="email" name="email" placeholder="Email"/>
-        <input id="signUpPassword" type="password" name="password" placeholder="Password" />
-        <input id="signUpPasswordC" type="password" name="passwordC" placeholder="Confirm Password" />
+        <input id="signUpFname" type="text" name="fname" placeholder="First Name" required/>
+        <input id="signUpLname" type="text" name="lname" placeholder="Last Name" required/>
+        <input id="signUpUsername" type="text" name="username" placeholder="Username" required/>
+        <input id="signUpEmail" type="email" name="email" placeholder="Email" required/>
+        <input id="signUpPassword" type="password" name="password" placeholder="Password" required/>
+        <input id="signUpPasswordC" type="password" name="passwordC" placeholder="Confirm Password" required/>
         <input id="signUpSubmit" type="submit" name="submit" value="Sign Up" />
       </form>
     </div>
