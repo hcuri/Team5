@@ -17,3 +17,10 @@ body{
     text-align: center;
     text-decoration: underline;
 }
+#PollAdderForm {
+    float:left;
+}
+
+#LogoMessage {
+    float: right;
+}
