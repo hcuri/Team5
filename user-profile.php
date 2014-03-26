@@ -20,7 +20,7 @@
 			<input type:"text" name="school/org"/><br/>
 			<h3>School/Organization ID</h3><br/>
 			<input type:"text" name="id"/><br/>
-			<input type:"submit" value="Update Profile"/>
+			<input type:"submit" name="Update Profile"/>
 		</form>
 	</div>
 
