@@ -5,6 +5,7 @@ table {
 	font-size: 12px;
 	text-align:center;	
 	border:1px solid #2a2a2a;
+	overflow:auto;
 }
 
 th {
@@ -15,13 +16,13 @@ th {
 
 td {
 	width:125px;
+	height:30px;
 }
 
 #tabs1 {
 	width:40%;
 	height:300px;
-	float:left;
-	overflow:auto;	
+	float:left;	
 }
 
 #divider {

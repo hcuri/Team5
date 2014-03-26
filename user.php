@@ -48,6 +48,16 @@
           <td><input type="button" value="Edit"></td>
           <td><img class="trashIcon" src="img/trash.png"></td>
         </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
       </table>
     </div>
     <div id="tabs1-2">
@@ -66,6 +76,26 @@
           <td>Old UPresent</td>
           <td>2/8/14</td>
           <td><input type="button" value="View"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </table>
     </div>
@@ -105,6 +135,24 @@
           <td>1/29/14</td>
           <td><input type="button" value="View"></td>
         </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
       </table>
     </div>
     <div id="tabs2-2">
@@ -119,6 +167,36 @@
           <td>Steve Jobs</td>
           <td>1/15/2012</td>
           <td><input type="button" value="View"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </table>
     </div>
