@@ -14,7 +14,7 @@ p {
 #info {
 	float:left;
 	width:100px;
-	padding-left:25px;
+	padding-left:50px;
 	padding-right:25px;
 }
 
@@ -32,7 +32,7 @@ p {
 }
 
 #status {
-	padding-right:25px;
+	padding-right:50px;
 	padding-left:25px;
 	float:right;
 	width:100px;	
@@ -45,7 +45,8 @@ p {
 }
 
 #tabs {
-	background-color:#ededed;	
+	background-color:#ededed;
+	margin:auto;	
 }
 
 #poll {
