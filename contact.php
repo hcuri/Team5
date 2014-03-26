@@ -19,7 +19,7 @@
 		<form>
 			<h1>Contact UPresent</h1>
 			<p>We are here to help you with any questions or comments.</p>
-			<textarea cols="20" rows="5" wrap="hard">
+			<textarea cols="60" rows="10" wrap="hard">
 				Here is some sample text for your pleasure.  Hopefully
 				you can find this helpful to your endeavours.
 			</textarea>
