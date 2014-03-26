@@ -7,6 +7,10 @@ p {
 	text-align:center;
 }
 
+#tabs ul li {
+	color:#FFF;
+}
+
 #viewer {
 	height:425px;	
 }
@@ -48,6 +52,10 @@ p {
 #tabs {
 	background-color:#ededed;
 	margin:auto;	
+	border:none;
+	border-radius:0px;
+	padding-top:20px;
+	border-top: 2px solid #FF9F00;
 }
 
 #poll {
@@ -55,7 +63,7 @@ p {
 	height:122px;
 	float:left;
 	border:2px solid black;
-	background-color:#2a2a2a;
+	background-color:#ededed;
 	font-size:10px;
 	text-align:left;
 	padding-left:10px;
@@ -115,8 +123,7 @@ p {
 	display: block;
 }
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
-	background-color:#4486f7;
-	color:white;
+	background-color:#2C17B1;
 	padding-bottom: 0;
 	padding-right: .1em;
 	border-right-width: 1px;

@@ -26,8 +26,7 @@ td {
 }
 
 #divider {
-	margin-left:10px;
-	margin-right:10px;
+	margin-left:16px;
 	height:305px;
 	border:1px solid black;
 	float:left;	
