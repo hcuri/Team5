@@ -15,11 +15,13 @@ input {
 	border:3px solid #2a2a2a;	
 	border-radius:8px;
 	height:25px;
+	width:300px;
 	margin-bottom:5px;
 }
 
 textarea#message {
 	border:3px solid #2a2a2a;
 	border-radius:8px;
+	width:300px;
 	margin-bottom:5px;
 }
