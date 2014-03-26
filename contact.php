@@ -27,7 +27,7 @@
 				you can find this helpful to your endeavours.
 			</textarea><br/>
 
-			<input type="button" value="Send Request"/>
+			<input id="request" type="button" value="Send Request"/>
 
 		</form>
 	</div>
