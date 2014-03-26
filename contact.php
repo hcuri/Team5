@@ -3,8 +3,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<!--<link href="css/styles_home.css" rel="stylesheet" />
-	<link href="css/styles.css" rel="stylesheet" />-->
+	<link href="css/styles_home.css" rel="stylesheet" />
+	<!--<link href="css/styles.css" rel="stylesheet" />-->
 	<link href="css/contact.css" rel="stylesheet"/>
 	<title>UPresent -- Contact Us</title>
 </head>
@@ -25,9 +25,9 @@
 			<textarea id="message" wrap="soft">
 				Here is some sample text for your pleasure.  Hopefully
 				you can find this helpful to your endeavours.
-			</textarea>
+			</textarea><br/>
 
-			<input type="submit" value="Send Request"/>
+			<input id="request" type="submit" value="Send Request"/>
 
 		</form>
 	</div>
