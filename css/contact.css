@@ -19,6 +19,13 @@ input {
 	margin-bottom:5px;
 }
 
+input#request {
+	border:3px solid #2a2a2a;	
+	border-radius:4px;
+	height:25px;
+	margin-bottom:5px;
+}
+
 textarea#message {
 	border:3px solid #2a2a2a;
 	border-radius:4px;
@@ -26,3 +33,4 @@ textarea#message {
 	width:600px;
 	margin-bottom:5px;
 }
+
