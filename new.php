@@ -8,8 +8,26 @@
 	<title>UPresent -- New</title>
 </head>
 <body>
-
-
-	<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+	<div id="info">
+		<h1>New UPresent</h1>
+		<h3>Title:</h3>
+		<input type="text" name="title"/><br/>
+		<h3>Date:</h3>
+		<input type="text" name="date"/><br/>
+		<input type="radio" name="private" value="Private?"/>
+		<!--Code input?-->
+	</div>
+	<div id="fileinfo">
+		<h3>Base File</h3>
+		<p>Please upload PDF:</p><br/>
+		<input type="text" name="filepath"/><br/>
+		<input type="button" name="browse"/>
+	</div>
+	<div id="create">
+		<input type="button" name="create"/>
+		<input type="button" name="cancel"/>
+	</div>
+	<!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+-->
 </body>
 </html>
