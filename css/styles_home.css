@@ -13,51 +13,43 @@
 }
 
 #info {
-	position:fixed;
 	width:500px;
 	height:300px;
 	margin-left:100px;
-	margin-top:100px;
-	border:3px solid #2a2a2a;
+	margin-top:50px;
+	float:left;
 }
 
 #infoHeader {
-	background-color:#2a2a2a;
 	padding-left:10px;
 	padding-top:10px;
-	color:#fff;
 	font-size:25px;
 	width:auto;
-	height:75px;
 }
 
 #infoContent {
 	color:#000;
 	font-size:20px;
+	padding-top:10px;
 }
 
 #signUpWindow {
 	width:250px;
 	height:300px;
-	margin-top:100px;
+	margin-top:50px;
 	margin-right:100px;
 	float:right;
-	border:3px solid #2a2a2a;
 }
 
 #signUpHeader {
 	width:250px;
-	height:75px;
-	color:#fff;
 	font-size:25px;
-	text-align:center;
-	padding-top:10px;
-	background-color:#2a2a2a;	
+	text-align:center;	
 }
 
 #signUpContent {
 	padding-left:45px;
-	padding-top:50px;	
+	padding-top:10px;	
 }
 
 input {
