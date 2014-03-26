@@ -14,18 +14,18 @@
 		<input type="text" name="title"/><br/>
 		<h3>Date:</h3>
 		<input type="text" name="date"/><br/>
-		<input type="radio" name="private" value="Private?"/>
+		<input type="checkbox" name="private" value="Private?"/>
 		<!--Code input?-->
 	</div>
 	<div id="fileinfo">
 		<h3>Base File</h3>
 		<p>Please upload PDF:</p><br/>
 		<input type="text" name="filepath"/><br/>
-		<input type="button" name="browse"/>
+		<input type="button" name="browse" value="Browse my Computer"/>
 	</div>
 	<div id="create">
-		<input type="button" name="create"/>
-		<input type="button" name="cancel"/>
+		<input type="button" name="create" value="Create UPresent"/>
+		<input type="button" name="cancel" value="Cancel"/>
 	</div>
 	<!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
 -->
