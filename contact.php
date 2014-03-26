@@ -30,7 +30,7 @@
 				you can find this helpful to your endeavours.
 			</textarea><br/>
 
-			<input id="request" type="submit" value="Send Request"/>
+			<input type="button" value="Send Request"/>
 
 		</form>
 	</div>
