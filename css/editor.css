@@ -26,14 +26,37 @@ body{
 }
 
 #notes {
-    float:left;
+    
 }
 
 #SlidesPreview {
     float:left;
-    clear:right;
+    clear:right;  
+    width: 500px;
+    height: 350px;
 }
 
+
+#SlidesPreview img {
+    margin-top: 50px;
+    width:580px;
+    left:auto;
+    right:auto;
+        
+}
+
+
 #Footer {
-    float:right;
+    float:none;
+    clear:left;
+}
+
+#bottomlogo {
+    height: 30px;
+}
+
+#NoteSection {
+    width:1050px;
+    float:left;
+    clear:left;
 }

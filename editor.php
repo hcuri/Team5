@@ -12,6 +12,7 @@
 </head>
 <body>
 <div id="header"><div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/></div></div>
+    <div id="content">
 <div id="UPresentTitle">
   <h1>Lecture 11 By Chris Raley</h1>
 </div>
@@ -53,7 +54,7 @@
   <form id="notes">
     <fieldset>
       <legend>Presenter Notes</legend>
-      <textarea rows="10" cols="100">       
+      <textarea rows="10" cols="142">       
     Write helpful notes here. You will be able to view them when you are presenting.
                     </textarea>
     </fieldset>
@@ -63,8 +64,9 @@
   <form id="save">
     <input type="button" id="saveUPresent" value="Save UPresent" />
     <input type="button" id="inviteViewers" value="Invite Viewers" />
-    <span id="LogoMessage">Created with <img id="logo" src="img/logoS.png"/> </span>
+    <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/> </span>
   </form>
 </div>
+        </div>
 </body>
 </html>
