@@ -1,5 +1,5 @@
 <?php
-  echo "fuck your cookies " . $_COOKIE['user'];
+  //echo "fuck your cookies " . $_COOKIE['user'];
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div id="header"> <img id="logo" src="img/logo.png"/>
+<div id="header"><div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/>
   <div id="logInPane">
     <?php
       $logInForm =  '<form id="login" action="" method="post" onSubmit="return checkLogin(this)">
@@ -32,6 +32,7 @@
       //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
     ?>
   </div>
+</div>
 </div>
 <div id="content">
   <div id="info">
