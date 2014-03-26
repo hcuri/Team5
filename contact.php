@@ -8,23 +8,24 @@
 	<title>UPresent -- Contact Us</title>
 </head>
 <body>
-	<div id="header"> <img id="logo" src="img/logo.png"/>
+	<!--<div id="header"> <img id="logo" src="img/logo.png"/>
 		<form>
 			<input type="text" name="search">
 		</form>
 		<p id="greeting">Hi, User</p>
 		<a href="index.php">Log Out</a>
-	</div>
+	</div>-->
 	<div id="contact">
 		<form>
 			<h1>Contact UPresent</h1>
 			<p>We are here to help you with any questions or comments.</p>
 
 
+			<input type="submit" value="Send Request"/>
 
 		</form>
 	</div>
 
-	<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+	<!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>-->
 </body>
 </html>
