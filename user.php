@@ -12,6 +12,9 @@
 <title>UPresent -- User</title>
 </head>
 <body>
+<div id="header">
+  <div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/></div>
+</div>
 <div id="content">
   <div id="tabs1">
     <ul>
@@ -20,6 +23,40 @@
     </ul>
     <div id="tabs1-1">
       <table>
+        <tr>
+          <th>Title</th>
+          <th>Edit</th>
+          <th>Erase</th>
+        </tr>
+        <tr>
+          <td>My First Presentation</td>
+          <td><input type="button" value="Edit"></td>
+          <td><img class="trashIcon" src="img/trash.png"></td>
+        </tr>
+        <tr>
+          <td>How to Make a UPresent</td>
+          <td><input type="button" value="Edit"></td>
+          <td><img class="trashIcon" src="img/trash.png"></td>
+        </tr>
+        <tr>
+          <td>The Origin of Species</td>
+          <td><input type="button" value="Edit"></td>
+          <td><img class="trashIcon" src="img/trash.png"></td>
+        </tr>
+        <tr>
+          <td>GUI Presentations</td>
+          <td><input type="button" value="Edit"></td>
+          <td><img class="trashIcon" src="img/trash.png"></td>
+        </tr>
+      </table>
+    </div>
+    <div id="tabs1-2">
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th>View</th>
+        </tr>
         <tr>
           <td>Next UPresent</td>
           <td>3/5/14</td>
@@ -32,8 +69,9 @@
         </tr>
       </table>
     </div>
-    <div id="tabs1-2">Everything inside left box second tab</div>
-  <div id="createNew"><input type="button" value="Create New UPresent"></div>
+    <div id="createNew">
+      <input id="newPres" type="button" value="Create New UPresent">
+    </div>
   </div>
   <div id="divider"></div>
   <div id="tabs2">
@@ -48,6 +86,7 @@
           <th>Author</th>
           <th>Date</th>
           <th>View</th>
+        </tr>
         <tr>
           <td>How To Design</td>
           <td>Christopher Raley</td>
@@ -68,7 +107,8 @@
         </tr>
       </table>
     </div>
-    <div id="tabs2-2"><table>
+    <div id="tabs2-2">
+      <table>
         <tr>
           <th>Title</th>
           <th>Author</th>
@@ -80,7 +120,8 @@
           <td>1/15/2012</td>
           <td><input type="button" value="View"></td>
         </tr>
-      </table></div>
+      </table>
+    </div>
   </div>
 </div>
 </body>

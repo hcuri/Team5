@@ -93,6 +93,7 @@ img#logo {
 }
 
 #content {
+	padding-top:25px;
 	position:relative;
 	margin:auto;
 	width:1050px;

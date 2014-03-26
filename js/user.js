@@ -5,4 +5,10 @@ $(document).ready(function() {
     //$( "#tabs1 li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
 	$("#tabs1").tabs();
 	$( "#tabs2" ).tabs();
+	$("#newPres").click(function() {
+		alert("Creating New Presentation");
+	});
+	$(".trashIcon").click(function() {
+		alert("Deleting UPresent");
+	});
 });

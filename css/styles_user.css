@@ -2,12 +2,15 @@
 /* CSS Document */
 
 table {
-	font-size: 12px;	
+	font-size: 12px;
+	text-align:center;	
+	border:1px solid #2a2a2a;
 }
 
 th {
 	font-size: 15px;
-	color:black;	
+	color:black;
+	background-color:#CCC;	
 }
 
 td {
@@ -16,20 +19,27 @@ td {
 
 #tabs1 {
 	width:40%;
-	height:400px;
-	float:left;	
+	height:300px;
+	float:left;
+	overflow:auto;	
 }
 
 #divider {
-	height:500px;
-	border:2px solid black;
+	margin-left:10px;
+	margin-right:10px;
+	height:305px;
+	border:1px solid black;
 	float:left;	
 }
 
 #tabs2 {
 	width:55%;
-	height:500px;
+	height:300px;
 	float:right;	
+}
+
+#createNew {
+	
 }
 
 #tabs1 tr:nth-child(odd) {
@@ -42,6 +52,12 @@ td {
 
 #tabs2 tr:first-child {
 	background-color:#CCC;	
+	border-bottom:1px solid #2a2a2a;
+}
+
+.trashIcon {
+	width:25px;
+	height:25px;
 }
 
 /*styling for the tabs*/
