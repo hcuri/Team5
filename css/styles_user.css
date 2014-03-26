@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/* CSS Document */
+
+table {
+	font-size: 12px;	
+}
+
+th {
+	font-size: 15px;
+	color:black;	
+}
+
+td {
+	width:125px;
+}
+
+#tabs1 {
+	width:40%;
+	height:400px;
+	float:left;	
+}
+
+#divider {
+	height:500px;
+	border:2px solid black;
+	float:left;	
+}
+
+#tabs2 {
+	width:55%;
+	height:500px;
+	float:right;	
+}
+
+#tabs1 tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#tabs2 tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#tabs2 tr:first-child {
+	background-color:#CCC;	
+}
+
+/*styling for the tabs*/
+.ui-tabs-vertical {
+	width: 950px;
+	margin-left:20px;
+}
+.ui-tabs-vertical .ui-tabs-nav {
+	background-color:#ededed;
+	border: none;
+	padding: .2em .1em .2em .2em;
+	float: left;
+	width: 85px;
+	height:50px;
+}
+.ui-tabs-vertical .ui-tabs-nav li {
+	clear: left;
+	width: 100%;
+	border-bottom-width: 1px !important;
+	border-right-width: 0 !important;
+	margin: 0 -1px .2em 0;
+}
+.ui-tabs-vertical .ui-tabs-nav li a {
+	display: block;
+}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+	background-color:#4486f7;
+	color:white;
+	padding-bottom: 0;
+	padding-right: .1em;
+	border-right-width: 1px;
+	border-right-width: 1px;
+}
+.ui-tabs-vertical .ui-tabs-panel {
+	padding: 1em;
+	float: right;
+	width: 40em;
+	background-color:red;
+}
+/*end styling for the tabs*/
