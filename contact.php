@@ -5,9 +5,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<!--<link href="css/styles_home.css" rel="stylesheet" />
 	<link href="css/styles.css" rel="stylesheet" />-->
-	<link href="css/styles_user.css" rel="stylesheet" />
-	<link href="css/styles.css" rel="stylesheet" />
-	<link href="css/jQuery.css" rel="stylesheet" />
 	<link href="css/contact.css" rel="stylesheet"/>
 	<title>UPresent -- Contact Us</title>
 </head>
