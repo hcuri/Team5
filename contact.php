@@ -19,8 +19,8 @@
 		<form>
 			<h1>Contact UPresent</h1>
 			<p>We are here to help you with any questions or comments.</p>
-			<input type="text" name="username" value="Username"/>
-			<input type="text" name="subject" value="Subject"/>
+			<input type="text" name="username" value="Username"/><br/>
+			<input type="text" name="subject" value="Subject"/><br/>
 			<textarea cols="60" rows="10" wrap="hard">
 				Here is some sample text for your pleasure.  Hopefully
 				you can find this helpful to your endeavours.
