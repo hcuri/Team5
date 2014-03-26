@@ -12,7 +12,7 @@ body{
 }
 
 input {
-	border:3px solid #2a2a2a;	
+	border:1px solid #2a2a2a;	
 	border-radius:4px;
 	height:25px;
 	width:600px;
@@ -20,7 +20,7 @@ input {
 }
 
 input#request {
-	border:3px solid #2a2a2a;	
+	border:1px solid #2a2a2a;	
 	border-radius:4px;
 	height:25px;
 	width:100px;
@@ -28,7 +28,7 @@ input#request {
 }
 
 textarea#message {
-	border:3px solid #2a2a2a;
+	border:1px solid #2a2a2a;
 	border-radius:4px;
 	height:200px;
 	width:600px;
