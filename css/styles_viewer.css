@@ -14,6 +14,7 @@ p {
 #info {
 	float:left;
 	width:100px;
+	height:400px;
 	padding-left:50px;
 	padding-right:25px;
 }
@@ -71,6 +72,22 @@ p {
 	width:100%;
 	height:100%;
 	border:2px solid black;	
+}
+
+.oLine {
+	margin:auto;
+	width:0px;
+	border:1px solid #FF9F00;
+	height:100px;
+	padding-top:5px;
+}
+
+#status h3 {
+	padding-top:40px;	
+}
+
+#status h2 {
+	padding-bottom:40px;
 }
 
 
