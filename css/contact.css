@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@charset "UTF-8";
+@font-face {
+  font-family: "Montserrat";
+  src: url(http://fonts.googleapis.com/css?family=Montserrat) format("sans-serif");
+}
+
+body{
+	min-width:1000px;
+}
+
