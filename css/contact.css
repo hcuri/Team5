@@ -12,10 +12,6 @@ body {
 	text-align: center;
 }
 
-h1 {
-	float:left;
-}
-
 input {
 	border:1px solid #2a2a2a;	
 	border-radius:4px;
