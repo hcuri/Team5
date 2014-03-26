@@ -14,7 +14,7 @@
 		<input type="text" name="title"/><br/>
 		<h3>Date:</h3>
 		<input type="text" name="date"/><br/>
-		<input type="checkbox" name="private" value="Private?"/>
+		<input type="checkbox" name="private">Private?</input>
 		<!--Code input?-->
 	</div>
 	<div id="fileinfo">
