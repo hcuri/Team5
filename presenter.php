@@ -27,10 +27,10 @@
       <img id="previous" class="smallSlide" src="img/slide1.jpg"/>
       <div class="oLine"></div>
     </div>
-    <div id="slidePane"> <img id="slide" src="img/slide1.jpg"/></div>
+    <div id="slidePane"> <img id="slide" src="img/slide2.jpg"/></div>
     <div id="status">
       <div class="oLine"></div>
-      <img id="next" class="smallSlide" src="img/slide1.jpg"/>
+      <img id="next" class="smallSlide" src="img/slide3.jpg"/>
       <div class="oLine"></div>
     </div>
   </div>
