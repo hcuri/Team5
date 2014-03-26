@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+#bottom {
+	padding-top:20px;
+	border-top:2px solid #FF9F00;
+}
+
+@charset "UTF-8";
+/* CSS Document */
+
+p {
+	padding: 0 0 0 0;
+	margin:0 0 0 0;	
+	text-align:center;
+}
+
+#tabs ul li {
+	color:#FFF;
+}
+
+#viewer {
+	height:375px;	
+}
+
+#info {
+	float:left;
+	width:150px;
+	height:337px;
+	padding-left:50px;
+	padding-right:25px;
+}
+
+#slidePane {
+	float:left;
+	width:600px;
+	height:337px;
+	background-color:yellow;
+}
+
+#slide {
+	border: 4px solid #000;	
+	width:100%;
+	height:100%;
+}
+
+#status {
+	padding-right:50px;
+	padding-left:25px;
+	float:right;
+	width:150px;	
+}
+
+#content {
+	text-align:center;
+	padding-top:25px;
+	height:600px;	
+}
+
+#pollResults {
+	width:300px;
+	height:122px;
+	float:right;
+	background-color:red;
+}
+
+#pollR {
+	width:100%;
+	height:100%;
+	border:2px solid black;	
+}
+
+.oLine {
+	margin:auto;
+	width:0px;
+	border:1px solid #FF9F00;
+	height:100px;
+	padding-top:5px;
+}
+
+.smallSlide {
+	margin-top:20px;
+	margin-bottom:20px;
+	width:150px;
+	height:85px;
+	border:1px solid #000;
+}
