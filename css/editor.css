@@ -24,3 +24,16 @@ body{
 #LogoMessage {
     float: right;
 }
+
+#notes {
+    float:left;
+}
+
+#SlidesPreview {
+    float:left;
+    clear:right;
+}
+
+#Footer {
+    float:right;
+}
