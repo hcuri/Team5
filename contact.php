@@ -22,7 +22,7 @@
 			<p>We are here to help you with any questions or comments.</p>
 			<input type="text" name="username" value="Username"/><br/>
 			<input type="text" name="subject" value="Subject"/><br/>
-			<textarea cols="60" rows="10" wrap="hard">
+			<textarea id="message" wrap="soft">
 				Here is some sample text for your pleasure.  Hopefully
 				you can find this helpful to your endeavours.
 			</textarea>
