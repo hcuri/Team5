@@ -14,15 +14,35 @@
 		<div id="users">
 			<table>
 				<tr>
-					<td>Bill Nye</td>
-					<td><input type="button" value="Invite"/></td>
+					<td>Larry Brown</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
+				</tr>
+				<tr>
+					<td>Nic Moore</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
+				</tr>
+				<tr>
+					<td>Nick Russell</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
+				</tr>
+				<tr>
+					<td>Marcus Kennedy</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
+				</tr>
+				<tr>
+					<td>Keith Frazier</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
+				</tr>
+				<tr>
+					<td>Shaun Williams</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
+				</tr>
+				<tr>
+					<td>Sterling Brown</td>
+					<td><input type="button" name="invite" value="Invite"/></td>
 				</tr>
 			</table>
 		</div>
-
-
-
-
 	</div>
 
 
