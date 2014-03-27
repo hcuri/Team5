@@ -8,8 +8,18 @@
 	<title>UPresent -- Invite</title>
 </head>
 <body>
+	<h1>Invite Viewers</h1>
+	<div id="invite">
+		<input type="text" name="viewersearch" value="Search for users"/>
+		
 
 
-	<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+
+
+	</div>
+
+
+	<!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+-->
 </body>
 </html>
