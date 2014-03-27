@@ -11,7 +11,14 @@
 	<h1>Invite Viewers</h1>
 	<div id="invite">
 		<input type="text" name="viewersearch" value="Search for users"/>
-		
+		<div id="users">
+			<table>
+				<tr>
+					<td>Bill Nye</td>
+					<td><input type="button" value="Invite"/></td>
+				</tr>
+			</table>
+		</div>
 
 
 
