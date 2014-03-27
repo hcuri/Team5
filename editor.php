@@ -41,7 +41,7 @@
       <input id="OptionD" name="OptionD" type="text" placeholder="Option D - Answer" size="50"/>
       <input type="radio" name="options" value="d" />
       <br>
-      <input type="checkbox" name="showGraph" value="true" />
+      <input id="showGraph"  type="checkbox" name="showGraph" value="true" />
       <label for="showGraph">Show Poll Graph on next slide?</label>
       <br>
       <br>
