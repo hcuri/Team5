@@ -15,7 +15,6 @@ th {
 }
 
 td {
-	width:125px;
 	height:30px;
 }
 
@@ -58,6 +57,30 @@ td {
 .trashIcon {
 	width:25px;
 	height:25px;
+}
+
+.erase {
+	width:75px;
+}
+
+.edit {
+	width:75px;
+}
+
+.title {
+	width:200px;
+}
+
+.view {
+	width:75px;
+}
+
+.author {
+	width:150px;
+}
+
+.date {
+	width:100px;
 }
 
 /*styling for the tabs*/

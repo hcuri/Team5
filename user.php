@@ -24,78 +24,78 @@
     <div id="tabs1-1">
       <table>
         <tr>
-          <th>Title</th>
-          <th>Edit</th>
-          <th>Erase</th>
+          <th class="title">Title</th>
+          <th class="edit">Edit</th>
+          <th class="erase">Erase</th>
         </tr>
         <tr>
-          <td>My First Presentation</td>
-          <td><input type="button" value="Edit"></td>
-          <td><img class="trashIcon" src="img/trash.png"></td>
+          <td class="title">My First Presentation</td>
+          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
-          <td>How to Make a UPresent</td>
-          <td><input type="button" value="Edit"></td>
-          <td><img class="trashIcon" src="img/trash.png"></td>
+          <td class="title">How to Make a UPresent</td>
+          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
-          <td>The Origin of Species</td>
-          <td><input type="button" value="Edit"></td>
-          <td><img class="trashIcon" src="img/trash.png"></td>
+          <td class="title">The Origin of Species</td>
+          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
-          <td>GUI Presentations</td>
-          <td><input type="button" value="Edit"></td>
-          <td><img class="trashIcon" src="img/trash.png"></td>
+          <td class="title">GUI Presentations</td>
+          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
         </tr>
       </table>
     </div>
     <div id="tabs1-2">
       <table>
         <tr>
-          <th>Title</th>
-          <th>Date</th>
-          <th>View</th>
+          <th class="title">Title</th>
+          <th class="date">Date</th>
+          <th class="view">View</th>
         </tr>
         <tr>
-          <td>Next UPresent</td>
-          <td>3/5/14</td>
-          <td><input type="button" value="Present"></td>
+          <td class="title">Next UPresent</td>
+          <td class="date">3/5/14</td>
+          <td class="view"><input type="button" value="Present"></td>
         </tr>
         <tr>
-          <td>Old UPresent</td>
-          <td>2/8/14</td>
-          <td><input type="button" value="View"></td>
+          <td class="title">Old UPresent</td>
+          <td class="date">2/8/14</td>
+          <td class="view"><input type="button" value="View"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
       </table>
     </div>
@@ -112,89 +112,89 @@
     <div id="tabs2-1">
       <table>
         <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Date</th>
-          <th>View</th>
+          <th class="title">Title</th>
+          <th class="author">Author</th>
+          <th class="date">Date</th>
+          <th class="view">View</th>
         </tr>
         <tr>
-          <td>How To Design</td>
-          <td>Christopher Raley</td>
-          <td>1/29/14</td>
-          <td><input type="button" value="View"></td>
+          <td class="title">How To Design</td>
+          <td class="author">Christopher Raley</td>
+          <td class="date">1/29/14</td>
+          <td class="view"><input type="button" value="View"></td>
         </tr>
         <tr>
-          <td>Intro to iOS</td>
-          <td>Hector Curi</td>
-          <td>1/29/14</td>
-          <td><input type="button" value="View"></td>
+          <td class="title">Intro to iOS</td>
+          <td class="author">Hector Curi</td>
+          <td class="date">1/29/14</td>
+          <td class="view"><input type="button" value="View"></td>
         </tr>
         <tr>
-          <td>My Search Engine</td>
-          <td>Larry Page</td>
-          <td>1/29/14</td>
-          <td><input type="button" value="View"></td>
+          <td class="title">My Search Engine</td>
+          <td class="author">Larry Page</td>
+          <td class="date">1/29/14</td>
+          <td class="view"><input type="button" value="View"></td>
         </tr>
          <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
       </table>
     </div>
     <div id="tabs2-2">
       <table>
         <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Date</th>
-          <th>View</th>
+          <th class="title">Title</th>
+          <th class="author">Author</th>
+          <th class="date">Date</th>
+          <th class="view">View</th>
         <tr>
-          <td>Learning From Me</td>
-          <td>Steve Jobs</td>
-          <td>1/15/2012</td>
-          <td><input type="button" value="View"></td>
+          <td class="title">Learning From Me</td>
+          <td class="author">Steve Jobs</td>
+          <td class="date">1/15/2012</td>
+          <td class="view"><input type="button" value="View"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
+          <td class="title"></td>
+          <td class="author"></td>
           <td></td>
           <td></td>
         </tr>
