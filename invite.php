@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="css/styles_home.css" rel="stylesheet" />
 	<link href="css/styles.css" rel="stylesheet" />
+	<link href="css/user.css" rel="stylesheet"/>
 	<title>UPresent -- Invite</title>
 </head>
 <body>
@@ -44,6 +45,15 @@
 			</table>
 		</div>
 	</div>
+	<div id="invited">
+		<h2>Invited</h2>
+		<table>
+			<tr>
+
+
+
+	</div>
+
 
 
 	<!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
