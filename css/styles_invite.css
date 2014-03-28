@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@charset "UTF-8";
+@font-face {
+  font-family: "Montserrat";
+  src: url(http://fonts.googleapis.com/css?family=Montserrat) format("sans-serif");
+}
+
+body {
+	background-color: #EDEDED;
+	padding: 0px;
+	margin: 0px;
+	font-family: Arial;
+}
+
+h2 {
+	padding:0 0 0 0;
+	margin:0 0 0 0;
+}
+
+table {
+	font-size: 15px;
+	text-align:center;	
+	border:1px solid #2a2a2a;
+	overflow:auto;
+	background-color:white;
+}
+
+th {
+	font-size: 15px;
+	color:black;
+	background-color:#CCC;	
+}
+
+td {
+	height:30px;
+}
+
+#wrapper {
+	width:596px;
+	height:400px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#invite {
+	padding-left:30px;
+	width:237px;
+	height:300px;
+	float:left;	
+}
+
+#divider {
+	margin-left:20px;
+	margin-right:20px;
+	margin-top:45px;
+	height:225px;
+	border:1px solid black;
+	float:left;	
+}
+
+#invited {
+	padding-right:30px;
+	width:237px;
+	height:300px;
+	float:right;
+}
+
+.iName {
+	width:150px;
+}
+
+.iW {
+	width:75px;
+}
+
+#invite tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#invited tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#header {
+	margin:auto;
+	width:100%;
+	height:50px;
+	/*background-color:#275d43;*/
+	background-color:#2C17B1;
+	border-bottom:5px solid #FF9F00;
+}
+
+#footer {
+	margin:auto;
+	height:50px;
+	width:1050px;
+	color:#000000;
+	font-size:17px;
+	text-align:center;
+	border-top:2px solid #2a2a2a;
+	font-family: Arial;
+}
