@@ -14,8 +14,73 @@ body {
 	font-family: Arial;
 }
 
+h2 {
+	padding:0 0 0 0;
+	margin:0 0 0 0;
+}
+
 table {
+	font-size: 15px;
+	text-align:center;	
 	border:1px solid #2a2a2a;
+	overflow:auto;
+	background-color:white;
+}
+
+th {
+	font-size: 15px;
+	color:black;
+	background-color:#CCC;	
+}
+
+td {
+	height:30px;
+}
+
+#wrapper {
+	width:596px;
+	height:400px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#invite {
+	padding-left:30px;
+	width:237px;
+	height:300px;
+	float:left;	
+}
+
+#divider {
+	margin-left:20px;
+	margin-right:20px;
+	margin-top:45px;
+	height:225px;
+	border:1px solid black;
+	float:left;	
+}
+
+#invited {
+	padding-right:30px;
+	width:237px;
+	height:300px;
+	float:right;
+}
+
+.iName {
+	width:150px;
+}
+
+.iW {
+	width:75px;
+}
+
+#invite tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#invited tr:nth-child(odd) {
+    background-color: #ededed;
 }
 
 #header {
@@ -36,14 +101,4 @@ table {
 	text-align:center;
 	border-top:2px solid #2a2a2a;
 	font-family: Arial;
-}
-
-#invite {
-	float: left;
-	width:45%;
-}
-
-#invited {
-	float:right;
-	width:45%;
 }
