@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/* CSS Document */
+
+h1 {
+	padding-left:10%;
+}
+
+#block {
+	height:350px;
+	width:1000px;
+	border:2px solid #2a2a2a;
+	margin-left:5%;
+	vertical-align:center;
+}
+
+#info {
+	position:relative;
+	float:left;
+	padding-left: 5%;
+	margin-right: 1%;
+	border:1px solid #2a2a2a;
+	height:70%;
+	width:30%;
+	text-align:left;
+}
+
+#fileinfo {
+	position:relative;
+	float:left;
+	padding-left: 5%;
+	margin-top: 5%;
+	margin-left: 2.5%;
+	border:1px solid #2a2a2a;
+	height: 70%;
+	width:30%;
+	text-align:left;
+}
+
+#create {
+	visibility: none;
+
+}

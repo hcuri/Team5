@@ -3,9 +3,10 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<!--<link href="css/styles_home.css" rel="stylesheet" />
-	<link href="css/styles.css" rel="stylesheet" />-->
+	<link href="css/styles_home.css" rel="stylesheet" />
+	<link href="css/styles.css" rel="stylesheet" />
 	<link href="css/contact.css" rel="stylesheet"/>
+	<link href="css/styles_user.css" rel="stylesheet"/>
 	<title>UPresent -- Contact Us</title>
 </head>
 <body>
@@ -16,6 +17,9 @@
 		<p id="greeting">Hi, User</p>
 		<a href="index.php">Log Out</a>
 	</div>-->
+	<div id="header">
+  		<div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/></div>
+	</div>
 	<div id="contact">
 		<form>
 			<h1>Contact UPresent</h1>

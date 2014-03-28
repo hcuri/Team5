@@ -12,6 +12,9 @@
 	<title>UPresent -- Invite</title>
 </head>
 <body>
+	<div id="header">
+  		<div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/></div>
+	</div>
 	<div id="content">
 		<h1>Invite Viewers</h1>
 	<div id="invite">

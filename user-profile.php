@@ -8,6 +8,9 @@
 	<title>UPresent -- User Profile</title>
 </head>
 <body>
+	<div id="header">
+  		<div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/></div>
+	</div>
 	<div id="profile">
 		<form name="profile">
 			<h3>First Name:</h3><br/>
