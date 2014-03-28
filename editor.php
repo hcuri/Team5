@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<link href="css/editor.css" rel="stylesheet" />
+<link href="css/styles_editor.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
 <script src="js/jQuery.js"></script>

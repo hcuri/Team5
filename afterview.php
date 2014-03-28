@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <link href="css/afterview.css" rel="stylesheet" />
+        <link href="css/styles_afterview.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/jQuery.css" rel="stylesheet" />
         <script src="js/jQuery.js"></script>
@@ -32,7 +32,8 @@
                         <fieldset>
                             <legend>Notes</legend>
                             <textarea rows="10" cols="63">       
-    Write helpful notes here. You will be able to view them when you are presenting.
+    You can still type or correct your notes here after you watch the presentation.
+    They will be stored automatically along the specific slide that you were viewing at the moment.
                             </textarea>
                         </fieldset>
                     </form>
@@ -44,10 +45,27 @@
             <!--Right Side-->
             <div id="RightCol">
                 <div id="Chat">
-                    
+                    <fieldset>
+                        <legend>Viewers Chat</legend>
+                        <textarea id="chatHistory" rows="15" cols="63">
+User1: I really liked Raley's UPresent
+                            
+User2: Yeah, he's awesome!
+                            
+User3: I have something important to say to all. "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            
+User1: That's boring
+                        </textarea>
+                            <form id="chatForm">
+                                <input id="chatInput" type="text" name="chatInput" placeholder="You can comment and chat here" size="50"/>
+                                <input id="chatSubmit" type="button" value="Send"/> 
+                            </form>
+                    </fieldset>
                 </div>
+                
                 <div id="Options">
-                    
+                    <input id="download" type="button" value="Download Slides" />
+                    <input id="contact" type="button" value="Contact Presenter" />
                 </div>
             </div>
 

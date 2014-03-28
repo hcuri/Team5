@@ -1,0 +1,252 @@
+#LogoMessage {
+    float: right;
+}
+
+#Footer {
+    float:none;
+    clear:left;
+}
+
+#bottomlogo {
+    height: 30px;
+}
+
+#UPresentTitle{
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#NoteSection {
+    float:left;
+}
+
+#RightCol {
+    float:right;
+}
+
+#LeftCol {
+    float: left;
+}
+
+#chatHistory {
+    float:left;
+}
+
+#chatSubmit {
+    float: right;
+    height: 30px;
+    width: 100px;
+}
+
+#vline {
+    border: 1px solid #2a2a2a;
+    width: 0px;
+    height: 370px;
+    float: left;
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+#download {
+    float: left;
+    position: relative;
+    left: 160px;
+    top: 20px;
+    width: 200px;
+    height: 30px;
+}
+
+#contact {
+    float: left;
+    position: relative;
+    left: 160px;
+    top: 30px;
+    width: 200px;
+    height: 30px;
+    clear: left;
+}
+
+
