@@ -1,17 +1,36 @@
 @charset "UTF-8";
 /* CSS Document */
 
+
+#block{
+	border:1px solid #2a2a2a;
+	width:590px;
+	height:395px;
+	margin-left: 200px;
+}
+
 #profile {
 	border:1px solid #2a2a2a;
 	float:left;
-	margin-left:175px;
-	margin-top:20px;
-	padding-left:8px;
+	margin-left:10px;
+	margin-top:10px;
+	padding-left:30px;
 	padding-top:18px;
-	width:700px;
-	height:225px;
+	width:250px;
+	height:350px;
 	background-color:white;
 	
+}
+
+#preview {
+	float:left;
+	margin-left:15px;
+	margin-top:10px;
+	border:1px solid #2a2a2a;
+	height:368px;
+	background-color:white;
+
+
 }
 
 label {

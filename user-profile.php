@@ -15,25 +15,27 @@
 	</div>
 	<!--use JavaScript to pull in current values to fill these textfields-->
 	<div id="content">
-		<div id="profile">
-			<form name="profile">
-				<label for="firstname">First Name:</label>
-				<input type="text" name="firstname"/><br/>
-				<label for="lastname">Last Name:</label>
-				<input type="text" name="lastname"/><br/>
-				<label for="email">Email:</label>
-				<input type="email" name="email"/><br/>
-				<label for="school/org">School/Organization:</label>
-				<input type="text" name="school/org"/><br/>
-				<label for="id">School/Organization ID:</label>
-				<input type="text" name="id"/><br/>
-				<input type="submit" name="update" value="Update Profile"/>
-			</form>
-		</div>
-		<div id="preview">
-			
-
-
+		<div id="block">
+			<div id="profile">
+				<form name="profile">
+					<label for="firstname">First Name:</label>
+					<input type="text" name="firstname"/><br/>
+					<label for="lastname">Last Name:</label>
+					<input type="text" name="lastname"/><br/>
+					<label for="email">Email:</label>
+					<input type="email" name="email"/><br/>
+					<label for="school/org">School/Organization:</label>
+					<input type="text" name="school/org"/><br/>
+					<label for="id">School/Organization ID:</label>
+					<input type="text" name="id"/><br/>
+					<input type="submit" name="update" value="Update Profile"/>
+				</form>
+			</div>
+			<div id="divider"></div>
+			<div id="preview">
+				<label>Profile Preview</label>
+				<img src="img" alt="Profile Picture">
+			</div>
 		</div>
 	</div>
 
