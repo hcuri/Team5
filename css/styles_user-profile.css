@@ -4,9 +4,11 @@
 
 #block{
 	border:1px solid #2a2a2a;
-	width:590px;
+	width:600px;
 	height:395px;
 	margin-left: 200px;
+	margin-top:50px;
+	background-color:white;
 }
 
 #profile {
@@ -26,11 +28,25 @@
 	float:left;
 	margin-left:15px;
 	margin-top:10px;
+	padding-left:10px;
 	border:1px solid #2a2a2a;
 	height:368px;
+	width:255px;
 	background-color:white;
 
 
+}
+
+#geninfo {
+	text-align: center;
+}
+
+img {
+	position:relative;
+	float:left;
+	height:200px;
+	width:225px;
+	margin-left:10px;
 }
 
 label {

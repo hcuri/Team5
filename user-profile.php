@@ -33,8 +33,13 @@
 			</div>
 			<div id="divider"></div>
 			<div id="preview">
-				<label>Profile Preview</label>
+				<h3>Profile Preview</h3>
 				<img src="img" alt="Profile Picture">
+				<div id="geninfo">
+					<h2>Larry Brown</h2>
+					<h5>lbrown@smu.edu</h5>
+					<p>Joined on May 12th, 2012</p>
+				</div>
 			</div>
 		</div>
 	</div>
