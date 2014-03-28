@@ -20,8 +20,8 @@ body {
 }
 
 input {
-	border:2px solid #2a2a2a;	
-	border-radius:8px;
+	border:1px solid #2a2a2a;	
+	border-radius:2px;
 	height:25px;
 	margin-bottom:5px;
 }
