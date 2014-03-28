@@ -31,10 +31,10 @@
 			<input type="button" name="browse" value="Browse my Computer"/>
 		</div>
 		<br/>
-	<!--<div id="create">
-		<input type="button" name="create" value="Create UPresent"/>
-		<input type="button" name="cancel" value="Cancel"/>
-	</div>-->
+		<div id="create">
+			<input type="button" name="create" value="Create UPresent"/>
+			<input type="button" name="cancel" value="Cancel"/>
+		</div>
 	<!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>-->
 	</div>
 </body>
