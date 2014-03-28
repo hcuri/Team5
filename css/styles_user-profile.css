@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#profile {
+	border:1px solid #2a2a2a;
+	float:left;
+	margin-left: 275px;
+	padding-left:8px;
+	width:500px;
+	background-color:white;
+	
+}
+
+label {
+	display:inline-block;
+	float:left;
+	clear:left;
+	width:150px;
+	padding-top:3px;
+	text-align: left;
+}
+
+input {
+	width:200px;
+
+}
+

@@ -1,23 +1,10 @@
 @charset "UTF-8";
 /* CSS Document */
 
-@charset "UTF-8";
-@font-face {
-  font-family: "Montserrat";
-  src: url(http://fonts.googleapis.com/css?family=Montserrat) format("sans-serif");
-}
 
-body {
-	min-width:1000px;
-	text-align: center;
-}
-
-input {
-	border:1px solid #2a2a2a;	
-	border-radius:4px;
-	height:25px;
-	width:604px;
-	margin-bottom:5px;
+#contact {
+	margin-left: 15%;
+	
 }
 
 input#request {
@@ -26,6 +13,7 @@ input#request {
 	height:25px;
 	width:100px;
 	margin-bottom:5px;
+	margin-left: auto;
 }
 
 textarea#message {
@@ -34,5 +22,7 @@ textarea#message {
 	height:200px;
 	width:600px;
 	margin-bottom:5px;
+	margin-left: auto;
+
 }
 
