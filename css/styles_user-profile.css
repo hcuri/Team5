@@ -4,9 +4,12 @@
 #profile {
 	border:1px solid #2a2a2a;
 	float:left;
-	margin-left: 275px;
+	margin-left:175px;
+	margin-top:20px;
 	padding-left:8px;
-	width:500px;
+	padding-top:18px;
+	width:700px;
+	height:225px;
 	background-color:white;
 	
 }

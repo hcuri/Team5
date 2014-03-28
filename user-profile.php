@@ -18,17 +18,22 @@
 		<div id="profile">
 			<form name="profile">
 				<label for="firstname">First Name:</label>
-				<input type="text" name="firstname"/>
+				<input type="text" name="firstname"/><br/>
 				<label for="lastname">Last Name:</label>
-				<input type="text" name="lastname"/>
+				<input type="text" name="lastname"/><br/>
 				<label for="email">Email:</label>
-				<input type="email" name="email"/>
-				<label for="school/org">School/Organization</label>
-				<input type="text" name="school/org"/>
-				<label for="id">School/Organization ID</label>
+				<input type="email" name="email"/><br/>
+				<label for="school/org">School/Organization:</label>
+				<input type="text" name="school/org"/><br/>
+				<label for="id">School/Organization ID:</label>
 				<input type="text" name="id"/><br/>
 				<input type="submit" name="update" value="Update Profile"/>
 			</form>
+		</div>
+		<div id="preview">
+			
+
+
 		</div>
 	</div>
 
