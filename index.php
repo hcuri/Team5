@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<div id="header"><div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/>
+<div id="header"><div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
   <div id="logInPane">
     <?php
       $logInForm =  '<form id="login" action="" method="post" onSubmit="return checkLogin(this)">
@@ -19,7 +19,7 @@
                       <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
                     </form>';
       if (!empty($_COOKIE['user'])) {
-        $logout = 'Welcome, ' . $_COOKIE["user"] . '!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" />';
+        $logout = '<DIV ID="logout">Welcome, <span id="logoutUsername">' . $_COOKIE["user"] . '</span>!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" /></DIV>';
         echo $logout;
       }
       else {

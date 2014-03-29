@@ -1,16 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
 
-#logInPane {
-	width:500px;
-	height:100px;
-	float:right;
-}
-
-#login{
-	padding-top:40px;
-	padding-left:75px;
-}
 
 #info {
 	width:500px;
