@@ -1,6 +1,11 @@
 @charset "UTF-8";
 /* CSS Document */
 
+#logInPane {
+	
+	width:450px;
+	height:50px;
+}
 
 #contact {
 	margin-left: 15%;

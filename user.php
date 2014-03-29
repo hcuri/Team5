@@ -221,5 +221,6 @@
     </div>
   </div>
 </div>
+<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
 </body>
 </html>
