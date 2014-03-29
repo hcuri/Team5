@@ -23,8 +23,7 @@ function verifyRegistered($username, $password) {
 			$userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 			if(password_verify($password, $userInfo['password'])) {
 				echo '{"registered": true}';
-				unset($_COOKIE['user']);
-				setcookie("user", $username, time()+3600);
+				setcookie("user", $username, time()+3600, '/');
 			}
 			else echo '{"registered": false}';	
 		}
@@ -89,7 +88,7 @@ function registerUser() {
 }
 
 function logoutUser() {
-    setcookie("user", "", time() - 3600);
+    setcookie("user", "", time() - 3600, '/');
 	echo '{"loggedOut": "true"}';
 }
 ?>

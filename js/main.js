@@ -33,6 +33,7 @@ function logout() {
 			alert('Something went wrong\n logout() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
 		}
 	});
+	
 	check = check.responseJSON;
 	check = check.loggedOut;
 	if(check == true) {
