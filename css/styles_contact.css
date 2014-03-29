@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+#contact {
+	margin-left: 15%;
+	
+}
+
+input#request {
+	border:1px solid #2a2a2a;	
+	border-radius:4px;
+	height:25px;
+	width:100px;
+	margin-bottom:5px;
+	margin-left: auto;
+}
+
+textarea#message {
+	border:1px solid #2a2a2a;
+	border-radius:4px;
+	height:200px;
+	width:600px;
+	margin-bottom:5px;
+	margin-left: auto;
+
+}
+
