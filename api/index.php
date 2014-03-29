@@ -1,5 +1,4 @@
 <?php
-
 require 'Slim/Slim.php';
 require '../php/lib.php';
 
@@ -9,7 +8,7 @@ $app->get('/verify/:username/:pass', 'verifyRegistered');
 $app->get('/registered/:email/:username', 'checkIfRegistered');
 $app->get('/logout', 'logoutUser');
 $app->post('/register', 'registerUser');
-
+$app->post('addPresentation', 'addPresentation');
 $app->run();
 
 function verifyRegistered($username, $password) {
@@ -83,7 +82,7 @@ function registerUser() {
 		echo json_encode($user); 
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
 
@@ -91,4 +90,30 @@ function logoutUser() {
     setcookie("user", "", time() - 3600, '/');
 	echo '{"loggedOut": "true"}';
 }
+
+function addPresentation() {
+	error_log('addPresentation\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$presentation = json_decode($request->getBody());
+	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL, 'NONE', :username)";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("presURL", $presentation->presURL);
+		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("sessId", $presentation->sessId);
+		$stmt->bindParam("username", $presentation->username);
+	       	$stmt->execute();
+		$db = null; 
+		echo json_encode($presentation); 
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}	
+}
+
+//function getPresentation() {
+
+//}
+
 ?>
