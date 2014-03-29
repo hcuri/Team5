@@ -56,12 +56,13 @@
   </div>
   <div id="bottomBlock">
     <div id="buttons">
-      <input type="button" name="create" value="Create UPresent"/>
-      <input type="button" name="cancel" value="Cancel"/>
+      <input type="submit" name="create" value="Create UPresent"/>
+      <input type="submit" name="cancel" value="Cancel"/>
     </div>
   </div>
 </div>
 <!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>-->
 </div>
+<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
 </body>
 </html>
