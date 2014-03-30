@@ -139,6 +139,45 @@ function getUserInfo() {
 	}
 }
 
+function postUserInfo() {
+	error_log('postUserInfo\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$user = json_decode($request->getBody());
+
+	if($user->pass == "NOTCHANGED") {
+		$pass = $user->pass;
+		$sql = "UPDATE Users 
+				SET userId = :userId, fName = :fName, lName = :lName, email = :email, organization = :organization, schoolID = :schoolID, NotesURL = :NotesURL
+				WHERE ID = :userId;";
+
+	}
+	else {
+		$pass = password_hash($user->pass, PASSWORD_DEFAULT);
+		$sql = "UPDATE Users 
+				SET userId = :userId, fName = :fName, lName = :lName, email = :email, pass = :pass, organization = :organization, schoolID = :schoolID, NotesURL = :NotesURL
+				WHERE ID = :userId;";
+	}
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("userId", $user->userId);
+		$stmt->bindParam("fName", $user->fName);
+		$stmt->bindParam("lName", $user->lName);
+		$stmt->bindParam("username", $user->username);
+		$stmt->bindParam("email", $user->email);
+		$stmt->bindParam("pass", $pass);
+		$stmt->bindParam("organization", $user->organization);
+		$stmt->bindParam("schoolID", $user->schoolID);
+		$stmt->bindParam("NotesURL", $user->notesURL);
+	    $stmt->execute();
+		$db = null; 
+		echo json_encode($user); 
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 //function getPresentation() {
 
 //}
