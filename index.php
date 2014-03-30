@@ -20,7 +20,7 @@
                         <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
                       </form>';
         if (!empty($_COOKIE['user'])) {
-          $logout = '<DIV ID="logout">Welcome, <span id="logoutUsername">' . $_COOKIE["user"] . '</span>!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" /></DIV>';
+          $logout = '<DIV ID="logout">Welcome, <a id="logoutUsername" href="user-profile.php">' . $_COOKIE["user"] . '</a>!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" /></DIV>';
           echo $logout;
         }
         else {

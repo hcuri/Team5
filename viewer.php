@@ -13,12 +13,25 @@
 
 <body>
 <div id="header">
-  <div id="insideHeader"><a href="user.php"> <img id="logo" src="img/OfficialMiniLogo.png"/></a></div>
-  <!--<div id="navButtons">
-    <div id="home"><a href="#home">Home</a></div>
-    <div id="account"><a href="#account">Account</a></div>
-    <div id="logOff"><a href="#logOff">Log Off</a></div>
-  </div>--> 
+  <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+    <div id="logInPane">
+      <?php
+        $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
+                        <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
+                        <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
+                        <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
+                      </form>';
+        if (!empty($_COOKIE['user'])) {
+          $logout = '<DIV ID="logout">Welcome, <a id="logoutUsername" href="user-profile.php">' . $_COOKIE["user"] . '</a>!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" /></DIV>';
+          echo $logout;
+        }
+        else {
+          echo $logInForm;
+        }
+      ?>
+      <script>console.log(document.cookie);</script> 
+    </div>
+  </div>
 </div>
 <div id="content">
   <div id="viewer">
