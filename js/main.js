@@ -17,9 +17,6 @@ function checkLogin(lForm) {
 	if(check === false){
 		alert("Username and Password Do Not Match");
 	}
-	else {
-		alert("Logged in successfully");
-	}
 	return check;
 }
 function logout() {
@@ -37,10 +34,6 @@ function logout() {
 	check = check.loggedOut;
 	if(check == true) {
 		alert("Successfully logged out");
-		window.location = "http://localhost/UPresent";
-	}
-	else {
-		alert("You are not currently logged in.");
 		window.location = "http://localhost/UPresent";
 	}
 }
