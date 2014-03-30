@@ -59,7 +59,7 @@
   <div id="bottomBlock">
     <div id="buttons">
       <input type="submit" name="create" value="Create UPresent"/>
-      <input type="button" name="cancel" value="Cancel" onclick="window.location='user.php'"/>
+      <input type="submit" name="cancel" value="Cancel" onclick="window.location='user.php'"/>
     </div>
   </div>
 </form>

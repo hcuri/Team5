@@ -120,9 +120,8 @@
       </table>
     </div>
     <div id="createNew">
-<form id="new" action="new.php">
-      <input id="newPres" type="submit" value="Create New UPresent">
-</form>
+<form id="new" 
+      <input id="newPres" type="button" value="Create New UPresent">
     </div>
   </div>
   <div id="divider"></div>
