@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div id="header"><div id="insideHeader"> <img id="logo" src="img/OfficialMiniLogo.png"/></div>
+<div id="header"><div id="insideHeader"><a href="user.php"/> <img id="logo" src="img/OfficialMiniLogo.png"/></div>
   <!--<div id="navButtons">
     <div id="home"><a href="#home">Home</a></div>
     <div id="account"><a href="#account">Account</a></div>
