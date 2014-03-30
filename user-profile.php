@@ -7,6 +7,11 @@
 	<link href="css/styles.css" rel="stylesheet" />
 	<link href="css/styles_user.css" rel="stylesheet" />
 	<link href="css/styles_user-profile.css" rel="stylesheet" />
+<link href="css/jQuery.css" rel="stylesheet" />
+<script src="js/jQuery.js"></script>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/user_profile.js"></script>
+<script src="js/main.js"></script>
 	<title>UPresent -- User Profile</title>
 </head>
 <body>
@@ -38,15 +43,15 @@
 			<div id="profile">
 				<form name="profile">
 					<label for="firstname">First Name:</label>
-					<input type="text" name="firstname"/><br/>
+					<input id="fName" type="text" name="firstname"/><br/>
 					<label for="lastname">Last Name:</label>
-					<input type="text" name="lastname"/><br/>
+					<input id="lName" type="text" name="lastname"/><br/>
 					<label for="email">Email:</label>
-					<input type="email" name="email"/><br/>
+					<input id="email" type="email" name="email"/><br/>
 					<label for="school/org">School/Organization:</label>
-					<input type="text" name="school/org"/><br/>
+					<input id="org" type="text" name="school/org"/><br/>
 					<label for="id">School/Organization ID:</label>
-					<input type="text" name="id"/><br/>
+					<input id="orgID" type="text" name="id"/><br/>
 					<input type="submit" name="update" value="Update Profile"/>
 				</form>
 			</div>

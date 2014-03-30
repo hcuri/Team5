@@ -14,7 +14,7 @@
 
 <body>
 <div id="header">
-  <div id="insideHeader"><a href="user.php"/> <img id="logo" src="img/OfficialMiniLogo.png"/> <input type="button" value="End Presentation" onclick="window.location='pafterview.php'"/></div>
+  <div id="insideHeader"><a href="user.php"> <img id="logo" src="img/OfficialMiniLogo.png"/></a> <input type="button" value="End Presentation" onclick="window.location='pafterview.php'"/></div>
   <!--<div id="navButtons">
     <div id="home"><a href="#home">Home</a></div>
     <div id="account"><a href="#account">Account</a></div>
