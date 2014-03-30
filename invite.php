@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_invite.css" rel="stylesheet"/>
-<script src="js/main.js"></script>
 <script src="js/jQuery.js"></script>
+<script src="js/main.js"></script>
 <title>UPresent -- Invite</title>
 </head>
 <body>

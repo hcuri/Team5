@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="css/styles_home.css" rel="stylesheet" />
-  <link href="css/styles.css" rel="stylesheet" />
-  <script src="js/cookies.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/jQuery.js"></script>
-  <title>UPresent.org</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles_home.css" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<script src="js/jQuery.js"></script>
+<script src="js/cookies.js"></script>
+<script src="js/main.js"></script>
+<title>UPresent.org</title>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
         }
         //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
-      <script>console.log(document.cookie);</script>
+      <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
@@ -36,8 +37,7 @@
   <div id="info">
     <div id="infoHeader">Welcome to UPresent!</div>
     <div id="infoContent"> UPresent is an in-browser software service that lets you upload your presentations online and share them with the entire class. Just upload you presentation, join a group, and watch as it displays across everyone in the session!</div>
-    <IMG SRC="img/OfficialLogo.png" />
-  </div>
+    <IMG SRC="img/OfficialLogo.png" /> </div>
   <div id="signUpWindow">
     <div id="signUpHeader">Sign Up!</div>
     <div id="signUpContent">

@@ -6,8 +6,9 @@
 <link href="css/styles_presenter.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
 <script src="js/jQuery.js"></script>
-<script src="js/viewer.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/main.js"></script>
 <title>UPresent Presenter</title>
 </head>
 

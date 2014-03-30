@@ -2,17 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="css/styles.css" rel="stylesheet" />
-  <link href="css/styles_user.css" rel="stylesheet"/>
-  <link href="css/styles_new.css" rel="stylesheet"/>
-  <title>UPresent -- New</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_user.css" rel="stylesheet"/>
+<link href="css/styles_new.css" rel="stylesheet"/>
+<script src="js/main.js"></script>
+<title>UPresent -- New</title>
 </head>
 <body>
-  <div id="header">
-    <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
-      <div id="logInPane">
-        <?php
+<div id="header">
+  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+    <div id="logInPane">
+      <?php
           $logInForm =  '<form id="login" action="" method="post" onSubmit="return checkLogin(this)">
                           <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
                           <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
@@ -27,10 +28,10 @@
           }
           //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
         ?>
-        <script>console.log(document.cookie);</script>
-      </div>
+      <script>console.log(document.cookie);</script> 
     </div>
   </div>
+</div>
 <h1>New UPresent</h1>
 <div id="content">
   <div id="block">
