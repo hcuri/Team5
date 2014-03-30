@@ -144,34 +144,21 @@ function postUserInfo() {
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
 
-	if($user->pass == "NOTCHANGED") {
-		$pass = $user->pass;
-		$sql = "UPDATE Users 
-				SET fName = :fName, lName = :lName, email = :email, organization = :organization, schoolID = :schoolID
-				WHERE username = :username;";
+	$sql = "UPDATE Users 
+			SET fName = :fName, lName = :lName, email = :email, organization = :organization, schoolID = :schoolID
+			WHERE username = :username";
 
-	}
-	else {
-		$pass = password_hash($user->pass, PASSWORD_DEFAULT);
-		$sql = "UPDATE Users 
-				SET fName = :fName, lName = :lName, email = :email, pass = :pass, organization = :organization, schoolID = :schoolID
-				WHERE username = :username;";
-	}
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("userId", $user->userId);
+		$stmt->bindParam("username", $user->username);
 		$stmt->bindParam("fName", $user->fName);
 		$stmt->bindParam("lName", $user->lName);
-		$stmt->bindParam("username", $user->username);
 		$stmt->bindParam("email", $user->email);
-		$stmt->bindParam("pass", $pass);
 		$stmt->bindParam("organization", $user->organization);
 		$stmt->bindParam("schoolID", $user->schoolID);
-		$stmt->bindParam("NotesURL", $user->notesURL);
 	    $stmt->execute();
-		$db = null; 
-		echo json_encode($user); 
+		$db = null;  
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}';

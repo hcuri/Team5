@@ -54,7 +54,7 @@ function updateToJSON() {
 		"lName": $("#lName").val(),
 		"email": $("#email").val(),
 		"organization": $("#org").val(),
-		"schoolID": $("#orgID").val(),
+		"schoolID": $("#orgID").val()
 	});
 }
 
