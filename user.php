@@ -95,7 +95,7 @@
         <tr>
           <td class="title">Old UPresent</td>
           <td class="date">2/8/14</td>
-          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
+          <td class="view"><input type="button" value="View" onclick="window.location='pafterview.php'"></td>
         </tr>
         <tr>
           <td class="title"></td>
