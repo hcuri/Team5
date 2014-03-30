@@ -90,12 +90,12 @@
         <tr>
           <td class="title">Next UPresent</td>
           <td class="date">3/5/14</td>
-          <td class="view"><input type="button" value="Present"></td>
+          <td class="view"><input type="button" value="Present" onclick="window.location='presenter.php'"></td>
         </tr>
         <tr>
           <td class="title">Old UPresent</td>
           <td class="date">2/8/14</td>
-          <td class="view"><input type="button" value="View"></td>
+          <td class="view"><input type="button" value="View" onclick="viewer.php"></td>
         </tr>
         <tr>
           <td class="title"></td>
@@ -120,8 +120,9 @@
       </table>
     </div>
     <div id="createNew">
-<form id="new" 
-      <input id="newPres" type="button" value="Create New UPresent">
+<form id="new" action="new.php">
+      <input id="newPres" type="submit" value="Create New UPresent">
+</form>
     </div>
   </div>
   <div id="divider"></div>

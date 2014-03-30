@@ -89,7 +89,7 @@ Presenter: I can also answer you questions in the chat.
             <!--Footer-->
             <div id="Footer">
                 <form id="save">
-                    <input type="button" id="home" value="Home" onclick="window.location='user.php'" />
+                    <input type="button" id="home" value="Home" />
                     <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/></span>
                 </form>
             </div>

@@ -19,7 +19,6 @@ function checkLogin(lForm) {
 	}
 	else {
 		alert("Logged in successfully");
-		window.location = "http://localhost/UPresent/user.php";
 	}
 	return check;
 }
