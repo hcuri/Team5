@@ -3,7 +3,6 @@ var root_url = "http://localhost/UPresent/api/index.php/";
 //blah blah blah
 
 function checkLogin(lForm) {
-	alert("Checking login...");
 
 	var username = lForm.logInUsername.value;
 	var pw = lForm.logInPassword.value;
@@ -25,7 +24,6 @@ function checkLogin(lForm) {
 	return check;
 }
 function logout() {
-	alert("Logging out...");
 	var check = $.ajax({
 		type: 'GET',
 		url: root_url + 'logout',
