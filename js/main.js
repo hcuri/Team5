@@ -1,5 +1,7 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
+//blah blah blah
+
 function checkLogin(lForm) {
 	alert("Checking login...");
 
