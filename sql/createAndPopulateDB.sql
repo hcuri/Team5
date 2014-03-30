@@ -23,6 +23,8 @@ CREATE TABLE Users
 	username		VARCHAR(256)			NOT NULL,
 	email 			VARCHAR(255)			NOT NULL,
 	password 		VARCHAR(256) 			NOT NULL,
+	organization	VARCHAR(256)			NOT NULL,
+	schoolID		VARCHAR(256)			NOT NULL,
 	NotesURL		VARCHAR(255)			NOT NULL,			
 	PRIMARY KEY 		(userId)
 );
