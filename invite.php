@@ -103,6 +103,6 @@
     </div>
   </div>
 </div>
-<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+<div id="footer">UPresent 2014 | <a href="index.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>
