@@ -34,7 +34,7 @@
 </div>
 <h1>New UPresent</h1>
 <div id="content">
-<form id="createNew" action="editor.php" method="post">
+<form id="createNew" action="upload_file.php" method="post">
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
@@ -52,7 +52,7 @@
     <div id="fileinfo">
       <p>Please upload PDF:</p>
       <br/>
-      <input type="file" name="browse" value="Browse my Computer"/>
+      <span id="fileUpload"><input type="file" name="files[]"  multiple directory webkitdirectory mozdirectory></span>
     </div>
     <br/>
   </div>
