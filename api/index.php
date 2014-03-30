@@ -147,15 +147,15 @@ function postUserInfo() {
 	if($user->pass == "NOTCHANGED") {
 		$pass = $user->pass;
 		$sql = "UPDATE Users 
-				SET userId = :userId, fName = :fName, lName = :lName, email = :email, organization = :organization, schoolID = :schoolID, NotesURL = :NotesURL
-				WHERE ID = :userId;";
+				SET fName = :fName, lName = :lName, email = :email, organization = :organization, schoolID = :schoolID
+				WHERE username = :username;";
 
 	}
 	else {
 		$pass = password_hash($user->pass, PASSWORD_DEFAULT);
 		$sql = "UPDATE Users 
-				SET userId = :userId, fName = :fName, lName = :lName, email = :email, pass = :pass, organization = :organization, schoolID = :schoolID, NotesURL = :NotesURL
-				WHERE ID = :userId;";
+				SET fName = :fName, lName = :lName, email = :email, pass = :pass, organization = :organization, schoolID = :schoolID
+				WHERE username = :username;";
 	}
 	try {
 		$db = dbconnect();
