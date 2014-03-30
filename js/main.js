@@ -11,9 +11,9 @@ function checkLogin(lForm) {
 		dataType: "json", // data type of response
 		async: false,
 	});
-	alert(check.responseJSON);
 	check = check.responseJSON;
 	check = check.registered;
+	alert(check);
 	if(check === false){
 		alert("Username and Password Do Not Match");
 	}
