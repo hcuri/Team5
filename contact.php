@@ -10,15 +10,8 @@
 	<title>UPresent -- Contact Us</title>
 </head>
 <body>
-	<!--<div id="header"> <img id="logo" src="img/logo.png"/>
-		<form>
-			<input type="text" name="search">
-		</form>
-		<p id="greeting">Hi, User</p>
-		<a href="index.php">Log Out</a>
-	</div>-->
 	<div id="header">
-	  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+	  <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
 	    <div id="logInPane">
 	      <?php
 	        $logInForm =  '<form id="login" action="" method="post" onSubmit="return checkLogin(this)">
@@ -39,6 +32,7 @@
 	    </div>
 	  </div>
 	</div>
+    <div id="content">
 	<div id="contact">
 		<form>
 			<h1>Contact UPresent</h1>
@@ -54,6 +48,7 @@
 
 		</form>
 	</div>
+        </div>
 	<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>
