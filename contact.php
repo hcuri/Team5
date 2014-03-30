@@ -7,6 +7,7 @@
 	<link href="css/styles.css" rel="stylesheet" />
 	<link href="css/styles_contact.css" rel="stylesheet"/>
 	<link href="css/styles_user.css" rel="stylesheet"/>
+    <script href="js/main.js"></script>
 	<title>UPresent -- Contact Us</title>
 </head>
 <body>
