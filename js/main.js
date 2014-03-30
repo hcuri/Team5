@@ -14,7 +14,6 @@ function checkLogin(lForm) {
 	});
 	check = check.responseJSON;
 	check = check.registered;
-	alert(check);
 	if(check === false){
 		alert("Username and Password Do Not Match");
 	}
@@ -62,7 +61,6 @@ function checkRegister(pform) {
 		return false;
 	}
 
-	alert('Checking if registered...');
 	var check = $.ajax({
 		type: 'GET',
 		url: root_url + 'registered/' + email + '/' + username,

@@ -48,13 +48,47 @@ function updateProfile(pForm) {
 }
 
 function updateToJSON() {
+	var fName;
+	var lName;
+	var email;
+	var organization;
+	var schoolID;
+	
+	if($("#fName").val() === "") {
+		fName = $("#fName").attr("placeholder");
+	} else {
+		fName = $("#fName").val();
+	}
+	if($("#lName").val() === "") {
+		lName = $("#lName").attr("placeholder");
+	} else {
+		lName = $("#lName").val();
+	}
+	if($("#email").val() === "") {
+		email = $("#email").attr("placeholder");
+	} else {
+		email = $("#email").val();
+	}
+	if($("#org").val() === "") {
+		organization = $("#org").attr("placeholder");
+	} else {
+		organization = $("#org").val();
+	}
+	if($("#orgID").val() === "") {
+		schoolID = $("#orgID").attr("placeholder");
+	} else {
+		schoolID = $("#orgID").val();
+	}
+	
+	
+	
 	return JSON.stringify({
 		"username": $("#userName").html(),
-		"fName": $("#fName").val(),
-		"lName": $("#lName").val(),
-		"email": $("#email").val(),
-		"organization": $("#org").val(),
-		"schoolID": $("#orgID").val()
+		"fName": fName,
+		"lName": lName,
+		"email": email,
+		"organization": organization,
+		"schoolID": schoolID
 	});
 }
 
