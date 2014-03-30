@@ -24,6 +24,7 @@ $(document).ready(function() {
 	
 	var email = info.email;
 	$("#email").attr("placeholder", email);
+	$("#userEmail").html(email);
 	
 	$("#userEmail").html(email);
 	var organization = info.organization;
