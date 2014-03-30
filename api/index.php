@@ -7,6 +7,8 @@ $app = new Slim();
 $app->get('/verify/:username/:pass', 'verifyRegistered');
 $app->get('/registered/:email/:username', 'checkIfRegistered');
 $app->get('/logout', 'logoutUser');
+$app->get('/getUserInfo', 'getUserInfo');
+$app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
 $app->post('addPresentation', 'addPresentation');
 $app->run();
@@ -68,7 +70,7 @@ function registerUser() {
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
 	$pass = password_hash($user->pass, PASSWORD_DEFAULT);
-	$sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE')";
+	$sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE', 'NONE')";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
@@ -77,7 +79,7 @@ function registerUser() {
 		$stmt->bindParam("username", $user->username);
 		$stmt->bindParam("email", $user->email);
 		$stmt->bindParam("pass", $pass);
-	       	$stmt->execute();
+	    $stmt->execute();
 		$db = null; 
 		echo json_encode($user); 
 	} catch(PDOException $e) {
@@ -103,13 +105,38 @@ function addPresentation() {
 		$stmt->bindParam("chatURL", $presentation->chatURL);
 		$stmt->bindParam("sessId", $presentation->sessId);
 		$stmt->bindParam("username", $presentation->username);
-	       	$stmt->execute();
+	    $stmt->execute();
 		$db = null; 
 		echo json_encode($presentation); 
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}	
+}
+
+function getUserInfo() {
+	$errorInfo = '{"error": "true"}';
+
+	if (!empty($_COOKIE['user'])) {
+        $username = $_COOKIE['user'];
+    }
+	$sql = "SELECT * FROM Users WHERE username=:username";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);  
+		$stmt->bindParam("username", $username);
+		$stmt->execute();
+		if($stmt->rowCount() == 1) {
+			$userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+			echo json_encode($userInfo);
+		}
+		else {
+			echo $errorInfo;
+		}
+		$db = null;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+	}
 }
 
 //function getPresentation() {
