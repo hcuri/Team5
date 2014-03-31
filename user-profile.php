@@ -41,7 +41,7 @@
 <div id="content">
   <div id="block">
     <div id="profile">
-      <form id="userInfo" name="profile" action="" onSubmit="updateProfile(this)">
+      <form id="userInfo" name="profile" action="user-profile.php" onSubmit="updateProfile(this)">
         <label for="firstname">First Name:</label>
         <input id="fName" type="text" name="firstname"/>
         <br/>
