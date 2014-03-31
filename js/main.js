@@ -34,10 +34,10 @@ function logout() {
 	check = check.loggedOut;
 	if(check == true) {
 		alert("Successfully logged out");
-		window.location = "http://localhost/UPresent";
+		window.location = "http://upresent.org/index.php";
 	}
 	else {
-		window.location = "http://localhost/UPresent";
+		window.location = "http://upresent.org/index.php";
 	}
 }
 
