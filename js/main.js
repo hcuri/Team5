@@ -81,7 +81,6 @@ function checkRegister(pform) {
 	}
 	else if(checkBool == true) {
 		register(pform);
-        window.location = "http://upresent.org/user.php";
 
 	}
 	return checkBool;
@@ -95,6 +94,7 @@ function register(rform) {
 		async: false,
 		success: function(){
 			alert('User created successfully');
+             window.location = "http://upresent.org/user.php";
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
