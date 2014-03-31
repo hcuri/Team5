@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$( "#tabs2" ).tabs();
 	$("#newPres").click(function() {
 		alert("Creating New Presentation");
-		window.location = "http://localhost/UPresent/new.php";
+		window.location = "http://upresent.org/new.php";
 	});
 	$(".trashIcon").click(function() {
 		alert("Deleting UPresent");
