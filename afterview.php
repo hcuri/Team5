@@ -87,7 +87,7 @@ User1: That's boring
   <!--Footer-->
   <div id="Footer">
     <form id="save">
-      <input type="button" id="home" value="Home" />
+      <input type="button" id="home" value="Home" onclick="window.location='user.php'" />
       <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/></span>
     </form>
   </div>

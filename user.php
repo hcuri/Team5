@@ -143,19 +143,19 @@
           <td class="title">How To Design</td>
           <td class="author">Christopher Raley</td>
           <td class="date">1/29/14</td>
-          <td class="view"><input type="button" value="View"></td>
+          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
         </tr>
         <tr>
           <td class="title">Intro to iOS</td>
           <td class="author">Hector Curi</td>
           <td class="date">1/29/14</td>
-          <td class="view"><input type="button" value="View"></td>
+          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
         </tr>
         <tr>
           <td class="title">My Search Engine</td>
           <td class="author">Larry Page</td>
           <td class="date">1/29/14</td>
-          <td class="view"><input type="button" value="View"></td>
+          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
         </tr>
          <tr>
           <td class="title"></td>
@@ -188,7 +188,7 @@
           <td class="title">Learning From Me</td>
           <td class="author">Steve Jobs</td>
           <td class="date">1/15/2012</td>
-          <td class="view"><input type="button" value="View"></td>
+          <td class="view"><input type="button" value="View" onclick="window.location='afterview.php'"></td>
         </tr>
         <tr>
           <td class="title"></td>
