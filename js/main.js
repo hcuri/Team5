@@ -81,6 +81,7 @@ function checkRegister(pform) {
 	}
 	else if(checkBool == true) {
 		register(pform);
+        window.location = "http://upresent.org/user.php";
 
 	}
 	return checkBool;
