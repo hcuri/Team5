@@ -98,7 +98,6 @@ function register(rform) {
 		error: function(jqXHR, textStatus, errorThrown){
 			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
 		}
-        window.location = "http://upresent.org/user.php";
 	});
 }
 
