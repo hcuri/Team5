@@ -50,22 +50,22 @@
         </tr>
         <tr>
           <td class="title">My First Presentation</td>
-          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="edit"><input type="button" value="Edit" onclick="window.location='editor.php'"></td>
           <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
           <td class="title">How to Make a UPresent</td>
-          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="edit"><input type="button" value="Edit" onclick="window.location='editor.php'"></td>
           <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
           <td class="title">The Origin of Species</td>
-          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="edit"><input type="button" value="Edit" onclick="window.location='editor.php'"></td>
           <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
           <td class="title">GUI Presentations</td>
-          <td class="edit"><input type="button" value="Edit"></td>
+          <td class="edit"><input type="button" value="Edit" onclick="window.location='editor.php'"></td>
           <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
         </tr>
         <tr>
