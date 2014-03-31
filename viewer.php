@@ -57,7 +57,7 @@
     </ul>
     <div id="tabs-1">
       <div id="notesTab">
-        <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
+        <textarea rows="3" cols="50" placeholder="Enter Notes Here..."> </textarea>
       </div>
     </div>
     <div id="tabs-2">
@@ -66,13 +66,13 @@
           <p>Please choose a response:</p>
           <br/>
           <input type="radio" name="pollResponse" value="A">
-          A<br/>
+          A
           <input type="radio" name="pollResponse" value="B">
-          B<br/>
+          B
           <input type="radio" name="pollResponse" value="C">
-          C<br/>
+          C
           <input type="radio" name="pollResponse" value="D">
-          D<br/>
+          D
         </div>
         <div id="pollResults"><img id="pollR" src="img/poll.png" /></div>
       </div>

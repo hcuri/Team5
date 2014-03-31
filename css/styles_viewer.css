@@ -12,7 +12,7 @@ p {
 }
 
 #viewer {
-	height:425px;	
+	height:360px;	
 }
 
 #info {
@@ -26,7 +26,7 @@ p {
 #slidePane {
 	float:left;
 	width:700px;
-	height:394px;
+	height:350px;
 	background-color:yellow;
 }
 
@@ -55,7 +55,7 @@ p {
 	border:none;
 	border-radius:0px;
 	padding-top:20px;
-	border-top: 2px solid #FF9F00;
+	border-top: 0px solid #FF9F00;
 }
 
 #poll {
@@ -85,7 +85,7 @@ p {
 .oLine {
 	margin:auto;
 	width:0px;
-	border:1px solid #FF9F00;
+	border:1px solid #ededed;
 	height:100px;
 	padding-top:5px;
 }
@@ -131,7 +131,6 @@ p {
 .ui-tabs-vertical .ui-tabs-panel {
 	padding: 1em;
 	float: right;
-	width: 40em;
 	background-color:red;
 }
 /*end styling for the tabs*/
