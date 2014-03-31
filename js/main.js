@@ -94,11 +94,11 @@ function register(rform) {
 		async: false,
 		success: function(){
 			alert('User created successfully');
-             window.location = "http://upresent.org/user.php";
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
 		}
+        window.location = "http://upresent.org/user.php";
 	});
 }
 
