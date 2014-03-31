@@ -34,7 +34,7 @@
 </div>
 <h1>New UPresent</h1>
 <div id="content">
-<form id="createNew" action="upload_file.php" method="post">
+<form id="createNew" action="editor.php" method="post">
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
