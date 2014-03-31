@@ -63,7 +63,7 @@
     <div id="divider"></div>
     <div id="preview">
       <h3>Profile Preview</h3>
-      <img src="img" alt="Profile Picture">
+      <img src="img/identicon.png" alt="Profile Picture">
       <div id="geninfo">
         <h2 id="fullName">Larry Brown</h2>
         <h3 id="userName">jackjp</h3>
