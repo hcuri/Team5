@@ -1,4 +1,4 @@
-var root_url = "http://localhost/UPresent/api/index.php/";
+var root_url = "http://upresent.org/api/index.php/";
 
 //blah blah blah
 

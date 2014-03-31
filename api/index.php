@@ -1,6 +1,7 @@
 <?php
 require 'Slim/Slim.php';
 require '../php/lib.php';
+require '../php/password.php';
 
 $app = new Slim();
 
