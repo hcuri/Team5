@@ -81,6 +81,7 @@ function registerUser() {
 		$stmt->bindParam("pass", $pass);
 	    $stmt->execute();
 		$db = null; 
+		setcookie("user", $user->username, time()+3600, '/');
 		echo json_encode($user); 
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');

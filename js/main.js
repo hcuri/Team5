@@ -36,6 +36,9 @@ function logout() {
 		alert("Successfully logged out");
 		window.location = "http://localhost/UPresent";
 	}
+	else {
+		window.location = "http://localhost/UPresent";
+	}
 }
 
 function checkRegister(pform) {

@@ -40,7 +40,7 @@
   <div id="signUpWindow">
     <div id="signUpHeader">Sign Up!</div>
     <div id="signUpContent">
-      <form id="signUp" action="" method="post" onSubmit="return checkRegister(this)">
+      <form id="signUp" action="user.php" method="post" onSubmit="return checkRegister(this)">
         <input id="signUpFname" type="text" name="fname" placeholder="First Name" required/>
         <input id="signUpLname" type="text" name="lname" placeholder="Last Name" required/>
         <input id="signUpUsername" type="text" name="username" placeholder="Username" required/>
