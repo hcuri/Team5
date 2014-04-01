@@ -35,5 +35,33 @@ class FileParser {
   			echo "Invalid file";
   		}
 	}
+	function modifyPresentation() {
+
+	}
+	function deletePresentation() {
+
+	}
+
+	/* NOTES FUNCTIONALITY */
+	function addNotes() {
+
+	}
+	function modifyNotes() {
+
+	}
+	function deleteNotes() {
+
+	}
+
+	/* CHAT DOC FUNCTIONALITY */
+	function addChatDoc() {
+
+	}
+	function modifyChatDoc() {
+
+	}
+	function deleteChatDoc() {
+		
+	}
 }
 ?>
