@@ -11,7 +11,14 @@ $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
-$app->post('addPresentation', 'addPresentation');
+$app->post('/addPresentation', 'addPresentation');
+
+//Group functions
+$app->get('/getGroupMembers', 'getGroupMembers');
+$app->post('/createGroup', 'createGroup');
+$app->post('/addToGroup', 'addToGroup');
+$app->post('/deleteFromGroup', 'deleteFromGroup');
+$app->post('/deleteGroup', 'deleteGroup');
 $app->run();
 
 function verifyRegistered($username, $password) {
