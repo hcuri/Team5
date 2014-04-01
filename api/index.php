@@ -176,6 +176,20 @@ function addPresentation() {
 	}	
 }
 
+/* GROUP FUNCTIONALITY */
+function getGroupMembers() {
 
-
+}
+function addToGroup() {
+	
+}
+function deleteFromGroup() {
+	
+}
+function deleteGroup() {
+	
+}
+function getGroupMembers() {
+	
+}
 ?>
