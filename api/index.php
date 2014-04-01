@@ -17,7 +17,7 @@ $app->post('/register', 'registerUser');
 $app->post('/addPresentation', 'addPresentation');
 
 //Group functions
-$app->get('/getGroupMembers', 'getGroupMembers');
+$app->get('/getGroupMembers/:groupName', 'getGroupMembers');
 $app->post('/createGroup', 'createGroup');
 $app->post('/addToGroup', 'addToGroup');
 $app->post('/deleteFromGroup', 'deleteFromGroup');
@@ -177,7 +177,27 @@ function addPresentation() {
 }
 
 /* GROUP FUNCTIONALITY */
-function getGroupMembers() {
+function getGroupMembers($groupName) {
+	$sql = "SELECT * FROM Group_Users 
+			INNER JOIN Groups
+			ON Groups.groupId = Group_Users.groupId
+			WHERE Groups.groupName = :groupName";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);  
+		$stmt->bindParam("groupName", $groupName);
+		$stmt->execute();
+		if($stmt->rowCount() == 1) {
+			$groupMembers = $stmt->fetch_all;
+			echo json_encode($groupMembers);
+		}
+		else echo '{"error": true}';
+		$db = null;
+	} catch(PDOException $e) {
+		echo '{"error":"' . $e->getMessage() .'"}'; 
+	}
+}
+function createGroup() {
 
 }
 function addToGroup() {
@@ -187,9 +207,6 @@ function deleteFromGroup() {
 	
 }
 function deleteGroup() {
-	
-}
-function getGroupMembers() {
 	
 }
 ?>
