@@ -241,12 +241,12 @@ function createGroup() {
 	}	*/
 }
 function addToGroup() {
-	
+	//Add USERS to a group
 }
 function deleteFromGroup() {
-	
+	//delete USERS from a group
 }
 function deleteGroup() {
-	
+	//delete ENTIRE group
 }
 ?>
