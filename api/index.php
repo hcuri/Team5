@@ -198,7 +198,47 @@ function getGroupMembers($groupName) {
 	}
 }
 function createGroup() {
+	error_log('createGroup\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$group = json_decode($request->getBody());
+	$sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName, :ownerId, :code)";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sqlGroup);   
+		$stmt->bindParam("groupName", $group->groupName);
+		$stmt->bindParam("ownerId", $group->ownerId);
+		$stmt->bindParam("Code", $group->Code);
+	    $stmt->execute();
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}	
 
+	$sqlGroupId = "SELECT groupId FROM Groups WHERE groupName = :groupName";
+	$groupId = "";
+	try {
+		$stmt = $db->prepare($sqlGroupId);
+		$stmt->bindParam("groupName", $group->groupName);
+		$stmt->execute();
+		$groupId =  $stmt->fetch_all;
+	}
+
+	/* This doesn't work, no idea how to do this as of yet
+	$sqlGroupUsers = "INSERT INTO Group_Users VALUES ();";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("presURL", $presentation->presURL);
+		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("sessId", $presentation->sessId);
+		$stmt->bindParam("username", $presentation->username);
+	    $stmt->execute();
+		$db = null; 
+		echo json_encode($presentation); 
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}	*/
 }
 function addToGroup() {
 	
