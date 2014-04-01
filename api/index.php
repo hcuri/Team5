@@ -5,12 +5,15 @@ require '../php/password.php';
 
 $app = new Slim();
 
+//User functions
 $app->get('/verify/:username/:pass', 'verifyRegistered');
 $app->get('/registered/:email/:username', 'checkIfRegistered');
 $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
+
+//Presentation functions
 $app->post('/addPresentation', 'addPresentation');
 
 //Group functions
@@ -19,8 +22,11 @@ $app->post('/createGroup', 'createGroup');
 $app->post('/addToGroup', 'addToGroup');
 $app->post('/deleteFromGroup', 'deleteFromGroup');
 $app->post('/deleteGroup', 'deleteGroup');
+
+
 $app->run();
 
+/* USER FUNCTIONALITY */
 function verifyRegistered($username, $password) {
 	$sql = "SELECT * FROM Users WHERE username=:username";
 	try {
@@ -42,7 +48,6 @@ function verifyRegistered($username, $password) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
 }
-
 function checkIfRegistered($email, $username) {
 	$sqlEmail = "SELECT * FROM Users WHERE email=:email";
 	$sqlUsername = "SELECT * FROM Users WHERE username=:username";
@@ -72,7 +77,6 @@ function checkIfRegistered($email, $username) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
 }
-
 function registerUser() {
 	error_log('addUser\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
@@ -96,33 +100,10 @@ function registerUser() {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
-
 function logoutUser() {
     setcookie("user", "", time() - 3600, '/');
 	echo '{"loggedOut": "true"}';
 }
-
-function addPresentation() {
-	error_log('addPresentation\n', 3, '/var/tmp/php.log');
-	$request = Slim::getInstance()->request();
-	$presentation = json_decode($request->getBody());
-	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL, 'NONE', :username)";
-	try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("presURL", $presentation->presURL);
-		$stmt->bindParam("chatURL", $presentation->chatURL);
-		$stmt->bindParam("sessId", $presentation->sessId);
-		$stmt->bindParam("username", $presentation->username);
-	    $stmt->execute();
-		$db = null; 
-		echo json_encode($presentation); 
-	} catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}	
-}
-
 function getUserInfo() {
 	$errorInfo = '{"error": "true"}';
 
@@ -147,7 +128,6 @@ function getUserInfo() {
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
 }
-
 function postUserInfo() {
 	error_log('postUserInfo\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
@@ -174,8 +154,28 @@ function postUserInfo() {
 	}
 }
 
-//function getPresentation() {
+/* PRESENTATION FUNCTIONALITY */
+function addPresentation() {
+	error_log('addPresentation\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$presentation = json_decode($request->getBody());
+	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL, 'NONE', :username)";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("presURL", $presentation->presURL);
+		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("sessId", $presentation->sessId);
+		$stmt->bindParam("username", $presentation->username);
+	    $stmt->execute();
+		$db = null; 
+		echo json_encode($presentation); 
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}	
+}
 
-//}
+
 
 ?>
