@@ -1,4 +1,4 @@
-var root_url = "http://upresent.org/api/index.php/";
+var root_url = "http://localhost/api/index.php/";
 
 //blah blah blah
 
@@ -34,10 +34,10 @@ function logout() {
 	check = check.loggedOut;
 	if(check == true) {
 		alert("Successfully logged out");
-		window.location = "http://upresent.org/index.php";
+		window.location = "http://localhost/index.php";
 	}
 	else {
-		window.location = "http://upresent.org/index.php";
+		window.location = "http://localhost/index.php";
 	}
 }
 

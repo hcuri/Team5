@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var root_url = "http://upresent.org/api/index.php/";
+var root_url = "http://localhost/api/index.php/";
 
 $(document).ready(function() {
     var info = $.ajax({
