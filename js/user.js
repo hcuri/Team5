@@ -12,4 +12,62 @@ $(document).ready(function() {
 	$(".trashIcon").click(function() {
 		alert("Deleting UPresent");
 	});
+	
+	
+	/*var pastData = $.ajax({
+		type: 'GET',
+		url: root_url + "getPastPres",
+		dataType: "json",
+		async: false,
+	});
+	var pastData = pastData.responseJSON;
+	var numPres = pastData.count;*/
+	
+	//fill current table
+	var entries = $("#current").children().children();
+	for(var i = 1; i < entries.length+1; i++) {
+		var currEntry = entries.eq(i).children();
+		for(var j = 0; j < 4; j++) {
+			currEntry.eq(j).html("test");
+			if(j===3) {
+				currEntry.eq(j).click();
+			}
+		}
+	}
+	
+	//fill ready table
+	var entries = $("#ready").children().children();
+	for(var i = 1; i < entries.length+1; i++) {
+		var currEntry = entries.eq(i).children();
+		for(var j = 0; j < 4; j++) {
+			currEntry.eq(j).html("test");
+			if(j===3) {
+				currEntry.eq(j).click();
+			}
+		}
+	}
+	
+	//fill upcoming table
+	var entries = $("#upcoming").children().children();
+	for(var i = 1; i < entries.length+1; i++) {
+		var currEntry = entries.eq(i).children();
+		for(var j = 0; j < 4; j++) {
+			currEntry.eq(j).html("test");
+			if(j===3) {
+				currEntry.eq(j).click();
+			}
+		}
+	}
+	
+	//fill past presentation table
+	var entries = $("#past").children().children();
+	for(var i = 1; i < entries.length+1; i++) {
+		var currEntry = entries.eq(i).children();
+		for(var j = 0; j < 4; j++) {
+			currEntry.eq(j).html("test");
+			if(j===3) {
+				currEntry.eq(j).click();
+			}
+		}
+	}
 });
