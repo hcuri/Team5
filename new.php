@@ -6,6 +6,10 @@
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_user.css" rel="stylesheet"/>
 <link href="css/styles_new.css" rel="stylesheet"/>
+<link href="css/jQuery.css" rel="stylesheet" />
+<script src="js/jQuery.js"></script>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/new.js"></script>
 <script src="js/main.js"></script>
 <title>UPresent -- New</title>
 </head>
@@ -41,7 +45,7 @@
       <input type="text" name="title"/>
       <br/>
       <label for="date">Date:</label>
-      <input type="date" name="date"/>
+      <input id="datePick" type="date" name="date"/>
       <br/>
       <label for="private">Private?</label>
       <input type="checkbox" name="private">
