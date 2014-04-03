@@ -13,10 +13,10 @@
 <title>UPresent -- User</title>
 </head>
 <body>
-  <div id="header">
-    <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
-      <div id="logInPane">
-        <?php
+<div id="header">
+  <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+    <div id="logInPane">
+      <?php
           $logInForm =  '<form id="login" action="" method="post" onSubmit="return checkLogin(this)">
                           <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
                           <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
@@ -31,10 +31,10 @@
           }
           //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
         ?>
-        <script>console.log(document.cookie);</script>
-      </div>
+      <script>console.log(document.cookie);</script> 
     </div>
   </div>
+</div>
 <div id="content">
   <div id="tabs1">
     <ul>
@@ -42,7 +42,7 @@
       <li><a href="#tabs1-2">Ready</a></li>
     </ul>
     <div id="tabs1-1">
-      <table>
+      <table id="current">
         <tr>
           <th class="title">Title</th>
           <th class="edit">Edit</th>
@@ -50,8 +50,8 @@
         </tr>
         <tr>
           <td class="title">My First Presentation</td>
-          <td class="edit"><input type="button" value="Edit" onclick="window.location='editor.php'"></td>
-          <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
         </tr>
         <tr>
           <td class="title">How to Make a UPresent</td>
@@ -81,7 +81,7 @@
       </table>
     </div>
     <div id="tabs1-2">
-      <table>
+      <table id="ready">
         <tr>
           <th class="title">Title</th>
           <th class="date">Date</th>
@@ -120,9 +120,9 @@
       </table>
     </div>
     <div id="createNew">
-<form id="new" action="new.php">
-      <input id="newPres" type="submit" value="Create New UPresent">
-</form>
+      <form id="new" action="new.php">
+        <input id="newPres" type="submit" value="Create New UPresent">
+      </form>
     </div>
   </div>
   <div id="divider"></div>
@@ -132,7 +132,7 @@
       <li><a href="#tabs2-2">Past Presentations</a></li>
     </ul>
     <div id="tabs2-1">
-      <table>
+      <table id="upcoming">
         <tr>
           <th class="title">Title</th>
           <th class="author">Author</th>
@@ -157,7 +157,7 @@
           <td class="date">1/29/14</td>
           <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
         </tr>
-         <tr>
+        <tr>
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
@@ -178,43 +178,44 @@
       </table>
     </div>
     <div id="tabs2-2">
-      <table>
+      <table id="past">
         <tr>
           <th class="title">Title</th>
           <th class="author">Author</th>
           <th class="date">Date</th>
           <th class="view">View</th>
-        <tr>
+        </tr>
+        <tr id="past1">
           <td class="title">Learning From Me</td>
           <td class="author">Steve Jobs</td>
           <td class="date">1/15/2012</td>
-          <td class="view"><input type="button" value="View" onclick="window.location='afterview.php'"></td>
+          <td class="view"></td>
         </tr>
-        <tr>
+        <tr id="past2">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr>
+        <tr id="past3">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr>
+        <tr id="past4">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr>
+        <tr id="past5">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr>
+        <tr id="past6">
           <td class="title"></td>
           <td class="author"></td>
           <td></td>
