@@ -50,8 +50,8 @@
         </tr>
         <tr>
           <td class="title">My First Presentation</td>
-          <td class="edit"><input type="button" value="Edit" onclick="window.location='editor.php'"></td>
-          <td class="erase"><img class="trashIcon" src="img/trash.png"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
         </tr>
         <tr>
           <td class="title">How to Make a UPresent</td>
@@ -189,7 +189,7 @@
           <td class="title">Learning From Me</td>
           <td class="author">Steve Jobs</td>
           <td class="date">1/15/2012</td>
-          <td class="view"><input type="button" value="View" onclick="window.location='afterview.php'"></td>
+          <td class="view"></td>
         </tr>
         <tr id="past2">
           <td class="title"></td>
