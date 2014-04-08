@@ -27,7 +27,7 @@
             echo $logout;
           }
           else {
-            echo $logInForm;
+            echo '<script>alert("User Not Logged In"); window.location = "http://localhost/UPresent/index.php";</script>';
           }
           //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
         ?>
