@@ -4,9 +4,13 @@
 <form action="upload_file.php" method="post"
 enctype="multipart/form-data">
 <label for="file">Filename:</label>
-<input type="file" name="file" id="file"><br>
+<input type="file" name="files[]" id="files" multiple directory webkitdirectory mozdirectory><br>
 <input type="submit" name="submit" value="Submit">
 </form>
 
 </body>
 </html>
+
+<!-- 
+<input type="file" name="file" id="file">
+<input type="file" name="files[]" multiple directory webkitdirectory mozdirectory> -->

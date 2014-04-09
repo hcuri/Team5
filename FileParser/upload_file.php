@@ -2,40 +2,66 @@
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
-if ((($_FILES["file"]["type"] == "image/gif")
-|| ($_FILES["file"]["type"] == "image/jpeg")
-|| ($_FILES["file"]["type"] == "image/jpg")
-|| ($_FILES["file"]["type"] == "image/pjpeg")
-|| ($_FILES["file"]["type"] == "image/x-png")
-|| ($_FILES["file"]["type"] == "image/png"))
-&& ($_FILES["file"]["size"] < 200000000000)
-&& in_array($extension, $allowedExts))
-  {
-  if ($_FILES["file"]["error"] > 0)
-    {
-    echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-    }
-  else
-    {
-    echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-    echo "Type: " . $_FILES["file"]["type"] . "<br>";
-    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
-    if (file_exists("upload/" . $_FILES["file"]["name"]))
-      {
-      echo $_FILES["file"]["name"] . " already exists. ";
+echo $_FILES["files"]["name"][0] . "<br />";
+echo count($_FILES["files"]) . "<br />";
+
+
+/*if ((($_FILES["files"]["type"] == "image/gif")
+  || ($_FILES["files"]["type"] == "image/jpeg")
+  || ($_FILES["files"]["type"] == "image/jpg")
+  || ($_FILES["files"]["type"] == "image/pjpeg")
+  || ($_FILES["files"]["type"] == "image/x-png")
+  || ($_FILES["files"]["type"] == "image/png"))
+  && ($_FILES["files"]["size"] < 200000000000)
+  && in_array($extension, $allowedExts))
+  {*/
+
+      
+
+      //Loop through files and output names / type / size / tmp_name
+      for($i = 0; $i < count($_FILES["files"]); $i++) {
+        echo $i;
       }
-    else
-      {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "../upload/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+        /*echo "Upload: " . $slide["name"] . "<br>";
+        echo "Type: " . $slide["type"] . "<br>";
+        echo "Size: " . ($slide["size"] / 1024) . " kB<br>";
+        echo "Temp file: " . $slide["tmp_name"] . "<br>";
+
+        if (file_exists("upload/" . $_FILES["files"]["name"])) {
+          echo $_FILES["files"]["name"] . " already exists. ";
+        }
+        else {
+          move_uploaded_file($slide["tmp_name"], "../upload/" . "Presentation_1/" . $slide["name"]);
+          echo "Stored in: " . "upload/Presentation_1" . $slide["name"];
+        }
+      }
+  /*}
+  else {
+    echo "Invalid file";
+  }*/
+
+
+
+
+
+/*
+echo "Upload: " . $_FILES["files"]["name"] . "<br>";
+      echo "Type: " . $_FILES["files"]["type"] . "<br>";
+      echo "Size: " . ($_FILES["files"]["size"] / 1024) . " kB<br>";
+      echo "Temp file: " . $_FILES["files"]["tmp_name"] . "<br>";
+
+      if (file_exists("upload/" . $_FILES["files"]["name"])) {
+        echo $_FILES["files"]["name"] . " already exists. ";
+      }
+      else {
+        move_uploaded_file($_FILES["files"]["tmp_name"], "../upload/" . $_FILES["files"]["name"]);
+        echo "Stored in: " . "upload/" . $_FILES["files"]["name"];
       }
     }
   }
-else
-  {
-  echo "Invalid file";
+  else {
+    echo "Invalid file";
   }
+*/
 ?>
