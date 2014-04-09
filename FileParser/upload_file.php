@@ -3,9 +3,6 @@ $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
 
-echo $_FILES["files"]["name"][0] . "<br />";
-echo count($_FILES["files"]) . "<br />";
-
 
 /*if ((($_FILES["files"]["type"] == "image/gif")
   || ($_FILES["files"]["type"] == "image/jpeg")
@@ -20,26 +17,25 @@ echo count($_FILES["files"]) . "<br />";
       
 
       //Loop through files and output names / type / size / tmp_name
-      for($i = 0; $i < count($_FILES["files"]); $i++) {
-        echo $i;
-      }
-        /*echo "Upload: " . $slide["name"] . "<br>";
-        echo "Type: " . $slide["type"] . "<br>";
-        echo "Size: " . ($slide["size"] / 1024) . " kB<br>";
-        echo "Temp file: " . $slide["tmp_name"] . "<br>";
+    if(strtolower($_SERVER['REQUEST_METHOD']) == 'post' && !empty($_FILES)) {
+      foreach($_FILES['files']['tmp_name'] as $index => $tmpName) {
+        echo "Upload: " . $_FILES['files']['name'][$index] . "<br>";
+        echo "Type: " . $_FILES['files']['type'][$index] . "<br>";
+        echo "Size: " . ($_FILES['files']['size'][$index] / 1024) . " kB<br>";
+        echo "Temp file: " . $_FILES['files']['tmp_name'][$index] . "<br><br><br>";
 
         if (file_exists("upload/" . $_FILES["files"]["name"])) {
           echo $_FILES["files"]["name"] . " already exists. ";
         }
         else {
-          move_uploaded_file($slide["tmp_name"], "../upload/" . "Presentation_1/" . $slide["name"]);
-          echo "Stored in: " . "upload/Presentation_1" . $slide["name"];
+          //move_uploaded_file($slide["tmp_name"], "../upload/" . "Presentation_1/" . $slide["name"]);
+          //echo "Stored in: " . "upload/Presentation_1" . $slide["name"];
         }
       }
-  /*}
+  }
   else {
     echo "Invalid file";
-  }*/
+  }
 
 
 
