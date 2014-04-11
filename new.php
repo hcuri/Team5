@@ -45,7 +45,7 @@
       <input type="text" name="title"/>
       <br/>
       <label for="session">Session:</label>
-      <input id="datePick" type="date" name="session"/>
+      <input id="session" type="text" name="session"/>
       <br/>
       <label for="private">Create Session?</label>
       <input type="checkbox" name="private">
