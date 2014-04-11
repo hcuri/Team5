@@ -11,7 +11,6 @@ $app->get('/registered/:email/:username', 'checkIfRegistered');
 $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
 $app->get('/searchUsers/:term', 'searchUsers');
-$app->get('/searchUsersByID/:id', 'searchUsersByID');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
 
@@ -265,7 +264,7 @@ function searchUsers($term) {
     if($numTerms == 1) {
         $sql = "SELECT fName, lName, username, organization  "
                 . "FROM Users WHERE fName=:term OR lName=:term "
-                . "OR username=:term";
+                . "OR username=:term OR schoolID=:id";
         try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);  
@@ -298,19 +297,5 @@ function searchUsers($term) {
     }
 }
 
-function searchUsersByID($id) {
-    $sql = "SELECT fName, lName, username, organization  "
-                . "FROM Users WHERE schoolID=:id";
-        try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sql);  
-		$stmt->bindParam("id", $id);
-		$stmt->execute();
-                $users = $stmt->fetchAll(PDO::FETCH_OBJ);
-                echo json_encode($users);
-        } catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-}
+
 ?>
