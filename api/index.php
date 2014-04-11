@@ -11,6 +11,7 @@ $app->get('/registered/:email/:username', 'checkIfRegistered');
 $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
 $app->get('/searchUsers/:term', 'searchUsers');
+$app->get('/search/:term', 'search');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
 
@@ -93,7 +94,7 @@ function registerUser() {
 		$stmt->bindParam("username", $user->username);
 		$stmt->bindParam("email", $user->email);
 		$stmt->bindParam("pass", $pass);
-	    $stmt->execute();
+                $stmt->execute();
 		$db = null; 
 		setcookie("user", $user->username, time()+3600, '/');
 		echo json_encode($user); 
@@ -263,15 +264,18 @@ function searchUsers($term) {
     
     if($numTerms == 1) {
         $sql = "SELECT fName, lName, username, organization  "
-                . "FROM Users WHERE fName=:term OR lName=:term "
-                . "OR username=:term OR schoolID=:id";
+                . "FROM Users WHERE fName LIKE :term OR lName LIKE :term "
+                . "OR username LIKE :term OR schoolID=:idTerm";
         try {
 		$db = dbconnect();
-		$stmt = $db->prepare($sql);  
-		$stmt->bindParam("term", $terms[0]);
+		$stmt = $db->prepare($sql);
+                $likeTerm = '%' . $terms[0] . '%';
+                $stmt->bindParam("term", $likeTerm);
+		$stmt->bindParam("idTerm", $terms[0]);
 		$stmt->execute();
                 $users = $stmt->fetchAll(PDO::FETCH_OBJ);
                 echo json_encode($users);
+                $db = null;
         } catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
@@ -279,17 +283,20 @@ function searchUsers($term) {
     }
     if($numTerms == 2) {
         $sql = "SELECT fName, lName, username, organization  "
-                . "FROM Users WHERE (fName=:term1 AND lName=:term2)"
-                . "OR (fName=:term2 AND lName=:term1)";
-
+                . "FROM Users WHERE (fName LIKE :term1 AND lName LIKE :term2)"
+                . "OR (fName LIKE :term2 AND lName LIKE :term1)";
+        
         try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);  
-		$stmt->bindParam("term1", $terms[0]);
-                $stmt->bindParam("term2", $terms[1]);
+                $likeTerm1 = '%' . $terms[0] . '%';
+                $likeTerm2 = '%' . $terms[1] . '%';
+		$stmt->bindParam("term1", $likeTerm1);
+                $stmt->bindParam("term2", $likeTerm2);
 		$stmt->execute();
                 $users = $stmt->fetchAll(PDO::FETCH_OBJ);
                 echo json_encode($users);
+                $db = null;
         } catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
@@ -297,5 +304,101 @@ function searchUsers($term) {
     }
 }
 
+function search($term) {
+    $terms = explode('|', $term);
+    $newTerm = join(' ', $terms);
+    $numTerms = count($terms);
+
+    echo '[';
+    if($numTerms == 1) {
+        $sql = "SELECT fName, lName FROM Users WHERE fName LIKE :term "
+                . "OR lName LIKE :term OR username LIKE :term";
+        try {
+            $db = dbconnect();
+            $stmt = $db->prepare($sql);
+            $likeTerm = '%' . $terms[0] . '%';
+            $stmt->bindParam('term', $likeTerm);
+            $stmt->execute();
+            for($i = 0; $i < $stmt->rowCount(); $i++) {
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                if($i == 0)
+                    echo '{';
+                else echo ',{';
+                $userName = '"' . $user['fName'] . ' ' . $user['lName'] .'"';
+                echo '"name":'.$userName.',"type":"user"}';
+            }
+            $db = null;
+          
+        } catch (PDOException $e) {
+                error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    if($numTerms == 2) {
+        $sql = "SELECT fName, lName FROM Users "
+                . "WHERE (fName LIKE :term1 AND lName LIKE :term2)"
+                . "OR (fName LIKE :term2 AND lName LIKE :term1)";
+        try {
+            $db = dbconnect();
+            $stmt = $db->prepare($sql);
+            $likeTerm1 = '%' . $terms[0] . '%';
+            $likeTerm2 = '%' . $terms[1] . '%';
+            $stmt->bindParam("term1", $likeTerm1);
+            $stmt->bindParam("term2", $likeTerm2);
+            $stmt->execute();
+            for($i = 0; $i < $stmt->rowCount(); $i++) {
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                if($i == 0)
+                    echo '{';
+                else echo ',{';
+                $userName = '"' . $user['fName'] . ' ' . $user['lName'] .'"';
+                echo '"name":'.$userName.',"type":"user"}';
+            }
+            $db = null;
+          
+        } catch (PDOException $e) {
+                error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    
+        
+    $sql = "SELECT groupName FROM Groups WHERE groupName LIKE :term";
+
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $likeTerm = '%' . $newTerm . '%';
+        $stmt->bindParam('term', $likeTerm);
+        $stmt->execute();
+        for($i = 0; $i < $stmt->rowCount(); $i++) {
+            $group = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo ',{"name":"'.$group['groupName'].'","type":"group"}';
+        }
+    } catch (PDOException $e) {
+            error_log($e->getMessage(), 3, '/var/tmp/php.log');
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+
+    $sql = "SELECT presName FROM Presentations WHERE presName LIKE :term";
+
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $likeTerm = '%' . $newTerm . '%';
+        $stmt->bindParam('term', $likeTerm);
+        $stmt->execute();
+        for($i = 0; $i < $stmt->rowCount(); $i++) {
+            $pres = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo ',{"name":"'.$pres['presName'].'","type":"presentation"}';
+        }
+        $db = null;
+
+    } catch (PDOException $e) {
+            error_log($e->getMessage(), 3, '/var/tmp/php.log');
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+    echo ']';
+}
 
 ?>

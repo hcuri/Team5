@@ -80,7 +80,6 @@ Info:
 CREATE TABLE Presentations
 (
         presId                  INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
-	presName		VARCHAR(256)			NOT NULL,
         presURL                 VARCHAR(256)                    NOT NULL,
         chatURL                 VARCHAR(256)                    NOT NULL,
         sessionId               INT UNSIGNED                    NOT NULL,
