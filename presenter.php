@@ -9,6 +9,7 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/viewer.js"></script>
 <script src="js/main.js"></script>
+<script src="js/slidesP.js"></script>
 <title>UPresent Presenter</title>
 </head>
 
