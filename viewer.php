@@ -13,7 +13,7 @@
 
 <body>
 <div id="header">
-  <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
       <?php
         $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
@@ -28,6 +28,7 @@
         else {
           echo $logInForm;
         }
+        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
       <script>console.log(document.cookie);</script> 
     </div>
