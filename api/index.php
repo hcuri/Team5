@@ -17,6 +17,7 @@ $app->post('/register', 'registerUser');
 
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
+$app->get('/getSlides/:presID', 'getSlides');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
@@ -181,6 +182,29 @@ function addPresentation() {
 	}	
 }
 
+function getSlides($presID) {
+        $sql = "SELECT presURL FROM Presentations WHERE presId=:presID";
+
+        try {
+            $db = dbconnect();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("presID", $presID);
+            $stmt->execute();
+            $pres = $stmt->fetch(PDO::FETCH_ASSOC);
+            $url = $pres['presURL'];
+            echo $url;
+           // $dir = opendir($url);
+            //while(true) {
+           //     echo readdir($dir);
+           // }
+            
+            $db = null;
+        } catch (PDOException $e) {
+                error_log($e->getMessage(), 3, '/var/tmp/php.log');
+                echo '{"error":"'. $e->getMessage() .'"}';
+        }
+}
+
 /* GROUP FUNCTIONALITY */
 function getGroupMembers($groupName) {
 	$sql = "SELECT * FROM Group_Users 
@@ -192,15 +216,15 @@ function getGroupMembers($groupName) {
 		$stmt = $db->prepare($sql);  
 		$stmt->bindParam("groupName", $groupName);
 		$stmt->execute();
-		if($stmt->rowCount() == 1) { 
-    //I don't know if this will work as you expect it to... -Tyler
+		if($stmt->rowCount() >= 1) { 
 			$groupMembers = $stmt->fetch_all;
 			echo json_encode($groupMembers);
 		}
 		else echo '{"error": true}';
 		$db = null;
 	} catch(PDOException $e) {
-		echo '{"error":"' . $e->getMessage() .'"}'; 
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
 	}
 }
 function createGroup() {
