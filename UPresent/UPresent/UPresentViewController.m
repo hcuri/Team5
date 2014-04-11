@@ -9,6 +9,8 @@
 #import "UPresentViewController.h"
 
 @interface UPresentViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
