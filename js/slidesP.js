@@ -4,7 +4,10 @@ var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
 
 $(document).ready(function(e) {
-  
+ 
+  	$("#previous").css("background-color", "black");
+	$("#previous").removeAttr("src");
+	
 	var slidesJSON = $.ajax({
 		type: 'GET',
 		url: root_url + "getSlides",
@@ -18,8 +21,6 @@ $(document).ready(function(e) {
 		slides[i] = slidesJSON[i].url;
 	}
 	
-	$("#previous").attr("background-color", "black");
-	$("#previous").attr("src", "");
 	$("#slide").attr("src", slides[0]);
 	$("#next").attr("src", slides[1]);
 	
@@ -31,11 +32,11 @@ function updateSlide(num) {
 	if(num === 0) {
 		$("#next").attr("src", slides[num+1]);
 		$("#previous").attr("src", "");
-		$("#previous").attr("background-color", "black");
+		$("#previous").css("background-color", "black");
 	} else if(num === (numSlides-1)) {
 		$("#previous").attr("src", slides[num-1]);
 		$("#next").attr("src", "");
-		$("#next").attr("background-color", "black");
+		$("#next").css("background-color", "black");
 	} else {
 		$("#previous").attr("src", slides[num-1]);
 		$("#next").attr("src", slides[num+1]);

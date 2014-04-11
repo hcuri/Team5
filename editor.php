@@ -89,8 +89,6 @@
   <div id="Footer">
     <form id="save" action="user.php" method="post">
       <input type="submit" id="saveUPresent" value="Save UPresent" /></form>
-      <form id="proceed" action="invite.php" method="post">
-      <input type="submit" id="inviteViewers" value="Invite Viewers" /></form>
       <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/> </span>
     </form>
   </div>

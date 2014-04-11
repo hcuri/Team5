@@ -44,10 +44,24 @@
       <label for="title">Title:</label>
       <input type="text" name="title"/>
       <br/>
-      <label for="date">Date:</label>
-      <input id="datePick" type="date" name="date"/>
+      <label for="session">Session:</label>
+      <input id="datePick" type="date" name="session"/>
       <br/>
-      <label for="private">Private?</label>
+      <label for="private">Create Session?</label>
+      <input type="checkbox" name="private">
+      </input>
+      <br/>
+      <label for="group">Group</label>
+      <select name="group">
+      <option>Test</option>
+      <option>Test2</option>
+      </select>
+      <br/>
+      <label for="date">Date?</label>
+      <input type="date" name="date">
+      </input>
+      <br/>
+      <label for="private">Is Private?</label>
       <input type="checkbox" name="private">
       </input>
       <!--Code input?--> 
