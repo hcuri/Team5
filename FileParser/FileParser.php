@@ -1,45 +1,43 @@
 <?php
 class FileParser {
-	function uploadPresentation($files) {
-		$allowedExts = array("gif", "jpeg", "jpg", "png");
-		$temp = explode(".", $_FILES["file"]["name"]);
-		$extension = end($temp);
-		if ((($_FILES["file"]["type"] == "image/gif")
-			|| ($_FILES["file"]["type"] == "image/jpeg")
-			|| ($_FILES["file"]["type"] == "image/jpg")
-			|| ($_FILES["file"]["type"] == "image/pjpeg")
-			|| ($_FILES["file"]["type"] == "image/x-png")
-			|| ($_FILES["file"]["type"] == "image/png"))
-			&& ($_FILES["file"]["size"] < 200000000000)
-			&& in_array($extension, $allowedExts))
-		{
-			if ($_FILES["file"]["error"] > 0) {
-    			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-    		}
-    		else {
-    			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-    			echo "Type: " . $_FILES["file"]["type"] . "<br>";
-    			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-    			echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+	//JSON to return for errors
+	$err;
 
-    			if (file_exists("upload/" . $_FILES["file"]["name"])) {
-      				echo $_FILES["file"]["name"] . " already exists. ";
-      			}
+	function modifyPresentation($files, $title) {
+		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post' && !empty($_FILES)) {
+
+  			foreach($_FILES['files']['tmp_name'] as $index => $tmpName) {
+
+    			if ((($_FILES["files"]["type"][$index] == "image/gif")
+      				|| ($_FILES["files"]["type"][$index] == "image/jpeg")
+      				|| ($_FILES["files"]["type"][$index] == "image/jpg")
+      				|| ($_FILES["files"]["type"][$index] == "image/pjpeg")
+      				|| ($_FILES["files"]["type"][$index] == "image/x-png")
+      				|| ($_FILES["files"]["type"][$index] == "image/png"))
+      				&& ($_FILES["files"]["size"][$index] < 200000000000))
+    			{
+      				echo "Upload: " . $_FILES['files']['name'][$index] . "<br>";
+      				echo "Type: " . $_FILES['files']['type'][$index] . "<br>";
+      				echo "Size: " . ($_FILES['files']['size'][$index] / 1024) . " kB<br>";
+      				echo "Temp file: " . $_FILES['files']['tmp_name'][$index] . "<br>";
+
+      				$folder = "../upload/" . $title;
+      				if(is_dir($folder)) 
+        				rmdir($folder);
+        			else 
+      					mkdir($folder, 0700);
+
+        			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
+    			}
     			else {
-      				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
-      				echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-      			}
-    		}
-  		}
-		else {
-  			echo "Invalid file";
-  		}
-	}
-	function modifyPresentation() {
-
+    				//Error handling, change $err
+    				return $err;
+    			}
+  			}
+		}
 	}
 	function deletePresentation() {
-
+		if()
 	}
 
 	/* NOTES FUNCTIONALITY */
