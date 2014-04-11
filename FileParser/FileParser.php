@@ -1,7 +1,7 @@
 <?php
 class FileParser {
 	//JSON to return for errors
-	$err;
+	//$err;
 
 	function modifyPresentation($files, $title) {
 		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post' && !empty($_FILES)) {
@@ -30,14 +30,15 @@ class FileParser {
         			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
     			}
     			else {
-    				//Error handling, change $err
+                                //why not just put $err in here?
+                                //Error handling, change $err
     				return $err;
     			}
   			}
 		}
 	}
 	function deletePresentation() {
-		if()
+	
 	}
 
 	/* NOTES FUNCTIONALITY */
