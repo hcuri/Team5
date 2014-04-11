@@ -1,16 +1,19 @@
 <?php
   function dbconnect() {
-    $username = "katykarm_team5";
-    $password = "team5password";
-
+    //$username = "katykarm_team5";
+    //$password = "team5password";
+    $username = "root";
+    $password = "password";
+    
     try {
-      $conn = new PDO('mysql:host=localhost;dbname=katykarm_upresent', $username, $password);
+      $conn = new PDO('mysql:host=localhost;dbname=upresent', $username, $password);
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(PDOException $e) {
       echo 'ERROR: ' . $e->getMessage();
     }
 
-    return $conn;
+    return $conn; 
+    
   }
 
   function debug_to_console( $data ) {

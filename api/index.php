@@ -10,6 +10,8 @@ $app->get('/verify/:username/:pass', 'verifyRegistered');
 $app->get('/registered/:email/:username', 'checkIfRegistered');
 $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
+$app->get('/searchUsers/:term', 'searchUsers');
+$app->get('/searchUsersByID/:id', 'searchUsersByID');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
 
@@ -82,7 +84,8 @@ function registerUser() {
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
 	$pass = password_hash($user->pass, PASSWORD_DEFAULT);
-	$sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE', 'NONE')";
+	$sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, "
+                . ":email, :pass, 'NONE', 'NONE', 'NONE')";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
@@ -133,10 +136,11 @@ function postUserInfo() {
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
 
-	$sql = "UPDATE Users 
-			SET fName = :fName, lName = :lName, email = :email, organization = :organization, schoolID = :schoolID
-			WHERE username = :username";
+	$sql = "UPDATE Users SET fName = :fName, lName = :lName, "
+                . "email = :email, organization = :organization, "
+                . "schoolID = :schoolID WHERE username = :username";
 
+        
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
@@ -146,7 +150,7 @@ function postUserInfo() {
 		$stmt->bindParam("email", $user->email);
 		$stmt->bindParam("organization", $user->organization);
 		$stmt->bindParam("schoolID", $user->schoolID);
-	    $stmt->execute();
+                $stmt->execute();
 		$db = null;  
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
@@ -159,7 +163,8 @@ function addPresentation() {
 	error_log('addPresentation\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$presentation = json_decode($request->getBody());
-	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL, 'NONE', :username)";
+	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL,"
+                . " 'NONE', :username)";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
@@ -187,7 +192,8 @@ function getGroupMembers($groupName) {
 		$stmt = $db->prepare($sql);  
 		$stmt->bindParam("groupName", $groupName);
 		$stmt->execute();
-		if($stmt->rowCount() == 1) {
+		if($stmt->rowCount() == 1) { 
+    //I don't know if this will work as you expect it to... -Tyler
 			$groupMembers = $stmt->fetch_all;
 			echo json_encode($groupMembers);
 		}
@@ -201,7 +207,8 @@ function createGroup() {
 	error_log('createGroup\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$group = json_decode($request->getBody());
-	$sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName, :ownerId, :code)";
+	$sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
+                . " :ownerId, :code)";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sqlGroup);   
@@ -234,11 +241,11 @@ function createGroup() {
 		$stmt->bindParam("username", $presentation->username);
 	    $stmt->execute();
 		$db = null; 
-		echo json_encode($presentation); 
-	} catch(PDOException $e) {
+		echo json_encode($presentation); */
+	catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}	*/
+	}
 }
 function addToGroup() {
 	//Add USERS to a group
@@ -248,5 +255,62 @@ function deleteFromGroup() {
 }
 function deleteGroup() {
 	//delete ENTIRE group
+}
+
+
+function searchUsers($term) {
+    $terms = explode('|', $term);
+    $numTerms = count($terms);
+    
+    if($numTerms == 1) {
+        $sql = "SELECT fName, lName, username, organization  "
+                . "FROM Users WHERE fName=:term OR lName=:term "
+                . "OR username=:term";
+        try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);  
+		$stmt->bindParam("term", $terms[0]);
+		$stmt->execute();
+                $users = $stmt->fetchAll(PDO::FETCH_OBJ);
+                echo json_encode($users);
+        } catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+    }
+    if($numTerms == 2) {
+        $sql = "SELECT fName, lName, username, organization  "
+                . "FROM Users WHERE (fName=:term1 AND lName=:term2)"
+                . "OR (fName=:term2 AND lName=:term1)";
+
+        try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);  
+		$stmt->bindParam("term1", $terms[0]);
+                $stmt->bindParam("term2", $terms[1]);
+		$stmt->execute();
+                $users = $stmt->fetchAll(PDO::FETCH_OBJ);
+                echo json_encode($users);
+        } catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+    }
+}
+
+function searchUsersByID($id) {
+    $sql = "SELECT fName, lName, username, organization  "
+                . "FROM Users WHERE schoolID=:id";
+        try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);  
+		$stmt->bindParam("id", $id);
+		$stmt->execute();
+                $users = $stmt->fetchAll(PDO::FETCH_OBJ);
+                echo json_encode($users);
+        } catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
 }
 ?>
