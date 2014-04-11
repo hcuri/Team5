@@ -1,3 +1,8 @@
+<?php
+  require_once("FileParser/FileParser.php");
+  FileParser->modifyPresentation($_FILES["files"], $_COOKIE['user'], $_POST['title']);
+?>
+
 <!--editor.html-->
 <!DOCTYPE HTML>
 <html>
