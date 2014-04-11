@@ -14,18 +14,23 @@
 </head>
 <body>
 <div id="header">
-  <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
       <?php
-          if (!empty($_COOKIE['user'])) {
-            $logout = '<DIV ID="logout">Welcome, <a id="logoutUsername" href="user-profile.php">' . $_COOKIE["user"] . '</a>!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" /></DIV>';
-            echo $logout;
-          }
-          else {
-            /*echo '<script>alert("User Not Logged In"); window.location = "http://localhost/UPresent/index.php";</script>';*/
-          }
-          //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
-        ?>
+        $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
+                        <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
+                        <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
+                        <input id="logInSubmit" type="submit" name="submit" value="Log In"/>
+                      </form>';
+        if (!empty($_COOKIE['user'])) {
+          $logout = '<DIV ID="logout">Welcome, <a id="logoutUsername" href="user-profile.php">' . $_COOKIE["user"] . '</a>!   <input id="logoutSubmit" type="submit" name="submit" value="Log Out" onClick="logout()" /></DIV>';
+          echo $logout;
+        }
+        else {
+          echo $logInForm;
+        }
+        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
+      ?>
       <script>console.log(document.cookie);</script> 
     </div>
   </div>
@@ -33,8 +38,8 @@
 <div id="content">
   <div id="tabs1">
     <ul>
-      <li><a href="#tabs1-1">Current</a></li>
-      <li><a href="#tabs1-2">Ready</a></li>
+      <li><a href="#tabs1-1">In Progress</a></li>
+      <li><a href="#tabs1-2">Completed</a></li>
     </ul>
     <div id="tabs1-1">
       <table id="current">
@@ -124,7 +129,7 @@
   <div id="tabs2">
     <ul>
       <li><a href="#tabs2-1">Upcoming</a></li>
-      <li><a href="#tabs2-2">Past Presentations</a></li>
+      <li><a href="#tabs2-2">Past UPresents</a></li>
     </ul>
     <div id="tabs2-1">
       <table id="upcoming">
@@ -213,12 +218,43 @@
         <tr id="past6">
           <td class="title"></td>
           <td class="author"></td>
-          <td></td>
-          <td></td>
+          <td class="date"></td>
+          <td class="view"></td>
         </tr>
       </table>
     </div>
   </div>
+  <div id="tabs3">
+    <table id="groups">
+      <tr>
+        <th class="title">Name</th>
+        <th class="author">Creator</th>
+      </tr>
+      <tr id="group1">
+        <td class="title">Justice League</td>
+        <td class="author">Batman</td>
+      </tr>
+      <tr id="group2">
+        <td class="title">The Jedi</td>
+        <td class="author">Yoda</td>
+      </tr>
+      <tr id="group3">
+        <td class="title">The Expendables</td>
+        <td class="author">Sly Stallone</td>
+      </tr>
+      <tr id="group4">
+        <td class="title">Dumbledore's Army</td>
+        <td class="author">Harry Potter</td>
+      </tr>
+      <tr id="group5">
+        <td class="title"></td>
+        <td class="author"></td>
+      </tr>
+      <tr id="group6">
+        <td class="title"></td>
+        <td class="author"></td>
+      </tr>
+    </table>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>

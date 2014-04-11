@@ -37,6 +37,13 @@ td {
 	float:right;	
 }
 
+#tabs3 {
+	width:80%;
+	height:200px;
+	margin-top:5%;
+	float:left;
+}
+
 #createNew {
 	
 }
@@ -52,6 +59,15 @@ td {
 #tabs2 tr:first-child {
 	background-color:#CCC;	
 	border-bottom:1px solid #2a2a2a;
+}
+
+#tabs3 tr:first-child {
+	background-color:#CCC;
+	border-bottom:1px solid #2a2a2a;
+}
+
+#tabs3 tr:nth-child(odd) {
+	background-color: #ededed;
 }
 
 .trashIcon {
@@ -120,4 +136,5 @@ td {
 	width: 40em;
 	background-color:red;
 }
+
 /*end styling for the tabs*/
