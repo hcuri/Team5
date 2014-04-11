@@ -192,11 +192,33 @@ function getSlides($presID) {
             $stmt->execute();
             $pres = $stmt->fetch(PDO::FETCH_ASSOC);
             $url = $pres['presURL'];
-            echo $url;
-           // $dir = opendir($url);
-            //while(true) {
-           //     echo readdir($dir);
-           // }
+            $dir = '..' . $url;
+            $URLarray = array();
+            $slidesARRAY = array();
+            if (is_dir($dir)){
+                if ($dh = opendir($dir)){
+                    while (($file = readdir($dh)) !== false){
+                        if($file == "." or $file == "..") continue;
+                        $URLarray[] = $dir . '/' . $file;
+                        
+                        $pattern = '/\d+/';
+                        preg_match($pattern, $file, $matches);
+                        $slideNum = $matches[0];
+                        $slidesARRAY[] = $slideNum;
+                        
+                    }
+                    closedir($dh);
+                }
+            }
+            echo '[{"numSlides":"' . count($URLarray) . '", "slides":{';
+            for($i = 0; $i < count($URLarray); $i++) {
+                if($i != 0)
+                    echo ', ';
+                echo '"' . $slidesARRAY[$i] . '":"' . $URLarray[$i] . '"';
+            }
+            echo '}}]';
+            
+        
             
             $db = null;
         } catch (PDOException $e) {
