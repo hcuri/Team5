@@ -38,7 +38,7 @@
     <h1>Lecture 11 By Chris Raley</h1>
   </div>
   <div id="PollAdderForm">
-    <form id="PollData">
+    <form id="PollData" action="" method="post" onclick="return addPoll(this)">
       <fieldset>
         <legend>Add Poll</legend>
         <label for="PollQuestion">Question</label>
