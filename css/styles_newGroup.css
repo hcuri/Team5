@@ -1,10 +1,10 @@
 /**styles_newGroup.css*/
 
 #groupinfo {
-	margin-left:5px;
+	margin-left:-40px;
 	margin-top:10px;
 	height:500px;
-	width:1000px;
+	width:1100px;
 	border:1px solid #2a2a2a;
 	padding-left:30px;
 	padding-top:30px;
@@ -15,4 +15,16 @@
 	margin-top:10px;
 	height:400px;
 	width:450px;
+}
+
+#sections {
+	height:30px;
+}
+
+.userdata {
+	border:1px solid #2a2a2a;
+}
+
+td {
+	background-color: orange;
 }
