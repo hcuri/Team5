@@ -10,6 +10,7 @@
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/new.js"></script>
+<script src="js/presentation.js"></script>
 <script src="js/main.js"></script>
 <title>UPresent -- New</title>
 </head>
@@ -30,7 +31,6 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
       <script>console.log(document.cookie);</script> 
     </div>
@@ -38,7 +38,7 @@
 </div>
 <h1>New UPresent</h1>
 <div id="content">
-<form id="createNew" action="editor.php" method="post" enctype="multipart/form-data">
+<form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation(this)">
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
@@ -52,7 +52,7 @@
       </input>
       <br/>
       <label for="group">Group</label>
-      <select name="group">
+      <select id="group" name="group">
       <option>Test</option>
       <option>Test2</option>
       </select>
@@ -68,7 +68,7 @@
     </div>
     <div id="divider"></div>
     <div id="fileinfo">
-      <p>Please upload PDF:</p>
+      <p>Please upload Folder of Images:</p>
       <br/>
       <span id="fileUpload"><input type="file" name="files[]" id="files" multiple directory webkitdirectory mozdirectory></span>
     </div>

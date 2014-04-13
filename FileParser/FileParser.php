@@ -1,5 +1,6 @@
 <?php
-require '../php/lib.php';
+
+require_once('php/lib.php');
 
 class FileParser {
 	//JSON to return for errors

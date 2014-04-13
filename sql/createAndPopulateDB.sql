@@ -72,19 +72,22 @@ CREATE TABLE Sessions
 Table: Presentations
 Info:
         presId - auto incremented
-        presURL - Drive URL to presentation
-        chatURL - URL to chat XML doc in drive
+        presName - Title of the presentation
+        rootURL - Root URL where the presentation is stored on the server
         sessionId - ID of session this presentation belongs to
         ownerId - userId of presentation owner
+        currSlide - Slide number the presenter is on in their presentation
+        alreadyPresented - Has the presentation already been presented
 */
 CREATE TABLE Presentations
 (
         presId                  INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
-	presName		VARCHAR(256)			NOT NULL,
-        presURL                 VARCHAR(256)                    NOT NULL,
-        chatURL                 VARCHAR(256)                    NOT NULL,
+		presName				VARCHAR(256)					NOT NULL,
+        rootURL                 VARCHAR(256)                    NOT NULL,
         sessionId               INT UNSIGNED                    NOT NULL,
         ownerId					INT UNSIGNED                    NOT NULL,
+        currSlide				INT UNSIGNED 					NOT NULL DEFAULT 0,
+        alreadyPresented		BOOLEAN							NOT NULL DEFAULT FALSE,
         PRIMARY KEY             (presId),
 		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
 		FOREIGN KEY				(ownerId)						REFERENCES Users(userId)
