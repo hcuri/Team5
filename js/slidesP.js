@@ -48,8 +48,10 @@ $(document).ready(function(e) {
 			}
 		}
 		if(e.keyCode == 39) {
-			currentSlide++;
-			updateSlide();
+			if(currentSlide < numSlides) {
+				currentSlide++;
+				updateSlide();
+			}
 		}
 	});
 	
@@ -63,7 +65,7 @@ function updateSlide() {
 		$("#next").attr("src", slides[currentSlide+1]);
 		$("#previous").attr("src", "");
 		$("#previous").css("background-color", "black");
-	} else if(currentSlide === (slides.length-1)) {
+	} else if(currentSlide === (numSlides-1)) {
 		$("#previous").attr("src", slides[currentSlide-1]);
 		$("#next").attr("src", "");
 		$("#next").css("background-color", "black");
