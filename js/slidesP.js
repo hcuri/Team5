@@ -27,7 +27,16 @@ $(document).ready(function(e) {
 	
 	$("#slide").click(function() {
 		currentSlide++;
-		alert(currentSlide);
+		updateSlide();
+	});
+	$("#previous").click(function() {
+		if(currentSlide > 1) {
+		currentSlide--;
+		updateSlide();
+		}
+	});
+	$("#next").click(function() {
+		currentSlide++;
 		updateSlide();
 	});
 	
