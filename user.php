@@ -2,15 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="css/styles_user.css" rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/jQuery.css" rel="stylesheet" />
-<script src="js/jQuery.js"></script>
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/user.js"></script>
-<script src="js/main.js"></script>
-<title>UPresent -- User</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="css/styles_user.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/jQuery.css" rel="stylesheet" />
+  <script src="js/jQuery.js"></script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/main.js"></script>
+  <title>UPresent -- User</title>
 </head>
 <body>
 <div id="header">
@@ -225,36 +225,61 @@
     </div>
   </div>
   <div id="tabs3">
-    <table id="groups">
-      <tr>
-        <th class="title">Name</th>
-        <th class="author">Creator</th>
-      </tr>
-      <tr id="group1">
-        <td class="title">Justice League</td>
-        <td class="author">Batman</td>
-      </tr>
-      <tr id="group2">
-        <td class="title">The Jedi</td>
-        <td class="author">Yoda</td>
-      </tr>
-      <tr id="group3">
-        <td class="title">The Expendables</td>
-        <td class="author">Sly Stallone</td>
-      </tr>
-      <tr id="group4">
-        <td class="title">Dumbledore's Army</td>
-        <td class="author">Harry Potter</td>
-      </tr>
-      <tr id="group5">
-        <td class="title"></td>
-        <td class="author"></td>
-      </tr>
-      <tr id="group6">
-        <td class="title"></td>
-        <td class="author"></td>
-      </tr>
-    </table>
+    <div id="tabs3-1">
+      <table id="groups">
+        <tr>
+          <th class="title">Name</th>
+          <th class="author">Creator</th>
+        </tr>
+        <tr id="group1">
+          <td class="title">Justice League</td>
+          <td class="author">Batman</td>
+        </tr>
+        <tr id="group2">
+          <td class="title">The Jedi</td>
+          <td class="author">Yoda</td>
+        </tr>
+        <tr id="group3">
+          <td class="title">The Expendables</td>
+          <td class="author">Sly Stallone</td>
+        </tr>
+        <tr id="group4">
+          <td class="title">Dumbledore's Army</td>
+          <td class="author">Harry Potter</td>
+        </tr>
+        <tr id="group5">
+          <td class="title">SMU Mustangs</td>
+          <td class="author">Larry Brown</td>
+        </tr>
+        <tr id="group6">
+          <td class="title">Dallas Cowboys</td>
+          <td class="author">Jerry Jones</td>
+        </tr>
+      </table>
+    </div>
+    <div id="groupStuff">
+      <div id="createGroup">
+        <form id="newG" action="newGroup.php">
+          <input id="newGroup" type="submit" value="Create Group">
+        </form>
+      </div>
+      <div id="searchGroup">
+        <form id="searchG" action="searchterms.php">
+          <input id="sGroup" type="submit" value="Search for Group">
+        </form>
+      </div>
+      <div id="addtoGroup">
+        <form id="addG" action="something.php">
+          <input id="aGroup" type="submit" value="Add to Group">
+        </form>
+      </div>
+      <div id="leaveGroup">
+        <form id="leaveG" action="something.php">
+          <input id="lGroup" type="submit" value="Leave Group">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
