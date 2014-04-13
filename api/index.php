@@ -379,7 +379,7 @@ function getCurrentSlide($presId) {
         $stmt = $db->prepare($sql);
         $stmt->bindParam("presId", $presId);
         $stmt->execute();
-        $pres = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $pres = $stmt->fetch(PDO::FETCH_ASSOC);
         echo json_encode($pres);
         
         
