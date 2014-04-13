@@ -25,6 +25,11 @@
 	border:1px solid #2a2a2a;
 }
 
-td {
-	background-color: orange;
+tr:first-child {
+	background-color:#CCC;	
+	border-bottom:1px solid #2a2a2a;
+}
+
+tr:nth-child(odd) {
+    background-color: #ededed;
 }
