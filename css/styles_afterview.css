@@ -16,6 +16,20 @@
     text-decoration: underline;
 }
 
+#LeftCol {
+    float:left;
+    width:500px;
+}
+
+#RightCol {
+    width:400px;
+
+}
+
+#notes {
+    height:250px;
+    border:1px solid #2a2a2a;
+}
 
 
 
