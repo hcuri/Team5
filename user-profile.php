@@ -59,6 +59,9 @@
         <br/>
         <input type="submit" name="update" value="Update Profile"/>
       </form>
+      <form id="return" name="home" action="user.php">
+        <input type="submit" name="home" value="Home" />
+      </form>
     </div>
     <div id="divider"></div>
     <div id="preview">
@@ -72,7 +75,7 @@
     </div>
   </div>
 </div>
-<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>
+<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 <!--<div id="footer">UPresent 2014 | About | Terms | Privacy | Contact </div>-->
 </body>
 </html>
