@@ -10,8 +10,8 @@
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/new.js"></script>
-<script src="js/presentation.js"></script>
 <script src="js/main.js"></script>
+<script src="js/presentation.js"></script>
 <title>UPresent -- New</title>
 </head>
 <body>
@@ -38,32 +38,17 @@
 </div>
 <h1>New UPresent</h1>
 <div id="content">
-<form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation(this)">
+<form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation()">
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
-      <input type="text" name="title"/>
-      <br/>
-      <label for="session">Session:</label>
-      <input id="session" type="text" name="session"/>
-      <br/>
-      <label for="private">Create Session?</label>
-      <input type="checkbox" name="private">
-      </input>
-      <br/>
-      <label for="group">Group</label>
-      <select id="group" name="group">
-      <option>Test</option>
-      <option>Test2</option>
-      </select>
+      <input type="text" name="title" id="title" />
       <br/>
       <label for="date">Date?</label>
-      <input type="date" name="date">
-      </input>
+      <input type="date" name="date" id="date"></input>
       <br/>
-      <label for="private">Is Private?</label>
-      <input type="checkbox" name="private">
-      </input>
+      <label for="time">Time?</label>
+      <input type="time" name="time" id="time"></input>
       <!--Code input?--> 
     </div>
     <div id="divider"></div>

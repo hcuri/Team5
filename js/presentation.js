@@ -1,23 +1,27 @@
-function createPresentation(pForm) {
-
-	var title = pForm.title.value;
-	var sessionName = pForm.session.value;
-	var private = pForm.private.value;
-	var groupName = $("#group :selected").text(); //the text content of the selected option
-	var groupName2 = $("#group").val();
-
-	alert(title + " " + sessionName + " " + " " + private + " " + groupName + " " + groupName2 + " ");
-
-	var check = $.ajax({
-		type: 'GET',
-		url: root_url + 'verify/' + username + '/' + pw,
-		dataType: "json", // data type of response
+function createPresentation() {
+	var bool = false;
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'addPresentation',
+		data: presFormToJSON(),
 		async: false,
+		success: function(){
+			alert('Presentation created successfully');
+			bool = true;
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\ncreatePresentation() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+			bool = false;
+		}
 	});
-	check = check.responseJSON;
-	check = check.registered;
-	if(check === false){
-		alert("Username and Password Do Not Match");
-	}
-	return check;
+
+	return bool;
+}
+
+function presFormToJSON() {
+	return JSON.stringify({
+		"title": $('#title').val(),
+		"date": $('#date').val(),
+		"time": $('#time').val()
+	});
 }

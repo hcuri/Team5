@@ -88,8 +88,7 @@ function registerUser() {
 	$request = Slim::getInstance()->request();
 	$user = json_decode($request->getBody());
 	$pass = password_hash($user->pass, PASSWORD_DEFAULT);
-	$sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, "
-                . ":email, :pass, 'NONE', 'NONE', 'NONE')";
+	$sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE', 'NONE')";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
@@ -309,15 +308,23 @@ function search($term) {
 function addPresentation() {
 	error_log('addPresentation\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
+
+	$username = $_COOKIE['user'];
+	$userId = getUserId($username);
+	$rootURL = "../upload/" . $_COOKIE['user'] . "/";
+	$groupId = 25;
+
 	$presentation = json_decode($request->getBody());
-	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :rootURL,"
-                . " 'NONE', :username)";
+	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :title, :rootURL, :ownerId, :groupId, :presDate, :presTime, DEFAULT, DEFAULT)";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("rootURL", $presentation->rootURL);
-		$stmt->bindParam("sessId", $presentation->sessId);
-		$stmt->bindParam("username", $presentation->username);
+		$stmt->bindParam("title", $presentation->title);
+		$stmt->bindParam("rootURL", $rootURL);
+		$stmt->bindParam("ownerId", $userId);
+		$stmt->bindParam("groupId", $groupId);
+		$stmt->bindParam("presDate", $presentation->date);
+		$stmt->bindParam("presTime", $presentation->time);
 	    $stmt->execute();
 		$db = null; 
 		echo json_encode($presentation); 

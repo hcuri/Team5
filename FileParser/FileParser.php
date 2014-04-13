@@ -3,21 +3,20 @@
 require_once('php/lib.php');
 
 class FileParser {
-	//JSON to return for errors
-	//$err;
-
 	function modifyPresentation($files, $title) {
 		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post' && !empty($_FILES)) {
 
+			$username = $_COOKIE['user'];
+			$userId = getUserId($username);
 	    	try {
 				$sql = "SELECT presId 
 						FROM Presentations 
 						WHERE presName = :title  
-						AND ownerId = :username;";
+						AND ownerId = :userId;";
 				$db = dbconnect();
 				$stmt = $db->prepare($sql);   
 				$stmt->bindParam("title", $title);
-				$stmt->bindParam("username", $_COOKIE['user']);
+				$stmt->bindParam("userId", $userId);
 	    		$stmt->execute();
 	    		$pres = $stmt->fetch(PDO::FETCH_ASSOC);
 	    		$presId = $pres['presId'];
@@ -41,18 +40,18 @@ class FileParser {
       				echo "Size: " . ($_FILES["files"]['size'][$index] / 1024) . " kB<br>";
       				echo "Temp file: " . $_FILES["files"]['tmp_name'][$index] . "<br>";
 
-      				$folder = "../upload/" . $_COOKIE['user'] . "/" . $presId;
-      				if(is_dir($folder)) 
+      				$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
+      				if(is_dir($folder)) {
         				rmdir($folder);
+        				mkdir($folder, 0700);
+        			}
         			else 
       					mkdir($folder, 0700);
 
         			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
     			}
     			else {
-                                //why not just put $err in here?
-                                //Error handling, change $err
-    				return $err;
+    				//Error handling
     			}
   			}
 		}

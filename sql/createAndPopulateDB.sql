@@ -42,30 +42,22 @@ CREATE TABLE Groups
         groupId                 INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
         groupName               VARCHAR(256)                    NOT NULL,
         ownerId                 INT UNSIGNED                    NOT NULL,
-        Code               		VARCHAR(4)                      NOT NULL,
         PRIMARY KEY             (groupId),
 		FOREIGN KEY				(ownerId)						REFERENCES Users(userId)
 );
 
 /*
-Table: Sessions
+Table: Group_Users
 Info:
-	sessionId - Auto incremented
-	groupId - ID of group this session belongs to
-	ownerId - ID of user that started the session
-	isPrivate - Bool to whether session is private or not
-	date - Date the session is taking place
+	groupId - ID of group
+	userId - ID of user
 */
-CREATE TABLE Sessions
+CREATE TABLE Group_Users
 (
-        sessionId               INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
-        groupId                 INT UNSIGNED                    NOT NULL,
-        ownerId                 INT UNSIGNED                    NOT NULL,
-        isPrivate               INT UNSIGNED                    NOT NULL,
-        date                    VARCHAR(255)                    NOT NULL,
-        PRIMARY KEY             (sessionId),
+        groupId					INT UNSIGNED                    NOT NULL,
+        userId                  INT UNSIGNED                    NOT NULL,
 		FOREIGN KEY				(groupId)						REFERENCES Groups(groupId),
-		FOREIGN KEY				(ownerId)						REFERENCES Groups(ownerId)
+		FOREIGN KEY				(userId)						REFERENCES Users(userId)
 );
 
 /*
@@ -84,12 +76,13 @@ CREATE TABLE Presentations
         presId                  INT UNSIGNED                    NOT NULL AUTO_INCREMENT,
 		presName				VARCHAR(256)					NOT NULL,
         rootURL                 VARCHAR(256)                    NOT NULL,
-        sessionId               INT UNSIGNED                    NOT NULL,
         ownerId					INT UNSIGNED                    NOT NULL,
+        groupId					INT UNSIGNED					NOT NULL,
+        presDate 				VARCHAR(256) 					NOT NULL,
+        PresTime				VARCHAR(256) 					NOT NULL,
         currSlide				INT UNSIGNED 					NOT NULL DEFAULT 0,
         alreadyPresented		BOOLEAN							NOT NULL DEFAULT FALSE,
         PRIMARY KEY             (presId),
-		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
 		FOREIGN KEY				(ownerId)						REFERENCES Users(userId)
 );
 
@@ -125,47 +118,5 @@ CREATE TABLE Poll_Options
         pollId                  INT UNSIGNED                    NOT NULL,
         option_text             VARCHAR(256)                    NOT NULL,
         FOREIGN KEY             (pollId)						REFERENCES Poll(pollId)
-);
-
-/*
-Table: Session_Users
-Info:
-	sessionId - ID of session
-	userId - ID of user
-*/
-CREATE TABLE Session_Users
-(
-        sessionId				INT UNSIGNED                    NOT NULL,
-        userId                  INT UNSIGNED                    NOT NULL,
-		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
-		FOREIGN KEY				(userId)						REFERENCES Users(userId)
-);
-
-/*
-Table: Session_Presentations
-Info:
-	sessionId - ID of session
-	presId - ID of pres
-*/
-CREATE TABLE Session_Presentations
-(
-        sessionId               INT UNSIGNED                    NOT NULL,
-        presId					INT UNSIGNED                    NOT NULL,
-		FOREIGN KEY				(sessionId)						REFERENCES Sessions(sessionId),
-		FOREIGN KEY				(presId)						REFERENCES Presentations(presId)
-);
-
-/*
-Table: Group_Users
-Info:
-	groupId - ID of group
-	userId - ID of user
-*/
-CREATE TABLE Group_Users
-(
-        groupId					INT UNSIGNED                    NOT NULL,
-        userId                  INT UNSIGNED                    NOT NULL,
-		FOREIGN KEY				(groupId)						REFERENCES Groups(groupId),
-		FOREIGN KEY				(userId)						REFERENCES Users(userId)
 );
 

@@ -4,7 +4,7 @@
   echo $_FILES["files"]['name'][1];
   echo $_COOKIE['user'];
   echo $_POST['title'];
-  $FileParser->modifyPresentation($_FILES["files"], $_COOKIE['user'], $_POST['title']);
+  $FileParser->modifyPresentation($_FILES["files"], $_POST['title']);
 ?>
 
 <!--editor.html-->
