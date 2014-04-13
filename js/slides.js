@@ -2,28 +2,43 @@
 
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
+var currentSlide = 1;	
+var presID = 1;
+var numSlides;
 
 $(document).ready(function(e) {
-	
-	var presID = 1;
-  
 	var slidesJSON = $.ajax({
 		type: 'GET',
 		url: root_url + "/getSlides/" + presID,
 		dataType: "json",
 		async: false,
 	});
-	var slidesJSON = slidesJSON.responseJSON;
-	alert(JSON.stringify(slidesJSON));
-	var numSlides = slidesJSON.numSlides;
-	var slides = slidesJSON.slides;
+	slidesJSON = slidesJSON.responseJSON;
+	numSlides = slidesJSON.numSlides;
+	slides = slidesJSON.slides;
+	//var title = slidesJSON.title;
+	//var author = slidesJSON.author;
 	
-	alert(slides[1]);
 	
 	$("#slide").attr("src", slides[1]);
+	//$("#presName").html(title);
+	//$("#presAuthor").html(author);
 	
 });
 
-function updateSlide(num) {
-	$("#slide").attr("src", slides[num]);
+function updateSlide() {
+	$("#slide").attr("src", slides[currentSlide]);
+	$("#slideNum").html(currentSlide + "/" + numSlides);
 }
+
+setInterval(function() {
+	var cS = $.ajax({
+		type: 'GET',
+		url: root_url + "/getCurrentSlide/" + presID,
+		dataType: "json",
+		async: false,
+	});
+	cS = cS.responseJSON;
+	currentSlide = cS.currSlide;
+	updateSlide();
+}, 100);

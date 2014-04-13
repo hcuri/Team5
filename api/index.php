@@ -20,7 +20,7 @@ $app->post('/register', 'registerUser');
 $app->post('/addPresentation', 'addPresentation');
 $app->get('/getSlides/:presID', 'getSlides');
 $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
-$app->post('/setCurrentSlide/', 'setCurrentSlide');
+$app->post('/setCurrentSlide', 'setCurrentSlide');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');

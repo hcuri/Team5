@@ -40,13 +40,13 @@
   <div id="viewer">
     <div id="info">
       <div class="oLine"></div>
-      <img id="previous" class="smallSlide" src="img/slide1.jpg"/>
+      <img id="previous" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
-    <div id="slidePane"> <img id="slide" src="img/slide2.jpg"/></div>
+    <div id="slidePane"> <img id="slide" src=""/></div>
     <div id="status">
       <div class="oLine"></div>
-      <img id="next" class="smallSlide" src="img/slide3.jpg"/>
+      <img id="next" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
   </div>

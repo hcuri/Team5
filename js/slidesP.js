@@ -3,14 +3,13 @@
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
 var currentSlide = 1;
-var numSlides;
+var numSlides;	
+var presID = 1;
 
 $(document).ready(function(e) {
  
   	$("#previous").css("background-color", "black");
 	$("#previous").removeAttr("src");
-	
-	var presID = 1;
 	
 	var slidesJSON = $.ajax({
 		type: 'GET',
@@ -54,8 +53,6 @@ $(document).ready(function(e) {
 			}
 		}
 	});
-	
-	
 });
 
 function updateSlide() {
@@ -73,4 +70,26 @@ function updateSlide() {
 		$("#previous").attr("src", slides[currentSlide-1]);
 		$("#next").attr("src", slides[currentSlide+1]);
 	}
+	
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'setCurrentSlide',
+		data: regFormToJSON(),
+		async: false,
+		success: function(){
+			//alert("Slide Changed");
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
+	
+}
+
+// Helper function to serialize all the form fields into a JSON string
+function regFormToJSON() {
+	return JSON.stringify({
+		"presId" : presID,
+		"currSlide": currentSlide
+	});
 }
