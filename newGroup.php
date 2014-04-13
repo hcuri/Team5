@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/styles_user.css" rel="stylesheet" />
 		<link href="css/styles.css" rel="stylesheet" />
+		<link href="css/styles_newGroup.css" rel="stylesheet" />
 		<link href="css/jQuery.css" rel="stylesheet" />
 		<script src="js/jQuery.js"></script>
 		<script src="js/jquery-1.10.2.js"></script>
@@ -36,10 +37,19 @@
 		</div>
 
 		<div id="content">
+			<div id="groupinfo">
+				<label for="groupname">Group Name:</label>
+				<input type="text" name="groupname"> 
+				<table id="users">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>School</th>
+					</tr>
 
-
-
-
+				</table>
+			</div>
 		</div>
 		<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 	</body>
