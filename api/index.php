@@ -210,13 +210,13 @@ function getSlides($presID) {
                     closedir($dh);
                 }
             }
-            echo '[{"numSlides":"' . count($URLarray) . '", "slides":{';
+            echo '{"numSlides":"' . count($URLarray) . '", "slides":{';
             for($i = 0; $i < count($URLarray); $i++) {
                 if($i != 0)
                     echo ', ';
                 echo '"' . $slidesARRAY[$i] . '":"' . $URLarray[$i] . '"';
             }
-            echo '}}]';
+            echo '}}';
             
         
             
