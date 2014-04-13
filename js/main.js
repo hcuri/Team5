@@ -1,6 +1,11 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
 //blah blah blah
+$(document).ready(function(e) {
+    if($("#logout").length === 1) {
+		$("#logoLink").attr("href", "user.php");
+	}
+});
 
 function checkLogin(lForm) {
 	var username = lForm.logInUsername.value;

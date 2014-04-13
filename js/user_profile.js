@@ -31,10 +31,6 @@ $(document).ready(function() {
 	$("#org").attr("placeholder", organization);
 	var orgID = info.schoolID;
 	$("#orgID").attr("placeholder", orgID);
-	
-    if($("#logout").length === 1) {
-		$("#logoLink").attr("href", "user.php");
-	}
 });
 
 function updateProfile(pForm) {
