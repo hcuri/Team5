@@ -13,19 +13,14 @@ $(document).ready(function(e) {
 		dataType: "json",
 		async: false,
 	});
-	alert(JSON.stringify(slidesJSON));
 	var slidesJSON = slidesJSON.responseJSON;
 	alert(JSON.stringify(slidesJSON));
-	var numOfSlides = slidesJSON.numSlides;
-	alert(numOfSlides);
-	alert(numSlides);
+	var numSlides = slidesJSON.numSlides;
 	var slides = slidesJSON.slides;
 	
-	/*for(var i = 0; i < numSlides; i++) {
-		slides[i] = slidesJSON[i].url;
-	}
+	alert(slides[1]);
 	
-	$("#slide").attr("src", slides[0]);*/
+	$("#slide").attr("src", slides[1]);
 	
 });
 
