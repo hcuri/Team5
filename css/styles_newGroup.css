@@ -1,20 +1,35 @@
 /**styles_newGroup.css*/
 
+#name {
+	margin-bottom:5px;
+
+}
+
 #groupinfo {
 	margin-left:-40px;
 	margin-top:10px;
-	height:500px;
+	margin-bottom:40px;
+	height:490px;
 	width:1100px;
 	border:1px solid #2a2a2a;
 	padding-left:30px;
 	padding-top:30px;
+	padding-right:30px;
 	background-color:white;
 }
 
 #users {
+	float:left;
 	margin-top:10px;
 	height:400px;
-	width:450px;
+	width:500px;
+}
+
+#added {
+	float:right;
+	margin-top:10px;
+	height:400px;
+	width:520px;
 }
 
 #sections {
@@ -22,7 +37,7 @@
 }
 
 .userdata {
-	border:1px solid #2a2a2a;
+
 }
 
 tr:first-child {
@@ -32,4 +47,8 @@ tr:first-child {
 
 tr:nth-child(odd) {
     background-color: #ededed;
+}
+
+td {
+	height:20px;
 }
