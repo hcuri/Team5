@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles_home.css" rel="stylesheet" />
@@ -31,6 +32,11 @@
       <script>console.log(document.cookie);</script> 
     </div>
   </div>
+  <script>$(document).ready(function(e) {
+    if($("#logout").length === 1) {
+		window.location = "user.php";
+	}
+});</script> 
 </div>
 <div id="content">
   <div id="info">
@@ -55,13 +61,3 @@
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -14,7 +14,8 @@ $(document).ready(function(e) {
 		async: false,
 	});
 	var slidesJSON = slidesJSON.responseJSON;
-	var numSlides = slidesJSON.slides;
+	var numSlides = slidesJSON.numSlides;
+	var slides = slidesJSON.slides;
 	
 	for(var i = 0; i < numSlides; i++) {
 		slides[i] = slidesJSON[i].url;

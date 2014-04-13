@@ -35,10 +35,10 @@ function logout() {
 	check = check.loggedOut;
 	if(check == true) {
 		alert("Successfully logged out");
-		window.location = "http://localhost/index.php";
+		window.location = "http://localhost/UPresent/index.php";
 	}
 	else {
-		window.location = "http://localhost/index.php";
+		window.location = "http://localhost/UPresent/index.php";
 	}
 }
 
