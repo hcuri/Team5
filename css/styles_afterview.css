@@ -1,6 +1,5 @@
 #content {
     height:500px;
-    border:1px solid #2a2a2a;
 }
 
 #LogoMessage {
@@ -32,21 +31,27 @@
 
 }
 
+#Slides {
+    margin-left:15px;
+    margin-top:20px;
+}
+
 #NoteSection {
     position:relative;
     height:280px;
     width:497px;
-    border:1px solid #2a2a2a;
+    
 }
 
 #notes {
     height:250px;
-    border:1px solid #2a2a2a;
+    margin-left:15px;
+    margin-top:5px;
 }
 
 #notesection {
     height:150px;
-    width:450px;
+    width:455px;
 }
 
 #Chat {
