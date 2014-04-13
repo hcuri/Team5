@@ -19,6 +19,8 @@ $app->post('/register', 'registerUser');
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
 $app->get('/getSlides/:presID', 'getSlides');
+$app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
+$app->put('/setCurrentSlide/:presID/:currentSlide', 'setCurrentSlide');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
