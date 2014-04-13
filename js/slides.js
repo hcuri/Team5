@@ -4,10 +4,12 @@ var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
 
 $(document).ready(function(e) {
+	
+	var presID = 1;
   
 	var slidesJSON = $.ajax({
 		type: 'GET',
-		url: root_url + "getSlides",
+		url: root_url + "getSlides" + presID,
 		dataType: "json",
 		async: false,
 	});

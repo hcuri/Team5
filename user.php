@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="header">
-  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
       <?php
         $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
@@ -255,6 +255,7 @@
         <td class="author"></td>
       </tr>
     </table>
+  </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
