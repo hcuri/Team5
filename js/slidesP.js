@@ -40,6 +40,20 @@ $(document).ready(function(e) {
 		updateSlide();
 	});
 	
+	$(document).keydown(function(e) {
+		if(e.keyCode == 37) {
+			if(currentSlide > 1) {
+				currentSlide--;
+				updateSlide();
+			}
+		}
+		if(e.keyCode == 39) {
+			currentSlide++;
+			updateSlide();
+		}
+	});
+	
+	
 });
 
 function updateSlide() {
