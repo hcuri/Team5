@@ -1,2 +1,18 @@
 /**styles_newGroup.css*/
 
+#groupinfo {
+	margin-left:5px;
+	margin-top:10px;
+	height:500px;
+	width:1000px;
+	border:1px solid #2a2a2a;
+	padding-left:30px;
+	padding-top:30px;
+	background-color:white;
+}
+
+#users {
+	margin-top:10px;
+	height:400px;
+	width:450px;
+}
