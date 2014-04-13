@@ -193,13 +193,14 @@ function getSlides($presID) {
             $pres = $stmt->fetch(PDO::FETCH_ASSOC);
             $url = $pres['presURL'];
             $dir = '..' . $url;
+            $urlTxt = 'UPresent' . $url;
             $URLarray = array();
             $slidesARRAY = array();
             if (is_dir($dir)){
                 if ($dh = opendir($dir)){
                     while (($file = readdir($dh)) !== false){
                         if($file == "." or $file == "..") continue;
-                        $URLarray[] = $dir . '/' . $file;
+                        $URLarray[] = $urlTxt . '/' . $file;
                         
                         $pattern = '/\d+/';
                         preg_match($pattern, $file, $matches);
