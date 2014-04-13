@@ -44,26 +44,26 @@
   <!--Left Side Content-->
   <div id="LeftCol">
     <div id="Slides"> <img src="img/coverview.png" /> </div>
-    <div id="NoteSection">
+    <!--<div id="NoteSection">
       <form id="notes">
         <fieldset>
           <legend>Notes</legend>
-          <textarea rows="10" cols="63">       
-    You can still type or correct your notes here after you watch the presentation.
-    They will be stored automatically along the specific slide that you were viewing at the moment.
-                            </textarea>
+          <textarea id="notesection">       
+            You can still type or correct your notes here after you watch the presentation.
+            They will be stored automatically along the specific slide that you were viewing at the moment.
+          </textarea>
         </fieldset>
       </form>
-    </div>
+    </div>-->
   </div>
-  <div id="vline"></div>
+  <!--<div id="vline"></div>-->
   
   <!--Right Side-->
-  <div id="RightCol">
+  <!--<div id="RightCol">
     <div id="Chat">
       <fieldset>
         <legend>Viewers Chat</legend>
-        <textarea id="chatHistory" rows="15" cols="63">
+        <textarea id="chatHistory"> <!--rows="15" cols="63"
           User1: I really liked Raley's UPresent
                                       
           User2: Yeah, he's awesome!
@@ -77,20 +77,22 @@
           <input id="chatSubmit" type="button" value="Send"/>
         </form>
       </fieldset>
-    </div>
+    </div>-->
     <div id="Options">
-      <input id="download" type="button" value="Download Slides" /
+      <input id="download" type="button" value="Download Slides" />
       <input id="contact" type="button" value="Contact Presenter" />
     </div>
   </div>
   
+
+  <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
   <!--Footer-->
-  <div id="Footer">
+  <!--<div id="Footer">
     <form id="save">
       <input type="button" id="home" value="Home" onclick="window.location='user.php'" />
       <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/></span>
     </form>
-  </div>
+  </div>-->
 </div>
 </body>
 </html>
