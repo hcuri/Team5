@@ -10,9 +10,9 @@
     clear:left;
 }
 
-#bottomlogo {
+/*#bottomlogo {
     height: 30px;
-}
+}*/
 
 #UPresentTitle{
     text-align: center;
@@ -21,25 +21,28 @@
 
 #LeftCol {
     float:left;
-    width:500px;
+    width:700px;
 }
 
-#RightCol {
+/*#RightCol {
     float:right;
     width:400px;
+    margin-top:13px;
     margin-right: 100px;
 
-}
+}*/
 
 #Slides {
-    margin-left:15px;
+    margin-left:270px;
     margin-top:20px;
+    width:500px;
+    height:300px;
 }
 
-#NoteSection {
+/*#NoteSection {
     position:relative;
     height:280px;
-    width:497px;
+    width:200px;
     
 }
 
@@ -76,34 +79,21 @@
     float: right;
     height: 30px;
     width: 100px;
-}
+}*/
 
-#vline {
+/*#vline {
     border: 1px solid #2a2a2a;
     width: 0px;
     height: 370px;
     float: left;
     margin-left: 26px;
     margin-top: 20px;
-}
+}*/
 
-#download {
-    float: left;
-    position: relative;
-    left: 160px;
-    top: 20px;
-    width: 200px;
-    height: 30px;
-}
-
-#contact {
-    float: left;
-    position: relative;
-    left: 160px;
-    top: 30px;
-    width: 200px;
-    height: 30px;
-    clear: left;
+#Options {
+    float:left;
+    margin-left:-300px;
+    margin-top:350px;
 }
 
 
