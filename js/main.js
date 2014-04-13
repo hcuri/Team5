@@ -1,9 +1,13 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
 //blah blah blah
+$(document).ready(function(e) {
+    if($("#logout").length === 1) {
+		$("#logoLink").attr("href", "user.php");
+	}
+});
 
 function checkLogin(lForm) {
-alert("test");
 	var username = lForm.logInUsername.value;
 	var pw = lForm.logInPassword.value;
 	var check = $.ajax({
@@ -36,10 +40,10 @@ function logout() {
 	check = check.loggedOut;
 	if(check == true) {
 		alert("Successfully logged out");
-		window.location = "http://localhost/index.php";
+		window.location = "http://localhost/UPresent/index.php";
 	}
 	else {
-		window.location = "http://localhost/index.php";
+		window.location = "http://localhost/UPresent/index.php";
 	}
 }
 

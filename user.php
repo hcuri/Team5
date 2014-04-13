@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="header">
-  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A id="logoLink" HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
       <?php
         $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
@@ -225,6 +225,7 @@
     </div>
   </div>
   <div id="tabs3">
+<<<<<<< HEAD
     <div id="tabs3-1">
       <table id="groups">
         <tr>
@@ -279,6 +280,38 @@
         </form>
       </div>
     </div>
+=======
+    <table id="groups">
+      <tr>
+        <th class="title">Name</th>
+        <th class="author">Creator</th>
+      </tr>
+      <tr id="group1">
+        <td class="title">Justice League</td>
+        <td class="author">Batman</td>
+      </tr>
+      <tr id="group2">
+        <td class="title">The Jedi</td>
+        <td class="author">Yoda</td>
+      </tr>
+      <tr id="group3">
+        <td class="title">The Expendables</td>
+        <td class="author">Sly Stallone</td>
+      </tr>
+      <tr id="group4">
+        <td class="title">Dumbledore's Army</td>
+        <td class="author">Harry Potter</td>
+      </tr>
+      <tr id="group5">
+        <td class="title"></td>
+        <td class="author"></td>
+      </tr>
+      <tr id="group6">
+        <td class="title"></td>
+        <td class="author"></td>
+      </tr>
+    </table>
+>>>>>>> 55d6a81f7cfbae6079398888beb8f2e97fa0ea27
   </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>

@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="header">
-  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
       <?php
         $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
