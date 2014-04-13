@@ -20,7 +20,7 @@ $app->post('/register', 'registerUser');
 $app->post('/addPresentation', 'addPresentation');
 $app->get('/getSlides/:presID', 'getSlides');
 $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
-$app->put('/setCurrentSlide/:presID/:currentSlide', 'setCurrentSlide');
+$app->post('/setCurrentSlide/', 'setCurrentSlide');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
@@ -310,13 +310,12 @@ function addPresentation() {
 	error_log('addPresentation\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$presentation = json_decode($request->getBody());
-	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL,"
+	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :rootURL,"
                 . " 'NONE', :username)";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("presURL", $presentation->presURL);
-		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("rootURL", $presentation->rootURL);
 		$stmt->bindParam("sessId", $presentation->sessId);
 		$stmt->bindParam("username", $presentation->username);
 	    $stmt->execute();
@@ -329,7 +328,7 @@ function addPresentation() {
 }
 
 function getSlides($presID) {
-        $sql = "SELECT presURL FROM Presentations WHERE presId=:presID";
+        $sql = "SELECT rootURL FROM Presentations WHERE presId=:presID";
 
         try {
             $db = dbconnect();
@@ -337,7 +336,7 @@ function getSlides($presID) {
             $stmt->bindParam("presID", $presID);
             $stmt->execute();
             $pres = $stmt->fetch(PDO::FETCH_ASSOC);
-            $url = $pres['presURL'];
+            $url = $pres['rootURL'];
             $dir = '..' . $url;
             $urlTxt = 'http://localhost/UPresent' . $url;
             $URLarray = array();
@@ -374,6 +373,45 @@ function getSlides($presID) {
         }
 }
 
+function getCurrentSlide($presId) {
+    $sql = "SELECT currSlide FROM Presentations WHERE presId = :presId";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("presId", $presId);
+        $stmt->execute();
+        $pres = $stmt->fetchAll(PDO::FETCH_OBJ);
+        echo json_encode($pres);
+        
+        
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+	echo '{"error":"'. $e->getMessage() .'"}';
+    }
+}
+
+function setCurrentSlide() {
+        error_log('postUserInfo\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$user = json_decode($request->getBody());
+
+	$sql = "UPDATE Presentations SET currSlide = :currSlide WHERE presId = :presId";
+
+        
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("currSlide", $user->currSlide);
+		$stmt->bindParam("presId", $user->presId);
+                $stmt->execute();
+		$db = null;  
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 function getPresentations($username) {
     $sql = "SELECT userId FROM Users WHERE username = :username";
     $presSql = "SELECT presId, presName FROM Presentations WHERE ownerId = :userId";
@@ -389,8 +427,12 @@ function getPresentations($username) {
             $stmt = $db->prepare($presSql);
             $stmt->bindParam("userId", $userId);
             $stmt->execute();
-            $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
-            echo json_encode($presentations);
+            if($stmt->rowCount() > 0) {
+                $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
+                echo json_encode($presentations);
+            }
+            else
+                
             $db = null;
             
             
@@ -456,8 +498,7 @@ function createGroup() {
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("presURL", $presentation->presURL);
-		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("rootURL", $presentation->rootURL);
 		$stmt->bindParam("sessId", $presentation->sessId);
 		$stmt->bindParam("username", $presentation->username);
 	    $stmt->execute();
