@@ -41,13 +41,54 @@
 				<label for="groupname">Group Name:</label>
 				<input type="text" name="groupname"> 
 				<table id="users">
-					<tr>
+					<tr id="sections">
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Username</th>
 						<th>School</th>
 					</tr>
-
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
 				</table>
 			</div>
 		</div>
