@@ -1,9 +1,13 @@
+#content {
+    height:500px;
+    border:1px solid #2a2a2a;
+}
+
 #LogoMessage {
     float: right;
 }
 
 #Footer {
-    float:none;
     clear:left;
 }
 
@@ -22,8 +26,17 @@
 }
 
 #RightCol {
+    float:right;
     width:400px;
+    margin-right: 100px;
 
+}
+
+#NoteSection {
+    position:relative;
+    height:280px;
+    width:497px;
+    border:1px solid #2a2a2a;
 }
 
 #notes {
@@ -31,202 +44,27 @@
     border:1px solid #2a2a2a;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#NoteSection {
+#notesection {
+    height:150px;
+    width:450px;
+}
+
+#Chat {
     float:left;
-}
-
-#RightCol {
-    float:right;
-}
-
-#LeftCol {
-    float: left;
+    height:300px;
 }
 
 #chatHistory {
     float:left;
+    margin-top:5px;
+    height:300px;
+    width:408px;
+}
+
+#chatInput {
+    float:left;
+    margin-top:4px;
+    height:20px;
 }
 
 #chatSubmit {
