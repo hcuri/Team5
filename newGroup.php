@@ -38,8 +38,10 @@
 
 		<div id="content">
 			<div id="groupinfo">
-				<label for="groupname">Group Name:</label>
-				<input type="text" name="groupname"> 
+				<div id="name">
+					<label for="groupname">Group Name:</label>
+					<input type="text" name="groupname"> 
+				</div>
 				<table id="users">
 					<tr id="sections">
 						<th>First Name</th>
@@ -90,8 +92,57 @@
 						<td/>
 					</tr>
 				</table>
+				<table id="added">
+					<tr id="sections">
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>School</th>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+					<tr class="userdata">
+						<td/>
+						<td/>
+						<td/>
+						<td/>
+					</tr>
+				</table>
 			</div>
-		</div>
 		<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 	</body>
 </html>
