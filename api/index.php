@@ -362,9 +362,7 @@ function getSlides($presID) {
                     echo ', ';
                 echo '"' . $slidesARRAY[$i] . '":"' . $URLarray[$i] . '"';
             }
-            echo '}}';
-            
-        
+            echo '}}';        
             
             $db = null;
         } catch (PDOException $e) {
