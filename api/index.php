@@ -12,6 +12,7 @@ $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
 $app->get('/searchUsers/:term', 'searchUsers');
 $app->get('/search/:term', 'search');
+$app->get('/getPresentations/:username', 'getPresentations');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
 
@@ -159,152 +160,6 @@ function postUserInfo() {
 	}
 }
 
-/* PRESENTATION FUNCTIONALITY */
-function addPresentation() {
-	error_log('addPresentation\n', 3, '/var/tmp/php.log');
-	$request = Slim::getInstance()->request();
-	$presentation = json_decode($request->getBody());
-	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL,"
-                . " 'NONE', :username)";
-	try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("presURL", $presentation->presURL);
-		$stmt->bindParam("chatURL", $presentation->chatURL);
-		$stmt->bindParam("sessId", $presentation->sessId);
-		$stmt->bindParam("username", $presentation->username);
-	    $stmt->execute();
-		$db = null; 
-		echo json_encode($presentation); 
-	} catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}	
-}
-
-function getSlides($presID) {
-        $sql = "SELECT presURL FROM Presentations WHERE presId=:presID";
-
-        try {
-            $db = dbconnect();
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam("presID", $presID);
-            $stmt->execute();
-            $pres = $stmt->fetch(PDO::FETCH_ASSOC);
-            $url = $pres['presURL'];
-            $dir = '..' . $url;
-            $urlTxt = 'http://localhost/UPresent' . $url;
-            $URLarray = array();
-            $slidesARRAY = array();
-            if (is_dir($dir)){
-                if ($dh = opendir($dir)){
-                    while (($file = readdir($dh)) !== false){
-                        if($file == "." or $file == "..") continue;
-                        $URLarray[] = $urlTxt . '/' . $file;
-                        
-                        $pattern = '/\d+/';
-                        preg_match($pattern, $file, $matches);
-                        $slideNum = $matches[0];
-                        $slidesARRAY[] = $slideNum;
-                        
-                    }
-                    closedir($dh);
-                }
-            }
-            echo '{"numSlides":"' . count($URLarray) . '", "slides":{';
-            for($i = 0; $i < count($URLarray); $i++) {
-                if($i != 0)
-                    echo ', ';
-                echo '"' . $slidesARRAY[$i] . '":"' . $URLarray[$i] . '"';
-            }
-            echo '}}';
-            
-        
-            
-            $db = null;
-        } catch (PDOException $e) {
-                error_log($e->getMessage(), 3, '/var/tmp/php.log');
-                echo '{"error":"'. $e->getMessage() .'"}';
-        }
-}
-
-/* GROUP FUNCTIONALITY */
-function getGroupMembers($groupName) {
-	$sql = "SELECT * FROM Group_Users 
-			INNER JOIN Groups
-			ON Groups.groupId = Group_Users.groupId
-			WHERE Groups.groupName = :groupName";
-	try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sql);  
-		$stmt->bindParam("groupName", $groupName);
-		$stmt->execute();
-		if($stmt->rowCount() >= 1) { 
-			$groupMembers = $stmt->fetch_all;
-			echo json_encode($groupMembers);
-		}
-		else echo '{"error": true}';
-		$db = null;
-	} catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":"'. $e->getMessage() .'"}';
-	}
-}
-function createGroup() {
-	error_log('createGroup\n', 3, '/var/tmp/php.log');
-	$request = Slim::getInstance()->request();
-	$group = json_decode($request->getBody());
-	$sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
-                . " :ownerId, :code)";
-	try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sqlGroup);   
-		$stmt->bindParam("groupName", $group->groupName);
-		$stmt->bindParam("ownerId", $group->ownerId);
-		$stmt->bindParam("Code", $group->Code);
-	    $stmt->execute();
-	} catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":"'. $e->getMessage() .'"}';
-	}	
-
-	$sqlGroupId = "SELECT groupId FROM Groups WHERE groupName = :groupName";
-	$groupId = "";
-	try {
-		$stmt = $db->prepare($sqlGroupId);
-		$stmt->bindParam("groupName", $group->groupName);
-		$stmt->execute();
-		$groupId =  $stmt->fetch_all;
-	}
-
-	/* This doesn't work, no idea how to do this as of yet
-	$sqlGroupUsers = "INSERT INTO Group_Users VALUES ();";
-	try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("presURL", $presentation->presURL);
-		$stmt->bindParam("chatURL", $presentation->chatURL);
-		$stmt->bindParam("sessId", $presentation->sessId);
-		$stmt->bindParam("username", $presentation->username);
-	    $stmt->execute();
-		$db = null; 
-		echo json_encode($presentation); */
-	catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-}
-function addToGroup() {
-	//Add USERS to a group
-}
-function deleteFromGroup() {
-	//delete USERS from a group
-}
-function deleteGroup() {
-	//delete ENTIRE group
-}
-
-
 function searchUsers($term) {
     $terms = explode('|', $term);
     $numTerms = count($terms);
@@ -446,6 +301,180 @@ function search($term) {
             echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
     echo ']';
+}
+
+/* PRESENTATION FUNCTIONALITY */
+function addPresentation() {
+	error_log('addPresentation\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$presentation = json_decode($request->getBody());
+	$sql = "INSERT INTO Presentations VALUES (DEFAULT, :presURL, :chatURL,"
+                . " 'NONE', :username)";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("presURL", $presentation->presURL);
+		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("sessId", $presentation->sessId);
+		$stmt->bindParam("username", $presentation->username);
+	    $stmt->execute();
+		$db = null; 
+		echo json_encode($presentation); 
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}	
+}
+
+function getSlides($presID) {
+        $sql = "SELECT presURL FROM Presentations WHERE presId=:presID";
+
+        try {
+            $db = dbconnect();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("presID", $presID);
+            $stmt->execute();
+            $pres = $stmt->fetch(PDO::FETCH_ASSOC);
+            $url = $pres['presURL'];
+            $dir = '..' . $url;
+            $urlTxt = 'http://localhost/UPresent' . $url;
+            $URLarray = array();
+            $slidesARRAY = array();
+            if (is_dir($dir)){
+                if ($dh = opendir($dir)){
+                    while (($file = readdir($dh)) !== false){
+                        if($file == "." or $file == "..") continue;
+                        $URLarray[] = $urlTxt . '/' . $file;
+                        
+                        $pattern = '/\d+/';
+                        preg_match($pattern, $file, $matches);
+                        $slideNum = $matches[0];
+                        $slidesARRAY[] = $slideNum;
+                        
+                    }
+                    closedir($dh);
+                }
+            }
+            echo '{"numSlides":"' . count($URLarray) . '", "slides":{';
+            for($i = 0; $i < count($URLarray); $i++) {
+                if($i != 0)
+                    echo ', ';
+                echo '"' . $slidesARRAY[$i] . '":"' . $URLarray[$i] . '"';
+            }
+            echo '}}';
+            
+        
+            
+            $db = null;
+        } catch (PDOException $e) {
+                error_log($e->getMessage(), 3, '/var/tmp/php.log');
+                echo '{"error":"'. $e->getMessage() .'"}';
+        }
+}
+
+function getPresentations($username) {
+    $sql = "SELECT userId FROM Users WHERE username = :username";
+    $presSql = "SELECT presId, presName FROM Presentations WHERE ownerId = :userId";
+    
+    try {
+            $db = dbconnect();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("username", $username);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $userId = $user['userId'];
+            
+            $stmt = $db->prepare($presSql);
+            $stmt->bindParam("userId", $userId);
+            $stmt->execute();
+            $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
+            echo json_encode($presentations);
+            $db = null;
+            
+            
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+	echo '{"error":"'. $e->getMessage() .'"}';
+    }
+}
+
+/* GROUP FUNCTIONALITY */
+function getGroupMembers($groupName) { //doesn't work
+	$sql = "SELECT * FROM Group_Users 
+			INNER JOIN Groups
+			ON Groups.groupId = Group_Users.groupId
+			WHERE Groups.groupName = :groupName";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);  
+		$stmt->bindParam("groupName", $groupName);
+		$stmt->execute();
+		if($stmt->rowCount() >= 1) { 
+			$groupMembers = $stmt->fetch_all;
+			echo json_encode($groupMembers);
+		}
+		else echo '{"error": true}';
+		$db = null;
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}
+}
+function createGroup() {
+	error_log('createGroup\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$group = json_decode($request->getBody());
+	$sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
+                . " :ownerId, :code)";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sqlGroup);   
+		$stmt->bindParam("groupName", $group->groupName);
+		$stmt->bindParam("ownerId", $group->ownerId);
+		$stmt->bindParam("Code", $group->Code);
+	    $stmt->execute();
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}	
+
+	$sqlGroupId = "SELECT groupId FROM Groups WHERE groupName = :groupName";
+	$groupId = "";
+	try {
+		$stmt = $db->prepare($sqlGroupId);
+		$stmt->bindParam("groupName", $group->groupName);
+		$stmt->execute();
+		$group = $stmt->fetch(PDO::FETCH_ASSOC);
+                $groupId = $group['groupId'];
+                
+	}
+
+	/* This doesn't work, no idea how to do this as of yet
+	$sqlGroupUsers = "INSERT INTO Group_Users VALUES ();";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("presURL", $presentation->presURL);
+		$stmt->bindParam("chatURL", $presentation->chatURL);
+		$stmt->bindParam("sessId", $presentation->sessId);
+		$stmt->bindParam("username", $presentation->username);
+	    $stmt->execute();
+		$db = null; 
+		echo json_encode($presentation); */
+	catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+        ;
+}
+function addToGroup() {
+	//Add USERS to a group
+}
+function deleteFromGroup() {
+	//delete USERS from a group
+}
+function deleteGroup() {
+	//delete ENTIRE group
 }
 
 ?>
