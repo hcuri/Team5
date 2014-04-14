@@ -74,7 +74,7 @@ function updateSlide() {
 	$.ajax({
 		type: 'POST',
 		url: root_url + 'setCurrentSlide',
-		data: regFormToJSON(),
+		data: slideFormToJSON(),
 		async: false,
 		success: function(){
 			//alert("Slide Changed");
@@ -87,7 +87,7 @@ function updateSlide() {
 }
 
 // Helper function to serialize all the form fields into a JSON string
-function regFormToJSON() {
+function slideFormToJSON() {
 	return JSON.stringify({
 		"presId" : presID,
 		"currSlide": currentSlide
