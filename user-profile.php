@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="css/styles_home.css" rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/styles_user.css" rel="stylesheet" />
-<link href="css/styles_user-profile.css" rel="stylesheet" />
-<link href="css/jQuery.css" rel="stylesheet" />
-<script src="js/jQuery.js"></script>
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/user_profile.js"></script>
-<script src="js/main.js"></script>
-<title>UPresent -- User Profile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="css/styles_home.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/styles_user.css" rel="stylesheet" />
+  <link href="css/styles_user-profile.css" rel="stylesheet" />
+  <link href="css/jQuery.css" rel="stylesheet" />
+  <script src="js/jQuery.js"></script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/user_profile.js"></script>
+  <script src="js/main.js"></script>
+  <title>UPresent -- User Profile</title>
 </head>
 <body>
 <div id="header">

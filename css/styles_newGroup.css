@@ -1,7 +1,7 @@
 /**styles_newGroup.css*/
 
-#name {
-	margin-bottom:5px;
+#search {
+	margin-top:50px;
 
 }
 
@@ -20,15 +20,15 @@
 
 #users {
 	float:left;
-	margin-top:10px;
-	height:400px;
+	margin-top:20px;
+	height:320px;
 	width:500px;
 }
 
 #added {
 	float:right;
-	margin-top:10px;
-	height:400px;
+	margin-top:20px;
+	height:320px;
 	width:520px;
 }
 

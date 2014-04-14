@@ -38,8 +38,8 @@
 
 		<div id="content">
 			<div id="groupinfo">
-				<div id="name">
-					<label for="groupname">Group Name:</label>
+				<div id="search">
+					<label for="groupname">Search Users:</label>
 					<input type="text" name="groupname"> 
 				</div>
 				<table id="users">

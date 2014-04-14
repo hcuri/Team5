@@ -80,7 +80,9 @@
     </div>-->
     <div id="Options">
       <input id="download" type="button" value="Download Slides" />
-      <input id="contact" type="button" value="Contact Presenter" />
+      <form id="contactPresenter" action="contact.php">
+        <input id="contact" type="submit" value="Contact Presenter" />
+      </form>
     </div>
   </div>
   
