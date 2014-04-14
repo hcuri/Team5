@@ -41,4 +41,4 @@ setInterval(function() {
 	cS = cS.responseJSON;
 	currentSlide = cS.currSlide;
 	updateSlide();
-}, 100);
+}, 1000);
