@@ -45,8 +45,9 @@ td {
 	float:left;
 }
 
-#createNew {
-	
+#deleteName {
+	width:100px;
+	height:100px;
 }
 
 #tabs1 tr:nth-child(odd) {

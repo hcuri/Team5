@@ -13,6 +13,9 @@
 <title>UPresent -- User</title>
 </head>
 <body>
+<div id="dialog-confirm" title="Delete UPresent?">
+  <div id="deleteName"></div>
+</div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="user.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">

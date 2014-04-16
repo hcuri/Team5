@@ -66,7 +66,20 @@ $(document).ready(function() {
 		deleteUPresent(presIDs[row-1]);
 	});
 	
-	
+	$( "#dialog-confirm" ).dialog({
+      resizable: false,
+	  autoOpen: false,
+      height:140,
+      modal: true,
+      buttons: {
+        "Delete UPresent": function() {
+          $( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
 	
 	
 	//fill upcoming table
@@ -125,7 +138,11 @@ function editUPresent(num) {
 
 function deleteUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	alert("Deleting: " + presNames[row-1]);
+	alert("Deleting: " + presNames[num-1]);
+	alert("test");
+	$("#deleteName").html("Deleting: " + presNames[num-1] + " Are You Sure?");
+	alert("test2");
+	$( "#dialog-confirm" ).dialog("open");
 	return true;
 }
 
