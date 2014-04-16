@@ -94,12 +94,12 @@
     </ul>
     <div id="tabs2-1">
       <table id="upcoming">
-        <tr>
+        <!--<tr>
           <th class="title">Title</th>
           <th class="author">Author</th>
           <th class="date">Date</th>
           <th class="view">View</th>
-        </tr>
+        </tr> -->
         <tr>
           <td class="title">How To Design</td>
           <td class="author">Christopher Raley</td>
@@ -140,12 +140,12 @@
     </div>
     <div id="tabs2-2">
       <table id="past">
-        <tr>
+        <!--<tr>
           <th class="title">Title</th>
           <th class="author">Author</th>
           <th class="date">Date</th>
           <th class="view">View</th>
-        </tr>
+        </tr> -->
         <tr id="past1">
           <td class="title">Learning From Me</td>
           <td class="author">Steve Jobs</td>

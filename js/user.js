@@ -40,28 +40,34 @@ $(document).ready(function() {
 			if(j===0) {
 				currEntry.eq(j).html(presNames[i]);
 			} else if(j===1) {
-				currEntry.eq(j).click(function() {
-					alert("Editing");
-				});
-				currEntry.eq(j).html("<input type=\"button\" value=\"Present\" onclick=\"window.location='editor.php'\">");
+				currEntry.eq(j).html("<input class=\"present\" type=\"button\" value=\"Present\" onclick=\"window.location='presenter.php'\">");
 			} else if(j===2){
-				currEntry.eq(j).click(function() {
-					alert("Editing UPresent");
-				});
-				currEntry.eq(j).html("<input type=\"button\" value=\"Edit\" onclick=\"window.location='editor.php'\">");
+				currEntry.eq(j).html("<input class=\"edit\" type=\"button\" value=\"Edit\" onclick=\"window.location='editor.php'\">");
 			} else {
-				currEntry.eq(j).click(function() {
-				});
 				currEntry.eq(j).html("<img class=\"trashIcon\" src=\"img/trash.png\">");
-				
 			}
 		}
 	}
+	$(".present").click(function(event) {
+		row = event.target.parentNode.parentNode;
+		row = $(row).attr('class');
+		presentUPresent(presIDs[row-1]);
+	});
+	
+	$(".edit").click(function(event) {
+		row = event.target.parentNode.parentNode;
+		row = $(row).attr('class');
+		editUPresent(presIDs[row-1]);
+	});
+	
 	$(".trashIcon").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
 		deleteUPresent(presIDs[row-1]);
 	});
+	
+	
+	
 	
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
@@ -103,6 +109,18 @@ function count(obj) {
     if (obj.hasOwnProperty(x))
       i++;
   return i;
+}
+
+function presentUPresent(num) {
+	//call ajax to delete presentation from the parameter
+	alert("Presenting: " + presNames[row-1]);
+	return true;
+}
+
+function editUPresent(num) {
+	//call ajax to delete presentation from the parameter
+	alert("Editing: " + presNames[row-1]);
+	return true;
 }
 
 function deleteUPresent(num) {
