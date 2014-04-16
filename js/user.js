@@ -4,8 +4,6 @@ var presNames = new Array();
 var presIDs = new Array();
 
 $(document).ready(function() {
-	//$( "#tabs1" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-    //$( "#tabs1 li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
 	$("#tabs1").tabs();
 	$( "#tabs2" ).tabs();
 	$("#newPres").click(function() {
@@ -25,17 +23,18 @@ $(document).ready(function() {
 		async: false,
 	});
 	var pres = pres.responseJSON;
-	alert(JSON.stringify(pres));
-	for(var i = 0; i < 3; i++) {
+	
+	var numUPres = count(pres);
+	
+	for(var i = 0; i < numUPres; i++) {
 		presNames.push(pres[i].presName);
-		presIDs.push(pres[i].presId);
-		//alert(presNames[i]);
+		presIDs.push(pres[i].presId);	
 	}
+	
 	
 	//fill current table
 	var entries = $("#current").children().children();
-	//for(var i = 0; i < entries.length+1; i++) {
-	for(var i = 0; i < 3; i++) {
+	for(var i = 0; i < numUPres; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
 			if(j===0) {
@@ -52,13 +51,17 @@ $(document).ready(function() {
 				currEntry.eq(j).html("<input type=\"button\" value=\"Edit\" onclick=\"window.location='editor.php'\">");
 			} else {
 				currEntry.eq(j).click(function() {
-					alert("Deleting UPresent");
 				});
 				currEntry.eq(j).html("<img class=\"trashIcon\" src=\"img/trash.png\">");
 				
 			}
 		}
 	}
+	$(".trashIcon").click(function(event) {
+		row = event.target.parentNode.parentNode;
+		row = $(row).attr('class');
+		deleteUPresent(presIDs[row-1]);
+	});
 	
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
@@ -93,3 +96,18 @@ $(document).ready(function() {
 		}
 	}
 });
+
+function count(obj) {
+  var i = 0;
+  for (var x in obj)
+    if (obj.hasOwnProperty(x))
+      i++;
+  return i;
+}
+
+function deleteUPresent(num) {
+	//call ajax to delete presentation from the parameter
+	alert("Deleting: " + presNames[row-1]);
+	return true;
+}
+

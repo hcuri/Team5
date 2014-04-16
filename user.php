@@ -42,37 +42,37 @@
     </ul>
     <div id="tabs1-1">
       <table id="current">
-        <tr>
+        <tr class="1">
           <td class="title"></td>
           <td class="present"></td>
           <td class="edit"></td>
           <td class="erase"></td>
         </tr>
-        <tr>
+        <tr class="2">
           <td class="title"></td>
           <td class="present"></td>
           <td class="edit"></td>
           <td class="erase"></td>
         </tr>
-        <tr>
+        <tr class="3">
           <td class="title"></td>
           <td class="present"></td>
           <td class="edit"></td>
           <td class="erase"></td>
         </tr>
-        <tr>
+        <tr class="4">
           <td class="title"></td>
           <td class="present"></td>
           <td class="edit"></td>
           <td class="erase"></td>
         </tr>
-        <tr>
+        <tr class="5">
           <td class="title"></td>
           <td class="present"></td>
           <td class="edit"></td>
           <td class="erase"></td>
         </tr>
-        <tr>
+        <tr class="6">
           <td class="title"></td>
           <td class="present"></td>
           <td class="edit"></td>
