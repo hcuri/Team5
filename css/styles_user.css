@@ -46,8 +46,9 @@ td {
 }
 
 #deleteName {
-	width:100px;
-	height:100px;
+	width:auto;
+	height:auto;
+	font-size: 15px;
 }
 
 #tabs1 tr:nth-child(odd) {
