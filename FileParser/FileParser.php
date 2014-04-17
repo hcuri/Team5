@@ -35,18 +35,25 @@ class FileParser {
       				|| ($_FILES["files"]["type"][$index] == "image/png"))
       				&& ($_FILES["files"]["size"][$index] < 200000000000))
     			{
-      				echo "Upload: " . $_FILES["files"]['name'][$index] . "<br>";
-      				echo "Type: " . $_FILES["files"]['type'][$index] . "<br>";
-      				echo "Size: " . ($_FILES["files"]['size'][$index] / 1024) . " kB<br>";
-      				echo "Temp file: " . $_FILES["files"]['tmp_name'][$index] . "<br>";
+      				//echo "Upload: " . $_FILES["files"]['name'][$index] . "<br>";
+      				//echo "Type: " . $_FILES["files"]['type'][$index] . "<br>";
+      				//echo "Size: " . ($_FILES["files"]['size'][$index] / 1024) . " kB<br>";
+      				//echo "Temp file: " . $_FILES["files"]['tmp_name'][$index] . "<br>";
 
       				$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
       				if(is_dir($folder)) {
         				rmdir($folder);
         				mkdir($folder, 0700);
+        				if(!mkdir()) {
+    						echo error_get_last();
+						}
         			}
-        			else 
+        			else {
       					mkdir($folder, 0700);
+      					if(!mkdir()) {
+    						echo error_get_last();
+						}
+      				}
 
         			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
     			}

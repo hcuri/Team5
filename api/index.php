@@ -100,6 +100,7 @@ function registerUser() {
                 $stmt->execute();
 		$db = null; 
 		setcookie("user", $user->username, time()+3600, '/');
+		mkdir("../upload/" . $user->username . "/");
 		echo json_encode($user); 
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
