@@ -42,7 +42,7 @@
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
-      <input type="text" name="title" id="title" />
+      <input type="text" name="title" id="title" required/>
       <br/>
       <label for="date">Date?</label>
       <input type="date" name="date" id="date"></input>
@@ -55,7 +55,7 @@
     <div id="fileinfo">
       <p>Please upload Folder of Images:</p>
       <br/>
-      <span id="fileUpload"><input type="file" name="files[]" id="files" multiple directory webkitdirectory mozdirectory></span>
+      <span id="fileUpload"><input type="file" name="files[]" id="files" multiple directory webkitdirectory mozdirectory required></span>
     </div>
     <br/>
   </div>
