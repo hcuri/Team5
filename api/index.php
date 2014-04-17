@@ -21,7 +21,7 @@ $app->post('/addPresentation', 'addPresentation');
 $app->get('/getSlides/:presID', 'getSlides');
 $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
 $app->post('/setCurrentSlide', 'setCurrentSlide');
-$app->post('/deletePresentation/:presTitle', 'deletePresentation');
+$app->post('/deletePresentation', 'deletePresentation');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
@@ -456,8 +456,8 @@ function deletePresentation() {
 	$username = $_COOKIE['user'];
 	$userId = getUserId($username);
 	$title = $presInfo->title;
-	$FileParser = new FileParser();
-	$FileParser->deletePresentation($title);
+	//$FileParser = new FileParser();
+	//$FileParser->deletePresentation($title);
 
 	$sql = "DELETE FROM Presentations WHERE presName = :title AND ownerId = :userId";
 	try {

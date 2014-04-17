@@ -138,11 +138,34 @@ function editUPresent(num) {
 
 function deleteUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	alert("Deleting: " + presNames[num-1]);
-	alert("test");
-	$("#deleteName").html("Deleting: " + presNames[num-1] + " Are You Sure?");
-	alert("test2");
-	$( "#dialog-confirm" ).dialog("open");
+	alert("Deleting: " + presNames[num-1] + " : " + presIDs[num-1]);
+	//alert("test");
+	//$("#deleteName").html("Deleting: " + presNames[num-1] + " Are You Sure?");
+	//alert("test2");
+	//$( "#dialog-confirm" ).dialog("open");
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'deletePresentation',
+		data: deleteFormToJSON(presNames[num-1]),
+		async: false,
+		success: function(){
+			alert("UPresent Deleted");
+			window.location="user.php";
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
 	return true;
+}
+
+// Helper function to serialize all the form fields into a JSON string
+function deleteFormToJSON(presName) {
+	alert(JSON.stringify({
+		"title" : presName
+	}));
+	return JSON.stringify({
+		"title" : presName
+	});
 }
 
