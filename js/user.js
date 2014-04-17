@@ -63,7 +63,7 @@ $(document).ready(function() {
 	$(".trashIcon").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
-		deleteUPresent(presIDs[row-1]);
+		deleteUPresent(row);
 	});
 	
 	$( "#dialog-confirm" ).dialog({
@@ -138,6 +138,8 @@ function editUPresent(num) {
 
 function deleteUPresent(num) {
 	//call ajax to delete presentation from the parameter
+	alert(presNames[0] + " " +presNames[1]);
+	alert(num);
 	alert("Deleting: " + presNames[num-1] + " : " + presIDs[num-1]);
 	//alert("test");
 	//$("#deleteName").html("Deleting: " + presNames[num-1] + " Are You Sure?");
@@ -161,9 +163,6 @@ function deleteUPresent(num) {
 
 // Helper function to serialize all the form fields into a JSON string
 function deleteFormToJSON(presName) {
-	alert(JSON.stringify({
-		"title" : presName
-	}));
 	return JSON.stringify({
 		"title" : presName
 	});
