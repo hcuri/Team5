@@ -44,15 +44,9 @@ class FileParser {
       				if(is_dir($folder)) {
         				rmdir($folder);
         				mkdir($folder, 0700);
-        				if(!mkdir()) {
-    						echo error_get_last();
-						}
         			}
         			else {
       					mkdir($folder, 0700);
-      					if(!mkdir()) {
-    						echo error_get_last();
-						}
       				}
 
         			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
