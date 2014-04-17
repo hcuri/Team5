@@ -21,6 +21,7 @@ $app->post('/addPresentation', 'addPresentation');
 $app->get('/getSlides/:presID', 'getSlides');
 $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
 $app->post('/setCurrentSlide', 'setCurrentSlide');
+$app->post('/deletePresentation/:presTitle', 'deletePresentation');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
@@ -144,7 +145,6 @@ function postUserInfo() {
                 . "email = :email, organization = :organization, "
                 . "schoolID = :schoolID WHERE username = :username";
 
-        
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sql);   
@@ -446,6 +446,31 @@ function getPresentations($username) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
 	echo '{"error":"'. $e->getMessage() .'"}';
     }
+}
+
+function deletePresentation() {
+	error_log('deletePresentation\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+
+	$presInfo = json_decode($request->getBody());
+	$username = $_COOKIE['user'];
+	$userId = getUserId($username);
+	$title = $presInfo->title;
+	$FileParser = new FileParser();
+	$FileParser->deletePresentation($title);
+
+	$sql = "DELETE FROM Presentations WHERE presName = :title AND ownerId = :userId";
+	try {
+		$db = dbconnect();
+		$stmt = $db->prepare($sql);   
+		$stmt->bindParam("title", $title);
+		$stmt->bindParam("userId", $userId);
+	    $stmt->execute();
+		$db = null; 
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}	
 }
 
 /* GROUP FUNCTIONALITY */
