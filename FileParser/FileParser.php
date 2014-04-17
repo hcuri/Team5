@@ -57,8 +57,9 @@ class FileParser {
   			}
 		}
 	}
-	function deletePresentation() {
-	
+	function deletePresentation($title) {
+		$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
+		rmdir($folder);
 	}
 
 	/* NOTES FUNCTIONALITY */
