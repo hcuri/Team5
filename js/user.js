@@ -2,6 +2,7 @@
 
 var presNames = new Array();
 var presIDs = new Array();
+var row;
 
 $(document).ready(function() {
 	$("#tabs1").tabs();
@@ -63,17 +64,21 @@ $(document).ready(function() {
 	$(".trashIcon").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
-		deleteUPresent(row);
+		
+		$("#deleteName").html("Deleting: " + presNames[row-1] + "... Are You Sure?");
+		$( "#dialog-confirm" ).dialog("open");
 	});
 	
 	$( "#dialog-confirm" ).dialog({
       resizable: false,
 	  autoOpen: false,
-      height:140,
+      height:200,
+	  width:400,
       modal: true,
       buttons: {
         "Delete UPresent": function() {
           $( this ).dialog( "close" );
+		  deleteUPresent(row);
         },
         Cancel: function() {
           $( this ).dialog( "close" );
@@ -138,20 +143,16 @@ function editUPresent(num) {
 
 function deleteUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	alert(presNames[0] + " " +presNames[1]);
-	alert(num);
-	alert("Deleting: " + presNames[num-1] + " : " + presIDs[num-1]);
+	//alert(presNames[0] + " " +presNames[1]);
+	//alert(num);
+	//alert("Deleting: " + presNames[num-1] + " : " + presIDs[num-1]);
 	//alert("test");
-	//$("#deleteName").html("Deleting: " + presNames[num-1] + " Are You Sure?");
-	//alert("test2");
-	//$( "#dialog-confirm" ).dialog("open");
 	$.ajax({
 		type: 'POST',
 		url: root_url + 'deletePresentation',
 		data: deleteFormToJSON(presNames[num-1]),
 		async: false,
 		success: function(){
-			alert("UPresent Deleted");
 			window.location="user.php";
 		},
 		error: function(jqXHR, textStatus, errorThrown){
