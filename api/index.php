@@ -314,7 +314,7 @@ function addPresentation() {
 
 	$username = $_COOKIE['user'];
 	$userId = getUserId($username);
-	$rootURL = "../upload/" . $_COOKIE['user'] . "/";
+	$rootURL = "/upload/" . $_COOKIE['user'] . "/";
 	$groupId = 25;
 
 	$presentation = json_decode($request->getBody());
