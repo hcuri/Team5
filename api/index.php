@@ -346,6 +346,7 @@ function getSlides($presID) {
             $stmt->bindParam("presID", $presID);
             $stmt->execute();
             $pres = $stmt->fetch(PDO::FETCH_ASSOC);
+			
             $url = $pres['rootURL'];
             $dir = '..' . $url;
             $urlTxt = 'http://localhost/UPresent' . $url;
@@ -359,6 +360,7 @@ function getSlides($presID) {
                         
                         $pattern = '/\d+/';
                         preg_match($pattern, $file, $matches);
+						//error on below line - no idea why but it affects pulling slides from random presentations
                         $slideNum = $matches[0];
                         $slidesARRAY[] = $slideNum;
                         
