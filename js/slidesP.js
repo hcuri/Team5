@@ -16,7 +16,6 @@ $(document).ready(function(e) {
 	});
 	getPresID = getPresID.responseJSON;
 	presID = getPresID.presID;
-	alert(presID);
  
   	$("#previous").css("background-color", "black");
 	$("#previous").removeAttr("src");
