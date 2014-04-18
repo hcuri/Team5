@@ -41,7 +41,7 @@ $(document).ready(function() {
 			if(j===0) {
 				currEntry.eq(j).html(presNames[i]);
 			} else if(j===1) {
-				currEntry.eq(j).html("<input class=\"present\" type=\"button\" value=\"Present\" onclick=\"window.location='presenter.php'\">");
+				currEntry.eq(j).html("<input class=\"present\" type=\"button\" value=\"Present\">");
 			} else if(j===2){
 				currEntry.eq(j).html("<input class=\"edit\" type=\"button\" value=\"Edit\" onclick=\"window.location='editor.php'\">");
 			} else {
@@ -65,7 +65,7 @@ $(document).ready(function() {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
 		
-		$("#deleteName").html("Deleting: " + presNames[row-1] + "... Are You Sure?");
+		$("#deleteName").html("Deleting: <b>" + presNames[row-1] + "</b>... Are You Sure?");
 		$( "#dialog-confirm" ).dialog("open");
 	});
 	
@@ -132,6 +132,18 @@ function count(obj) {
 function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	alert("Presenting: " + presNames[row-1]);
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'setPresId',
+		data: presFormToJSON(presIDs[num-1]),
+		async: false,
+		success: function(){
+			alert("cookie set");
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
 	return true;
 }
 
@@ -142,11 +154,6 @@ function editUPresent(num) {
 }
 
 function deleteUPresent(num) {
-	//call ajax to delete presentation from the parameter
-	//alert(presNames[0] + " " +presNames[1]);
-	//alert(num);
-	//alert("Deleting: " + presNames[num-1] + " : " + presIDs[num-1]);
-	//alert("test");
 	$.ajax({
 		type: 'POST',
 		url: root_url + 'deletePresentation',
@@ -166,6 +173,12 @@ function deleteUPresent(num) {
 function deleteFormToJSON(presName) {
 	return JSON.stringify({
 		"title" : presName
+	});
+}
+
+function presFormToJSON(presId) {
+	return JSON.stringify({
+		"presID" : presId
 	});
 }
 

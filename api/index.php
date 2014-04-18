@@ -22,6 +22,8 @@ $app->get('/getSlides/:presID', 'getSlides');
 $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
 $app->post('/setCurrentSlide', 'setCurrentSlide');
 $app->post('/deletePresentation', 'deletePresentation');
+$app->post('/setPresId', 'setPresId');
+$app->get('/getPresId', 'getPresId');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
@@ -472,6 +474,23 @@ function deletePresentation() {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}	
 }
+
+//set current Presentation ID in cookie
+function setPresId() {
+	error_log('setPresId\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+
+	$presInfo = json_decode($request->getBody());
+
+	setcookie("pres", $presInfo->presID, time()+10000, '/');	
+	echo($_COOKIE['pres']);
+}
+function getPresId() {
+	error_log('setPresId\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();	
+	echo("{\"presID\":\"".$_COOKIE['pres']."\"}");
+}
+
 
 /* GROUP FUNCTIONALITY */
 function getGroupMembers($groupName) { //doesn't work

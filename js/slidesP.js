@@ -4,9 +4,19 @@ var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
 var currentSlide = 1;
 var numSlides;	
-var presID = 1;
+var presID = null;
 
 $(document).ready(function(e) {
+	
+	var getPresID = $.ajax({
+		type: 'GET',
+		url: root_url + "/getPresId",
+		dataType: "json",
+		async: false,
+	});
+	getPresID = getPresID.responseJSON;
+	presID = getPresID.presID;
+	alert(presID);
  
   	$("#previous").css("background-color", "black");
 	$("#previous").removeAttr("src");
