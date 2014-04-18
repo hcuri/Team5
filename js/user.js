@@ -52,8 +52,7 @@ $(document).ready(function() {
 	$(".present").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
-		presentUPresent(presIDs[row-1]);
-		window.location="presenter.php";
+		presentUPresent(row);
 	});
 	
 	$(".edit").click(function(event) {
@@ -132,14 +131,14 @@ function count(obj) {
 
 function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	//alert("Presenting: " + presNames[row-1]);
+	alert("Presenting: " + presNames[num-1] + " : " +presIDs[num-1]);
 	$.ajax({
 		type: 'POST',
 		url: root_url + 'setPresId',
 		data: presFormToJSON(presIDs[num-1]),
 		async: false,
 		success: function(){
-			//alert("cookie set");
+			window.location="presenter.php";
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
