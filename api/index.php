@@ -338,7 +338,7 @@ function addPresentation() {
 }
 
 function getSlides($presID) {
-        $sql = "SELECT rootURL FROM Presentations WHERE presId=:presID";
+        $sql = "SELECT rootURL, presName FROM Presentations WHERE presId=:presID";
 
         try {
             $db = dbconnect();
