@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>C83885B6-7506-4F4C-BCFD-CB62FE32126B</string>
+	<string>9D2CC749-4EC3-4EF7-83F3-7F2DEA5E499B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>UPresent</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9484EBBD-17B7-40B3-96F3-865369B2A470</key>
-		<string>https://github.com/hcuri/Team5</string>
+		<key>06B8FA8E-5F23-4E59-982E-7EB033C52F4E</key>
+		<string>https://github.com/hcuri/Team5.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>UPresent/UPresent.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9484EBBD-17B7-40B3-96F3-865369B2A470</key>
+		<key>06B8FA8E-5F23-4E59-982E-7EB033C52F4E</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/hcuri/Team5</string>
+	<string>https://github.com/hcuri/Team5.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9484EBBD-17B7-40B3-96F3-865369B2A470</string>
+	<string>06B8FA8E-5F23-4E59-982E-7EB033C52F4E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9484EBBD-17B7-40B3-96F3-865369B2A470</string>
+			<string>06B8FA8E-5F23-4E59-982E-7EB033C52F4E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>UPresent</string>
 		</dict>
