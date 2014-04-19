@@ -46,10 +46,10 @@
     <div id="tabs1-1">
       <table id="current">
         <tr class="1">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr class="2">
           <td class="title"></td>

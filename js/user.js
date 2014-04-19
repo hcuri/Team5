@@ -41,24 +41,24 @@ $(document).ready(function() {
 			if(j===0) {
 				currEntry.eq(j).html(presNames[i]);
 			} else if(j===1) {
-				currEntry.eq(j).html("<input class=\"present\" type=\"button\" value=\"Present\">");
+				currEntry.eq(j).html("<input class=\"presentB\" type=\"button\" value=\"Present\">");
 			} else if(j===2){
-				currEntry.eq(j).html("<input class=\"edit\" type=\"button\" value=\"Edit\" onclick=\"window.location='editor.php'\">");
+				currEntry.eq(j).html("<input class=\"editB\" type=\"button\" value=\"Edit\">");
 			} else {
 				currEntry.eq(j).html("<img class=\"trashIcon\" src=\"img/trash.png\">");
 			}
 		}
 	}
-	$(".present").click(function(event) {
+	$(".presentB").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
 		presentUPresent(row);
 	});
 	
-	$(".edit").click(function(event) {
+	$(".editB").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
-		editUPresent(presIDs[row-1]);
+		editUPresent(row);
 	});
 	
 	$(".trashIcon").click(function(event) {
@@ -149,7 +149,19 @@ function presentUPresent(num) {
 
 function editUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	alert("Editing: " + presNames[row-1]);
+	alert("Editing: " + presNames[num-1]);
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'setPresId',
+		data: presFormToJSON(presIDs[num-1]),
+		async: false,
+		success: function(){
+			window.location="editor.php";
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
 	return true;
 }
 
