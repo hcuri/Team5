@@ -51,17 +51,6 @@ td {
 	font-size: 15px;
 }
 
-#tabs1 tr:nth-child(odd) {
-    background-color: #ededed;
-}
-
-#tabs2 tr:nth-child(odd) {
-    background-color: #ededed;
-}
-
-#tabs3 tr:nth-child(odd) {
-	background-color: #ededed;
-}
 
 #groupStuff {
 	float:left;
@@ -152,4 +141,17 @@ td {
 	background-color:red;
 }
 
+
+
+#tabs1 tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#tabs2 tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#tabs3 tr:nth-child(odd) {
+	background-color: #ededed;
+}
 /*end styling for the tabs*/

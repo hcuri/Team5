@@ -6,6 +6,7 @@
 <link href="css/styles_user.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
+<!--<link href="css/jquery-ui-1.10.4.css" rel="stylesheet" />-->
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/user.js"></script>

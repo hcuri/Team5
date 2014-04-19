@@ -2,6 +2,15 @@
 
 var presNames = new Array();
 var presIDs = new Array();
+
+var upPresNames = new Array();
+var upPresAuthor = new Array();
+var upPresDate = new Array();
+var upPresIDs = new Array();
+var pastPresNames = new Array();
+var pastPresAuthor = new Array();
+var pastPresDate = new Array();
+var pastPresIDs = new Array();
 var row;
 
 $(document).ready(function() {
@@ -87,21 +96,67 @@ $(document).ready(function() {
     });
 	
 	
+	//UPCOMING TABLE DATA
+	var pres = $.ajax({
+		type: 'GET',
+		url: root_url + "getUpcomingPresentations/" + userN,
+		dataType: "json",
+		async: false,
+	});
+	var pres = pres.responseJSON;
+	
+	var numUPres = count(pres);
+	
+	for(var i = 0; i < numUPres; i++) {
+		upPresNames.push(pres[i].presName);
+		upPresAuthor.push(pres[i].presName);
+		upPresDate.push(pres[i].date);
+		upPresIDs.push(pres[i].presId);	
+	}
+	
+	
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
 	for(var i = 1; i < entries.length+1; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
-			if(j<3) {
-				currEntry.eq(j).html("test");
+			if(j===0) {
+				currEntry.eq(j).html(upPresNames[i]);
+			} else if (j===1) {
+				currEntry.eq(j).html(upPresAuthor[i]);
+			} else if (j===2) {
+				currEntry.eq(j).html(upPresDate[i]);
 			} else {
-				currEntry.eq(j).click(function() {
-					alert("Viewing");
-				});
-				currEntry.eq(j).html("<input type=\"button\" value=\"View\" onclick=\"window.location='afterview.php'\">");
+				currEntry.eq(j).html("<input type=\"button\" class=\"viewUp\" value=\"View\">");
 			}
 		}
 	}
+	
+	$(".viewUp").click(function(event) {
+		row = event.target.parentNode.parentNode;
+		row = $(row).attr('class');
+		viewUPresent(row);
+	});
+	
+	
+	//PAST UPRESENTS TABLE DATA
+	var pres = $.ajax({
+		type: 'GET',
+		url: root_url + "getPastPresentations/" + userN,
+		dataType: "json",
+		async: false,
+	});
+	var pres = pres.responseJSON;
+	
+	var numUPres = count(pres);
+	
+	for(var i = 0; i < numUPres; i++) {
+		pastPresNames.push(pres[i].presName);
+		pastPresAuthor.push(pres[i].presName);
+		pastPresDate.push(pres[i].date);
+		pastPresIDs.push(pres[i].presId);	
+	}
+	
 	
 	//fill past presentation table
 	//BASE OFF THIS
@@ -109,16 +164,23 @@ $(document).ready(function() {
 	for(var i = 1; i < entries.length+1; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
-			if(j<3) {
-				currEntry.eq(j).html("test");
+			if(j===0) {
+				currEntry.eq(j).html(pastPresNames[i]);
+			} else if (j===1) {
+				currEntry.eq(j).html(pastPresAuthor[i]);
+			} else if (j===2) {
+				currEntry.eq(j).html(pastPresDate[i]);
 			} else {
-				currEntry.eq(j).click(function() {
-					alert("Viewing");
-				});
-				currEntry.eq(j).html("<input type=\"button\" value=\"View\" onclick=\"window.location='afterview.php'\">");
+				currEntry.eq(j).html("<input type=\"button\" class=\"viewPast\" value=\"View\">");
 			}
 		}
 	}
+	
+	$(".viewPast").click(function(event) {
+		row = event.target.parentNode.parentNode;
+		row = $(row).attr('class');
+		viewPastUPresent(row);
+	});
 });
 
 function count(obj) {
@@ -181,6 +243,42 @@ function deleteUPresent(num) {
 	return true;
 }
 
+function viewUPresent(num) {
+	//call ajax to delete presentation from the parameter
+	alert("Viewing: " + upPresNames[num-1] + " : " +upPresIDs[num-1]);
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'setPresId',
+		data: presFormToJSON(upPresIDs[num-1]),
+		async: false,
+		success: function(){
+			window.location="viewer.php";
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
+	return true;
+}
+
+function viewPastUPresent(num) {
+	//call ajax to delete presentation from the parameter
+	alert("Viewing: " + pastPresNames[num-1] + " : " +pastPresIDs[num-1]);
+	$.ajax({
+		type: 'POST',
+		url: root_url + 'setPresId',
+		data: presFormToJSON(pastPresIDs[num-1]),
+		async: false,
+		success: function(){
+			window.location="viewer.php";
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
+	return true;
+}
+
 // Helper function to serialize all the form fields into a JSON string
 function deleteFormToJSON(presName) {
 	return JSON.stringify({
@@ -193,4 +291,13 @@ function presFormToJSON(presId) {
 		"presID" : presId
 	});
 }
+
+/*var upPresNames = new Array();
+var upPresAuthor = new Array();
+var upPresDate = new Array();
+var upPresIds = new Array();
+var pastPresNames = new Array();
+var pastPresAuthor = new Array();
+var pastPresDate = new Array();
+var pastPresIds = new Array();*/
 
