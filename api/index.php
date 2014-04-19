@@ -23,7 +23,7 @@ $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
 $app->post('/setCurrentSlide', 'setCurrentSlide');
 $app->post('/deletePresentation', 'deletePresentation');
 $app->post('/setPresId', 'setPresId');
-$app->get('/getPresId', 'getPresId');
+$app->get('/getPresInfo', 'getPresInfo');
 
 //Group functions
 $app->get('/getGroupMembers/:groupName', 'getGroupMembers');
@@ -488,10 +488,25 @@ function setPresId() {
 	setcookie("pres", $presInfo->presID, time()+10000, '/');	
 	echo($_COOKIE['pres']);
 }
-function getPresId() {
-	error_log('setPresId\n', 3, '/var/tmp/php.log');
-	$request = Slim::getInstance()->request();	
-	echo("{\"presID\":\"".$_COOKIE['pres']."\"}");
+function getPresInfo() {
+	error_log('deletePresentation\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	
+	$presID = $_COOKIE['pres'];
+	$sql = "SELECT * FROM Presentations WHERE presId = :presId";
+
+	try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("presId", $presID);
+        $stmt->execute();
+        $pres = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($pres);
+        
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+    }
 }
 
 

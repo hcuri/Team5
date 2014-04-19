@@ -2,11 +2,26 @@
 
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
-var currentSlide = 1;	
-var presID = 1;
+var currentSlide = null;	
+var presID = null;
 var numSlides;
 
 $(document).ready(function(e) {
+	var slideInfo = $.ajax({
+		type: 'GET',
+		url: root_url + "/getPresInfo",
+		dataType: "json",
+		async: false,
+	});
+	slideInfo = slideInfo.responseJSON;
+	presID = slideInfo.presId;
+	var presName = slideInfo.presName;
+	var author = slideInfo.ownerId;
+	currentSlide = slideInfo.currSlide;
+	$("#presName").html(presName);
+	$("#presAuthor").html(author);
+	
+	
 	var slidesJSON = $.ajax({
 		type: 'GET',
 		url: root_url + "/getSlides/" + presID,
@@ -41,4 +56,4 @@ setInterval(function() {
 	cS = cS.responseJSON;
 	currentSlide = cS.currSlide;
 	updateSlide();
-}, 1000);
+}, 5000);
