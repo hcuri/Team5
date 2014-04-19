@@ -348,8 +348,9 @@ function getSlides($presID) {
             $pres = $stmt->fetch(PDO::FETCH_ASSOC);
 			
             $url = $pres['rootURL'];
-            $dir = '..' . $url;
-            $urlTxt = 'http://localhost/UPresent' . $url;
+            $title = $pres['presName'];
+            $dir = $url . "/" . $title;
+            $urlTxt = $url; //Don't know what this is for
             $URLarray = array();
             $slidesARRAY = array();
             if (is_dir($dir)){
