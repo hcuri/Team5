@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="css/styles_home.css" rel="stylesheet" />
 	<link href="css/styles.css" rel="stylesheet" />
+  <link href="css/styles_searchterms.css" rel="stylesheet" />
 	<title>UPresent -- Searchterms</title>
 </head>
 <body>
@@ -30,10 +31,38 @@
     </div>
   </div>
 </div>
-		<form>
-			<input type="text" name="search">
-		</form>
-	<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
+<div id="content">
+	<form id="search">
+		<input type="text" name="search">
+	</form>
+  <table id="results">
+    <tr class="titlerow">
+      <th>Results</th>  
+    </tr>
+    <tr class="result">
+      <td>My</td>
+    </tr>
+    <tr class="result">
+      <td>name</td>
+    </tr>
+    <tr class="result">
+      <td>is</td>
+    </tr>
+    <tr class="result">
+      <td>Inigo</td>
+    </tr>
+    <tr class="result">
+      <td>Montoya</td>
+    </tr>
+    <tr class="result">
+      <td>You</td>
+    </tr>
+    <tr class="result">
+      <td>killed</td>
+    </tr>
+  </table>
+</div>
+<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 
 </html>
