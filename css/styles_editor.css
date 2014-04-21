@@ -1,19 +1,75 @@
 /* INV VIEWER WINDOW START */
 div#fadeout {
-    position: absolute;
-    height: 200%;
+    position: fixed;
+    height: 100%;
     width: 100%;
     background-color: black;
     z-index: 99;
 }
 div#invContainer {
-    position: absolute;
-    height: 700px;
-    width: 500px;
-    top: 100px;
+    position: fixed;
+    height: 600px;
+    width: 900px;
+    top: 50px;
     background-color: #ededed;
     z-index: 100;
 }
+div#userSearch {
+    height: 600px;
+    /*float: left;*/
+    display: inline-block;
+}
+    div#userSearch span {   
+        margin-left: 25px;
+    }
+    input#searchBox {
+        border: 2px solid #2a2a2a;
+        border-radius: 8px;
+    }
+    img[src="img/searchBtn.png"] {
+        width: 35px;
+        height: 35px;
+        margin-top: 10px;
+    }
+    div#searchResults {
+
+    }
+
+div#vertbar {
+    width: 2px;
+    background-color: grey;
+    height: 550px;
+    margin-top: 25px;
+    /*margin-left:auto;
+    margin-right:auto;*/
+    display: inline-block;
+}
+
+div#groups {
+    height: 600px;
+    /*float: right;*/
+    display: inline-block;
+}
+    div#searchBar {
+        display:inline;
+        margin-left: auto;
+        margin-right: auto;
+        left: 50px;
+    }
+        div#groups span {
+
+        }
+        input#groupBox {
+            display: inline;
+            border: 2px solid #2a2a2a;
+            border-radius: 8px;
+        }
+        img[src="img/plusBtn.jpg"] {
+    
+        }
+    div#groupInfo {
+
+    }
 /* INV VIEWER WINDOW END */
 
 #UPresentTitle {

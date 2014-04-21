@@ -19,7 +19,27 @@
   <title>UPresent - Editor</title>
 </head>
 <body>
+
+<!-- Invite viewers window START -->
 <div id="fadeout"></div>
+<div id="invContainer">
+  <div id="userSearch">
+    <div id="searchBar">
+      <span>Search Users </span>
+      <input type="text" id="searchBox" />
+      <img src="img/searchBtn.png" />
+    </div>
+    <div id="searchResults"></div>
+  </div>
+  <div id="vertbar"></div>
+  <div id="groups">
+    <span>My Groups</span>
+    <input type="text" id="groupBox" /><img src="img/plusBtn.jpg" />
+    <div id="groupInfo"></div>
+  </div>
+</div>
+<!-- Invite viewers window END -->
+
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
