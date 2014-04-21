@@ -32,13 +32,13 @@
   </div>
 </div>
 <div id="content">
+  <div id="title">
+    <h2>Search Results</h2>
+  </div>
 	<form id="search">
-		<input type="text" name="search">
+		<input type="text" name="search" placeholder="New search">
 	</form>
   <table id="results">
-    <tr class="titlerow">
-      <th>Results</th>  
-    </tr>
     <tr class="result">
       <td>My</td>
     </tr>
