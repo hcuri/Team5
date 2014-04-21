@@ -349,7 +349,7 @@ function getSlides($presID) {
 			
             $url = $pres['rootURL'];
             $title = $pres['presName'];
-            $dir = $url . "/" . $title;
+            $dir = ".." . $url . $title . "/";
             $urlTxt = $url; //Don't know what this is for
             $URLarray = array();
             $slidesARRAY = array();
@@ -357,7 +357,7 @@ function getSlides($presID) {
                 if ($dh = opendir($dir)){
                     while (($file = readdir($dh)) !== false){
                         if($file == "." or $file == "..") continue;
-                        $URLarray[] = $urlTxt . '/' . $file;
+                        $URLarray[] = $urlTxt . $file;
                         
                         $pattern = '/\d+/';
                         preg_match($pattern, $file, $matches);
@@ -383,6 +383,7 @@ function getSlides($presID) {
                 echo '{"error":"'. $e->getMessage() .'"}';
         }
 }
+
 
 function getCurrentSlide($presId) {
     $sql = "SELECT currSlide FROM Presentations WHERE presId = :presId";
@@ -537,55 +538,126 @@ function createGroup() {
 	$request = Slim::getInstance()->request();
 	$group = json_decode($request->getBody());
 	$sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
-                . " :ownerId, :code)";
+                . " :ownerId)";
 	try {
 		$db = dbconnect();
 		$stmt = $db->prepare($sqlGroup);   
 		$stmt->bindParam("groupName", $group->groupName);
 		$stmt->bindParam("ownerId", $group->ownerId);
-		$stmt->bindParam("Code", $group->Code);
-	    $stmt->execute();
+                $stmt->execute();
+                echo json_encode($group);
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":"'. $e->getMessage() .'"}';
 	}	
-
-	$sqlGroupId = "SELECT groupId FROM Groups WHERE groupName = :groupName";
-	$groupId = "";
-	try {
-		$stmt = $db->prepare($sqlGroupId);
-		$stmt->bindParam("groupName", $group->groupName);
-		$stmt->execute();
-		$group = $stmt->fetch(PDO::FETCH_ASSOC);
-                $groupId = $group['groupId'];
-                
-	}
-
-	/* This doesn't work, no idea how to do this as of yet
-	$sqlGroupUsers = "INSERT INTO Group_Users VALUES ();";
-	try {
-		$db = dbconnect();
-		$stmt = $db->prepare($sql);   
-		$stmt->bindParam("rootURL", $presentation->rootURL);
-		$stmt->bindParam("sessId", $presentation->sessId);
-		$stmt->bindParam("username", $presentation->username);
-	    $stmt->execute();
-		$db = null; 
-		echo json_encode($presentation); */
-	catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-        ;
 }
 function addToGroup() {
-	//Add USERS to a group
+error_log('addToGroup\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$user = json_decode($request->getBody());
+       
+        $ownerUsername = $_COOKIE['user'];
+        $ownerId = idFromUsername($ownerUsername);
+        $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+       
+        $userId = idFromUsername($user->username);
+	$sqlUser = "INSERT INTO Group_Users VALUES (:groupId, :userId)";
+        
+	try {
+                $db = dbconnect();
+                $stmt = $db->prepare($sqlGroup); 
+                $stmt->bindParam("groupName", $user->groupName);
+                $stmt->bindParam("ownerId", $ownerId);
+                $stmt->execute();
+                $group = $stmt->fetch(PDO::FETCH_ASSOC);
+                $groupId = $group['groupId'];
+                
+                $stmt = $db->prepare($sqlUser);
+		$stmt->bindParam("groupId", $groupId);
+		$stmt->bindParam("userId", $userId);
+                $stmt->execute();
+                echo json_encode($user);
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}	
 }
 function deleteFromGroup() {
-	//delete USERS from a group
+	$request = Slim::getInstance()->request();
+	$user = json_decode($request->getBody());
+	
+        
+        $ownerUsername = $_COOKIE['user'];
+        $ownerId = idFromUsername($ownerUsername);
+        $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+       
+        $userId = idFromUsername($user->username);
+	$sqlUser = "DELETE groupId, userId FROM Group_Users "
+                . "WHERE groupId=:groupId AND userId=:userId)";
+        
+	try {
+                $db = dbconnect();
+                $stmt = $db->prepare($sqlGroup); 
+                $stmt->bindParam("groupName", $user->groupName);
+                $stmt->bindParam("ownerId", $ownerId);
+                $stmt->execute();
+                $group = $stmt->fetch(PDO::FETCH_ASSOC);
+                $groupId = $group['groupId'];
+                
+                $stmt = $db->prepare($sqlUser);
+		$stmt->bindParam("groupId", $groupId);
+		$stmt->bindParam("userId", $userId);
+                $stmt->execute();
+                echo json_encode($user);
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}
 }
 function deleteGroup() {
-	//delete ENTIRE group
+        error_log('deleteGroup\n', 3, '/var/tmp/php.log');
+	$request = Slim::getInstance()->request();
+	$group = json_decode($request->getBody());
+        
+        $ownerUsername = $_COOKIE['user'];
+        $ownerId = idFromUsername($ownerUsername);
+        $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+        
+	$sqlUsers = "DELETE groupId, userId FROM Group_Users WHERE groupId=:groupId";
+        
+	try {
+		$db = dbconnect();
+                $stmt = $db->prepare($sqlGroup); 
+                $stmt->bindParam("groupName", $user->groupName);
+                $stmt->bindParam("ownerId", $ownerId);
+                $stmt->execute();
+                $group = $stmt->fetch(PDO::FETCH_ASSOC);
+                $groupId = $group['groupId'];
+                
+                $stmt = $db->prepare($sqlUser);
+		$stmt->bindParam("groupId", $groupId);
+                $stmt->execute();
+                echo json_encode($group);
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}	
+}
+
+function idFromUsername($username) {
+    $sql = "SELECT userId FROM Users WHERE username=:username";
+    
+    try {
+		$db = dbconnect();
+                $stmt = $db->prepare($sql);
+                $stmt->bindParam("username", $username);
+                $stmt->execute();
+                $userID = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $userID;
+	} catch(PDOException $e) {
+		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":"'. $e->getMessage() .'"}';
+	}
 }
 
 ?>
