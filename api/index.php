@@ -314,7 +314,7 @@ function addPresentation() {
 
 	$username = $_COOKIE['user'];
 	$userId = getUserId($username);
-	$rootURL = "/upload/" . $_COOKIE['user'] . "/";
+	$rootURL = "upload/" . $_COOKIE['user'] . "/";
 	$groupId = 25;
 
 	$presentation = json_decode($request->getBody());
@@ -349,15 +349,15 @@ function getSlides($presID) {
 			
             $url = $pres['rootURL'];
             $title = $pres['presName'];
-            $dir = ".." . $url . $title . "/";
-            $urlTxt = $url; //Don't know what this is for
+            $dir = "../" . $url . $title . "/";
+            //$urlTxt = $url; //Don't know what this is for
             $URLarray = array();
             $slidesARRAY = array();
             if (is_dir($dir)){
                 if ($dh = opendir($dir)){
                     while (($file = readdir($dh)) !== false){
                         if($file == "." or $file == "..") continue;
-                        $URLarray[] = $urlTxt . $file;
+                        $URLarray[] = $url . $title . "/" . $file;
                         
                         $pattern = '/\d+/';
                         preg_match($pattern, $file, $matches);

@@ -7,17 +7,15 @@ var numSlides;
 var presID = null;
 
 $(document).ready(function(e) {
-	alert("hello");
-	var getPresID = $.ajax({
-		type: 'GET',
-		url: root_url + "/getPresInfo",
-		dataType: "json",
-		async: false,
-	});
-        alert(JSON.stringify(presID));
-	getPresID = getPresID.responseJSON;
-	presID = getPresID.presID;
-
+	//var getPresID = $.ajax({
+	//	type: 'GET',
+	//	url: root_url + "/getPresInfo",
+	//	dataType: "json",
+	//	async: false,
+	//});
+        //alert(JSON.stringify(presID));
+	//getPresID = getPresID.responseJSON;
+	presID = $.cookie('pres');
  
   	$("#previous").css("background-color", "black");
 	$("#previous").removeAttr("src");
@@ -33,11 +31,18 @@ $(document).ready(function(e) {
 	slides = slidesJSON.slides;
 	
 	$("#slide").attr("src", slides[1]);
-	$("#next").attr("src", slides[2]);
+        if(numSlides > 1)
+            $("#next").attr("src", slides[2]);
+        else {
+            $("#next").attr("src", ""); //need contingincy for this
+            $("#next").css("background-color", "black");
+        }
 	
 	$("#slide").click(function() {
-		currentSlide++;
-		updateSlide();
+                if(currentSlide < numSlides) {
+                    currentSlide++;
+                    updateSlide();
+                }
 	});
 	$("#previous").click(function() {
 		if(currentSlide > 1) {
@@ -46,8 +51,10 @@ $(document).ready(function(e) {
 		}
 	});
 	$("#next").click(function() {
+            if(currentSlide < numSlides) {
 		currentSlide++;
 		updateSlide();
+            }
 	});
 	
 	$(document).keydown(function(e) {
@@ -73,7 +80,7 @@ function updateSlide() {
 		$("#next").attr("src", slides[currentSlide+1]);
 		$("#previous").attr("src", "");
 		$("#previous").css("background-color", "black");
-	} else if(currentSlide === (numSlides-1)) {
+	} else if(currentSlide == numSlides) {
 		$("#previous").attr("src", slides[currentSlide-1]);
 		$("#next").attr("src", "");
 		$("#next").css("background-color", "black");
