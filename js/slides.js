@@ -31,13 +31,9 @@ $(document).ready(function(e) {
 	slidesJSON = slidesJSON.responseJSON;
 	numSlides = slidesJSON.numSlides;
 	slides = slidesJSON.slides;
-	//var title = slidesJSON.title;
-	//var author = slidesJSON.author;
 	
 	
 	$("#slide").attr("src", slides[1]);
-	//$("#presName").html(title);
-	//$("#presAuthor").html(author);
 	
 });
 

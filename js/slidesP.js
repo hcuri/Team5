@@ -7,6 +7,9 @@ var numSlides;
 var presID = null;
 
 $(document).ready(function(e) {
+	//look into reloading page to get rid of cache for repeated presentations
+	//window.location.reload(true);
+	
 	//var getPresID = $.ajax({
 	//	type: 'GET',
 	//	url: root_url + "/getPresInfo",
