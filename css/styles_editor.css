@@ -1,4 +1,22 @@
-#UPresentTitle{
+/* INV VIEWER WINDOW START */
+div#fadeout {
+    position: absolute;
+    height: 200%;
+    width: 100%;
+    background-color: black;
+    z-index: 99;
+}
+div#invContainer {
+    position: absolute;
+    height: 700px;
+    width: 500px;
+    top: 100px;
+    background-color: #ededed;
+    z-index: 100;
+}
+/* INV VIEWER WINDOW END */
+
+#UPresentTitle {
     text-align: center;
     text-decoration: underline;
 }

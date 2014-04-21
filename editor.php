@@ -16,10 +16,10 @@
   <link href="css/jQuery.css" rel="stylesheet" />
   <script src="js/jQuery.js"></script>
   <script src="js/editor.js"></script>
-  <script src="js/jquery-1.10.2.js"></script>
   <title>UPresent - Editor</title>
 </head>
 <body>
+<div id="fadeout"></div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
@@ -92,7 +92,9 @@
   </div>
   <div id="Footer">
     <form id="save" action="user.php" method="post">
-      <input type="submit" id="saveUPresent" value="Save UPresent" /></form>
+      <input type="submit" id="saveUPresent" value="Save UPresent" />
+      </form>
+      <input type="submit" id="inv" value="Invite Viewers" />
       <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/> </span>
     </form>
   </div>

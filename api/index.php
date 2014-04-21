@@ -165,7 +165,7 @@ function postUserInfo() {
 }
 
 function searchUsers($term) {
-    $terms = explode('|', $term);
+    $terms = explode('-', $term);
     $numTerms = count($terms);
     
     if($numTerms == 1) {
