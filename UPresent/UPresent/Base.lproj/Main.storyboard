@@ -21,12 +21,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Fps-Lk-zRP"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q6h-uB-cHa">
                                 <rect key="frame" x="20" y="248" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="ffz-kq-Sp3"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-M6-xWs">
                                 <rect key="frame" x="20" y="286" width="280" height="30"/>
@@ -38,7 +44,6 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K71-aT-6L4"/>
-                                    <segue destination="y9e-V3-GVj" kind="custom" id="VCe-Na-hUO"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OfficialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5hR-xM-xA6">
@@ -48,58 +53,51 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941182851791382" green="0.92941182851791382" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="z48-yN-mrG" appends="YES" id="fcW-Zm-idM"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="q6h-uB-cHa" id="lhx-rt-oGZ"/>
                         <outlet property="usernameTextField" destination="Q7g-bp-HlR" id="clz-FH-BJq"/>
+                        <segue destination="4dV-4R-bzZ" kind="modal" identifier="login_success" id="q3Q-9h-P5H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Table View Controller - My UPresents-->
-        <scene sceneID="Was-cO-HKY">
-            <objects>
-                <tableViewController id="W6c-Zz-w8Q" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fun-vu-0w7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mFv-g7-ema">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mFv-g7-ema" id="Hz7-1F-shU">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="W6c-Zz-w8Q" id="KBI-ic-wEU"/>
-                            <outlet property="delegate" destination="W6c-Zz-w8Q" id="82O-CS-Saz"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="My UPresents" id="aqq-hq-Gb3"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tBe-We-jZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1341" y="-16"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RNt-ZQ-3GV">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="y9e-V3-GVj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5gw-sx-Id8">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
+                <tapGestureRecognizer id="z48-yN-mrG">
                     <connections>
-                        <segue destination="W6c-Zz-w8Q" kind="relationship" relationship="rootViewController" id="1Df-JC-2Kb"/>
+                        <action selector="backgroundTap:" destination="vXZ-lx-hvc" id="LzN-Id-Orn"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aH3-8H-giN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="791" y="-16"/>
+            <point key="canvasLocation" x="279" y="-16"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6QH-gA-6u7">
+            <objects>
+                <viewController id="4dV-4R-bzZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lQh-i8-RE6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Evq-hd-Ywm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xnH-gp-X9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzu-Li-iHa">
+                                <rect key="frame" x="139" y="253" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCS-Yw-olY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="-16"/>
         </scene>
     </scenes>
     <resources>
