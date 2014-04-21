@@ -22,6 +22,7 @@
 		1F31D36618F896B000CF477D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F31D36418F896B000CF477D /* InfoPlist.strings */; };
 		1F31D36818F896B000CF477D /* UPresentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31D36718F896B000CF477D /* UPresentTests.m */; };
 		1F9E39C119057E3700C552ED /* UPresentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E39C019057E3700C552ED /* UPresentTableViewController.m */; };
+		1F9E39C419058A1100C552ED /* UPresentRemoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E39C319058A1100C552ED /* UPresentRemoteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		1F31D36718F896B000CF477D /* UPresentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPresentTests.m; sourceTree = "<group>"; };
 		1F9E39BF19057E3700C552ED /* UPresentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPresentTableViewController.h; sourceTree = "<group>"; };
 		1F9E39C019057E3700C552ED /* UPresentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPresentTableViewController.m; sourceTree = "<group>"; };
+		1F9E39C219058A1100C552ED /* UPresentRemoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPresentRemoteViewController.h; sourceTree = "<group>"; };
+		1F9E39C319058A1100C552ED /* UPresentRemoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPresentRemoteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +123,12 @@
 				1F31D34E18F896B000CF477D /* Main.storyboard */,
 				1F31D35118F896B000CF477D /* UPresentViewController.h */,
 				1F31D35218F896B000CF477D /* UPresentViewController.m */,
-				1F31D35418F896B000CF477D /* Images.xcassets */,
-				1F31D34318F896B000CF477D /* Supporting Files */,
 				1F9E39BF19057E3700C552ED /* UPresentTableViewController.h */,
 				1F9E39C019057E3700C552ED /* UPresentTableViewController.m */,
+				1F9E39C219058A1100C552ED /* UPresentRemoteViewController.h */,
+				1F9E39C319058A1100C552ED /* UPresentRemoteViewController.m */,
+				1F31D35418F896B000CF477D /* Images.xcassets */,
+				1F31D34318F896B000CF477D /* Supporting Files */,
 			);
 			path = UPresent;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F31D34D18F896B000CF477D /* UPresentAppDelegate.m in Sources */,
+				1F9E39C419058A1100C552ED /* UPresentRemoteViewController.m in Sources */,
 				1F9E39C119057E3700C552ED /* UPresentTableViewController.m in Sources */,
 				1F31D35318F896B000CF477D /* UPresentViewController.m in Sources */,
 				1F31D34918F896B000CF477D /* main.m in Sources */,
