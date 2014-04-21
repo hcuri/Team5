@@ -103,7 +103,7 @@ function registerUser() {
                 $stmt->execute();
 		$db = null; 
 		setcookie("user", $user->username, time()+3600, '/');
-		mkdir("../upload/" . $user->username . "/");
+		mkdir("../upload/" . $user->username);
 		echo json_encode($user); 
 	} catch(PDOException $e) {
 		error_log($e->getMessage(), 3, '/var/tmp/php.log');
@@ -361,10 +361,17 @@ function getSlides($presID) {
                         
                         $pattern = '/\d+/';
                         preg_match($pattern, $file, $matches);
-						//error on below line - no idea why but it affects pulling slides from random presentations
-                        $slideNum = $matches[0];
-                        $slidesARRAY[] = $slideNum;
-                        
+		//error on below line - no idea why but it affects pulling slides from random presentations
+                        //--ANSWER: could be that the file names don't have a number in them...
+                        if(!empty($matches)) {
+                            $slideNum = $matches[0];
+                            $slidesARRAY[] = $slideNum;
+                        }
+                        else {
+                            $slideNum = 0;
+                            $slidesARRAY[] = $slideNum;                        
+                        }
+                               
                     }
                     closedir($dh);
                 }
@@ -490,7 +497,7 @@ function setPresId() {
 	echo($_COOKIE['pres']);
 }
 function getPresInfo() {
-	error_log('deletePresentation\n', 3, '/var/tmp/php.log');
+	error_log('getPresInfo\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	
 	$presID = $_COOKIE['pres'];

@@ -194,18 +194,20 @@ function count(obj) {
 function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	alert("Presenting: " + presNames[num-1] + " : " +presIDs[num-1]);
-	$.ajax({
-		type: 'POST',
-		url: root_url + 'setPresId',
-		data: presFormToJSON(presIDs[num-1]),
-		async: false,
-		success: function(){
-			window.location="presenter.php";
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-		}
-	});
+	$.cookie('pres', presIDs[num-1]);
+        //$.ajax({
+	//	type: 'POST',
+	//	url: root_url + 'setPresId',
+	//	data: presFormToJSON(presIDs[num-1]),
+	//	async: false,
+	//	success: function(){
+	//		window.location="presenter.php";
+	//	},
+	//	error: function(jqXHR, textStatus, errorThrown){
+	//		alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+	//	}
+	//});
+        window.location="presenter.php";
 	return true;
 }
 

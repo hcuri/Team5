@@ -7,15 +7,17 @@ var numSlides;
 var presID = null;
 
 $(document).ready(function(e) {
-	
+	alert("hello");
 	var getPresID = $.ajax({
 		type: 'GET',
-		url: root_url + "/getPresId",
+		url: root_url + "/getPresInfo",
 		dataType: "json",
 		async: false,
 	});
+        alert(JSON.stringify(presID));
 	getPresID = getPresID.responseJSON;
 	presID = getPresID.presID;
+
  
   	$("#previous").css("background-color", "black");
 	$("#previous").removeAttr("src");
