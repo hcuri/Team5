@@ -3,6 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_about.css" rel="stylesheet" />
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
@@ -34,9 +35,9 @@
 </div>
 <div id="content">
   <div id="terms">
-      <IMG SRC="img/OfficialLogo.png" style="margin-left:250px" />
-    <div id="infoHeader"><br><br>About Us</div>
-    <div id="infoContent"><br>This is where UPresent will describe its history, foundation, etc; for the curious users that want to know more about our company.</div>
+      <!--<img src="img/OfficialLogo.png" style="margin-left:250px" />-->
+    <div id="infoHeader">About Us</div>
+    <div id="infoContent">This is where UPresent will describe its history, foundation, etc; for the curious users that want to know more about our company.</div>
   </div>
   
 </div>
