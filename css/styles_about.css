@@ -1,25 +1,35 @@
 #content {
-	border:1px solid black;
-	height:500px;
-	width:800px;
+	/*border:1px solid black;*/
+	height:460px;
+	width:660px;
 	margin-top:30px;
 	margin-bottom:30px;
-	padding:15px;
+	padding:10px;
+	background-color:gray;
+
 }
 
 #terms {
-	border:1px solid black;
+	/*border:1px solid black;*/
+	width:655px;
+	height:455px;
+	margin-left:4px;
+	margin-top:4px;
+	background-color:white;
 
 }
 
 #infoHeader {
-	border:1px solid black;
+	/*border:1px solid black;*/
 	height:30px;
 	width:200px;
+	padding-left:27px;
+	padding-top:40px;
 }
 
 #infoContent {
-	border:1px solid black;
+	/*border:1px solid black;*/
 	margin-top:15px;
+	padding:25px;
 
 }
