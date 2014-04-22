@@ -1,0 +1,25 @@
+#content {
+	border:1px solid black;
+	height:500px;
+	width:800px;
+	margin-top:30px;
+	margin-bottom:30px;
+	padding:15px;
+}
+
+#terms {
+	border:1px solid black;
+
+}
+
+#infoHeader {
+	border:1px solid black;
+	height:30px;
+	width:200px;
+}
+
+#infoContent {
+	border:1px solid black;
+	margin-top:15px;
+
+}
