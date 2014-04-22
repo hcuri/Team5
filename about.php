@@ -37,7 +37,13 @@
   <div id="terms">
       <!--<img src="img/OfficialLogo.png" style="margin-left:250px" />-->
     <div id="infoHeader">About Us</div>
-    <div id="infoContent">This is where UPresent will describe its history, foundation, etc; for the curious users that want to know more about our company.</div>
+    <div id="infoContent">
+      UPresent began in early spring 2014, when five SMU students realized a dream to make classroom 
+      presentations bearable.  UPresent allows users to upload slideshow presentations onto the web,
+      add polling data to different slides, invite people to view their UPresents, and make the 
+      presentation experience more streamlined and efficient.  What began as a simple idea has transformed
+      into a successful venture.  Spread the word!
+    </div>
   </div>
   
 </div>
