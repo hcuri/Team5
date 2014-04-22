@@ -29,13 +29,95 @@
       <input type="text" id="searchBox" />
       <img src="img/searchBtn.png" />
     </div>
+    <div id="tableHolder">
+      <table>
+        <tr class="1">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="2">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="3">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="4">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="5">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="6">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+      </table>
+    </div>
     <div id="searchResults"></div>
   </div>
   <div id="vertbar"></div>
   <div id="groups">
-    <span>My Groups</span>
-    <input type="text" id="groupBox" /><img src="img/plusBtn.jpg" />
-    <div id="groupInfo"></div>
+    <div id="searchBar">
+      <span>My Groups</span>
+      <input type="text" id="groupBox" /><img src="img/plusBtn.jpg" />
+      <div id="groupInfo"></div>
+    </div>
+    <div id="tableHolder">
+      <table>
+        <tr class="1">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="2">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="3">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="4">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="5">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+        <tr class="6">
+          <td class="title"></td>
+          <td class="present"></td>
+          <td class="edit"></td>
+          <td class="erase"></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 <!-- Invite viewers window END -->

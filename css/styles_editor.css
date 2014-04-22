@@ -16,11 +16,15 @@ div#invContainer {
 }
 div#userSearch {
     height: 600px;
-    /*float: left;*/
-    display: inline-block;
+    float: left;
+    
+    width: 449px;
 }
+    div#userSearch div#SearchBar {
+
+    }
     div#userSearch span {   
-        margin-left: 25px;
+        margin-left: 50px;
     }
     input#searchBox {
         border: 2px solid #2a2a2a;
@@ -29,7 +33,7 @@ div#userSearch {
     img[src="img/searchBtn.png"] {
         width: 35px;
         height: 35px;
-        margin-top: 10px;
+        margin-top: -30px;
     }
     div#searchResults {
 
@@ -40,24 +44,26 @@ div#vertbar {
     background-color: grey;
     height: 550px;
     margin-top: 25px;
-    /*margin-left:auto;
-    margin-right:auto;*/
-    display: inline-block;
+    margin-left:auto;
+    margin-right:auto;
+    
 }
 
 div#groups {
     height: 600px;
-    /*float: right;*/
-    display: inline-block;
+    float: right;
+    margin-top: -550px;
+    
+    width: 449px;
 }
-    div#searchBar {
+    div#groups div#searchBar {
         display:inline;
         margin-left: auto;
         margin-right: auto;
         left: 50px;
     }
         div#groups span {
-
+            margin-left: 50px;
         }
         input#groupBox {
             display: inline;
@@ -69,6 +75,33 @@ div#groups {
         }
     div#groupInfo {
 
+    }
+
+div#TableHolder table {
+    font-size: 12px;
+    text-align:center;  
+    border:1px solid #2a2a2a;
+    overflow:auto;
+
+    width:400px;
+    margin-left: 50px;
+    height:300px;
+    background-color: #ffffff;
+}
+    th {
+        font-size: 15px;
+        color:black;
+        background-color:#CCC;  
+    }
+
+    td {
+        height:30px;
+    }
+    tr:nth-child(odd) {
+        background-color: #ededed;
+    }
+    tr:nth-child(even) {
+        background-color: #ffffff;
     }
 /* INV VIEWER WINDOW END */
 
