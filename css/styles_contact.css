@@ -8,7 +8,8 @@
 }
 
 #contact {
-	margin-left: 15%;
+	margin-left: 100px;
+	/*border:1px solid black;*/
 	
 }
 
@@ -27,7 +28,7 @@ textarea#message {
 	height:200px;
 	width:600px;
 	margin-bottom:5px;
-	margin-left: auto;
+	margin-left:1px;
 
 }
 
