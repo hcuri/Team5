@@ -644,13 +644,14 @@ function createGroup() {
     error_log('createGroup\n', 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $group = json_decode($request->getBody());
+    $ownerId = idFromUsername($_COOKIE('user'));
     $sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
             . " :ownerId)";
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sqlGroup);
         $stmt->bindParam("groupName", $group->groupName);
-        $stmt->bindParam("ownerId", $group->ownerId);
+        $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
         echo json_encode($group);
     } catch (PDOException $e) {
