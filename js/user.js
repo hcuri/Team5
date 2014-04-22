@@ -17,7 +17,6 @@ $(document).ready(function() {
 	$("#tabs1").tabs();
 	$( "#tabs2" ).tabs();
 	$("#newPres").click(function() {
-		alert("Creating New Presentation");
 		window.location = "http://localhost/new.php";
 	});
 	$(".trashIcon").click(function() {
@@ -32,7 +31,7 @@ $(document).ready(function() {
 		dataType: "json",
 		async: false,
 	});
-	var pres = pres.responseJSON;
+	pres = pres.responseJSON;
 	
 	var numUPres = count(pres);
 	
@@ -103,9 +102,9 @@ $(document).ready(function() {
 		dataType: "json",
 		async: false,
 	});
-	var pres = pres.responseJSON;
+	pres = pres.responseJSON;
 	
-	var numUPres = count(pres);
+	numUPres = count(pres);
 	
 	for(var i = 0; i < numUPres; i++) {
 		upPresNames.push(pres[i].presName);
@@ -146,9 +145,9 @@ $(document).ready(function() {
 		dataType: "json",
 		async: false,
 	});
-	var pres = pres.responseJSON;
+	pres = pres.responseJSON;
 	
-	var numUPres = count(pres);
+	numUPres = count(pres);
 	
 	for(var i = 0; i < numUPres; i++) {
 		pastPresNames.push(pres[i].presName);
