@@ -17,26 +17,28 @@ div#invContainer {
 div#userSearch {
     height: 600px;
     float: left;
-    
+    margin-top: 30px;
     width: 449px;
 }
-    div#userSearch div#SearchBar {
-
+    div#userSearch div#searchBar {
+        margin-top: 25px;
+        margin-left: 23px;
     }
     div#userSearch span {   
-        margin-left: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
     }
     input#searchBox {
-        border: 2px solid #2a2a2a;
+        border: 1px solid #2a2a2a;
         border-radius: 8px;
+        width: 378px;
+        height: 20px
     }
     img[src="img/searchBtn.png"] {
-        width: 35px;
-        height: 35px;
-        margin-top: -30px;
-    }
-    div#searchResults {
-
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
     }
 
 div#vertbar {
@@ -52,40 +54,42 @@ div#vertbar {
 div#groups {
     height: 600px;
     float: right;
-    margin-top: -550px;
+    margin-top: -545px;
     
     width: 449px;
 }
     div#groups div#searchBar {
-        display:inline;
-        margin-left: auto;
-        margin-right: auto;
-        left: 50px;
+        margin-left: 23px;
+        padding-top: 25px;
     }
         div#groups span {
-            margin-left: 50px;
+            font-weight:bold;
         }
         input#groupBox {
-            display: inline;
-            border: 2px solid #2a2a2a;
+            border: 1px solid #2a2a2a;
             border-radius: 8px;
+            width: 378px;
+            height: 20px;
         }
-        img[src="img/plusBtn.jpg"] {
-    
+        img[src="img/plusBtn.png"] {
+            margin-left: 5px;
+            vertical-align: middle;
         }
-    div#groupInfo {
 
-    }
-
-div#TableHolder table {
-    font-size: 12px;
+div#tableHolder {
+    height: 440px;
+    width: 400px;
+    /*border: 2px groove threedface;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+div#tableHolder table {
     text-align:center;  
-    border:1px solid #2a2a2a;
-    overflow:auto;
-
-    width:400px;
-    margin-left: 50px;
-    height:300px;
+    /*border:1px solid #2a2a2a;*/
+    width:385px;
     background-color: #ffffff;
 }
     th {
@@ -93,9 +97,14 @@ div#TableHolder table {
         color:black;
         background-color:#CCC;  
     }
-
+    .header {
+        font-weight: bold;
+    }
+    tr {
+        height: 20px;
+    }
     td {
-        height:30px;
+        
     }
     tr:nth-child(odd) {
         background-color: #ededed;
@@ -103,6 +112,57 @@ div#TableHolder table {
     tr:nth-child(even) {
         background-color: #ffffff;
     }
+    .fName {
+        width: 50px;
+        text-align: left;
+    }
+    .lName {
+        width: 50px;
+        text-align: left;
+    }
+    .username {
+        width: 50px;
+        text-align:left;
+    }
+    .org {
+        width: 50px;
+        text-align: right;
+    }
+div#groupTable {
+    /*border: 2px groove threedface;*/
+    width: 370px;
+    height: 410px;
+    padding:15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+    div#gName {
+        
+    }
+    div#uName {
+        padding-left: 30px;    
+    }
+    img[src="img/minusBtn.png"] {
+        width: 12px;
+        height: 12px;
+        padding-right: 2px;
+    }
+    img[src="img/trash.png"] {
+        width: 13px;
+        height: 13px;
+        float: right;
+    }
+input#cancel {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+input#done {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
 /* INV VIEWER WINDOW END */
 
 #UPresentTitle {

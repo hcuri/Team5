@@ -20,4 +20,16 @@ $(document).ready(function(){
   		$("div#invContainer").hide();
   	});
   });
+
+  //groupTable
+  var isClicked = false;
+  $("div#uName").click(function() {
+      if($(this).attr('class') === 'selected') {
+        $(this).css("background-color","#ffffff");
+      }
+      else if($(this).attr('class') !== 'selected')
+        $(this).css("background-color","#ededed");
+      $(this).toggleClass('selected');
+  });
+
 });

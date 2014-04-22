@@ -24,101 +24,152 @@
 <div id="fadeout"></div>
 <div id="invContainer">
   <div id="userSearch">
+    <center><span>Search Users</span></center>
     <div id="searchBar">
-      <span>Search Users </span>
       <input type="text" id="searchBox" />
       <img src="img/searchBtn.png" />
     </div>
     <div id="tableHolder">
       <table>
         <tr class="1">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="header">First Name</td>
+          <td class="header">Last Name</td>
+          <td class="header">Username</td>
+          <td class="header">Organization</td>
         </tr>
         <tr class="2">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
+          <td class="fName">Taylor</td>
+          <td class="lName">Bishop</td>
+          <td class="username">tbish</td>
+          <td class="org">SMU</td>
         </tr>
         <tr class="3">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
+          <td class="fName">Nick</td>
+          <td class="lName">Morris</td>
+          <td class="username">CaptainMustang8</td>
+          <td class="org">SMU</td>
         </tr>
         <tr class="4">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
+          <td class="fName">John</td>
+          <td class="lName">Politz</td>
+          <td class="username">jp</td>
+          <td class="org">Your mom</td>
         </tr>
         <tr class="5">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
+          <td class="fName">Hector</td>
+          <td class="lName">Curi</td>
+          <td class="username">hcuri</td>
+          <td class="org">SMU</td>
         </tr>
         <tr class="6">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
         </tr>
+        <tr class="7">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="8">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="9">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="10">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="11">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="12">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="13">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="14">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="15">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="16">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="17">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="18">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        <tr class="19">
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="org"></td>
+        </tr>
+        
       </table>
     </div>
     <div id="searchResults"></div>
   </div>
   <div id="vertbar"></div>
   <div id="groups">
+    <center><span>My Groups</span></center>
     <div id="searchBar">
-      <span>My Groups</span>
-      <input type="text" id="groupBox" /><img src="img/plusBtn.jpg" />
+      <input type="text" id="groupBox" /><img src="img/plusBtn.png" />
       <div id="groupInfo"></div>
     </div>
-    <div id="tableHolder">
-      <table>
-        <tr class="1">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr class="2">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
-        </tr>
-        <tr class="3">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
-        </tr>
-        <tr class="4">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
-        </tr>
-        <tr class="5">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
-        </tr>
-        <tr class="6">
-          <td class="title"></td>
-          <td class="present"></td>
-          <td class="edit"></td>
-          <td class="erase"></td>
-        </tr>
-      </table>
+    <div id="groupTable">
+      <div id="gName"><img src="img/minusBtn.png" />Group 1</div>
+        <div id="uName">Taylor Bishop <img src="img/trash.png" /></div>
+        <div id="uName">Hector Curi<img src="img/trash.png" /></div>
+        <div id="uName">John Politz<img src="img/trash.png" /></div>
+      <div id="gName"><img src="img/minusBtn.png" />Group 2</div>
+        <div id="uName">Nick Morris<img src="img/trash.png" /></div>
+        <div id="uName">Tyler George<img src="img/trash.png" /></div>
+        <div id="uName">Hector's Mom<img src="img/trash.png" /></div>
     </div>
   </div>
+  <input id="cancel" type="submit" name="submit" value="Cancel"/>
+  <input id="done" type="submit" name="submit" value="Done"/>
 </div>
 <!-- Invite viewers window END -->
 
