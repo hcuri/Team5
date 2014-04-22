@@ -116,7 +116,7 @@ $(document).ready(function() {
 	
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
-	for(var i = 1; i < entries.length+1; i++) {
+	for(var i = 0; i < entries.length; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
 			if(j===0) {
@@ -194,37 +194,15 @@ function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	alert("Presenting: " + presNames[num-1] + " : " +presIDs[num-1]);
 	$.cookie('pres', presIDs[num-1]);
-        //$.ajax({
-	//	type: 'POST',
-	//	url: root_url + 'setPresId',
-	//	data: presFormToJSON(presIDs[num-1]),
-	//	async: false,
-	//	success: function(){
-	//		window.location="presenter.php";
-	//	},
-	//	error: function(jqXHR, textStatus, errorThrown){
-	//		alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-	//	}
-	//});
-        window.location="presenter.php";
+    window.location="presenter.php";
 	return true;
 }
 
 function editUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	alert("Editing: " + presNames[num-1]);
-	$.ajax({
-		type: 'POST',
-		url: root_url + 'setPresId',
-		data: presFormToJSON(presIDs[num-1]),
-		async: false,
-		success: function(){
-			window.location="editor.php";
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-		}
-	});
+	$.cookie('pres', presIDs[num-1]);
+	window.location="editor.php";
 	return true;
 }
 
@@ -244,61 +222,9 @@ function deleteUPresent(num) {
 	return true;
 }
 
-function viewUPresent(num) {
-	//call ajax to delete presentation from the parameter
-	alert("Viewing: " + upPresNames[num-1] + " : " +upPresIDs[num-1]);
-	$.ajax({
-		type: 'POST',
-		url: root_url + 'setPresId',
-		data: presFormToJSON(upPresIDs[num-1]),
-		async: false,
-		success: function(){
-			window.location="viewer.php";
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-		}
-	});
-	return true;
-}
-
-function viewPastUPresent(num) {
-	//call ajax to delete presentation from the parameter
-	alert("Viewing: " + pastPresNames[num-1] + " : " +pastPresIDs[num-1]);
-	$.ajax({
-		type: 'POST',
-		url: root_url + 'setPresId',
-		data: presFormToJSON(pastPresIDs[num-1]),
-		async: false,
-		success: function(){
-			window.location="viewer.php";
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-		}
-	});
-	return true;
-}
-
 // Helper function to serialize all the form fields into a JSON string
 function deleteFormToJSON(presName) {
 	return JSON.stringify({
 		"title" : presName
 	});
 }
-
-function presFormToJSON(presId) {
-	return JSON.stringify({
-		"presID" : presId
-	});
-}
-
-/*var upPresNames = new Array();
-var upPresAuthor = new Array();
-var upPresDate = new Array();
-var upPresIds = new Array();
-var pastPresNames = new Array();
-var pastPresAuthor = new Array();
-var pastPresDate = new Array();
-var pastPresIds = new Array();*/
-
