@@ -460,28 +460,47 @@ function getPastPresentations($username) { //doesn't work yet
     $userId = idFromUsername($username);
     
     $groupSql = "SELECT groupId FROM Group_Users WHERE userId = :userId";
-    $presSql = "SELECT presId, presName, ownerId, presDate FROM Presentations "
+    $presSql = "SELECT presId, presName, ownerId, alreadyPresented FROM Presentations "
             . "WHERE groupId = :groupId";
+    $presenterSql = "SELECT fName, lName FROM Users WHERE userId = :ownerId";
 
     try {
         $db = dbconnect();
         $stmt = $db->prepare($groupSql);
         $stmt->bindParam("userId", $userId);
         $stmt->execute();
+        echo '[';
+        $echoedPresentations = 0;
         if ($stmt->rowCount() > 0) {
             for($i = 0; $i < $stmt->rowCount(); $i++) {
                 $group = $stmt->fetch(PDO::FETCH_ASSOC);
                 $presStmt = $db->prepare($presSql);
-                $stmt->bindParam("groupId", $group['groupId']);
-                $stmt->execute();
-                $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
-                
-                //check dates to see if it has passed... idk how I'll do that
-                //since we're storing dates as varchars in the db...
-                echo json_encode($presentations);
-                
+                $presStmt->bindParam("groupId", $group['groupId']);
+                $presStmt->execute();
+                for($j = 0; $j < $presStmt->rowCount(); $j++) {
+                    $presentation = $presStmt->fetch(PDO::FETCH_ASSOC);
+                    $presented = $presentation['alreadyPresented'];
+                    if($presented == 1) {
+                        $ownerStmt = $db->prepare($presenterSql);
+                        $ownerStmt->bindParam("ownerId", $presentation['ownerId']);
+                        $ownerStmt->execute();
+                        $owner = $ownerStmt->fetch(PDO::FETCH_ASSOC);
+                        $ownerName = $owner['fName'] . ' ' . $owner['lName'];
+                        if($echoedPresentations == 0)
+                            echo '{';
+                        else
+                            echo ',{';
+                        echo '"presId":"' . $presentation['presId'] . '", "presName":"'
+                                . $presentation['presName'] . '", "' . $ownerName 
+                                . '"}';
+                        $echoedPresentations++;
+                    }
+                    else
+                        continue;
+                }                
             }
         }
+        echo ']';
         $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
@@ -490,25 +509,51 @@ function getPastPresentations($username) { //doesn't work yet
 }
 
 function getUpcomingPresentations($username) { //doesn't work yet
-    $sql = "SELECT userId FROM Users WHERE username = :username";
-    $presSql = "SELECT presId, presName FROM Presentations WHERE ownerId = :userId";
+    $userId = idFromUsername($username);
+    
+    $groupSql = "SELECT groupId FROM Group_Users WHERE userId = :userId";
+    $presSql = "SELECT presId, presName, ownerId, alreadyPresented FROM Presentations "
+            . "WHERE groupId = :groupId";
+    $presenterSql = "SELECT fName, lName FROM Users WHERE userId = :ownerId";
 
     try {
         $db = dbconnect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam("username", $username);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        $userId = $user['userId'];
-
-        $stmt = $db->prepare($presSql);
+        $stmt = $db->prepare($groupSql);
         $stmt->bindParam("userId", $userId);
         $stmt->execute();
+        echo '[';
+        $echoedPresentations = 0;
         if ($stmt->rowCount() > 0) {
-            $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
-            echo json_encode($presentations);
-        } else
-            $db = null;
+            for($i = 0; $i < $stmt->rowCount(); $i++) {
+                $group = $stmt->fetch(PDO::FETCH_ASSOC);
+                $presStmt = $db->prepare($presSql);
+                $presStmt->bindParam("groupId", $group['groupId']);
+                $presStmt->execute();
+                for($j = 0; $j < $presStmt->rowCount(); $j++) {
+                    $presentation = $presStmt->fetch(PDO::FETCH_ASSOC);
+                    $presented = $presentation['alreadyPresented'];
+                    if($presented == 0) {
+                        $ownerStmt = $db->prepare($presenterSql);
+                        $ownerStmt->bindParam("ownerId", $presentation['ownerId']);
+                        $ownerStmt->execute();
+                        $owner = $ownerStmt->fetch(PDO::FETCH_ASSOC);
+                        $ownerName = $owner['fName'] . ' ' . $owner['lName'];
+                        if($echoedPresentations == 0)
+                            echo '{';
+                        else
+                            echo ',{';
+                        echo '"presId":"' . $presentation['presId'] . '", "presName":"'
+                                . $presentation['presName'] . '", "' . $ownerName 
+                                . '"}';
+                        $echoedPresentations++;
+                    }
+                    else
+                        continue;
+                }                
+            }
+        }
+        echo ']';
+        $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
