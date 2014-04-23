@@ -387,7 +387,7 @@ function updateGroupId() {
     $ownerId = idFromUsername($_COOKIE['user']);
     $groupName= $id->groupName;
     $sqlGroupId = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
-    $sqlUpdate = "UPDATE Presentations SET groupId = :groupId WHERE presId = :presId";
+    $sqlUpdate = "UPDATE Presentations SET groupId = :groupId WHERE ownerId=:ownerId AND presName=:presName";
     
     try {
         $db = dbconnect();
@@ -399,7 +399,8 @@ function updateGroupId() {
         $groupId = $group['groupId'];
         
         $stmt = $db->prepare($sqlUpdate);
-        $stmt->bindParam("presId", $id->presId);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->bindParam("presName", $id->title);
         $stmt->execute();
         
         echo json_encode($id);
