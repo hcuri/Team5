@@ -806,7 +806,7 @@ function deleteGroup() {
 
     $sqlUsers = "DELETE FROM Group_Users WHERE groupId=:groupId";
     $sqlDelete = "DELETE FROM Group WHERE groupName=:groupName AND ownerId=:ownerId";
-    error_log('test\n', 3, '/var/tmp/php.log');
+    
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sqlGroup);
@@ -815,16 +815,16 @@ function deleteGroup() {
         $stmt->execute();
         $group = $stmt->fetch(PDO::FETCH_ASSOC);
         $groupId = $group['groupId'];
-
+        error_log('test1\n', 3, '/var/tmp/php.log');
         $stmt = $db->prepare($sqlUser);
         $stmt->bindParam("groupId", $groupId);
         $stmt->execute();
-        
+        error_log('test2\n', 3, '/var/tmp/php.log');
         $stmt = $db->prepare($sqlDelete);
         $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
-        
+        error_log('test3\n', 3, '/var/tmp/php.log');
         echo json_encode($group);
         $db = null;
     } catch (PDOException $e) {
