@@ -56,7 +56,7 @@ $(document).ready(function(){
   
   $("div#fadeout").hide();
   $("div#invContainer").hide();
-
+//
 
   $("#inv").click(function(){
   	$("div#fadeout").show();
