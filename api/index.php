@@ -821,7 +821,7 @@ function deleteGroup() {
         $stmt->bindParam("groupId", $groupId);
         error_log('test2.1\n', 3, '/var/tmp/php.log');
         $stmt->execute();
-        error_log($group . " " . $ownerId, 3, '/var/tmp/php.log');
+        error_log(" " . $ownerId, 3, '/var/tmp/php.log');
         error_log('test2.2\n', 3, '/var/tmp/php.log');
         
         $stmt = $db->prepare($sqlDelete);
