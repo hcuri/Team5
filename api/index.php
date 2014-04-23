@@ -801,13 +801,12 @@ function deleteGroup() {
     $group = json_decode($request->getBody());
 
     $ownerUsername = $_COOKIE['user'];
-    error_log('ownerUsername\n', 3, '/var/tmp/php.log');
     $ownerId = idFromUsername($ownerUsername);
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
     $sqlUsers = "DELETE FROM Group_Users WHERE groupId=:groupId";
     $sqlDelete = "DELETE FROM Group WHERE groupName=:groupName AND ownerId=:ownerId";
-
+    error_log('test\n', 3, '/var/tmp/php.log');
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sqlGroup);
