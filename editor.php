@@ -153,11 +153,11 @@
       <div id="groupInfo"></div>
     </div>
     <div id="groupTable">
-      <div id="gName"><img src="img/minusBtn.png" />Group 1</div>
+      <div id="gName"><img src="img/minusBtn.png" />Group 1<input type="radio" name="groupNum" value="1"></div>
         <div id="uName">Taylor Bishop <img src="img/trash.png" /></div>
         <div id="uName">Hector Curi<img src="img/trash.png" /></div>
         <div id="uName">John Politz<img src="img/trash.png" /></div>
-      <div id="gName"><img src="img/minusBtn.png" />Group 2</div>
+      <div id="gName"><img src="img/minusBtn.png" />Group 2<input type="radio" name="groupNum" value="2"></div>
         <div id="uName">Nick Morris<img src="img/trash.png" /></div>
         <div id="uName">Tyler George<img src="img/trash.png" /></div>
         <div id="uName">Hector's Mom<img src="img/trash.png" /></div>

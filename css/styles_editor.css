@@ -185,6 +185,10 @@ div#gErr {
     right: 80px;
     color: red;
 }
+input[type="radio"] {
+    /*float: right;*/
+    vertical-align: middle;
+}
 /* INV VIEWER WINDOW END */
 
 #UPresentTitle {

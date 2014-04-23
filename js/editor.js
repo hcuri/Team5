@@ -10,6 +10,7 @@ function count(obj) {
 
 function flashErr(divNum, errMsg) {
   if(divNum == 1) {
+    $('div#gErr').text("");
     $('div#uErr').css({opacity: 0.0});
     $('div#uErr').text(errMsg);
     $("div#uErr").animate({opacity: 1.0}, "slow", function(){
@@ -17,6 +18,7 @@ function flashErr(divNum, errMsg) {
     });
   }
   else if(divNum == 2) {
+    $('div#uErr').text("");
     $('div#gErr').css({opacity: 0.0});
     $('div#gErr').text(errMsg);
     $("div#gErr").animate({opacity: 1.0}, "slow", function(){
@@ -72,6 +74,21 @@ $(document).ready(function(){
       else if($(this).attr('class') !== 'selected')
         $(this).css("background-color","#ededed");
       $(this).toggleClass('selected');
+  });
+
+  //Create group
+  $("div#searchBar img[src*='img/plusBtn.png']").click(function() {
+    var groupTxt = $('input#groupBox').val();
+
+    if(groupTxt == "")
+      flashErr(2, "Please fill out the group box");
+    else if(groupTxt != "") {
+      alert(groupTxt);
+    }
+  });
+  //Adding to group
+  $("td.addToGroup img[src*='img/plusBtn.png']").click(function() {
+
   });
 });
 
@@ -194,10 +211,29 @@ function search(searchTerm) {
     dataType: "json", // data type of response
     async: true,
     success: function() {
-      displayUsers(users.responseJSON);
+      if(count(users.responseJSON) == 0)
+        flashErr(1, "Nothing was returned");
+      else
+        displayUsers(users.responseJSON);
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
 }
+
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        if($("input#searchBox").is(":focus")) {
+          var searchTxt = $('input#searchBox').val();
+
+          if(searchTxt == "")
+            flashErr(1, "Please fill out the search box");
+          else if(searchTxt != "")
+            search(searchTxt);
+        }
+        else if($("input#groupBox").is(":focus")) { 
+          var groupName = $('input#groupBox').val();
+        }
+    }
+});
