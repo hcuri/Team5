@@ -398,6 +398,13 @@ function updateGroupId() {
         $group = $stmt->fetch(PDO::FETCH_ASSOC);
         $groupId = $group['groupId'];
         
+        $stmt = $db->prepare($sqlUpdate);
+        $stmt->bindParam("presId", $id->presId);
+        $stmt->execute();
+        
+        echo json_encode($id);
+        $db = null;
+        
         
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
