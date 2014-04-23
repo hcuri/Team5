@@ -163,6 +163,10 @@ div#groupTable {
         float: right;
         cursor: pointer;
     }
+    img#groupTrash {
+        float: left;
+    }
+
 input#cancel {
     position: absolute;
     bottom: 10px;

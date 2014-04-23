@@ -1,5 +1,17 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 var resultCount = 0;
+var fNames = new Array();
+var lNames = new Array();
+var usernames = new Array();
+
+
+
+function getUsername(text) {
+  var regExp = /\(([^)]+)\)/;
+  var matches = regExp.exec(text);
+
+  return matches[1];
+}
 
 function count(obj) {
   var i = 0;
@@ -9,7 +21,7 @@ function count(obj) {
   return i;
 }
 
-function flashErr(divNum, errMsg) {
+function flashErr(divNum, erfNamesrMsg) {
   if(divNum == 1) {
     $('div#gErr').text("");
     $('div#uErr').css({opacity: 0.0});
@@ -59,7 +71,8 @@ $(document).ready(function(){
   //groupTable
 
   //searching for users
-  $('div#searchBar img').click(function() {
+  $('div#searchBar img#searchBtn').click(function() {
+    alert("searching");
     var searchTxt = $('input#searchBox').val();
 
     if(searchTxt == "")
@@ -71,18 +84,15 @@ $(document).ready(function(){
 
 
   //Create group
-  $("div#searchBar img[src*='img/plusBtn.png']").click(function() {
+  $("div#searchBar img#groupBtn").click(function() {
+    alert("creating");
     var groupTxt = $('input#groupBox').val();
 
     if(groupTxt == "")
       flashErr(2, "Please fill out the group box");
     else if(groupTxt != "") {
-      alert(groupTxt);
+      createGroup();
     }
-  });
-  //Adding to group
-  $("td.addToGroup img[src*='img/plusBtn.png']").click(function() {
-    alert("blahblah");
   });
 });
 
@@ -93,14 +103,20 @@ $(document).ready(function(){
 /*
 AJAX CALLS TO API
 */
-function createGroup(gform) {
+function addGroup(groupName) {
+  var groupTable = $("div#groupTable").html();
+
+  groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groupName + "<input type='radio' name='groupNum' value='1'></div>";
+  $("div#groupTable").html(groupTable);
+}
+function createGroup() {
     $.ajax({
     type: 'POST',
     url: root_url + 'createGroup',
     data: groupFormToJSON(),
     async: true,
     success: function(){
-      alert('Group created successfully');
+      addGroup($("input#groupBox").val());
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -121,7 +137,6 @@ function getGroups() {
         displayGroups(groups.responseJSON);
         //Selecting a group name
         $("div#gName").click(function() {
-          alert("boom");
           if($(this).attr('class') === 'selected')
             $(this).css("background-color","#ffffff");
           else if($(this).attr('class') !== 'selected')
@@ -135,20 +150,29 @@ function getGroups() {
     }
   });
 }
+
+function delGroupFormToJSON(elem) {
+  var groupName = $(elem).parent().text();
+  alert(JSON.stringify({ "groupName": groupName }));
+
+  return JSON.stringify({
+    "groupName": groupName
+  });
+}
 function groupFormToJSON() {
   return JSON.stringify({
-    "groupName": $('#groupName').val()
+    "groupName": $('input#groupBox').val()
   });
 }
 
-function addUserToGroup(auform) {
+function addUserToGroup(rowNum) {
   $.ajax({
       type: 'POST',
       url: root_url + 'addToGroup',
-      data: addUserFormToJSON(),
+      data: addUserFormToJSON(rowNum),
       async: true,
       success: function(){
-        alert('User added successfully');
+        getGroups();
       },
       error: function(jqXHR, textStatus, errorThrown){
         alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -156,40 +180,52 @@ function addUserToGroup(auform) {
   });
 }
 
-function addUserFormToJSON() {
+function addUserFormToJSON(rowNum) {
   return JSON.stringify({
-    "groupName": $.cookie('currentGroup'),
-    "username": $('#username').val() //not sure how this will be passed yet
+    "groupName": $("input[name=groupNum]:checked").parent().text(),
+    "username": usernames[rowNum - 2] //not sure how this will be passed yet
   });
 }
 
-function deleteUserToGroup(auform) {
+function deleteUserFromGroup(elem) {
     $.ajax({
     type: 'POST',
     url: root_url + 'deleteFromGroup',
-    data: delUserFormToJSON(),
+    data: delUserFormToJSON(elem),
     async: true,
-    success: function(){
-      alert('User deleted successfully');
+    success: function() {
+      alert("yoyoyo");
+      getGroups();
     },
-    error: function(jqXHR, textStatus, errorThrown){
+    error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
 }
 
-function delUserFormToJSON() {
+function delUserFormToJSON(elem) {
+  var username = $(elem).parent().text();
+  var ind = $(elem).parent().index();
+  var groupName;
+
+  for(var i = ind; i >= 0; i--) {
+    if($(elem).parent().parent().children(":eq(" + i + ")").attr('id') === 'gName') {
+      groupName = $(elem).parent().parent().children(":eq(" + i + ")").text();
+      break;
+    }
+  }
+
   return JSON.stringify({
-    "groupName": $.cookie('currentGroup'),
-    "username": $('#username').val() //not sure how this will be passed yet
+    "groupName": groupName,
+    "username": getUsername(username) //not sure how this will be passed yet
   });
 }
 
-function deleteGroup(gform) {
+function deleteGroup(elem) {
     $.ajax({
     type: 'POST',
     url: root_url + 'deleteGroup',
-    data: delGroupFormToJSON(),
+    data: delGroupFormToJSON(elem),
     async: true,
     success: function(){
       alert('Group deleted successfully');
@@ -197,12 +233,6 @@ function deleteGroup(gform) {
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
-  });
-}
-
-function delgroupFormToJSON() {
-  return JSON.stringify({
-    "groupName": $.cookie('currentGroup')
   });
 }
 
@@ -226,18 +256,24 @@ function displayUsers(users) {
 
   resultCount = count(users);
   //add entries
+  fNames = [];
+  lNames = [];
+  usernames = [];
   entries = $("div#tableHolder table").children().children();
   for(var i = 1; i < resultCount + 1; i++) {
     var currEntry = entries.eq(i).children();
     for(var j = 0; j < 4; j++) {
       if(j===0) {
         currEntry.eq(j).html(users[i-1].fName);
+        fNames[i- 1] = users[i - 1].fName;
       } else if(j===1) {
         currEntry.eq(j).html(users[i-1].lName);
+        lNames[i- 1] = users[i - 1].lName;
       } else if(j===2) {
         currEntry.eq(j).html(users[i-1].username);
+        usernames[i- 1] = users[i - 1].username;
       } else {
-        currEntry.eq(j).html("<img src='img/plusBtn.png' />");
+        currEntry.eq(j).html("<img src='img/plusBtn.png' id='addToGroup' />");
       }
     }
   }
@@ -250,14 +286,21 @@ function displayGroups(groups) {
     var groupTable;
 
     if(i == 0)
-      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'></div>";
+      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
     else
-      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'></div>";
+      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
     for(var j = 0; j < numUsers; j++) {
-      groupTable = groupTable + "<div id='uName'>" + users[j] + " <img src='img/trash.png' /></div>";
+      groupTable = groupTable + "<div id='uName'>" + users[j].name + " (" + users[j].username + ") <img src='img/trash.png' id='userTrash'/></div>";
     }
     $("div#groupTable").html(groupTable);
   }
+
+  $("div#uName img").click(function() {
+    deleteUserFromGroup(this);
+  });
+  $("div#gName img").click(function() {
+    deleteGroup(this);
+  });
 }
 function search(searchTerm) {
   var term = searchTerm.replace(/ /g, '-');
@@ -270,8 +313,14 @@ function search(searchTerm) {
     success: function() {
       if(count(users.responseJSON) == 0)
         flashErr(1, "Nothing was returned");
-      else
+      else {
         displayUsers(users.responseJSON);
+        $("img#addToGroup").click(function(event) {
+          var td = event.target.parentNode.parentNode;
+          var rowNum = $(td).attr('class');
+          addUserToGroup(rowNum);
+        });
+      }
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -286,11 +335,18 @@ $(document).keypress(function(e) {
 
           if(searchTxt == "")
             flashErr(1, "Please fill out the search box");
-          else if(searchTxt != "")
+          else if(searchTxt != "") {
             search(searchTxt);
+          }
         }
         else if($("input#groupBox").is(":focus")) { 
-          var groupName = $('input#groupBox').val();
+          var groupTxt = $('input#groupBox').val();
+
+          if(groupTxt == "")
+            flashErr(2, "Please fill out the group box");
+          else if(groupTxt != "") {
+            createGroup();
+          }
         }
     }
 });
