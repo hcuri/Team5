@@ -805,7 +805,7 @@ function deleteGroup() {
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
     $sqlUsers = "DELETE FROM Group_Users WHERE groupId=:groupId";
-    $sqlDelete = "DELETE FROM Group WHERE groupName=:groupName AND ownerId=:ownerId";
+    $sqlDelete = "DELETE FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
     
     try {
         $db = dbconnect();
