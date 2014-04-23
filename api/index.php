@@ -53,7 +53,7 @@ function verifyRegistered($username, $password) {
             $userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($password, $userInfo['password'])) {
                 echo '{"registered": true}';
-                setcookie("user", $username, time() + 3600, '/');
+                setcookie("user", $username, time() + 7200, '/');
             } else
                 echo '{"registered": false}';
         } else
