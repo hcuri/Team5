@@ -200,7 +200,7 @@ function deleteGroup(gform) {
   });
 }
 
-function groupFormToJSON() {
+function delgroupFormToJSON() {
   return JSON.stringify({
     "groupName": $.cookie('currentGroup')
   });

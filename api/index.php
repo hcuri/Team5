@@ -705,6 +705,7 @@ function addToGroup() {
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
     $userId = idFromUsername($user->username);
+    $sqlCheck = "SELECT * FROM Group_Users WHERE groupId = :groupId AND userId = :userId";
     $sqlUser = "INSERT INTO Group_Users VALUES (:groupId, :userId)";
 
     try {
@@ -716,6 +717,13 @@ function addToGroup() {
         $group = $stmt->fetch(PDO::FETCH_ASSOC);
         $groupId = $group['groupId'];
 
+        $stmt = $db->prepare($sqlCheck);
+        $stmt->bindParam("groupId", $groupId);
+        $stmt->bindParam("userId", $userId);
+        $stmt->execute();
+        if($stmt->rowCount() > 0)
+            return;
+        
         $stmt = $db->prepare($sqlUser);
         $stmt->bindParam("groupId", $groupId);
         $stmt->bindParam("userId", $userId);
