@@ -3,7 +3,6 @@ var resultCount = 0;
 var fNames = new Array();
 var lNames = new Array();
 var usernames = new Array();
-var presTitle = "";
 var linkedGroup;
 
 
