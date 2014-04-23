@@ -811,10 +811,11 @@ function getGroups() {
                 echo '{';
             else
                 echo ',{';
-            echo '"groupName":"' . $group['groupName'] . '", "users":{';
+            echo '"groupName":"' . $group['groupName'] . '", ';
             $stmtUsers = $db->prepare($sqlGroup);
             $stmtUsers->bindParam('groupId', $groupId);
             $stmtUsers->execute();
+            echo '"numUsers":"' . $stmtUsers->rowCount() . '", "users":{';
             for($j = 0; $j < $stmtUsers->rowCount(); $j++) {
                 $group_user = $stmtUsers->fetch(PDO::FETCH_ASSOC);
                 $userId = $group_user['userId'];
@@ -825,9 +826,9 @@ function getGroups() {
                     $user = $stmtName->fetch(PDO::FETCH_ASSOC);
                     $name = $user['fName'] . " " . $user['lName'];
                     if($j == 0)
-                        echo '"' . $k . '":"';
+                        echo '"' . $j . '":"';
                     else
-                        echo ', "' . $k . '":"';
+                        echo ', "' . $j . '":"';
                     echo $name . '"';
                        
                 }
