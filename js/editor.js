@@ -1,4 +1,5 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
+var resultCount = 0;
 
 function count(obj) {
   var i = 0;
@@ -44,6 +45,7 @@ $(document).ready(function(){
   	$("div#invContainer").show();
     $("div#fadeout").animate({opacity: 0.7}, "fast");
     $("div#invContainer").animate({opacity: 1.0}, "fast");
+    getGroups();
   });
   $("div#fadeout").click(function(){
   	$("div#fadeout").animate({opacity: 0.0}, "fast", function(){
@@ -67,14 +69,6 @@ $(document).ready(function(){
     }
   });
 
-  //Selecting a group name
-  $("div#gName").click(function() {
-      if($(this).attr('class') === 'selected')
-        $(this).css("background-color","#ffffff");
-      else if($(this).attr('class') !== 'selected')
-        $(this).css("background-color","#ededed");
-      $(this).toggleClass('selected');
-  });
 
   //Create group
   $("div#searchBar img[src*='img/plusBtn.png']").click(function() {
@@ -88,7 +82,7 @@ $(document).ready(function(){
   });
   //Adding to group
   $("td.addToGroup img[src*='img/plusBtn.png']").click(function() {
-
+    alert("blahblah");
   });
 });
 
@@ -114,6 +108,33 @@ function createGroup(gform) {
   });
 }
 
+function getGroups() {
+  var groups = $.ajax({
+    type: 'GET',
+    url: root_url + 'getGroups',
+    dataType: "json", // data type of response
+    async: true,
+    success: function() {
+      if(count(groups.responseJSON) == 0)
+        flashErr(1, "Nothing was returned");
+      else {
+        displayGroups(groups.responseJSON);
+        //Selecting a group name
+        $("div#gName").click(function() {
+          alert("boom");
+          if($(this).attr('class') === 'selected')
+            $(this).css("background-color","#ffffff");
+          else if($(this).attr('class') !== 'selected')
+            $(this).css("background-color","#ededed");
+          $(this).toggleClass('selected');
+        });
+      }
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+    }
+  });
+}
 function groupFormToJSON() {
   return JSON.stringify({
     "groupName": $('#groupName').val()
@@ -121,17 +142,17 @@ function groupFormToJSON() {
 }
 
 function addUserToGroup(auform) {
-    $.ajax({
-    type: 'POST',
-    url: root_url + 'addToGroup',
-    data: addUserFormToJSON(),
-    async: true,
-    success: function(){
-      alert('User added successfully');
-    },
-    error: function(jqXHR, textStatus, errorThrown){
-      alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-    }
+  $.ajax({
+      type: 'POST',
+      url: root_url + 'addToGroup',
+      data: addUserFormToJSON(),
+      async: true,
+      success: function(){
+        alert('User added successfully');
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+      }
   });
 }
 
@@ -186,20 +207,56 @@ function groupFormToJSON() {
 }
 
 function displayUsers(users) {
+  //clear entries
   var entries = $("div#tableHolder table").children().children();
-  for(var i = 1; i < count(users) + 1; i++) {
+  for(var i = 1; i < resultCount + 1; i++) {
+    var currEntry = entries.eq(i).children();
+    for(var j = 0; j < 4; j++) {
+      if(j===0) {
+        currEntry.eq(j).html("");
+      } else if(j===1) {
+        currEntry.eq(j).html("");
+      } else if(j===2){
+        currEntry.eq(j).html("");
+      } else {
+        currEntry.eq(j).html("");
+      }
+    }
+  }
+
+  resultCount = count(users);
+  //add entries
+  entries = $("div#tableHolder table").children().children();
+  for(var i = 1; i < resultCount + 1; i++) {
     var currEntry = entries.eq(i).children();
     for(var j = 0; j < 4; j++) {
       if(j===0) {
         currEntry.eq(j).html(users[i-1].fName);
       } else if(j===1) {
         currEntry.eq(j).html(users[i-1].lName);
-      } else if(j===2){
+      } else if(j===2) {
         currEntry.eq(j).html(users[i-1].username);
       } else {
         currEntry.eq(j).html("<img src='img/plusBtn.png' />");
       }
     }
+  }
+}
+
+function displayGroups(groups) {
+  for(var i = 0; i < count(groups); i++) {
+    var numUsers = groups[i].numUsers;
+    var users = groups[i].users;
+    var groupTable;
+
+    if(i == 0)
+      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'></div>";
+    else
+      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'></div>";
+    for(var j = 0; j < numUsers; j++) {
+      groupTable = groupTable + "<div id='uName'>" + users[j] + " <img src='img/trash.png' /></div>";
+    }
+    $("div#groupTable").html(groupTable);
   }
 }
 function search(searchTerm) {
