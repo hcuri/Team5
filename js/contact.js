@@ -1,22 +1,22 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
-function submitContact(cform) {
+function submitContact() {
     $.ajax({
         type: 'POST',
         url: root_url + 'email',
         data: contactFormToJSON(),
         async: true,
 	success: function(){
-            alert('email sent successfully');
+            alert('Email sent successfully');
 	},
         error: function(jqXHR, textStatus, errorThrown){
-            alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+            alert(jqXHR + 'Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
         }
     });
+    return true;
 }
 
     function contactFormToJSON() {
-        alert("HI");
     return JSON.stringify({
         "name": $('#userN').val(),
         "subject": $('#subject').val(),

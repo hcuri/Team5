@@ -337,15 +337,16 @@ function email() {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
     
-    $to      = 'tyler.george@live.com';
+    $to      = 'tyler.george@live.com'; //admin@upresent.org';
     $subject = $email->subject;
     $message = $email->message;
     $headers = 'From: ' . $from . "\r\n" .
                'Reply-To: ' . $from . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
-    mail($to, $subject, $message, $headers);
-    
-    echo json_encode($email);
+    if(mail($to, $subject, $message, $headers))
+        echo '"sent":true';
+    else
+        echo '"sent":false';
 }
 
 /* PRESENTATION FUNCTIONALITY */

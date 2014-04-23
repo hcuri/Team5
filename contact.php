@@ -38,7 +38,7 @@
 </div>
 <div id="content">
   <div id="contact">
-    <form id="contact" action="" method="post" onSubmit="return submitContact(this)">
+    <form id="contact" action="" method="post" onSubmit="return submitContact()">
       <h1>Contact UPresent</h1>
       <p>We are here to help you with any questions or comments.</p>
       <label for="username">Username:</label>
