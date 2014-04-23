@@ -21,7 +21,7 @@ function count(obj) {
   return i;
 }
 
-function flashErr(divNum, erfNamesrMsg) {
+function flashErr(divNum, errMsg) {
   if(divNum == 1) {
     $('div#gErr').text("");
     $('div#uErr').css({opacity: 0.0});
