@@ -40,18 +40,18 @@ class FileParser {
       				//echo "Size: " . ($_FILES["files"]['size'][$index] / 1024) . " kB<br>";
       				//echo "Temp file: " . $_FILES["files"]['tmp_name'][$index] . "<br>";
 
-              $userFolder = "upload/" . $_COOKIE['user'];
+              $userFolder = "../upload/" . $_COOKIE['user'];
               if(!is_dir($userFolder)) {
                 mkdir($userFolder, 0777);
               }
-              
-      				$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
+
+      				$folder = "../upload/" . $_COOKIE['user'] . "/" . $title;
       				if(is_dir($folder)) {
         				delete_files($folder);
-        				mkdir($folder, 0700);
+        				mkdir($folder, 0777);
         			}
         			else {
-      					mkdir($folder, 0700);
+      					mkdir($folder, 0777);
       				}
 
         			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
