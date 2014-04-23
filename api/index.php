@@ -747,7 +747,7 @@ function deleteFromGroup() {
 
     $userId = idFromUsername($user->username);
     $sqlUser = "DELETE FROM Group_Users "
-            . "WHERE groupId=:groupId AND userId=:userId)";
+            . "WHERE groupId=:groupId AND userId=:userId";
 
     try {
         $db = dbconnect();
