@@ -40,6 +40,9 @@ $(document).ready(function() {
 	
 	//fill current table
 	var entries = $("#current").children().children();
+	if(numUPres > 6) {
+		numUPres = 6;
+	}
 	for(var i = 0; i < numUPres; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
@@ -110,7 +113,9 @@ $(document).ready(function() {
 		upPresIDs.push(pres[i].presId);
 	}
 	
-	
+	if(numUPres > 6) {
+		numUPres = 6;
+	}
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
 	for(var i = 0; i < numUPres; i++) {
@@ -153,7 +158,9 @@ $(document).ready(function() {
 		pastPresIDs.push(pres[i].presId);	
 	}
 	
-	
+	if(numUPres > 6) {
+		numUPres = 6;
+	}
 	//fill past presentation table
 	//BASE OFF THIS
 	var entries = $("#past").children().children();
