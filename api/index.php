@@ -379,7 +379,8 @@ function addPresentation() {
     }
 }
 
-function updateGroup()
+function updateGroupId() {
+}
 
 function getSlides($presID) {
     $sql = "SELECT rootURL, presName FROM Presentations WHERE presId=:presID";
