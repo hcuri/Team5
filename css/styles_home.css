@@ -4,23 +4,28 @@
 
 #info {
 	width:500px;
-	height:300px;
+	height:350px;
 	margin-left:100px;
 	margin-top:50px;
 	float:left;
 }
 
 #infoHeader {
-	padding-left:10px;
 	padding-top:10px;
 	font-size:25px;
 	width:auto;
+	
 }
 
 #infoContent {
 	color:#000;
 	font-size:20px;
 	padding-top:10px;
+}
+
+#info img {
+	margin-left:50px;
+	margin-top:20px;
 }
 
 #signUpWindow {
@@ -53,3 +58,4 @@ input {
    font-size:12px;
    font-weight:bold;
 }
+
