@@ -1,7 +1,6 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
 function submitContact(cform) {
-    alert("HI");
     $.ajax({
         type: 'POST',
         url: root_url + 'email',
@@ -17,7 +16,10 @@ function submitContact(cform) {
 }
 
     function contactFormToJSON() {
+        alert("HI");
     return JSON.stringify({
-        "name": $('#userN').val()
+        "name": $('#userN').val(),
+        "subject": $('#subject').val(),
+        "message": $('#message').val()        
     });
 }   

@@ -319,17 +319,33 @@ function search($term) {
 function email() {
     error_log('email\n', 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
+    $email = json_decode($request->getBody());
+    $sql = "SELECT email FROM Users WHERE username=:username";
+    $from = 'no-reply@upresent.org';
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam('username', $email->name);
+        $stmt->execute();
+        if($stmt->rowCount() == 1) {
+            $uEmail = $stmt->fetch(PDO::FETCH_ASSOC);
+            $from = $uEmail['email'];
+        }
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
     
     $to      = 'tyler.george@live.com';
-    $subject = 'the subject';
-    $message = 'hello';
-    $headers = 'From: webmaster@example.com' . "\r\n" .
-               'Reply-To: webmaster@example.com' . "\r\n" .
+    $subject = $email->subject;
+    $message = $email->message;
+    $headers = 'From: ' . $from . "\r\n" .
+               'Reply-To: ' . $from . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
-
     mail($to, $subject, $message, $headers);
     
-    //echo json_encode();
+    echo json_encode($email);
 }
 
 /* PRESENTATION FUNCTIONALITY */
@@ -809,9 +825,9 @@ function getGroups() {
                     $user = $stmtName->fetch(PDO::FETCH_ASSOC);
                     $name = $user['fName'] . " " . $user['lName'];
                     if($j == 0)
-                        echo '"name":"';
+                        echo '"' . $k . '":"';
                     else
-                        echo ', "name":"';
+                        echo ', "' . $k . '":"';
                     echo $name . '"';
                        
                 }
