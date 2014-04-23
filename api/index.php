@@ -787,6 +787,7 @@ function getGroups() {
         $stmt = $db->prepare($sql);
         $stmt->bindParam('ownerId', $ownerId);
         $stmt->execute();
+        echo '[';
         for($i = 0; $i < $stmt->rowCount(); $i++) {
             $group = $stmt->fetch(PDO::FETCH_ASSOC);
             $groupId = $group['groupId'];
@@ -818,6 +819,7 @@ function getGroups() {
             }
             echo '}}';
         }
+        echo ']';
         $db = null;
       } catch (PDOException $e) {
             error_log($e->getMessage(), 3, '/var/tmp/php.log');
