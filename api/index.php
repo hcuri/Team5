@@ -635,7 +635,6 @@ function getPresInfo() {
 }
 
 /* GROUP FUNCTIONALITY */
-
 function getGroupMembers($groupName) { //doesn't work
     $sql = "SELECT * FROM Group_Users 
 			INNER JOIN Groups
@@ -672,6 +671,7 @@ function createGroup() {
         $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
         echo json_encode($group);
+        $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
@@ -704,6 +704,7 @@ function addToGroup() {
         $stmt->bindParam("userId", $userId);
         $stmt->execute();
         echo json_encode($user);
+        $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
@@ -737,6 +738,7 @@ function deleteFromGroup() {
         $stmt->bindParam("userId", $userId);
         $stmt->execute();
         echo json_encode($user);
+        $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
@@ -767,6 +769,7 @@ function deleteGroup() {
         $stmt->bindParam("groupId", $groupId);
         $stmt->execute();
         echo json_encode($group);
+        $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
@@ -784,22 +787,39 @@ function getGroups() {
         $stmt = $db->prepare($sql);
         $stmt->bindParam('ownerId', $ownerId);
         $stmt->execute();
+        echo '[';
         for($i = 0; $i < $stmt->rowCount(); $i++) {
             $group = $stmt->fetch(PDO::FETCH_ASSOC);
             $groupId = $group['groupId'];
+            if($i == 0)
+                echo '{';
+            else
+                echo ',{';
+            echo '"groupName":"' . $group['groupName'] . '", "users":{';
             $stmtUsers = $db->prepare($sqlGroup);
             $stmtUsers->bindParam('groupId', $groupId);
             $stmtUsers->execute();
             for($j = 0; $j < $stmtUsers->rowCount(); $j++) {
-                $user = $stmtUsers->fetch(PDO::FETCH_ASSOC);
-                $userId = $user['userId'];
+                $group_user = $stmtUsers->fetch(PDO::FETCH_ASSOC);
+                $userId = $group_user['userId'];
                 $stmtName = $db->prepare($sqlName);
                 $stmtName->bindParam('userId', $userId);
+                $stmtName->execute();
+                for($k = 0; $k < $stmtName->rowCount(); $k++) {
+                    $user = $stmtName->fetch(PDO::FETCH_ASSOC);
+                    $name = $user['fName'] . " " . $user['lName'];
+                    if($k == 0)
+                        echo '"name":"';
+                    else
+                        echo ', "name":"';
+                    echo $name . '"';
+                       
+                }
                 
             }
         }
-        $groups = $stmt->fetchAll(PDO::FETCH_OBJ);
-        echo json_encode($groups);
+        echo ']';
+        $db = null;
       } catch (PDOException $e) {
             error_log($e->getMessage(), 3, '/var/tmp/php.log');
             echo '{"error":"' . $e->getMessage() . '"}';
@@ -815,6 +835,7 @@ function idFromUsername($username) {
         $stmt->bindParam("username", $username);
         $stmt->execute();
         $userID = $stmt->fetch(PDO::FETCH_ASSOC);
+        $db = null;
         return $userID['userId'];
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
