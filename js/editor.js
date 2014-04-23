@@ -18,7 +18,10 @@ function count(obj) {
   for (var x in obj)
     if (obj.hasOwnProperty(x))
       i++;
-  return i;
+  if(i == 0)
+    return 0;
+  else
+    return i;
 }
 
 function flashErr(divNum, errMsg) {
@@ -116,7 +119,8 @@ function createGroup() {
     url: root_url + 'createGroup',
     data: groupFormToJSON(),
     async: true,
-    success: function(){
+    success: function(response){
+      alert(response);
       addGroup($("input#groupBox").val());
     },
     error: function(jqXHR, textStatus, errorThrown){
@@ -132,10 +136,11 @@ function getGroups() {
     dataType: "json", // data type of response
     async: true,
     success: function() {
-      if(count(groups.responseJSON) == 0)
+      if(count(groups.responseJSON) == 0) 
         flashErr(1, "Nothing was returned");
-      else {
-        displayGroups(groups.responseJSON);
+      else
+        alert(JSON.stringify(groups.responseJSON));
+      displayGroups(groups.responseJSON);
         //Selecting a group name
         $("div#gName").click(function() {
           if($(this).attr('class') === 'selected')
@@ -144,7 +149,6 @@ function getGroups() {
             $(this).css("background-color","#ededed");
           $(this).toggleClass('selected');
         });
-      }
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -282,10 +286,15 @@ function displayUsers(users) {
 }
 
 function displayGroups(groups) {
+  var groupTable;
+
+  if(count(groups) == 0) {
+    groupTable = "";
+    $("div#groupTable").html(groupTable);
+  }
   for(var i = 0; i < count(groups); i++) {
     var numUsers = groups[i].numUsers;
     var users = groups[i].users;
-    var groupTable;
 
     if(i == 0)
       groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
