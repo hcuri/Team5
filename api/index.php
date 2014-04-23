@@ -358,8 +358,7 @@ function addPresentation() {
     $username = $_COOKIE['user'];
     $userId = getUserId($username);
     $rootURL = "upload/" . $_COOKIE['user'] . "/";
-    $groupId = 25;
-
+    $groupId = 0;
     $presentation = json_decode($request->getBody());
     $sql = "INSERT INTO Presentations VALUES (DEFAULT, :title, :rootURL, :ownerId, :groupId, :presDate, :presTime, DEFAULT, DEFAULT)";
     try {
@@ -379,6 +378,8 @@ function addPresentation() {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
 }
+
+function updateGroup()
 
 function getSlides($presID) {
     $sql = "SELECT rootURL, presName FROM Presentations WHERE presId=:presID";
@@ -779,12 +780,13 @@ function deleteGroup() {
     $ownerId = idFromUsername($ownerUsername);
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
-    $sqlUsers = "DELETE groupId, userId FROM Group_Users WHERE groupId=:groupId";
+    $sqlUsers = "DELETE FROM Group_Users WHERE groupId=:groupId";
+    $sqlDelete = "DELETE FROM Group WHERE groupName=:groupName AND ownerId=:ownerId";
 
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sqlGroup);
-        $stmt->bindParam("groupName", $user->groupName);
+        $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
         $group = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -793,6 +795,12 @@ function deleteGroup() {
         $stmt = $db->prepare($sqlUser);
         $stmt->bindParam("groupId", $groupId);
         $stmt->execute();
+        
+        $stmt = $db->prepare($sqlDelete);
+        $stmt->bindParam("groupName", $group->groupName);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->execute();
+        
         echo json_encode($group);
         $db = null;
     } catch (PDOException $e) {
