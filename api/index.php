@@ -19,6 +19,7 @@ $app->post('/email', 'email');
 
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
+$app->post('/updatePresentation', 'updateGroupId');
 $app->get('/getPresentations/:username', 'getPresentations');
 $app->get('/getPastPresentations/:username', 'getPastPresentations');
 $app->get('/getUpcomingPresentations/:username', 'getUpcomingPresentations');
@@ -400,7 +401,8 @@ function updateGroupId() {
         
         $stmt = $db->prepare($sqlUpdate);
         $stmt->bindParam("ownerId", $ownerId);
-        $stmt->bindParam("presName", $id->title);
+        $stmt->bindParam("groupId", $groupId);
+        $stmt->bindParam("presName", $id->presName);
         $stmt->execute();
         
         echo json_encode($id);
@@ -669,7 +671,9 @@ function getPresInfo() {
     $request = Slim::getInstance()->request();
 
     $presID = $_COOKIE['pres'];
-    $sql = "SELECT * FROM Presentations WHERE presId = :presId";
+    $sql = "SELECT Presentations.*, Users.fName, Users.lName"
+            . " FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
+            . " WHERE presId = :presId";
 
     try {
         $db = dbconnect();

@@ -16,7 +16,7 @@ $(document).ready(function(e) {
 	slideInfo = slideInfo.responseJSON;
 	presID = slideInfo.presId;
 	var presName = slideInfo.presName;
-	var author = slideInfo.ownerId;
+	var author = slideInfo.fName + " " + slideInfo.lName;
 	currentSlide = slideInfo.currSlide;
 	$("#presName").html(presName);
 	$("#presAuthor").html(author);

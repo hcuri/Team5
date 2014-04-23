@@ -197,13 +197,26 @@ function count(obj) {
 function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	$.cookie('pres', presIDs[num-1]);
-    window.location="presenter.php";
+        $.ajax({
+            type: 'POST',
+            url: root_url + 'setCurrentSlide',
+            data: slideFormToJSON(num),
+            async: false,
+            success: function(){
+            	//alert("Slide Changed");
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+            	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+            }
+        });
+        window.location="presenter.php";
 	return true;
 }
 
 function editUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	$.cookie('pres', presIDs[num-1]);
+        $.cookie('presName', presNames[num-1]);
 	window.location="editor.php";
 	return true;
 }
@@ -241,4 +254,11 @@ function viewPastUPresent(num) {
 	$.cookie('pres', pastPresIDs[num-1]);
     window.location="afterview.php";
 	return true;
+}
+
+function slideFormToJSON(num) {
+	return JSON.stringify({
+		"presId" : presIDs[num - 1],
+		"currSlide": 1
+	});
 }

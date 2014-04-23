@@ -3,7 +3,7 @@ var resultCount = 0;
 var fNames = new Array();
 var lNames = new Array();
 var usernames = new Array();
-
+var presTitle = "";
 var linkedGroup;
 
 
@@ -125,6 +125,7 @@ $(document).ready(function(){
         $("div#invContainer").animate({opacity: 0.0}, "fast", function(){
           $("div#invContainer").hide();
         });
+        updatePresentation(checkedGroup);
       }
     }
   });
@@ -137,6 +138,28 @@ $(document).ready(function(){
 /*
 AJAX CALLS TO API
 */
+
+function updatePresentation(groupName) {
+    $.ajax({
+        type: 'POST',
+        url: root_url + 'updatePresentation',
+        data: updateToJSON(groupName),
+        async: true,
+        success: function() {
+            //alert("Update successful");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }
+    });
+}
+
+function updateToJSON(groupName) {
+    return JSON.stringify({
+        "groupName": groupName,
+        "presName": $.cookie('presName')
+    });
+}
 function addGroup(groupName) {
   var groupTable = $("div#groupTable").html();
 
@@ -169,10 +192,11 @@ function getGroups() {
     async: true,
     success: function() {
       if(count(groups.responseJSON) == 0) 
-        flashErr(1, "Nothing was returned");
+        flashErr(1, "You have no groups");
       else
-        alert(JSON.stringify(groups.responseJSON));
-      displayGroups(groups.responseJSON);
+        displayGroups(groups.responseJSON);
+        //alert(JSON.stringify(groups.responseJSON));
+      
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);

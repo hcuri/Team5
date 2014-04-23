@@ -1,7 +1,8 @@
 <?php
   require_once("FileParser/FileParser.php"); 
   $FileParser = new FileParser();
-  $FileParser->modifyPresentation($_FILES["files"], $_POST['title']);
+  $FileParser->modifyPresentation($_FILES['files'], $_POST['title']);
+  setcookie('presName', $_POST['title']);
 ?>
 
 <!--editor.html-->
@@ -12,6 +13,7 @@
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/jQuery.css" rel="stylesheet" />
   <script src="js/jQuery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
   <script src="js/editor.js"></script>
   <title>UPresent - Editor</title>
 </head>
