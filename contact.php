@@ -50,7 +50,7 @@
       <textarea id="message" wrap="hard">
 			</textarea>
       <br/>
-      <input id="request" type="button" value="Send Request"/>
+      <input id="request" type="submit" value="Send Request"/>
     </form>
   </div>
 </div>

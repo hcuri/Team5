@@ -13,14 +13,15 @@ $app->get('/logout', 'logoutUser');
 $app->get('/getUserInfo', 'getUserInfo');
 $app->get('/searchUsers/:term', 'searchUsers');
 $app->get('/search/:term', 'search');
-$app->get('/getPresentations/:username', 'getPresentations');
-$app->get('/getPastPresentations/:username', 'getPastPresentations');
-$app->get('/getUpcomingPresentations/:username', 'getUpcomingPresentations');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
+$app->post('/email', 'email');
 
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
+$app->get('/getPresentations/:username', 'getPresentations');
+$app->get('/getPastPresentations/:username', 'getPastPresentations');
+$app->get('/getUpcomingPresentations/:username', 'getUpcomingPresentations');
 $app->get('/getSlides/:presID', 'getSlides');
 $app->get('/getCurrentSlide/:presID', 'getCurrentSlide');
 $app->post('/setCurrentSlide', 'setCurrentSlide');
@@ -312,6 +313,22 @@ function search($term) {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
     echo ']';
+}
+
+function email() {
+    error_log('email\n', 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    
+    $to      = 'tyler.george@live.com';
+    $subject = 'the subject';
+    $message = 'hello';
+    $headers = 'From: webmaster@example.com' . "\r\n" .
+               'Reply-To: webmaster@example.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
+    
+    //echo json_encode();
 }
 
 /* PRESENTATION FUNCTIONALITY */
@@ -749,6 +766,40 @@ function deleteGroup() {
         $stmt->bindParam("groupId", $groupId);
         $stmt->execute();
         echo json_encode($group);
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+}
+
+function getGroups($username) {
+    $ownerId = idFromUsername($username);
+    $sql = "SELECT groupName FROM Groups WHERE ownerId=:ownerId";
+    
+      try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->execute();
+        $groups = $stmt->fetchAll(PDO::FETCH_OBJ);
+        echo json_encode($groups);
+      } catch (PDOException $e) {
+            error_log($e->getMessage(), 3, '/var/tmp/php.log');
+            echo '{"error":"' . $e->getMessage() . '"}';
+      }
+}
+
+function getGroupUsers($groupName, $username) {
+    $ownerId = idFromUsername($username);
+    $sql = "SELECT userId FROM Group_Users WHERE ownerId=:ownerId AND groupName=:groupName";
+    
+     try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("username", $username);
+        $stmt->execute();
+        $userID = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $userID['userId'];
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
