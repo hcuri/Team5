@@ -807,7 +807,7 @@ function getGroups() {
                 for($k = 0; $k < $stmtName->rowCount(); $k++) {
                     $user = $stmtName->fetch(PDO::FETCH_ASSOC);
                     $name = $user['fName'] . " " . $user['lName'];
-                    if($k == 0)
+                    if($j == 0)
                         echo '"name":"';
                     else
                         echo ', "name":"';
