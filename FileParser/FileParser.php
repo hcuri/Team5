@@ -40,6 +40,11 @@ class FileParser {
       				//echo "Size: " . ($_FILES["files"]['size'][$index] / 1024) . " kB<br>";
       				//echo "Temp file: " . $_FILES["files"]['tmp_name'][$index] . "<br>";
 
+              $userFolder = "upload/" . $_COOKIE['user'];
+              if(!is_dir($userFolder)) {
+                mkdir($userFolder, 0777);
+              }
+              
       				$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
       				if(is_dir($folder)) {
         				delete_files($folder);
