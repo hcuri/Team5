@@ -27,12 +27,12 @@ p {
 	float:left;
 	width:700px;
 	height:350px;
-	background-color:yellow;
+	background-color:#ededed;
 }
 
 #slide {
 	border: 4px solid #000;	
-	width:100%;
+	/*width:100%;*/
 	height:100%;
 }
 

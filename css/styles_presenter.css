@@ -37,7 +37,7 @@ p {
 
 #slide {
 	border: 4px solid #000;	
-	width:100%;
+	/*width:100%;*/
 	height:100%;
 }
 

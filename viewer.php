@@ -49,11 +49,11 @@
     <div id="status">
       <div class="oLine"></div>
       <h3>Slide</h3>
-      <h2 id="slideNum">10/20</h2>
+      <h2 id="slideNum"></h2>
       <div class="oLine"></div>
     </div>
   </div>
-  <div id="tabs">
+  <!--<div id="tabs">
     <ul>
       <li><a href="#tabs-1">Notes</a></li>
       <li><a href="#tabs-2">Polls</a></li>
@@ -80,7 +80,7 @@
         <div id="pollResults"><img id="pollR" src="img/poll.png" /></div>
       </div>
     </div>
-  </div>
+  </div>-->
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>

@@ -51,12 +51,12 @@
       <div class="oLine"></div>
     </div>
   </div>
-  <div id="bottom">
+  <!--<div id="bottom">
     <div id="presentNotes">
       <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
     </div>
     <div id="pollResults"><img id="pollR" src="img/poll.png" /></div>
-  </div>
+  </div>-->
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>

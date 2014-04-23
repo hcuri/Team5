@@ -7,17 +7,6 @@ var numSlides;
 var presID = null;
 
 $(document).ready(function(e) {
-	//look into reloading page to get rid of cache for repeated presentations
-	//window.location.reload(true);
-	
-	//var getPresID = $.ajax({
-	//	type: 'GET',
-	//	url: root_url + "/getPresInfo",
-	//	dataType: "json",
-	//	async: false,
-	//});
-        //alert(JSON.stringify(presID));
-	//getPresID = getPresID.responseJSON;
 	presID = $.cookie('pres');
  
   	$("#previous").css("background-color", "black");

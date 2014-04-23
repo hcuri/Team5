@@ -19,9 +19,6 @@ $(document).ready(function() {
 	$("#newPres").click(function() {
 		window.location = "http://localhost/new.php";
 	});
-	$(".trashIcon").click(function() {
-		alert("Deleting UPresent");
-	});
 	
 	var userN = $("#logoutUsername").html();
 	
@@ -134,7 +131,6 @@ $(document).ready(function() {
 	$(".viewUp").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
-		alert(row);
 		viewUpcomingUPresent(row);
 	});
 	
@@ -193,7 +189,6 @@ function count(obj) {
 
 function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	alert("Presenting: " + presNames[num-1] + " : " +presIDs[num-1]);
 	$.cookie('pres', presIDs[num-1]);
     window.location="presenter.php";
 	return true;
@@ -201,7 +196,6 @@ function presentUPresent(num) {
 
 function editUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	alert("Editing: " + presNames[num-1]);
 	$.cookie('pres', presIDs[num-1]);
 	window.location="editor.php";
 	return true;
@@ -230,12 +224,9 @@ function deleteFormToJSON(presName) {
 	});
 }
 
-
 //TABLE 2 FUNCTIONS
-
 function viewUpcomingUPresent(num) {
 	$.cookie('pres', upPresIDs[num-1]);
-	alert(upPresIDs[num-1]);
     window.location="viewer.php";
 	return true;
 }
