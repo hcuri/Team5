@@ -4,6 +4,8 @@ var fNames = new Array();
 var lNames = new Array();
 var usernames = new Array();
 
+var linkedGroup;
+
 
 
 function getUsername(text) {
@@ -98,6 +100,34 @@ $(document).ready(function(){
       createGroup();
     }
   });
+
+  $("input#cancel").click(function() {
+    $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
+      $("div#fadeout").hide();
+    });
+    $("div#invContainer").animate({opacity: 0.0}, "fast", function(){
+      $("div#invContainer").hide();
+    });
+  });
+
+  var checkedGroup = "";
+  $("input#done").click(function() {
+    checkedGroup = $("input[name=groupNum]:checked").parent().text();
+    if(checkedGroup === "") {
+      alert("Please select a group to link with your presentation.");
+    }
+    else {
+      var r=confirm("Link presentation to [" + checkedGroup + "]?");
+      if (r==true) {
+        $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
+          $("div#fadeout").hide();
+        });
+        $("div#invContainer").animate({opacity: 0.0}, "fast", function(){
+          $("div#invContainer").hide();
+        });
+      }
+    }
+  });
 });
 
 
@@ -120,8 +150,10 @@ function createGroup() {
     data: groupFormToJSON(),
     async: true,
     success: function(response){
-      alert(response);
-      addGroup($("input#groupBox").val());
+      if(response != 'group_exists')
+        addGroup($("input#groupBox").val());
+      else
+        flashErr(2, "Group already exists");
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -141,14 +173,6 @@ function getGroups() {
       else
         alert(JSON.stringify(groups.responseJSON));
       displayGroups(groups.responseJSON);
-        //Selecting a group name
-        $("div#gName").click(function() {
-          if($(this).attr('class') === 'selected')
-            $(this).css("background-color","#ffffff");
-          else if($(this).attr('class') !== 'selected')
-            $(this).css("background-color","#ededed");
-          $(this).toggleClass('selected');
-        });
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
