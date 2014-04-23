@@ -460,7 +460,7 @@ function getPastPresentations($username) { //doesn't work yet
     $userId = idFromUsername($username);
     
     $groupSql = "SELECT groupId FROM Group_Users WHERE userId = :userId";
-    $presSql = "SELECT presId, presName, ownerId, alreadyPresented FROM Presentations "
+    $presSql = "SELECT presId, presName, ownerId, presDate, alreadyPresented FROM Presentations "
             . "WHERE groupId = :groupId";
     $presenterSql = "SELECT fName, lName FROM Users WHERE userId = :ownerId";
 
@@ -491,8 +491,8 @@ function getPastPresentations($username) { //doesn't work yet
                         else
                             echo ',{';
                         echo '"presId":"' . $presentation['presId'] . '", "presName":"'
-                                . $presentation['presName'] . '", "' . $ownerName 
-                                . '"}';
+                                . $presentation['presName'] . '", "ownerName":"' . $ownerName 
+                                . '", "presDate":"' . $presentation['presDate'] . '"}';
                         $echoedPresentations++;
                     }
                     else
@@ -512,7 +512,7 @@ function getUpcomingPresentations($username) { //doesn't work yet
     $userId = idFromUsername($username);
     
     $groupSql = "SELECT groupId FROM Group_Users WHERE userId = :userId";
-    $presSql = "SELECT presId, presName, ownerId, alreadyPresented FROM Presentations "
+    $presSql = "SELECT presId, presName, ownerId, presDate, alreadyPresented FROM Presentations "
             . "WHERE groupId = :groupId";
     $presenterSql = "SELECT fName, lName FROM Users WHERE userId = :ownerId";
 
@@ -543,8 +543,8 @@ function getUpcomingPresentations($username) { //doesn't work yet
                         else
                             echo ',{';
                         echo '"presId":"' . $presentation['presId'] . '", "presName":"'
-                                . $presentation['presName'] . '", "' . $ownerName 
-                                . '"}';
+                                . $presentation['presName'] . '", "ownerName":"' . $ownerName 
+                                . '", "presDate":"' . $presentation['presDate'] . '"}';
                         $echoedPresentations++;
                     }
                     else
