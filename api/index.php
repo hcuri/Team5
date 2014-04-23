@@ -429,13 +429,13 @@ function getSlides($presID) {
         //$urlTxt = $url; //Don't know what this is for
         $URLarray = array();
         $slidesARRAY = array();
+        $count = 0;
         if (is_dir($dir)) {
             if ($dh = opendir($dir)) {
                 while (($file = readdir($dh)) !== false) {
                     if ($file == "." or $file == "..")
                         continue;
                     $URLarray[] = $url . $title . "/" . $file;
-
                     $pattern = '/\d+/';
                     preg_match($pattern, $file, $matches);
                     //error on below line - no idea why but it affects pulling slides from random presentations
@@ -444,8 +444,9 @@ function getSlides($presID) {
                         $slideNum = $matches[0];
                         $slidesARRAY[] = $slideNum;
                     } else {
-                        $slideNum = 0;
+                        $slideNum = $count;
                         $slidesARRAY[] = $slideNum;
+                        $count++;
                     }
                 }
                 closedir($dh);
