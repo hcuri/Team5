@@ -380,6 +380,11 @@ function addPresentation() {
 }
 
 function updateGroupId() {
+    error_log('updateGroupId\n', 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $id = json_decode($request->getBody());
+    
+    $groupName= $id->groupName;
 }
 
 function getSlides($presID) {
