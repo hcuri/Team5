@@ -721,8 +721,10 @@ function createGroup() {
         $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
-        if($stmt->rowCount() > 0)
-            header('HTTP/ 400 Bad Request');
+        if($stmt->rowCount() > 0) {
+            echo 'fuck_you';
+            return;
+        }
         
         
         $stmt = $db->prepare($sqlGroup);
