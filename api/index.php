@@ -773,48 +773,37 @@ function deleteGroup() {
     }
 }
 
-function getGroups($username) {
-    $ownerId = idFromUsername($username);
-    $sql = "SELECT groupName FROM Groups WHERE ownerId=:ownerId";
+function getGroups() {
+    $ownerId = idFromUsername($_COOKIE['user']);
+    $sql = "SELECT groupId, groupName FROM Groups WHERE ownerId=:ownerId";
+    $sqlGroup = "SELECT userId FROM Group_Users WHERE groupId=:groupId";
+    $sqlName = "SELECT fName, lName FROM Users WHERE userId=:userId";
     
       try {
         $db = dbconnect();
         $stmt = $db->prepare($sql);
-        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->bindParam('ownerId', $ownerId);
         $stmt->execute();
+        for($i = 0; $i < $stmt->rowCount(); $i++) {
+            $group = $stmt->fetch(PDO::FETCH_ASSOC);
+            $groupId = $group['groupId'];
+            $stmtUsers = $db->prepare($sqlGroup);
+            $stmtUsers->bindParam('groupId', $groupId);
+            $stmtUsers->execute();
+            for($j = 0; $j < $stmtUsers->rowCount(); $j++) {
+                $user = $stmtUsers->fetch(PDO::FETCH_ASSOC);
+                $userId = $user['userId'];
+                $stmtName = $db->prepare($sqlName);
+                $stmtName->bindParam('userId', $userId);
+                
+            }
+        }
         $groups = $stmt->fetchAll(PDO::FETCH_OBJ);
         echo json_encode($groups);
       } catch (PDOException $e) {
             error_log($e->getMessage(), 3, '/var/tmp/php.log');
             echo '{"error":"' . $e->getMessage() . '"}';
       }
-}
-
-function getGroupUsers($groupName) {
-    $ownerId = idFromUsername($_COOKIE['user']);
-    $sql = "SELECT groupId FROM Group_Users WHERE ownerId=:ownerId AND groupName=:groupName";
-    $sqlGroup
-    $sqlName = "SELECT fName, lName FROM Users WHERE userId=:userId";
-  
-     try {
-        $db = dbconnect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam("ownerId", $ownerId);
-        $stmt->bindParam("groupName", $groupName);
-        $stmt->execute();
-        for($i = 0; $i < $stmt->rowCount(); $i++) {
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        $stmt = $db->prepare($sqlName);
-        $stmt->bindParam("userId", $ownerId);
-        $stmt->bindParam("groupName", $groupName);
-        $stmt->execute();
-        $userID = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $userID['userId'];
-    } catch (PDOException $e) {
-        error_log($e->getMessage(), 3, '/var/tmp/php.log');
-        echo '{"error":"' . $e->getMessage() . '"}';
-    }
 }
 
 function idFromUsername($username) {
