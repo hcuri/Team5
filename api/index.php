@@ -746,7 +746,7 @@ function deleteFromGroup() {
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
     $userId = idFromUsername($user->username);
-    $sqlUser = "DELETE groupId, userId FROM Group_Users "
+    $sqlUser = "DELETE * FROM Group_Users "
             . "WHERE groupId=:groupId AND userId=:userId)";
 
     try {
