@@ -384,7 +384,25 @@ function updateGroupId() {
     $request = Slim::getInstance()->request();
     $id = json_decode($request->getBody());
     
+    $ownerId = idFromUsername($_COOKIE['user']);
     $groupName= $id->groupName;
+    $sqlGroupId = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+    $sqlUpdate = "UPDATE Presentations SET groupId = :groupId WHERE presId = :presId";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sqlGroupId);
+        $stmt->bindParam("groupName", $groupName);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->execute();
+        $group = $stmt->fetch(PDO::FETCH_ASSOC);
+        $groupId = $group['groupId'];
+        
+        
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
 }
 
 function getSlides($presID) {
@@ -783,6 +801,7 @@ function deleteGroup() {
     $group = json_decode($request->getBody());
 
     $ownerUsername = $_COOKIE['user'];
+    error_log('ownerUsername\n', 3, '/var/tmp/php.log');
     $ownerId = idFromUsername($ownerUsername);
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
