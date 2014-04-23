@@ -39,6 +39,7 @@ div#userSearch {
         width: 18px;
         height: 18px;
         vertical-align: middle;
+        cursor: pointer;
     }
 
 div#vertbar {
@@ -74,6 +75,7 @@ div#groups {
         img[src="img/plusBtn.png"] {
             margin-left: 5px;
             vertical-align: middle;
+            cursor: pointer;
         }
 
 div#tableHolder {
@@ -122,12 +124,18 @@ div#tableHolder table {
     }
     .username {
         width: 50px;
-        text-align:left;
+        text-align:right;
     }
-    .org {
-        width: 50px;
-        text-align: right;
+    .addToGroup {
+        width: 25px;
+        text-align: center;
+        vertical-align: middle;
     }
+        .addToGroup img[src="img/plusBtn.png"] {
+            width: 13px;
+            height: 13px;
+            cursor: pointer;
+        }
 div#groupTable {
     /*border: 2px groove threedface;*/
     width: 370px;
@@ -147,11 +155,13 @@ div#groupTable {
         width: 12px;
         height: 12px;
         padding-right: 2px;
+        cursor: pointer;
     }
     img[src="img/trash.png"] {
         width: 13px;
         height: 13px;
         float: right;
+        cursor: pointer;
     }
 input#cancel {
     position: absolute;
@@ -162,6 +172,18 @@ input#done {
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+div#uErr {
+    position: absolute;
+    bottom: 19px;
+    left: 80px;
+    color: red;
+}
+div#gErr {
+    position: absolute;
+    bottom: 19px;
+    right: 80px;
+    color: red;
 }
 /* INV VIEWER WINDOW END */
 

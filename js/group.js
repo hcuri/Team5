@@ -1,5 +1,13 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
+function count(obj) {
+  var i = 0;
+  for (var x in obj)
+    if (obj.hasOwnProperty(x))
+      i++;
+  return i;
+}
+
 function createGroup(gform) {
     $.ajax({
 		type: 'POST',
@@ -86,3 +94,19 @@ function groupFormToJSON() {
 	});
 }
 
+function search(searchTerm) {
+	var term = searchTerm.replace(/ /g, '-');
+
+	var users = $.ajax({
+		type: 'GET',
+		url: root_url + 'searchUsers/' + term,
+		dataType: "json", // data type of response
+		async: true,
+		success: function() {
+			return users.responseJSON;
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
+}

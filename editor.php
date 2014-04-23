@@ -1,9 +1,6 @@
 <?php
   require_once("FileParser/FileParser.php"); 
   $FileParser = new FileParser();
-  echo $_FILES["files"]['name'][1];
-  echo $_COOKIE['user'];
-  echo $_POST['title'];
   $FileParser->modifyPresentation($_FILES["files"], $_POST['title']);
 ?>
 
@@ -35,120 +32,118 @@
           <td class="header">First Name</td>
           <td class="header">Last Name</td>
           <td class="header">Username</td>
-          <td class="header">Organization</td>
+          <td class="header">Add to Group</td>
         </tr>
         <tr class="2">
-          <td class="fName">Taylor</td>
-          <td class="lName">Bishop</td>
-          <td class="username">tbish</td>
-          <td class="org">SMU</td>
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="3">
-          <td class="fName">Nick</td>
-          <td class="lName">Morris</td>
-          <td class="username">CaptainMustang8</td>
-          <td class="org">SMU</td>
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="4">
-          <td class="fName">John</td>
-          <td class="lName">Politz</td>
-          <td class="username">jp</td>
-          <td class="org">Your mom</td>
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="5">
-          <td class="fName">Hector</td>
-          <td class="lName">Curi</td>
-          <td class="username">hcuri</td>
-          <td class="org">SMU</td>
+          <td class="fName"></td>
+          <td class="lName"></td>
+          <td class="username"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="6">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="7">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="8">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="9">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="10">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="11">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="12">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="13">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="14">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="15">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="16">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="17">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="18">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
         <tr class="19">
           <td class="fName"></td>
           <td class="lName"></td>
           <td class="username"></td>
-          <td class="org"></td>
+          <td class="addToGroup"></td>
         </tr>
-        
       </table>
     </div>
-    <div id="searchResults"></div>
   </div>
   <div id="vertbar"></div>
   <div id="groups">
@@ -169,6 +164,8 @@
     </div>
   </div>
   <input id="cancel" type="submit" name="submit" value="Cancel"/>
+  <div id="uErr"></div>
+  <div id="gErr"></div>
   <input id="done" type="submit" name="submit" value="Done"/>
 </div>
 <!-- Invite viewers window END -->
