@@ -816,10 +816,13 @@ function deleteGroup() {
         $group = $stmt->fetch(PDO::FETCH_ASSOC);
         $groupId = $group['groupId'];
         error_log('test1\n', 3, '/var/tmp/php.log');
-        $stmt = $db->prepare($sqlUser);
-        $stmt->bindParam("groupId", $groupId);
-        $stmt->execute();
+        $stmt = $db->prepare($sqlUsers);
         error_log('test2\n', 3, '/var/tmp/php.log');
+        $stmt->bindParam("groupId", $groupId);
+        error_log('test2.1\n', 3, '/var/tmp/php.log');
+        $stmt->execute();
+        error_log('test2.2\n', 3, '/var/tmp/php.log');
+        
         $stmt = $db->prepare($sqlDelete);
         $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
