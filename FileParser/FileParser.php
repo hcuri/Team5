@@ -42,7 +42,7 @@ class FileParser {
 
       				$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
       				if(is_dir($folder)) {
-        				rmdir($folder);
+        				delete_files($folder);
         				mkdir($folder, 0700);
         			}
         			else {
@@ -59,29 +59,24 @@ class FileParser {
 	}
 	function deletePresentation($title) {
 		$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
-		rmdir($folder);
+		delete_files($folder);
 	}
 
-	/* NOTES FUNCTIONALITY */
-	function addNotes() {
+        function delete_files($target) {
+            if(is_dir($target)){
+                $files = glob( $target . '*', GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
+        
+                foreach( $files as $file ){
+                    delete_files( $file );      
+                }
+      
+                rmdir( $target );
+            } elseif(is_file($target)) {
+                unlink( $target );  
+            }
+        }
+}
+?>
 
-	}
-	function modifyNotes() {
-
-	}
-	function deleteNotes() {
-
-	}
-
-	/* CHAT DOC FUNCTIONALITY */
-	function addChatDoc() {
-
-	}
-	function modifyChatDoc() {
-
-	}
-	function deleteChatDoc() {
-		
-	}
 }
 ?>
