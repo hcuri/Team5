@@ -1,5 +1,4 @@
 #content {
-	/*border:1px solid black;*/
 	height:460px;
 	width:660px;
 	margin-top:30px;
@@ -10,7 +9,6 @@
 }
 
 #terms {
-	/*border:1px solid black;*/
 	width:655px;
 	height:455px;
 	margin-left:4px;
@@ -20,16 +18,16 @@
 }
 
 #infoHeader {
-	/*border:1px solid black;*/
 	height:30px;
 	width:200px;
 	padding-left:27px;
 	padding-top:40px;
+	margin-left:18px;
 }
 
 #infoContent {
-	/*border:1px solid black;*/
 	margin-top:15px;
 	padding:25px;
+	margin-left:20px;
 
 }
