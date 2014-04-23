@@ -799,7 +799,7 @@ function deleteGroup() {
     error_log('deleteGroup\n', 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $group = json_decode($request->getBody());
-
+    
     $ownerUsername = $_COOKIE['user'];
     $ownerId = idFromUsername($ownerUsername);
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
@@ -813,26 +813,17 @@ function deleteGroup() {
         $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
-        $group = $stmt->fetch(PDO::FETCH_ASSOC);
-        $groupId = $group['groupId'];
-        error_log('test1\n', 3, '/var/tmp/php.log');
+        $groupx = $stmt->fetch(PDO::FETCH_ASSOC);
+        $groupId = $groupx['groupId'];
+        
         $stmt = $db->prepare($sqlUsers);
-        error_log('test2\n', 3, '/var/tmp/php.log');
         $stmt->bindParam("groupId", $groupId);
-        error_log('test2.1\n', 3, '/var/tmp/php.log');
         $stmt->execute();
-        echo '<script type="text/javascript">alert(' . $group->groupName . ');</script>';
-        error_log(" " . $ownerId, 3, '/var/tmp/php.log');
-        error_log('test2.2\n', 3, '/var/tmp/php.log');
         
         $stmt = $db->prepare($sqlDelete);
-        error_log('test3\n', 3, '/var/tmp/php.log');
         $stmt->bindParam("groupName", $group->groupName);
-        error_log('test3.1\n', 3, '/var/tmp/php.log');
         $stmt->bindParam("ownerId", $ownerId);
-        error_log('test3.2\n', 3, '/var/tmp/php.log');
         $stmt->execute();
-        error_log('test3.3\n', 3, '/var/tmp/php.log');
         echo json_encode($group);
         $db = null;
     } catch (PDOException $e) {
