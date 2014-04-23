@@ -1,4 +1,4 @@
-// JavaScript Document
+// user.js: fill tables with user information and navigate presenting and viewing
 
 var presNames = new Array();
 var presIDs = new Array();
@@ -108,15 +108,15 @@ $(document).ready(function() {
 	
 	for(var i = 0; i < numUPres; i++) {
 		upPresNames.push(pres[i].presName);
-		upPresAuthor.push(pres[i].presName);
-		upPresDate.push(pres[i].date);
+		upPresAuthor.push(pres[i].ownerName);
+		upPresDate.push(pres[i].presDate);
 		upPresIDs.push(pres[i].presId);	
 	}
 	
 	
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
-	for(var i = 0; i < entries.length; i++) {
+	for(var i = 0; i < numUPres; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
 			if(j===0) {
@@ -134,7 +134,7 @@ $(document).ready(function() {
 	$(".viewUp").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
-		viewUPresent(row);
+		viewUpcomingUPresent(row);
 	});
 	
 	
@@ -151,8 +151,8 @@ $(document).ready(function() {
 	
 	for(var i = 0; i < numUPres; i++) {
 		pastPresNames.push(pres[i].presName);
-		pastPresAuthor.push(pres[i].presName);
-		pastPresDate.push(pres[i].date);
+		pastPresAuthor.push(pres[i].ownerName);
+		pastPresDate.push(pres[i].presDate);
 		pastPresIDs.push(pres[i].presId);	
 	}
 	
@@ -160,7 +160,7 @@ $(document).ready(function() {
 	//fill past presentation table
 	//BASE OFF THIS
 	var entries = $("#past").children().children();
-	for(var i = 1; i < entries.length+1; i++) {
+	for(var i = 0; i < numUPres; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
 			if(j===0) {
@@ -227,4 +227,18 @@ function deleteFormToJSON(presName) {
 	return JSON.stringify({
 		"title" : presName
 	});
+}
+
+
+//TABLE 2 FUNCTIONS
+
+function viewUpcomingUPresent(num) {
+	$.cookie('pres', upPresIDs[num-1]);
+    window.location="viewer.php";
+	return true;
+}
+function viewPastUPresent(num) {
+	$.cookie('pres', pastPresIDs[num-1]);
+    window.location="afterview.php";
+	return true;
 }
