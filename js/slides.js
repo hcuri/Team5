@@ -52,4 +52,4 @@ setInterval(function () {
 	cS = cS.responseJSON;
 	currentSlide = cS.currSlide;
 	updateSlide();
-}, 5000);
+}, 500);
