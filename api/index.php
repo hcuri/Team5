@@ -710,7 +710,7 @@ function createGroup() {
     error_log('createGroup\n', 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $group = json_decode($request->getBody());
-    $ownerId = idFromUsername($_COOKIE('user'));
+    $ownerId = idFromUsername($_COOKIE['user']);
     $sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
             . " :ownerId)";
     try {
