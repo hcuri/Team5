@@ -35,6 +35,7 @@ $app->post('/createGroup', 'createGroup');
 $app->post('/addToGroup', 'addToGroup');
 $app->post('/deleteFromGroup', 'deleteFromGroup');
 $app->post('/deleteGroup', 'deleteGroup');
+$app->get('/getGroups', 'getGroups');
 
 
 $app->run();
@@ -789,14 +790,24 @@ function getGroups($username) {
       }
 }
 
-function getGroupUsers($groupName, $username) {
-    $ownerId = idFromUsername($username);
-    $sql = "SELECT userId FROM Group_Users WHERE ownerId=:ownerId AND groupName=:groupName";
-    
+function getGroupUsers($groupName) {
+    $ownerId = idFromUsername($_COOKIE['user']);
+    $sql = "SELECT groupId FROM Group_Users WHERE ownerId=:ownerId AND groupName=:groupName";
+    $sqlGroup
+    $sqlName = "SELECT fName, lName FROM Users WHERE userId=:userId";
+  
      try {
         $db = dbconnect();
         $stmt = $db->prepare($sql);
-        $stmt->bindParam("username", $username);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->bindParam("groupName", $groupName);
+        $stmt->execute();
+        for($i = 0; $i < $stmt->rowCount(); $i++) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $stmt = $db->prepare($sqlName);
+        $stmt->bindParam("userId", $ownerId);
+        $stmt->bindParam("groupName", $groupName);
         $stmt->execute();
         $userID = $stmt->fetch(PDO::FETCH_ASSOC);
         return $userID['userId'];
