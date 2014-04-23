@@ -805,7 +805,7 @@ function getGroups() {
     $ownerId = idFromUsername($_COOKIE['user']);
     $sql = "SELECT groupId, groupName FROM Groups WHERE ownerId=:ownerId";
     $sqlGroup = "SELECT userId FROM Group_Users WHERE groupId=:groupId";
-    $sqlName = "SELECT fName, lName FROM Users WHERE userId=:userId";
+    $sqlName = "SELECT fName, lName, username FROM Users WHERE userId=:userId";
     
       try {
         $db = dbconnect();
@@ -835,10 +835,10 @@ function getGroups() {
                     $user = $stmtName->fetch(PDO::FETCH_ASSOC);
                     $name = $user['fName'] . " " . $user['lName'];
                     if($j == 0)
-                        echo '"' . $j . '":"';
+                        echo '"' . $j . '":{';
                     else
-                        echo ', "' . $j . '":"';
-                    echo $name . '"';
+                        echo ', "' . $j . '":{';
+                    echo '"name":"' . $name . '", "username":"' . $user['username'] . '"}';
                        
                 }
                
