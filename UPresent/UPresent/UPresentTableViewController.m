@@ -19,7 +19,8 @@
 
 @synthesize username;
 
-NSArray *titlesArray;
+NSMutableArray *titlesArray;
+NSMutableArray *idsArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,7 +37,6 @@ NSArray *titlesArray;
     
     NSLog(@"%@",self.username);
     
-    NSInteger success = 0;
     @try {
         
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/index.php/getPresentations/%@",RootURL,username]];
@@ -60,41 +60,33 @@ NSArray *titlesArray;
             NSLog(@"Response ==> %@", responseData);
             
             NSError *error = nil;
-            NSDictionary *jsonData = [NSJSONSerialization
+            NSArray *json = [NSJSONSerialization
                                       JSONObjectWithData:urlData
                                       options:NSJSONReadingMutableContainers
                                       error:&error];
             
-            success = [jsonData[@"registered"] integerValue];
-            NSLog(@"Success: %ld",(long)success);
+            titlesArray = [[NSMutableArray alloc] init];
+            idsArray = [[NSMutableArray alloc]init];
             
-            if(success == 1)
-            {
-                NSLog(@"Login SUCCESS");
-            } else if (success == 0)
-            {
-                [self alertStatus:@"The username/password combination you entered is not valid. Please try again." :@"Incorrect Credentials" :0];
-                NSLog(@"Incorrect Credentials");
-            } else {
-                [self alertStatus:@"Please try again." :@"Log In Failed" :0];
+            for (int i=0; i<json.count; ++i) {
+                
+                [titlesArray addObject:[[json objectAtIndex:i] valueForKey:@"presName"]];
+                [idsArray addObject:[[json objectAtIndex:i] valueForKey:@"presId"]];
             }
             
+            
         } else {
-            //if (error) NSLog(@"Error: %@", error);
+            if (error) NSLog(@"Error: %@", error);
             [self alertStatus:@"Connection Failed" :@"Sign in Failed" :0];
         }
         
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Sign in Failed." :@"Error" :0];
-    }
-    if (success) {
-        [self performSegueWithIdentifier:@"login_success" sender:self];
+        [self alertStatus:@"Reading Presentations Failed." :@"Error" :0];
     }
     
     
-    titlesArray = [[NSArray alloc] initWithObjects:@"My First UPresent", @"Raley's Presentation", @"The Origin of the Universe", @"Prof. Fontenot's Lecture 11", nil];
     
 }
 
@@ -187,15 +179,27 @@ NSArray *titlesArray;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    
     if ([segue.identifier isEqualToString:@"remote"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSLog(@"%ld", (long)[indexPath row]);
         UPresentRemoteViewController *destViewController = [segue destinationViewController];
         destViewController.myTitle = [titlesArray objectAtIndex:[indexPath row]];
+        destViewController.myId = [idsArray objectAtIndex:[indexPath row]];
+
     }
 }
+
+- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
+}
+
 
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "String.h"
 
 @interface UPresentRemoteViewController : UIViewController
 
 @property(nonatomic) NSString *myTitle;
+@property(nonatomic) NSString *myId;
 
 
 @end

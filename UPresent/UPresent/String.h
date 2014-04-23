@@ -9,8 +9,8 @@
 #ifndef UPresent_String_h
 #define UPresent_String_h
 
-#define RootURL @"http://localhost/UPresent"
-//#define RootURL @"http://upresent.org"
+//#define RootURL @"http://localhost/UPresent"
+#define RootURL @"http://upresent.org"
 
 
 
