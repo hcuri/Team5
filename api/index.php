@@ -713,8 +713,17 @@ function createGroup() {
     $ownerId = idFromUsername($_COOKIE['user']);
     $sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
             . " :ownerId)";
+    $sqlCheck = "SELECT * FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+    
     try {
         $db = dbconnect();
+        $stmt = $db->prepare($sqlCheck);
+        $stmt->bindParam("groupName", $group->groupName);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->execute();
+        if($stmt->rowCount() > 0)
+            return;
+        
         $stmt = $db->prepare($sqlGroup);
         $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
