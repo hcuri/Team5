@@ -55,6 +55,7 @@
 		1F31D36318F896B000CF477D /* UPresentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UPresentTests-Info.plist"; sourceTree = "<group>"; };
 		1F31D36518F896B000CF477D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F31D36718F896B000CF477D /* UPresentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPresentTests.m; sourceTree = "<group>"; };
+		1F9B1B00190735CD00DD1D20 /* String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
 		1F9E39BF19057E3700C552ED /* UPresentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPresentTableViewController.h; sourceTree = "<group>"; };
 		1F9E39C019057E3700C552ED /* UPresentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPresentTableViewController.m; sourceTree = "<group>"; };
 		1F9E39C219058A1100C552ED /* UPresentRemoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPresentRemoteViewController.h; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				1F31D35218F896B000CF477D /* UPresentViewController.m */,
 				1F9E39BF19057E3700C552ED /* UPresentTableViewController.h */,
 				1F9E39C019057E3700C552ED /* UPresentTableViewController.m */,
+				1F9B1B00190735CD00DD1D20 /* String.h */,
 				1F9E39C219058A1100C552ED /* UPresentRemoteViewController.h */,
 				1F9E39C319058A1100C552ED /* UPresentRemoteViewController.m */,
 				1F31D35418F896B000CF477D /* Images.xcassets */,

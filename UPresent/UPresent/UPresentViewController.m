@@ -7,6 +7,7 @@
 //
 
 #import "UPresentViewController.h"
+#import "UPresentTableViewController.h"
 
 @interface UPresentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -35,7 +36,7 @@
         else
         {
             
-            NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://upresent.org/api/index.php/verify/%@/%@",[self.usernameTextField text],[self.passwordTextField text]]];
+            NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/index.php/verify/%@/%@",RootURL,[self.usernameTextField text],[self.passwordTextField text]]];
             
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
             [request setURL:url];
@@ -117,4 +118,18 @@
 - (IBAction)backgroundTap:(id)sender {
     [self.view endEditing:YES];
 }
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"login_success"])
+    {
+        UPresentTableViewController *tableViewController = [[[segue destinationViewController] viewControllers] objectAtIndex:0];
+        NSLog(@"This Happened");
+        tableViewController.username = [self.usernameTextField text];
+    }
+}
+
 @end

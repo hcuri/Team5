@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "String.h"
+
 
 @interface UPresentTableViewController : UITableViewController
+
+@property(nonatomic) NSString *username;
 
 @end

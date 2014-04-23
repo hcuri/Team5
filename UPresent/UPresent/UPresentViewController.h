@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "String.h"
 
 @interface UPresentViewController : UIViewController <UITextFieldDelegate>
 - (IBAction)backgroundTap:(id)sender;
