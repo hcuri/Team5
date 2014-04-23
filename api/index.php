@@ -821,6 +821,7 @@ function deleteGroup() {
         $stmt->bindParam("groupId", $groupId);
         error_log('test2.1\n', 3, '/var/tmp/php.log');
         $stmt->execute();
+        echo '<script type="text/javascript">alert(' . $group->groupName . ');</script>';
         error_log(" " . $ownerId, 3, '/var/tmp/php.log');
         error_log('test2.2\n', 3, '/var/tmp/php.log');
         
