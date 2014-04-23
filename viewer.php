@@ -39,9 +39,9 @@
   <div id="viewer">
     <div id="info">
       <div class="oLine"></div>
-      <h2 id="presName">Lecture 11</h2>
+      <h2 id="presName"></h2>
       by
-      <h3 id="presAuthor">Chris Raley</h3>
+      <h3 id="presAuthor"></h3>
       <div class="oLine"></div>
     </div>
     <div id="slidePane"> <img id="slide" src=""/></div>

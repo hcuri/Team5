@@ -99,43 +99,37 @@
     </ul>
     <div id="tabs2-1">
       <table id="upcoming">
-        <!--<tr>
-          <th class="title">Title</th>
-          <th class="author">Author</th>
-          <th class="date">Date</th>
-          <th class="view">View</th>
-        </tr> -->
-        <tr>
-          <td class="title">How To Design</td>
-          <td class="author">Christopher Raley</td>
-          <td class="date">1/29/14</td>
-          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
-        </tr>
-        <tr>
-          <td class="title">Intro to iOS</td>
-          <td class="author">Hector Curi</td>
-          <td class="date">1/29/14</td>
-          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
-        </tr>
-        <tr>
-          <td class="title">My Search Engine</td>
-          <td class="author">Larry Page</td>
-          <td class="date">1/29/14</td>
-          <td class="view"><input type="button" value="View" onclick="window.location='viewer.php'"></td>
-        </tr>
-        <tr>
+        <tr class="1">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr>
+        <tr class="2">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr>
+        <tr class="3">
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
+        </tr>
+        <tr class="4">
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
+        </tr>
+        <tr class="5">
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
+        </tr>
+        <tr class="6">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
@@ -145,43 +139,37 @@
     </div>
     <div id="tabs2-2">
       <table id="past">
-        <!--<tr>
-          <th class="title">Title</th>
-          <th class="author">Author</th>
-          <th class="date">Date</th>
-          <th class="view">View</th>
-        </tr> -->
-        <tr id="past1">
-          <td class="title">Learning From Me</td>
-          <td class="author">Steve Jobs</td>
-          <td class="date">1/15/2012</td>
-          <td class="view"></td>
-        </tr>
-        <tr id="past2">
+        <tr class="1">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr id="past3">
+        <tr class="2">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr id="past4">
+        <tr class="3">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr id="past5">
+        <tr class="4">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>
           <td class="view"></td>
         </tr>
-        <tr id="past6">
+        <tr class="5">
+          <td class="title"></td>
+          <td class="author"></td>
+          <td class="date"></td>
+          <td class="view"></td>
+        </tr>
+        <tr class="6">
           <td class="title"></td>
           <td class="author"></td>
           <td class="date"></td>

@@ -110,7 +110,7 @@ $(document).ready(function() {
 		upPresNames.push(pres[i].presName);
 		upPresAuthor.push(pres[i].ownerName);
 		upPresDate.push(pres[i].presDate);
-		upPresIDs.push(pres[i].presId);	
+		upPresIDs.push(pres[i].presId);
 	}
 	
 	
@@ -134,6 +134,7 @@ $(document).ready(function() {
 	$(".viewUp").click(function(event) {
 		row = event.target.parentNode.parentNode;
 		row = $(row).attr('class');
+		alert(row);
 		viewUpcomingUPresent(row);
 	});
 	
@@ -234,6 +235,7 @@ function deleteFormToJSON(presName) {
 
 function viewUpcomingUPresent(num) {
 	$.cookie('pres', upPresIDs[num-1]);
+	alert(upPresIDs[num-1]);
     window.location="viewer.php";
 	return true;
 }

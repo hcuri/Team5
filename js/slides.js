@@ -32,8 +32,8 @@ $(document).ready(function(e) {
 	numSlides = slidesJSON.numSlides;
 	slides = slidesJSON.slides;
 	
-	
-	$("#slide").attr("src", slides[1]);
+	$("#slideNum").html(currentSlide + "/" + numSlides);
+	$("#slide").attr("src", slides[currentSlide]);
 	
 });
 
@@ -42,7 +42,7 @@ function updateSlide() {
 	$("#slideNum").html(currentSlide + "/" + numSlides);
 }
 
-setInterval(function() {
+setInterval(function () {
 	var cS = $.ajax({
 		type: 'GET',
 		url: root_url + "/getCurrentSlide/" + presID,
