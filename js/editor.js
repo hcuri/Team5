@@ -45,8 +45,9 @@ function flashErr(divNum, erfNamesrMsg) {
 
 $(document).ready(function(){
 
-  var left = (window.width / 2) - 250;
-  $("div#invContainer").css({left: 350});
+  var left = (screen.width / 2) - ($("div#invContainer").width() / 2);
+  var yee = left + "px";
+  $("div#invContainer").css({left: yee});
   
   $("div#fadeout").hide();
   $("div#invContainer").hide();
@@ -151,14 +152,6 @@ function getGroups() {
   });
 }
 
-function delGroupFormToJSON(elem) {
-  var groupName = $(elem).parent().text();
-  alert(JSON.stringify({ "groupName": groupName }));
-
-  return JSON.stringify({
-    "groupName": groupName
-  });
-}
 function groupFormToJSON() {
   return JSON.stringify({
     "groupName": $('input#groupBox').val()
@@ -229,10 +222,19 @@ function deleteGroup(elem) {
     async: true,
     success: function(){
       alert('Group deleted successfully');
+      getGroups();
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
+  });
+}
+function delGroupFormToJSON(elem) {
+  var groupName = $(elem).parent().text();
+  alert(JSON.stringify({ "groupName": groupName }));
+
+  return JSON.stringify({
+    "groupName": groupName
   });
 }
 
