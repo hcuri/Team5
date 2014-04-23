@@ -824,10 +824,13 @@ function deleteGroup() {
         error_log('test2.2\n', 3, '/var/tmp/php.log');
         
         $stmt = $db->prepare($sqlDelete);
-        $stmt->bindParam("groupName", $group->groupName);
-        $stmt->bindParam("ownerId", $ownerId);
-        $stmt->execute();
         error_log('test3\n', 3, '/var/tmp/php.log');
+        $stmt->bindParam("groupName", $group->groupName);
+        error_log('test3.1\n', 3, '/var/tmp/php.log');
+        $stmt->bindParam("ownerId", $ownerId);
+        error_log('test3.2\n', 3, '/var/tmp/php.log');
+        $stmt->execute();
+        error_log('test3.3\n', 3, '/var/tmp/php.log');
         echo json_encode($group);
         $db = null;
     } catch (PDOException $e) {
