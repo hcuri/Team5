@@ -3,6 +3,19 @@
 require_once('php/lib.php');
 
 class FileParser {
+          function delete_files($target) {
+            if(is_dir($target)){
+                $files = glob( $target . '*', GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
+        
+                foreach( $files as $file ){
+                    delete_files( $file );      
+                }
+      
+                rmdir( $target );
+            } elseif(is_file($target)) {
+                unlink( $target );  
+            }
+        }
 	function modifyPresentation($files, $title) {
 		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post' && !empty($_FILES)) {
 
@@ -56,9 +69,6 @@ class FileParser {
 
         			move_uploaded_file($_FILES["files"]["tmp_name"][$index], $folder . "/" . $_FILES["files"]["name"][$index]);
     			}
-    			else {
-    				//Error handling
-    			}
   			}
 		}
 	}
@@ -66,19 +76,5 @@ class FileParser {
 		$folder = "upload/" . $_COOKIE['user'] . "/" . $title;
 		delete_files($folder);
 	}
-
-        function delete_files($target) {
-            if(is_dir($target)){
-                $files = glob( $target . '*', GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
-        
-                foreach( $files as $file ){
-                    delete_files( $file );      
-                }
-      
-                rmdir( $target );
-            } elseif(is_file($target)) {
-                unlink( $target );  
-            }
-        }
 }
 ?>
