@@ -56,6 +56,7 @@
   </div>
   <div id="bottomInfo">
     <canvas id="results" width="400" height="400"></canvas>
+    <canvas id="results1" width="400" height="400"></canvas>
   </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>

@@ -19,7 +19,27 @@ $(document).ready(function(e) {
 	]
 }
 
-displayResults(data);
+var data1 = [
+	{
+		value: 30,
+		color:"#F38630"
+	},
+	{
+		value : 50,
+		color : "#E0E4CC"
+	},
+	{
+		value : 100,
+		color : "#69D2E7"
+	},
+	{
+		value : 60,
+		color : "#FF0000"
+	}
+]
+
+displayResultsBar(data);
+displayResultsPie(data1);
 
 
 
@@ -74,9 +94,13 @@ setInterval(function () {
 
 
 
-function displayResults(data) {
+function displayResultsBar(data) {
 	var ctx = document.getElementById("results").getContext("2d");
 	var newChart = new Chart(ctx).Bar(data);
+}
+function displayResultsPie(data) {
+	var ctx = document.getElementById("results1").getContext("2d");
+	var newChart = new Chart(ctx).Pie(data);
 }
 
 Bar.defaults = {
@@ -152,4 +176,33 @@ Bar.defaults = {
 	//Function - Fires when the animation is complete
 	onAnimationComplete : null
 	
+}
+
+Pie.defaults = {
+	//Boolean - Whether we should show a stroke on each segment
+	segmentShowStroke : true,
+	
+	//String - The colour of each segment stroke
+	segmentStrokeColor : "#fff",
+	
+	//Number - The width of each segment stroke
+	segmentStrokeWidth : 2,
+	
+	//Boolean - Whether we should animate the chart	
+	animation : false,
+	
+	//Number - Amount of animation steps
+	animationSteps : 50,
+	
+	//String - Animation easing effect
+	animationEasing : "easeOutBounce",
+	
+	//Boolean - Whether we animate the rotation of the Pie
+	animateRotate : true,
+
+	//Boolean - Whether we animate scaling the Pie from the centre
+	animateScale : true,
+	
+	//Function - Will fire on animation completion.
+	onAnimationComplete : null
 }
