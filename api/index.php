@@ -383,7 +383,7 @@ function addPresentation() {
         $stmtId->bindParam("ownerId", $userId);
         $stmtId->execute();
         $id = $stmtId->fetch(PDO::FETCH_ASSOC);
-        setcookie('pres', $id['presId']);
+        setcookie("pres", $id['presId'], time() + 3600, '/');
         
         $db = null;
         echo json_encode($presentation);
