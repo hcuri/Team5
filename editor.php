@@ -14,7 +14,9 @@
   <link href="css/styles_editor.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/jQuery.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/feature-carousel.css" charset="utf-8" />
   <script src="js/jQuery.js"></script>
+  <script src="js/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jquery.cookie.js"></script>
   <script src="js/editor.js"></script>
   <title>UPresent - Editor</title>
@@ -200,6 +202,53 @@
   <div id="UPresentTitle">
     <h1><?php echo $_POST['title']; ?></h1>
   </div>
+
+  <!--Photo Gallery -->
+  <div class="carousel-container">
+    
+      <div id="carousel">
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample1.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample2.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              The background will expand up or down to fit the caption.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample3.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              Images can be placed here as well.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample4.jpg" /></a>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample5.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
+            </p>
+          </div>
+        </div>
+      </div>
+    
+      <div id="carousel-left"><img src="img/arrow-left.png" /></div>
+      <div id="carousel-right"><img src="img/arrow-right.png" /></div>
+    </div>
+
+
   <div id="PollAdderForm">
     <form id="PollData" action="" method="post" onclick="return addPoll(this)">
       <fieldset>
@@ -233,7 +282,6 @@
       </fieldset>
     </form>
   </div>
-  <div id="SlidesPreview"> <img src="img/coverview.png" /> </div>
   <div id="Footer">
     <form id="save" action="user.php" method="post">
       <input type="submit" id="saveUPresent" value="Save UPresent" />
