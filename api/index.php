@@ -390,17 +390,7 @@ function addPresentation() {
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":{"text":' . $e->getMessage() . '}}';
-    }
-    $sql = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :ownerId";
-    
-    try {
-        $db = dbconnect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam("title", $presentation->title);
-    } catch (Exception $ex) {
-
-    }
-    
+    }    
 }
 
 function updateGroupId() {
