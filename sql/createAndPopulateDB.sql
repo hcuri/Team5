@@ -101,10 +101,9 @@ CREATE TABLE Poll
         presId                  INT UNSIGNED                    NOT NULL,
         slideNum                INT UNSIGNED                    NOT NULL,
         question                VARCHAR(256)                    NOT NULL,
-        numOptions              INT UNSIGNED                    NOT NULL,
-		pollURL					VARCHAR(256)					NOT NULL,
+        numOptions              INT UNSIGNED                    NOT NULL
         PRIMARY KEY             (pollId),
-		FOREIGN KEY				(presId)						REFERENCES Presentations(presId)
+        FOREIGN KEY		(presId)                        REFERENCES Presentations(presId)
 );
 
 /*
@@ -116,7 +115,8 @@ Info: 2NF table for poll options
 CREATE TABLE Poll_Options
 (
         pollId                  INT UNSIGNED                    NOT NULL,
+	optionNum		VARCHAR(1)			NOT NULL DEFAULT 'Z',
         option_text             VARCHAR(256)                    NOT NULL,
-        FOREIGN KEY             (pollId)						REFERENCES Poll(pollId)
+        FOREIGN KEY             (pollId)			REFERENCES Poll(pollId)
 );
 
