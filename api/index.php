@@ -38,6 +38,9 @@ $app->post('/deleteFromGroup', 'deleteFromGroup');
 $app->post('/deleteGroup', 'deleteGroup');
 $app->get('/getGroups', 'getGroups');
 
+//Poll functions
+$app->post('/createPoll', 'createPoll');
+
 
 $app->run();
 
@@ -362,6 +365,8 @@ function addPresentation() {
     $groupId = 0;
     $presentation = json_decode($request->getBody());
     $sql = "INSERT INTO Presentations VALUES (DEFAULT, :title, :rootURL, :ownerId, :groupId, :presDate, :presTime, DEFAULT, DEFAULT)";
+    $sqlId = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :ownerId";
+
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sql);
@@ -372,12 +377,30 @@ function addPresentation() {
         $stmt->bindParam("presDate", $presentation->date);
         $stmt->bindParam("presTime", $presentation->time);
         $stmt->execute();
+        
+        $stmtId = $db->prepare($sqlId);
+        $stmtId->bindParam("title", $presentation->title);
+        $stmtId->bindParam("ownerId", $userId);
+        $stmtId->execute();
+        $id = $stmtId->fetch(PDO::FETCH_ASSOC);
+        setcookie('pres', $id['presId']);
+        
         $db = null;
         echo json_encode($presentation);
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
+    $sql = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :ownerId";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("title", $presentation->title);
+    } catch (Exception $ex) {
+
+    }
+    
 }
 
 function updateGroupId() {
@@ -907,6 +930,19 @@ function getGroups() {
             echo '{"error":"' . $e->getMessage() . '"}';
       }
 }
+
+function createPoll() {
+    $request = Slim::getInstance()->request();
+    $poll = json_decode($request->getBody());
+    
+   // $sql = "INSERT INTO Poll VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE', 'NONE')";
+}
+
+
+
+
+
+
 
 function idFromUsername($username) {
     $sql = "SELECT userId FROM Users WHERE username=:username";

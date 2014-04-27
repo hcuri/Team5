@@ -69,7 +69,7 @@ class FileParser {
 }
 function rrmdir($dir, $exists) {
     error_log("rrmdir\n", 3, "/var/tmp/php.log");
-    rmdir("upload/tbgeorge/test");
+    rmdir($dir);
     error_log($dir, 3, "/var/tmp/php.log");
     if (is_dir($dir)) { // and $exists) {
         error_log($dir, 3, "/var/tmp/php.log");
