@@ -3,6 +3,8 @@
   $FileParser = new FileParser();
   $FileParser->modifyPresentation($_FILES['files'], $_POST['title']);
   setcookie('presName', $_POST['title']);
+
+  $title = $_POST['title'];
 ?>
 
 <!--editor.html-->
@@ -196,7 +198,7 @@
 </div>
 <div id="content">
   <div id="UPresentTitle">
-    <h1>Lecture 11 By Chris Raley</h1>
+    <h1><?php echo $_POST['title']; ?></h1>
   </div>
   <div id="PollAdderForm">
     <form id="PollData" action="" method="post" onclick="return addPoll(this)">
@@ -232,16 +234,6 @@
     </form>
   </div>
   <div id="SlidesPreview"> <img src="img/coverview.png" /> </div>
-  <div id="NoteSection">
-    <form id="notes">
-      <fieldset>
-        <legend>Presenter Notes</legend>
-        <textarea rows="10" cols="142">       
-    Write helpful notes here. You will be able to view them when you are presenting.
-                    </textarea>
-      </fieldset>
-    </form>
-  </div>
   <div id="Footer">
     <form id="save" action="user.php" method="post">
       <input type="submit" id="saveUPresent" value="Save UPresent" />

@@ -1,4 +1,5 @@
 function createPresentation() {
+	alert(root_url);
 	var bool = false;
 	$.ajax({
 		type: 'POST',
