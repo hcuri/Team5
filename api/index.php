@@ -925,7 +925,41 @@ function createPoll() {
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
     
-   // $sql = "INSERT INTO Poll VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE', 'NONE')";
+    $optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
+    
+    $sql = "INSERT INTO Poll VALUES (DEFAULT, :presId, :slideNum, :question, :numOptions)";
+    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
+    $sqlOp = "INSERT INTO Poll_Options VALUES (:pollId, :optionNum, :optionText, DEFAULT)";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("presId", $poll->presId);
+        $stmt->bindParam("slideNum", $poll->slide);
+        $stmt->bindParam("question", $poll->question);
+        $stmt->bindParam("numOptions", $poll->numOptions);
+        $stmt->execute();
+        
+        $stmtPollId = $db->prepare($sqlPollId);
+        $stmt->bindParam("presId", $poll->presId);
+        $stmt->bindParam("slideNum", $poll->slide);
+        $stmt->execute();
+        $pollId = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        for($i = 0; $i < $poll->numOptions; $i++) {
+            $stmtOptions = $db->prepare($sqlOp);
+            $stmtOptions->bindParam("pollId", $pollId['pollId']);
+            $stmtOptions->bindParam("optionNum", $optionNums[$i]);
+            $stmtOptions->bindParam("optionText", $pollId->options[$optionNums[$i]]);
+            $stmtOptions->execute();                    
+        }
+        
+        
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
 }
 
 
