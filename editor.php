@@ -286,12 +286,12 @@
         <input id="OptionD" id="OptionD" type="text" placeholder="Option D text here" size="50"/>
         <input type="checkbox" id="4" name="pollOpt" checked />
         <br>
-        <label for="OptionD">E</label>
-        <input id="OptionD" id="OptionE" type="text" placeholder="Option E text here" size="50"/>
+        <label for="OptionE">E</label>
+        <input id="OptionE" id="OptionE" type="text" placeholder="Option E text here" size="50"/>
         <input type="checkbox" id="5" name="pollOpt" />
         <br>
-        <label for="OptionD">F</label>
-        <input id="OptionD" id="OptionF" type="text" placeholder="Option F text here" size="50"/>
+        <label for="OptionF">F</label>
+        <input id="OptionF" id="OptionF" type="text" placeholder="Option F text here" size="50"/>
         <input type="checkbox" id="6" name="pollOpt" />
         <br>
         <input id="showGraph"  type="checkbox" name="showGraph" value="true" />

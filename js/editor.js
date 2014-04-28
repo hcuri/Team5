@@ -79,7 +79,6 @@ $(document).ready(function(){
 
   //searching for users
   $('div#searchBar img#searchBtn').click(function() {
-    alert("searching");
     var searchTxt = $('input#searchBox').val();
 
     if(searchTxt == "")
@@ -92,7 +91,6 @@ $(document).ready(function(){
 
   //Create group
   $("div#searchBar img#groupBtn").click(function() {
-    alert("creating");
     var groupTxt = $('input#groupBox').val();
 
     if(groupTxt == "")
@@ -159,14 +157,12 @@ $(document).ready(function(){
         currSlide = numSlides;
       else
         currSlide--; 
-      alert(currSlide);
     });
     $("div#carousel-right").click(function() {
       if(currSlide == numSlides)
         currSlide = 1;
       else
         currSlide++;
-      alert(currSlide);
     });
 
     //Polling
@@ -183,7 +179,6 @@ function addImages(json) {
   slides = json.slides;
 
   for(var i =1; i <= num; i++) {
-    alert (i);
     var insertImg = "<div class='carousel-feature'><a href='#'><img class='carousel-image' alt='Slide " + i + "'" 
                     + "src='" + slides[i] + "' /></a><div class='carousel-caption'>"
                     + "<p>Slide " + i + "</p></div></div>";
@@ -306,7 +301,6 @@ function deleteUserFromGroup(elem) {
     data: delUserFormToJSON(elem),
     async: true,
     success: function() {
-      alert("yoyoyo");
       getGroups();
     },
     error: function(jqXHR, textStatus, errorThrown) {
@@ -509,12 +503,12 @@ function pollFormToJSON() {
   var showResults = $('input#1').prop('checked')
 
   //Set text vars
-  if(opt1 === "") opt1 = "NULL";
-  if(opt2 === "") opt2 = "NULL";
-  if(opt3 === "") opt3 = "NULL";
-  if(opt4 === "") opt4 = "NULL";
-  if(opt5 === "") opt5 = "NULL";
-  if(opt6 === "") opt6 = "NULL";
+  if(opt1 == '') opt1 = "NULL";
+  if(opt2 == '') opt2 = "NULL";
+  if(opt3 == '') opt3 = "NULL";
+  if(opt4 == '') opt4 = "NULL";
+  if(opt5 == '') opt5 = "NULL";
+  if(opt6 == '') opt6 = "NULL";
 
   //Count number of options
   if($('input#showGraph').prop('checked')) showResults = "true";
@@ -533,7 +527,6 @@ function pollFormToJSON() {
   pollJSON = '{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
               + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
-  alert(pollJSON);
   return pollJSON;
 }
 
