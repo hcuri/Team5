@@ -4,10 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_viewer.css" rel="stylesheet" />
-<link href="css/jQuery.css" rel="stylesheet" />
+<link href="css/jQuery.css" rel="stylesheet" /><script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+    </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
-<script src="js/Chart.js"></script>
+
 <script src="js/main.js"></script>
 <script src="js/viewer.js"></script>
 <script src="js/slides.js"></script>

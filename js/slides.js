@@ -43,13 +43,26 @@ $(document).ready(function(e) {
 	
 	
 	//TEST INFO FOR GRAPH STUFF
-	$("#bInfoGraph").html('<canvas id="results" width="475" height="200"></canvas>');
-	
-	var testData = "{labels : ['A','B','C','D'],datasets : [{fillColor : '#2C17B1',strokeColor : '#FF9F00',data : [6,2,9,1]}]}";
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Answer', 'Amount'],
+          ['A',  6],
+          ['B',  10],
+          ['C',  2],
+          ['D',  3]
+        ]);
 
+        var options = {
+			legend: {position: 'none'},
+			backgroundColor: "#EDEDED"
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
+        chart.draw(data, options);
+	}
 	
-	var ctx = document.getElementById("results").getContext("2d");
-	var newChart = new Chart(ctx).Bar(testData);
 	
 	//GET POLL INFO IF THERE IS A POLL
 	if(poll) {
