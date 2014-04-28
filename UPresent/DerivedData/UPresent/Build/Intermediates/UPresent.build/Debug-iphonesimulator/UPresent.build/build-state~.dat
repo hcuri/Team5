@@ -1,0 +1,433 @@
+TUPresent
+v6
+r1
+cCheck dependencies
+cProcessPCH /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o /Users/JKP/Development/UPresent/UPresent/UPresent/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent normal i386
+cCopyStringsFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings
+cCompileStoryboard /Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+cCompileAssetCatalog /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app /Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+cProcessInfoPlistFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+cGenerateDSYMFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent
+cTouch /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
+c0000000053479CBF0000000000000198
+t1397202111
+s408
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/SDKSettings.plist
+c00000000532786CB00000000000003B4
+t1395099339
+s948
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000532786CF000000000000019E
+t1395099343
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000053479C980000000000446820
+t1397202072
+s4483104
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000532786D1000000000088D8C0
+t1395099345
+s8968384
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000532786D30000000001F1DE10
+t1395099347
+s32628240
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include/module.map
+c00000000532786E10000000000000ADC
+t1395099361
+s2780
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch
+t1398298031
+s116176
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresent.LinkFileList
+c00000000535855AE0000000000000375
+t1398298030
+s885
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o
+t1398298032
+s62712
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o
+t1398298032
+s76336
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o
+t1398298032
+s69524
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o
+t1398298032
+s71756
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o
+t1398298032
+s3552
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_dependencies.txt
+t1398298033
+s580
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_generated_info.plist
+t1398298033
+s752
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app
+t1398298034
+s340
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM
+t2
+s0
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Base.lproj/Main.storyboardc
+t1398298034
+s306
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist
+t1398298034
+s1044
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/PkgInfo
+t1398298034
+s8
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent
+t1398298032
+s57032
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj/InfoPlist.strings
+t1398298032
+s42
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+c000000005357F6A20000000000004AFB
+t1398273698
+s19195
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+c000000005357F6A200000000000000AA
+t1398273698
+s170
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+c000000005357F6A20000000000000453
+t1398273698
+s1107
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch
+c000000005357F6A20000000000000158
+t1398273698
+s344
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+c000000005357F6A200000000000007EA
+t1398273698
+s2026
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+c000000005357F6A20000000000001FDF
+t1398273698
+s8159
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+c000000005357F6A2000000000000185C
+t1398273698
+s6236
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+c000000005357F6A200000000000012F1
+t1398273698
+s4849
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/en.lproj/InfoPlist.strings
+c000000005357F6A2000000000000002D
+t1398273698
+s45
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+c000000005357F6A2000000000000015C
+t1398273698
+s348
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesb281542e8d08b941^badb892e8d08b941^---0#1#1#--18"Check dependencies36"92F1E511-5A49-42E3-AEA3-1EDE08308999-
+
+CCompileAssetCatalog /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app /Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+s419990832.303277
+e419990833.658587
+r1
+xCompileAssetCatalog
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app
+x/Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+o2014-04-23 19:07:13.401 IBCocoaTouchImageCatalogTool[3410:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+o/* com.apple.actool.compilation-results */
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/AppIcon60x60@2x.png
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/LaunchImage-700-568h@2x.png
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Assets.car
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_generated_info.plist
+o
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"CompileAssetCatalog DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app UPresent/Images.xcassets115"CompileAssetCatalog DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app UPresent/Images.xcassets30bd4d308d08b941^3999a8318d08b941^-828"2014-04-23 19:07:13.401 IBCocoaTouchImageCatalogTool[3410:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile./* com.apple.actool.compilation-results *//Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/AppIcon60x60@2x.png/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/LaunchImage-700-568h@2x.png/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Assets.car/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_generated_info.plist-0#0#1#-19%DVTDocumentLocation2@73"file:///Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets/0000000000000000^1240"CompileAssetCatalog DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app UPresent/Images.xcassets    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_dependencies.txt --output-partial-info-plist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_generated_info.plist --app-icon AppIcon --launch-image LaunchImage --platform iphonesimulator --minimum-deployment-target 7.1 --target-device iphone --compress-pngs --compile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app /Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets36"A517E2E4-8021-4288-A418-47CF38DF932A-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s419990831.991194
+e419990832.130174
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m242"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o UPresent/UPresentAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerb5dcfd2f8d08b941^afd02f308d08b941^---0#0#1#-19%DVTDocumentLocation2@78"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m0000000000000000^4032"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o UPresent/UPresentAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources/i386 -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o36"0961094C-EED6-42CA-AA88-1A7F50D32821-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s419990831.991549
+e419990832.151343
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m260"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o UPresent/UPresentRemoteViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerabeafd2f8d08b941^0fd62f308d08b941^---0#0#1#-19%DVTDocumentLocation2@87"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m0000000000000000^4086"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o UPresent/UPresentRemoteViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources/i386 -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o36"16644065-14D6-4877-8623-1F39AF946962-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s419990831.991950
+e419990832.148204
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m258"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o UPresent/UPresentTableViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerd317fe2f8d08b941^a6d22f308d08b941^---0#0#1#-19%DVTDocumentLocation2@86"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m0000000000000000^4080"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o UPresent/UPresentTableViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources/i386 -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o36"8DF9CA82-BE8A-404E-8EA3-42C91ACF588C-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s419990831.992322
+e419990832.148318
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection82"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m248"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o UPresent/UPresentViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerd332fe2f8d08b941^6bd42f308d08b941^---0#0#1#-19%DVTDocumentLocation2@81"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m0000000000000000^4050"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o UPresent/UPresentViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources/i386 -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o36"384AC346-1539-4437-8256-EE3AFB121C4A-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o /Users/JKP/Development/UPresent/UPresent/UPresent/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s419990831.992691
+e419990832.124851
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/main.m212"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o UPresent/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler6937fe2f8d08b941^25cd2f308d08b941^---0#0#1#-19%DVTDocumentLocation2@63"file:///Users/JKP/Development/UPresent/UPresent/UPresent/main.m0000000000000000^3942"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o UPresent/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources/i386 -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/main.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o36"7BF14B26-EA61-43AA-8CBA-189B4C8B5882-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCompileStoryboard /Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+s419990832.302664
+e419990834.321006
+r1
+xCompileStoryboard
+x/Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+o2014-04-23 19:07:13.531 Interface Builder Cocoa Touch Tool[3409:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+o2014-04-23 19:07:14.077 Interface Builder Cocoa Touch Tool[3413:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"CompileStoryboard UPresent/Base.lproj/Main.storyboard53"CompileStoryboard UPresent/Base.lproj/Main.storyboarde78f4d308d08b941^f92d52328d08b941^-454"2014-04-23 19:07:13.531 Interface Builder Cocoa Touch Tool[3409:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.2014-04-23 19:07:14.077 Interface Builder Cocoa Touch Tool[3413:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.-0#0#1#-19%DVTDocumentLocation2@83"file:///Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard0000000000000000^869"CompileStoryboard UPresent/Base.lproj/Main.storyboard    cd /Users/JKP/Development/UPresent/UPresent    export IBSC_MINIMUM_COMPATIBILITY_VERSION=7.1    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    export XCODE_DEVELOPER_USR_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 7.1 --output-format human-readable-text --compile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Base.lproj/Main.storyboardc /Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard36"AF03737B-63F7-421C-BB4B-8452FC2E7644-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CCopyStringsFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings
+s419990832.302486
+e419990832.430245
+r1
+xCopyStringsFile
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj/InfoPlist.strings
+xUPresent/en.lproj/InfoPlist.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy UPresent/en.lproj/InfoPlist.strings149"CopyStringsFile DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings94834d308d08b941^f24478308d08b941^---0#0#1#-19%DVTDocumentLocation2@83"file:///Users/JKP/Development/UPresent/UPresent/UPresent/en.lproj/InfoPlist.strings0000000000000000^643"CopyStringsFile DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/en.lproj -- UPresent/en.lproj/InfoPlist.strings36"154FD9AB-2286-482D-B71A-64FA5C756ABD-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CGenerateDSYMFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent
+s419990834.324324
+e419990834.363990
+r1
+xGenerateDSYMFile
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection125"Generate /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM172"GenerateDSYMFile DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresentd31253328d08b941^5e2f5d328d08b941^---0#0#1#-19%DVTDocumentLocation2@123"file:///Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM00348c07deffdf42^757"GenerateDSYMFile DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app.dSYM36"BB5770FF-BD83-4E8C-AFE1-2CE461C7AB4B-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CLd /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent normal i386
+s419990832.152090
+e419990832.301714
+r1
+xLd
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent
+xnormal
+xi386
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresent.LinkFileList
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/crt1.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentAppDelegate.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentRemoteViewController.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentTableViewController.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresentViewController.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/main.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libobjc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.ios.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreImage.framework/CoreImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Security.framework/Security
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreText.framework/CoreText
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_override.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcache_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcommonCrypto_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcorecrypto_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcompiler_rt_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcopyfile_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libdyld_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libmacho_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libnotify_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libremovefile_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libunwind_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libxpc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_asl.dylib
+d/usr/lib/libSystem.B.dylib
+d/usr/lib/system/libcache.dylib
+d/usr/lib/system/libcommonCrypto.dylib
+d/usr/lib/system/libcompiler_rt.dylib
+d/usr/lib/system/libcopyfile.dylib
+d/usr/lib/system/libcorecrypto.dylib
+d/usr/lib/system/libdyld.dylib
+d/usr/lib/system/libkeymgr.dylib
+d/usr/lib/system/liblaunch.dylib
+d/usr/lib/system/libmacho.dylib
+d/usr/lib/system/libquarantine.dylib
+d/usr/lib/system/libremovefile.dylib
+d/usr/lib/system/libsystem_asl.dylib
+d/usr/lib/system/libsystem_blocks.dylib
+d/usr/lib/system/libsystem_c.dylib
+d/usr/lib/system/libsystem_configuration.dylib
+d/usr/lib/system/libsystem_dnssd.dylib
+d/usr/lib/system/libsystem_info.dylib
+d/usr/lib/system/libsystem_kernel.dylib
+d/usr/lib/system/libsystem_m.dylib
+d/usr/lib/system/libsystem_malloc.dylib
+d/usr/lib/system/libsystem_notify.dylib
+d/usr/lib/system/libsystem_platform.dylib
+d/usr/lib/system/libsystem_pthread.dylib
+d/usr/lib/system/libsystem_sandbox.dylib
+d/usr/lib/system/libunc.dylib
+d/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/host/libdyld.dylib
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection125"Link /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent94"Ld DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent normal i386cafd26308d08b941^236b6d308d08b941^---0#0#1#--1537"Ld DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent normal i386    cd /Users/JKP/Development/UPresent/UPresent    export IPHONEOS_DEPLOYMENT_TARGET=7.1    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator -filelist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresent.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=7.1 -framework CoreGraphics -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/Objects-normal/i386/UPresent_dependency_info.dat -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/UPresent36"50B0700E-8833-422A-B268-07FC248D2AB2-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CProcessInfoPlistFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+s419990834.321619
+e419990834.323899
+r1
+xProcessInfoPlistFile
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Process /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist131"ProcessInfoPlistFile DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist UPresent/UPresent-Info.plist1e6b52328d08b941^b3eb52328d08b941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist0000000000000000^985"ProcessInfoPlistFile DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist UPresent/UPresent-Info.plist    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist -genpkginfo /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/assetcatalog_generated_info.plist -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app/Info.plist36"ADA0CEA7-4ADC-4F6B-BD54-614CE47AB867-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CProcessPCH /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s419990830.542866
+e419990831.990515
+r1
+xProcessPCH
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch
+xUPresent/UPresent-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Precompile UPresent/UPresent-Prefix.pch236"ProcessPCH DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerb9528b2e8d08b941^cd8f07308d08b941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch0000000000000000^3834"ProcessPCH DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources/i386 -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphonesimulator/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.dia -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.d -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-gwhbvxfokgrnwqcfmxqctgbcpoly/UPresent-Prefix.pch.pch36"529788F8-3BFC-4F12-995C-31B446A9068C-
+b358596DE-15F6-465B-BF48-F4A3BC6E103F
+
+CProcessPCH /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Index/PrecompiledHeaders/UPresent-Prefix-ctnzrbbrbilirbdzhyikobbxjwzr_ast/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CTouch /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphonesimulator/UPresent.app
+r0
+

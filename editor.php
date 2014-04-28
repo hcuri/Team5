@@ -1,7 +1,10 @@
 <?php
   require_once("FileParser/FileParser.php"); 
   $FileParser = new FileParser();
-  $FileParser->modifyPresentation($_FILES["files"], $_POST['title']);
+  $FileParser->modifyPresentation($_FILES['files'], $_POST['title']);
+  setcookie('presName', $_POST['title']);
+
+  $title = $_POST['title'];
 ?>
 
 <!--editor.html-->
@@ -11,8 +14,24 @@
   <link href="css/styles_editor.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/jQuery.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/feature-carousel.css" charset="utf-8" />
   <script src="js/jQuery.js"></script>
+  <script src="js/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.cookie.js"></script>
   <script src="js/editor.js"></script>
+  <!--<script type="text/javascript">
+      $(document).ready(function() {
+        var carousel = $("#carousel").featureCarousel({
+          // include options like this:
+          // (use quotes only for string values, and no trailing comma after last option)
+          // option: value,
+          // option: value
+          autoPlay: 0
+        });
+
+
+      });
+    </script> -->
   <title>UPresent - Editor</title>
 </head>
 <body>
@@ -192,62 +211,107 @@
     </div>
   </div>
 </div>
-<div id="content">
+<div id="content" style="height: 780px;">
   <div id="UPresentTitle">
-    <h1>Lecture 11 By Chris Raley</h1>
+    <h1><?php echo $_POST['title']; ?></h1>
   </div>
+
+  <!--Photo Gallery -->
+  <div class="carousel-container">
+    
+      <div id="carousel">
+        <!-- <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample1.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample2.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              The background will expand up or down to fit the caption.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample3.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              Images can be placed here as well.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample4.jpg" /></a>
+        </div>
+        <div class="carousel-feature">
+          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample5.jpg" /></a>
+          <div class="carousel-caption">
+            <p>
+              The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
+            </p>
+          </div>
+        </div> -->
+      </div>
+    
+      <div id="carousel-left"><img src="img/arrow-left.png" /></div>
+      <div id="carousel-right"><img src="img/arrow-right.png" /></div>
+    </div>
+
+
   <div id="PollAdderForm">
-    <form id="PollData" action="" method="post" onclick="return addPoll(this)">
       <fieldset>
         <legend>Add Poll</legend>
         <label for="PollQuestion">Question</label>
-        <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50"/>
+        <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" />
         <br>
         <BR>
         Correct<br>
         <label for="OptionA">A</label>
-        <input id="OptionA" name="OptionA" type="text" placeholder="Option A - Answer" size="50"/>
-        <input type="radio" name="options" value="a" checked/>
+        <input id="OptionA" id="OptionA" type="text" placeholder="Option A text here" size="50"/>
+        <input type="checkbox" id="1" name="pollOpt" checked />
         <br>
         <label for="OptionB">B</label>
-        <input id="OptionB" name="OptionB" type="text" placeholder="Option B - Answer" size="50"/>
-        <input type="radio" name="options" value="b" />
+        <input id="OptionB" id="OptionB" type="text" placeholder="Option B text here" size="50"/>
+        <input type="checkbox" id="2" name="pollOpt" checked />
         <br>
         <label for="OptionC">C</label>
-        <input id="OptionC" name="OptionC" type="text" placeholder="Option C - Answer" size="50"/>
-        <input type="radio" name="options" value="c" />
+        <input id="OptionC" id="OptionC" type="text" placeholder="Option C text here" size="50"/>
+        <input type="checkbox" id="3" name="pollOpt" checked />
         <br>
         <label for="OptionD">D</label>
-        <input id="OptionD" name="OptionD" type="text" placeholder="Option D - Answer" size="50"/>
-        <input type="radio" name="options" value="d" />
+        <input id="OptionD" id="OptionD" type="text" placeholder="Option D text here" size="50"/>
+        <input type="checkbox" id="4" name="pollOpt" checked />
+        <br>
+        <label for="OptionE">E</label>
+        <input id="OptionE" id="OptionE" type="text" placeholder="Option E text here" size="50"/>
+        <input type="checkbox" id="5" name="pollOpt" />
+        <br>
+        <label for="OptionF">F</label>
+        <input id="OptionF" id="OptionF" type="text" placeholder="Option F text here" size="50"/>
+        <input type="checkbox" id="6" name="pollOpt" />
         <br>
         <input id="showGraph"  type="checkbox" name="showGraph" value="true" />
-        <label for="showGraph">Show Poll Graph on next slide?</label>
+        <label for="showGraph">Show results on presentation?</label>
         <br>
         <br>
-        <input type="submit" value="Add Poll to Slide" />
+        <input type="submit" id="pollSubmit" value="Add Poll to Slide" />
       </fieldset>
-    </form>
   </div>
-  <div id="SlidesPreview"> <img src="img/coverview.png" /> </div>
-  <div id="NoteSection">
-    <form id="notes">
-      <fieldset>
-        <legend>Presenter Notes</legend>
-        <textarea rows="10" cols="142">       
-    Write helpful notes here. You will be able to view them when you are presenting.
-                    </textarea>
-      </fieldset>
-    </form>
+  <div id="PollInfo">
+    <fieldset>
+      <legend>Poll Information</legend>
+      This be ya poll
+  </fieldset>
   </div>
-  <div id="Footer">
-    <form id="save" action="user.php" method="post">
-      <input type="submit" id="saveUPresent" value="Save UPresent" />
-      </form>
-      <input type="submit" id="inv" value="Invite Viewers" />
-      <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/> </span>
-    </form>
+  <div id="saveSubmit">
+    <input type="submit" id="saveUPresent" value="Save UPresent" />
+    <input type="submit" id="inv" value="Invite Viewers" />
   </div>
 </div>
+<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>

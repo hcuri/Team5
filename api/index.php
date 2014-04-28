@@ -19,6 +19,7 @@ $app->post('/email', 'email');
 
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
+$app->post('/updatePresentation', 'updateGroupId');
 $app->get('/getPresentations/:username', 'getPresentations');
 $app->get('/getPastPresentations/:username', 'getPastPresentations');
 $app->get('/getUpcomingPresentations/:username', 'getUpcomingPresentations');
@@ -36,6 +37,9 @@ $app->post('/addToGroup', 'addToGroup');
 $app->post('/deleteFromGroup', 'deleteFromGroup');
 $app->post('/deleteGroup', 'deleteGroup');
 $app->get('/getGroups', 'getGroups');
+
+//Poll functions
+$app->post('/createPoll', 'createPoll');
 
 
 $app->run();
@@ -111,7 +115,7 @@ function registerUser() {
         $stmt->execute();
         $db = null;
         setcookie("user", $user->username, time() + 3600, '/');
-        mkdir("../upload/" . $user->username);
+
         echo json_encode($user);
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
@@ -358,10 +362,11 @@ function addPresentation() {
     $username = $_COOKIE['user'];
     $userId = getUserId($username);
     $rootURL = "upload/" . $_COOKIE['user'] . "/";
-    $groupId = 25;
-
+    $groupId = 0;
     $presentation = json_decode($request->getBody());
     $sql = "INSERT INTO Presentations VALUES (DEFAULT, :title, :rootURL, :ownerId, :groupId, :presDate, :presTime, DEFAULT, DEFAULT)";
+    $sqlId = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :ownerId";
+
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sql);
@@ -372,8 +377,51 @@ function addPresentation() {
         $stmt->bindParam("presDate", $presentation->date);
         $stmt->bindParam("presTime", $presentation->time);
         $stmt->execute();
+        
+        $stmtId = $db->prepare($sqlId);
+        $stmtId->bindParam("title", $presentation->title);
+        $stmtId->bindParam("ownerId", $userId);
+        $stmtId->execute();
+        $id = $stmtId->fetch(PDO::FETCH_ASSOC);
+        setcookie("pres", $id['presId'], time() + 3600, '/');
+        
         $db = null;
         echo json_encode($presentation);
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }    
+}
+
+function updateGroupId() {
+    error_log('updateGroupId\n', 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $id = json_decode($request->getBody());
+    
+    $ownerId = idFromUsername($_COOKIE['user']);
+    $groupName= $id->groupName;
+    $sqlGroupId = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+    $sqlUpdate = "UPDATE Presentations SET groupId = :groupId WHERE ownerId=:ownerId AND presName=:presName";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sqlGroupId);
+        $stmt->bindParam("groupName", $groupName);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->execute();
+        $group = $stmt->fetch(PDO::FETCH_ASSOC);
+        $groupId = $group['groupId'];
+        
+        $stmt = $db->prepare($sqlUpdate);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->bindParam("groupId", $groupId);
+        $stmt->bindParam("presName", $id->presName);
+        $stmt->execute();
+        
+        echo json_encode($id);
+        $db = null;
+        
+        
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":{"text":' . $e->getMessage() . '}}';
@@ -636,7 +684,9 @@ function getPresInfo() {
     $request = Slim::getInstance()->request();
 
     $presID = $_COOKIE['pres'];
-    $sql = "SELECT * FROM Presentations WHERE presId = :presId";
+    $sql = "SELECT Presentations.*, Users.fName, Users.lName"
+            . " FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
+            . " WHERE presId = :presId";
 
     try {
         $db = dbconnect();
@@ -678,11 +728,23 @@ function createGroup() {
     error_log('createGroup\n', 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $group = json_decode($request->getBody());
-    $ownerId = idFromUsername($_COOKIE('user'));
+    $ownerId = idFromUsername($_COOKIE['user']);
     $sqlGroup = "INSERT INTO Groups VALUES (DEFAULT, :groupName,"
             . " :ownerId)";
+    $sqlCheck = "SELECT * FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+    
     try {
         $db = dbconnect();
+        $stmt = $db->prepare($sqlCheck);
+        $stmt->bindParam("groupName", $group->groupName);
+        $stmt->bindParam("ownerId", $ownerId);
+        $stmt->execute();
+        if($stmt->rowCount() > 0) {
+            echo 'group_exists';
+            return;
+        }
+        
+        
         $stmt = $db->prepare($sqlGroup);
         $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
@@ -746,8 +808,8 @@ function deleteFromGroup() {
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
     $userId = idFromUsername($user->username);
-    $sqlUser = "DELETE groupId, userId FROM Group_Users "
-            . "WHERE groupId=:groupId AND userId=:userId)";
+    $sqlUser = "DELETE FROM Group_Users "
+            . "WHERE groupId=:groupId AND userId=:userId";
 
     try {
         $db = dbconnect();
@@ -774,24 +836,30 @@ function deleteGroup() {
     error_log('deleteGroup\n', 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $group = json_decode($request->getBody());
-
+    
     $ownerUsername = $_COOKIE['user'];
     $ownerId = idFromUsername($ownerUsername);
     $sqlGroup = "SELECT groupId FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
 
-    $sqlUsers = "DELETE groupId, userId FROM Group_Users WHERE groupId=:groupId";
-
+    $sqlUsers = "DELETE FROM Group_Users WHERE groupId=:groupId";
+    $sqlDelete = "DELETE FROM Groups WHERE groupName=:groupName AND ownerId=:ownerId";
+    
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sqlGroup);
-        $stmt->bindParam("groupName", $user->groupName);
+        $stmt->bindParam("groupName", $group->groupName);
         $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
-        $group = $stmt->fetch(PDO::FETCH_ASSOC);
-        $groupId = $group['groupId'];
-
-        $stmt = $db->prepare($sqlUser);
+        $groupx = $stmt->fetch(PDO::FETCH_ASSOC);
+        $groupId = $groupx['groupId'];
+        
+        $stmt = $db->prepare($sqlUsers);
         $stmt->bindParam("groupId", $groupId);
+        $stmt->execute();
+        
+        $stmt = $db->prepare($sqlDelete);
+        $stmt->bindParam("groupName", $group->groupName);
+        $stmt->bindParam("ownerId", $ownerId);
         $stmt->execute();
         echo json_encode($group);
         $db = null;
@@ -805,7 +873,7 @@ function getGroups() {
     $ownerId = idFromUsername($_COOKIE['user']);
     $sql = "SELECT groupId, groupName FROM Groups WHERE ownerId=:ownerId";
     $sqlGroup = "SELECT userId FROM Group_Users WHERE groupId=:groupId";
-    $sqlName = "SELECT fName, lName FROM Users WHERE userId=:userId";
+    $sqlName = "SELECT fName, lName, username FROM Users WHERE userId=:userId";
     
       try {
         $db = dbconnect();
@@ -835,10 +903,10 @@ function getGroups() {
                     $user = $stmtName->fetch(PDO::FETCH_ASSOC);
                     $name = $user['fName'] . " " . $user['lName'];
                     if($j == 0)
-                        echo '"' . $j . '":"';
+                        echo '"' . $j . '":{';
                     else
-                        echo ', "' . $j . '":"';
-                    echo $name . '"';
+                        echo ', "' . $j . '":{';
+                    echo '"name":"' . $name . '", "username":"' . $user['username'] . '"}';
                        
                 }
                
@@ -852,6 +920,53 @@ function getGroups() {
             echo '{"error":"' . $e->getMessage() . '"}';
       }
 }
+
+function createPoll() {
+    $request = Slim::getInstance()->request();
+    $poll = json_decode($request->getBody());
+    
+    $optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
+    
+    $sql = "INSERT INTO Poll VALUES (DEFAULT, :presId, :slideNum, :question, :numOptions)";
+    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
+    $sqlOp = "INSERT INTO Poll_Options VALUES (:pollId, :optionNum, :optionText, DEFAULT)";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("presId", $poll->presId);
+        $stmt->bindParam("slideNum", $poll->slide);
+        $stmt->bindParam("question", $poll->question);
+        $stmt->bindParam("numOptions", $poll->numOptions);
+        $stmt->execute();
+        
+        $stmtPollId = $db->prepare($sqlPollId);
+        $stmt->bindParam("presId", $poll->presId);
+        $stmt->bindParam("slideNum", $poll->slide);
+        $stmt->execute();
+        $pollId = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        for($i = 0; $i < $poll->numOptions; $i++) {
+            $stmtOptions = $db->prepare($sqlOp);
+            $stmtOptions->bindParam("pollId", $pollId['pollId']);
+            $stmtOptions->bindParam("optionNum", $optionNums[$i]);
+            $stmtOptions->bindParam("optionText", $pollId->options[$optionNums[$i]]);
+            $stmtOptions->execute();                    
+        }
+        
+        
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+}
+
+
+
+
+
+
 
 function idFromUsername($username) {
     $sql = "SELECT userId FROM Users WHERE username=:username";

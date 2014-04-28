@@ -1,0 +1,4 @@
+Use this to kill form submit:
+
+$('#loginForm input[type~="submit"]').click(function(e) {
+        e.preventDefault();

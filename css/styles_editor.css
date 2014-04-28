@@ -144,6 +144,7 @@ div#groupTable {
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
+    overflow-y: auto;
 }
     div#gName {
         
@@ -163,6 +164,10 @@ div#groupTable {
         float: right;
         cursor: pointer;
     }
+    img#groupTrash {
+        float: left;
+    }
+
 input#cancel {
     position: absolute;
     bottom: 10px;
@@ -197,14 +202,11 @@ input[type="radio"] {
 }
 #PollAdderForm {
     float:left;
+    width: 500px;
 }
 
 #LogoMessage {
     float: right;
-}
-
-#notes {
-    
 }
 
 #SlidesPreview {
@@ -233,14 +235,37 @@ input[type="radio"] {
     height: 30px;
 }
 
-#NoteSection {
-    width:1050px;
-    float:left;
-    clear:left;
-}
 
 
 
 #save {
     float:left;
+}
+
+
+/*Poll CSS */
+
+#PollAdderForm {
+    float:left;
+    width: 500px;
+}
+div#PollInfo {
+    float: right;  
+    width: 500px;
+    height: 385px;
+    
+}
+    fieldset {
+        width: 100%;
+        height: 100%;
+    }
+
+div#saveSubmit {
+    width: 300px;
+    height: 100px;
+    padding-top: 20px;
+}
+
+input[type=checkbox] {
+    vertical-align: middle;
 }

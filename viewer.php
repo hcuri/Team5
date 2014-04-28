@@ -4,9 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_viewer.css" rel="stylesheet" />
-<link href="css/jQuery.css" rel="stylesheet" />
+<link href="css/jQuery.css" rel="stylesheet" /><script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+    </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
+
 <script src="js/main.js"></script>
 <script src="js/viewer.js"></script>
 <script src="js/slides.js"></script>
@@ -53,34 +58,50 @@
       <div class="oLine"></div>
     </div>
   </div>
-  <!--<div id="tabs">
-    <ul>
-      <li><a href="#tabs-1">Notes</a></li>
-      <li><a href="#tabs-2">Polls</a></li>
-    </ul>
-    <div id="tabs-1">
-      <div id="notesTab">
-        <textarea rows="3" cols="50" placeholder="Enter Notes Here..."> </textarea>
-      </div>
+  <div id="bottomInfo">
+    <div id="bInfoData">
+      <table id="pollQuestions">
+        <tr>
+          <th></th>
+          <th>Question</th>
+          <th>Result</th>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Option 1</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td>Option 1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>Option 1</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td>Option 1</td>
+          <td>1</td>
+        </tr>
+      </table>
     </div>
-    <div id="tabs-2">
-      <div id="pollsTab">
-        <div id="poll">
-          <p>Please choose a response:</p>
-          <br/>
-          <input type="radio" name="pollResponse" value="A">
-          A
-          <input type="radio" name="pollResponse" value="B">
-          B
-          <input type="radio" name="pollResponse" value="C">
-          C
-          <input type="radio" name="pollResponse" value="D">
-          D
-        </div>
-        <div id="pollResults"><img id="pollR" src="img/poll.png" /></div>
-      </div>
+    <div id="bInfoGraph">
+    <table id="pollSubmission">
+        <tr>
+          <td id="responseA" class="submitButton">A</td>
+          <td id="responseB" class="submitButton">B</td>
+        </tr>
+         <tr>
+          <td id="responseC" class="submitButton">C</td>
+          <td id="responseD" class="submitButton">D</td>
+        </tr>
+      </table>
+      
     </div>
-  </div>-->
+  </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>

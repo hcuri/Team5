@@ -1,0 +1,6 @@
+To set up locally for testing:
+
+	1) Download as ZIP from the GitHub repo
+	2) Extract into your Apache document root and make sure the folder name is "UPresent"
+	3) Create a folder called "upload" in the UPresent document root
+	4) run this command in terminal in your 

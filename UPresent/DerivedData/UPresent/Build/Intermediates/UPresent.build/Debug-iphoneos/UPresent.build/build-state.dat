@@ -1,0 +1,706 @@
+TUPresent
+v6
+r1
+cCheck dependencies
+cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist
+cProcessPCH /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o /Users/JKP/Development/UPresent/UPresent/UPresent/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent normal armv7s
+cCopyStringsFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings
+cCompileStoryboard /Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+cCompileAssetCatalog /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app /Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+cProcessInfoPlistFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+cGenerateDSYMFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent
+cProcessProductPackaging /Users/JKP/Library/MobileDevice/Provisioning\ Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision
+cTouch /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+cProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent
+cCodeSign /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk
+c0000000053479CB10000000000000132
+t1397202097
+s306
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist
+c00000000532786BF0000000000000094
+t1395099327
+s148
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist
+c00000000532786BF0000000000000096
+t1395099327
+s150
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/SDKSettings.plist
+c00000000532786BF000000000000036B
+t1395099327
+s875
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000532786C0000000000000019E
+t1395099328
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+c00000000532786C0000000000063A500
+t1395099328
+s6530304
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+c00000000532786C1000000000079C660
+t1395099329
+s7980640
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000053479C9800000000004D7BC0
+t1397202072
+s5077952
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreImage.framework/CoreImage
+c00000000532786C10000000000433410
+t1395099329
+s4404240
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreText.framework/CoreText
+c00000000532786C10000000000306EF0
+t1395099329
+s3174128
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+c00000000532786C1000000000006DCD0
+t1395099329
+s449744
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000532786C10000000000A90C10
+t1395099329
+s11078672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+c00000000532786C200000000000417E0
+t1395099330
+s268256
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c00000000532786C20000000000649DB0
+t1395099330
+s6593968
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework/Security
+c00000000532786C20000000000186D60
+t1395099330
+s1600864
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000532786C50000000002759920
+t1395099333
+s41261344
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+c00000000532786C70000000000385D50
+t1395099335
+s3693904
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libSystem.dylib
+c00000000532786C8000000000001E300
+t1395099336
+s123648
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libobjc.dylib
+c00000000532786C8000000000055EFE0
+t1395099336
+s5631968
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcache.dylib
+c00000000532786C8000000000002A880
+t1395099336
+s174208
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcommonCrypto.dylib
+c00000000532786C800000000000458C0
+t1395099336
+s284864
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcompiler_rt.dylib
+c00000000532786C8000000000003E3E0
+t1395099336
+s254944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcopyfile.dylib
+c00000000532786C8000000000002B130
+t1395099336
+s176432
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcorecrypto.dylib
+c00000000532786C800000000000E1FD0
+t1395099336
+s925648
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libdispatch.dylib
+c00000000532786C800000000000A2A70
+t1395099336
+s666224
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libdyld.dylib
+c00000000532786C8000000000001E8A0
+t1395099336
+s125088
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libkeymgr.dylib
+c00000000532786C8000000000000BF00
+t1395099336
+s48896
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/liblaunch.dylib
+c00000000532786C80000000000034380
+t1395099336
+s213888
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libmacho.dylib
+c00000000532786C80000000000022F30
+t1395099336
+s143152
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libremovefile.dylib
+c00000000532786C8000000000001E2A0
+t1395099336
+s123552
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_asl.dylib
+c00000000532786C80000000000052520
+t1395099336
+s337184
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_blocks.dylib
+c00000000532786C80000000000015F20
+t1395099336
+s89888
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_c.dylib
+c00000000532786C900000000001B90D0
+t1395099337
+s1806544
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_configuration.dylib
+c00000000532786C8000000000001F170
+t1395099336
+s127344
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_dnssd.dylib
+c00000000532786C8000000000002FCF0
+t1395099336
+s195824
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_info.dylib
+c00000000532786C8000000000008A150
+t1395099336
+s565584
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_kernel.dylib
+c00000000532786C800000000000B60E0
+t1395099336
+s745696
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_m.dylib
+c00000000532786C80000000000078720
+t1395099336
+s493344
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_malloc.dylib
+c00000000532786C800000000000621F0
+t1395099336
+s401904
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_network.dylib
+c00000000532786C800000000000BDAE0
+t1395099336
+s776928
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_notify.dylib
+c00000000532786C80000000000039080
+t1395099336
+s233600
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_platform.dylib
+c00000000532786C8000000000003CBC0
+t1395099336
+s248768
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_pthread.dylib
+c00000000532786C8000000000002CFE0
+t1395099336
+s184288
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_sandbox.dylib
+c00000000532786C8000000000001EB50
+t1395099336
+s125776
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_stats.dylib
+c00000000532786C8000000000001EED0
+t1395099336
+s126672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libunwind.dylib
+c00000000532786C800000000000236B0
+t1395099336
+s145072
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libxpc.dylib
+c00000000532786C800000000000AC500
+t1395099336
+s705792
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include/module.map
+c00000000532786E10000000000000ADC
+t1395099361
+s2780
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.ios.a
+c0000000053479C98000000000000514C
+t1397202072
+s20812
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch
+t1398643869
+s88184
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresent.LinkFileList
+c00000000535D9C9C000000000000035C
+t1398643868
+s860
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o
+t1398643869
+s62000
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o
+t1398643923
+s77460
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o
+t1398643923
+s69928
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o
+t1398643923
+s71864
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o
+t1398643869
+s3796
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent
+t1398643923
+s402
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_dependencies.txt
+t1398643871
+s552
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_generated_info.plist
+t1398643871
+s752
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+t1398643923
+s442
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM
+t1398643890
+s102
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Base.lproj/Main.storyboardc
+t1398643873
+s306
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist
+t1398643873
+s1324
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/PkgInfo
+t1398643873
+s8
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist
+t1398643868
+s150
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent
+t1398643923
+s82000
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision
+t1398643873
+s9583
+
+N/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj/InfoPlist.strings
+t1398643869
+s42
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+c000000005357F6A20000000000004AFB
+t1398273698
+s19195
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+c000000005357F6A200000000000000AA
+t1398273698
+s170
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+c00000000535D9CD20000000000000113
+t1398643922
+s275
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+c000000005357F6A20000000000000453
+t1398273698
+s1107
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch
+c000000005357F6A20000000000000158
+t1398273698
+s344
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.h
+c000000005357F6A20000000000000120
+t1398273698
+s288
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+c000000005357F6A200000000000007EA
+t1398273698
+s2026
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.h
+c000000005357F6A20000000000000150
+t1398273698
+s336
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+c000000005357F6A20000000000001FDF
+t1398273698
+s8159
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.h
+c000000005357F6A2000000000000012F
+t1398273698
+s303
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+c000000005357F6A2000000000000185C
+t1398273698
+s6236
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.h
+c000000005357F6A20000000000000131
+t1398273698
+s305
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+c000000005357F6A200000000000012F1
+t1398273698
+s4849
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/en.lproj/InfoPlist.strings
+c000000005357F6A2000000000000002D
+t1398273698
+s45
+
+N/Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+c000000005357F6A2000000000000015C
+t1398273698
+s348
+
+N/Users/JKP/Library/MobileDevice/Provisioning Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision
+c00000000535D9C94000000000000256F
+t1398643860
+s9583
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+r0
+
+CBuild AST from /Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies53cc9d53d40db941^d34ca753d40db941^---0#1#1#--18"Check dependencies36"71D2C8CD-EDB6-45DE-B653-CCDEE3A11152-
+
+CCodeSign /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+s420336723.802743
+e420336723.899956
+r1
+xCodeSign
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"CodeSign DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app72"CodeSign DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.appe290cd53d40db941^0a64e653d40db941^---0#0#1#-19%DVTDocumentLocation2@112"file:///Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/0000000000000000^1074"CodeSign DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app    cd /Users/JKP/Development/UPresent/UPresent    export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    Using code signing identity "iPhone Developer: Héctor Curi (SQ9QRL55JG)" and provisioning profile "Team5" (D1E6157D-173B-4EEA-AECA-3F55719EE030)    /usr/bin/codesign --force --sign 063F751BDCF425037F81E10C55BFD21B3ABBE311 --resource-rules=/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist --entitlements /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app36"3F7D215C-137F-4D9D-9E51-D634BB759B8D-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CCompileAssetCatalog /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app /Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+s420336669.832062
+e420336671.389252
+r1
+xCompileAssetCatalog
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+x/Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets
+o2014-04-27 19:11:11.087 IBCocoaTouchImageCatalogTool[15862:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+o/* com.apple.actool.compilation-results */
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/AppIcon60x60@2x.png
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/LaunchImage-700-568h@2x.png
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Assets.car
+o/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_generated_info.plist
+o
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"CompileAssetCatalog DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app UPresent/Images.xcassets108"CompileAssetCatalog DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app UPresent/Images.xcassets410fd51dd40db941^6aa6631fd40db941^-801"2014-04-27 19:11:11.087 IBCocoaTouchImageCatalogTool[15862:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile./* com.apple.actool.compilation-results *//Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/AppIcon60x60@2x.png/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/LaunchImage-700-568h@2x.png/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Assets.car/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_generated_info.plist-0#0#1#-19%DVTDocumentLocation2@73"file:///Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets/0000000000000000^1153"CompileAssetCatalog DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app UPresent/Images.xcassets    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_dependencies.txt --output-partial-info-plist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_generated_info.plist --app-icon AppIcon --launch-image LaunchImage --platform iphoneos --minimum-deployment-target 7.1 --target-device iphone --compress-pngs --compile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app /Users/JKP/Development/UPresent/UPresent/UPresent/Images.xcassets36"60D8DD21-238F-4C8C-BBED-8548ACFFB5DF-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s420336669.452136
+e420336669.569299
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m239"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o UPresent/UPresentAppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerb3d3731dd40db941^3cbe911dd40db941^---0#0#1#-19%DVTDocumentLocation2@78"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m0000000000000000^3866"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o UPresent/UPresentAppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources/armv7s -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o36"A75496C2-6FBF-4361-A0EA-602E488F1DF2-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s420336723.653826
+e420336723.752677
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m257"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o UPresent/UPresentRemoteViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler397ba753d40db941^20b2c053d40db941^---0#0#1#-19%DVTDocumentLocation2@87"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m0000000000000000^3920"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o UPresent/UPresentRemoteViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources/armv7s -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o36"919AA49B-7986-4EF9-8F43-8CEC2B7AEE72-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s420336723.654027
+e420336723.746548
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentRemoteViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m255"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o UPresent/UPresentTableViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilercf83a753d40db941^6420bf53d40db941^---0#0#1#-19%DVTDocumentLocation2@86"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m0000000000000000^3914"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o UPresent/UPresentTableViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources/armv7s -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o36"C9935931-3AEE-4F64-937C-6C0CA3A69889-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s420336723.654386
+e420336723.737172
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/String.h
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentTableViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection82"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m245"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o UPresent/UPresentViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler8c9ea753d40db941^06b8bc53d40db941^---0#0#1#-19%DVTDocumentLocation2@81"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m0000000000000000^3884"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o UPresent/UPresentViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources/armv7s -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresentViewController.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o36"892A9043-B857-4F98-9EA9-B9C4CDEA1973-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CCompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o /Users/JKP/Development/UPresent/UPresent/UPresent/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s420336669.453455
+e420336669.567256
+r1
+xCompileC
+xDerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o
+x/Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/main.m
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresentAppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Compile /Users/JKP/Development/UPresent/UPresent/UPresent/main.m209"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o UPresent/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerbf29741dd40db941^e337911dd40db941^---0#0#1#-19%DVTDocumentLocation2@63"file:///Users/JKP/Development/UPresent/UPresent/UPresent/main.m0000000000000000^3776"CompileC DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o UPresent/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources/armv7s -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -include /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.d --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.dia -c /Users/JKP/Development/UPresent/UPresent/UPresent/main.m -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o36"24DDC661-6132-4913-A3A6-8273DC1D5594-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CCompileStoryboard /Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+s420336669.831725
+e420336673.120138
+r1
+xCompileStoryboard
+x/Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard
+o2014-04-27 19:11:11.273 Interface Builder Cocoa Touch Tool[15863:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+o2014-04-27 19:11:12.764 Interface Builder Cocoa Touch Tool[15866:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"CompileStoryboard UPresent/Base.lproj/Main.storyboard53"CompileStoryboard UPresent/Base.lproj/Main.storyboard05fad41dd40db941^48c21e21d40db941^-456"2014-04-27 19:11:11.273 Interface Builder Cocoa Touch Tool[15863:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.2014-04-27 19:11:12.764 Interface Builder Cocoa Touch Tool[15866:303] CFPreferences: user home directory at file:///Users/JKP/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.-0#0#1#-19%DVTDocumentLocation2@83"file:///Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard0000000000000000^810"CompileStoryboard UPresent/Base.lproj/Main.storyboard    cd /Users/JKP/Development/UPresent/UPresent    export IBSC_MINIMUM_COMPATIBILITY_VERSION=7.1    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    export XCODE_DEVELOPER_USR_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 7.1 --output-format human-readable-text --compile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Base.lproj/Main.storyboardc /Users/JKP/Development/UPresent/UPresent/UPresent/Base.lproj/Main.storyboard36"5BC73757-8620-4861-B490-E6C7576B1C8D-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CCopyStringsFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings
+s420336669.831607
+e420336669.832949
+r1
+xCopyStringsFile
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj/InfoPlist.strings
+xUPresent/en.lproj/InfoPlist.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy UPresent/en.lproj/InfoPlist.strings142"CopyStringsFile DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings56f3d41dd40db941^793cd51dd40db941^---0#0#1#-19%DVTDocumentLocation2@83"file:///Users/JKP/Development/UPresent/UPresent/UPresent/en.lproj/InfoPlist.strings0000000000000000^622"CopyStringsFile DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj/InfoPlist.strings UPresent/en.lproj/InfoPlist.strings    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/en.lproj -- UPresent/en.lproj/InfoPlist.strings36"5509C864-4440-4703-A5E5-3FE1B6CBC413-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist
+s420336668.242474
+e420336668.244442
+r1
+xCpResource
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist
+xDerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Copy DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist216"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist83503e1cd40db941^e8c03e1cd40db941^---0#0#1#-19%DVTDocumentLocation2@131"file:///Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist003400eaddffdf42^792"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app36"BA30D2CB-F66C-4C1B-84F5-FDA005496F94-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CGenerateDSYMFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent
+s420336723.782658
+e420336723.800739
+r1
+xGenerateDSYMFile
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Generate /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM158"GenerateDSYMFile DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresentc669c853d40db941^cd56ce53d40db941^---0#0#1#-19%DVTDocumentLocation2@117"file:///Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM/0000000000000000^722"GenerateDSYMFile DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app.dSYM36"6C205E93-0358-49DF-A766-B1DAD1161502-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CLd /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent normal armv7s
+s420336723.754365
+e420336723.781215
+r1
+xLd
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent
+xnormal
+xarmv7s
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresent.LinkFileList
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentAppDelegate.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentRemoteViewController.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentTableViewController.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresentViewController.o
+d/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/main.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libobjc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.ios.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreImage.framework/CoreImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework/Security
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreText.framework/CoreText
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcache.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcommonCrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcompiler_rt.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcopyfile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libcorecrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libdyld.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libkeymgr.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/liblaunch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libmacho.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libremovefile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_asl.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_kernel.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_malloc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_notify.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_platform.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_pthread.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_sandbox.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libsystem_stats.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/system/libxpc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Link /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent89"Ld DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent normal armv7s8c2cc153d40db941^ac73c853d40db941^---0#0#1#--1422"Ld DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent normal armv7s    cd /Users/JKP/Development/UPresent/UPresent    export IPHONEOS_DEPLOYMENT_TARGET=7.1    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7s -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -L/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos -filelist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresent.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=7.1 -framework CoreGraphics -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/Objects-normal/armv7s/UPresent_dependency_info.dat -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/UPresent36"BC22F632-A1E7-4AAD-ADC2-1B92A6BE0543-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CProcessInfoPlistFile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+s420336673.120677
+e420336673.122413
+r1
+xProcessInfoPlistFile
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist
+x/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Process /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist124"ProcessInfoPlistFile DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist UPresent/UPresent-Info.plist8cf41e21d40db941^2e571f21d40db941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist0000000000000000^1087"ProcessInfoPlistFile DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist UPresent/UPresent-Info.plist    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Info.plist -genpkginfo /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/ResourceRules.plist -additionalcontentfile /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/assetcatalog_generated_info.plist -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/Info.plist36"B4724D2D-9ED6-4B80-811D-9CD193A13791-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CProcessPCH /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s420336668.245053
+e420336669.451512
+r1
+xProcessPCH
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch
+xUPresent/UPresent-Prefix.pch
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Precompile UPresent/UPresent-Prefix.pch238"ProcessPCH DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler5fd43e1cd40db941^f695731dd40db941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch0000000000000000^3688"ProcessPCH DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/JKP/Development/UPresent/UPresent    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/JKP/Development/UPresent/UPresent/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.1 -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-generated-files.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-own-target-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-all-target-headers.hmap -iquote /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent-project-headers.hmap -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources/armv7s -I/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/DerivedSources -F/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos --serialize-diagnostics /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.dia -MMD -MT dependencies -MF /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.d -c /Users/JKP/Development/UPresent/UPresent/UPresent/UPresent-Prefix.pch -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/PrecompiledHeaders/UPresent-Prefix-fnmguvzkrupvvcakaxpbaxyrbaxw/UPresent-Prefix.pch.pch36"5573A1AF-4E60-499E-9FBE-BE5D9D6EEF5B-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CProcessPCH /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Index/PrecompiledHeaders/UPresent-Prefix-buqbvjuznmmircfopviyoqavdjjx_ast/UPresent-Prefix.pch.pch UPresent/UPresent-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent
+s420336723.801528
+e420336723.802475
+r1
+xProcessProductPackaging
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection245"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent245"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent8e3fcd53d40db941^bb5ece53d40db941^---0#0#1#-19%DVTDocumentLocation2@148"file:///Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent0000000000000000^810"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/Entitlements.plist -entitlements -format xml -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Intermediates/UPresent.build/Debug-iphoneos/UPresent.build/UPresent.xcent36"1333ABF6-7A76-4DEE-B76D-F6AB70E35636-
+bD95FE4FE-EC5D-48BC-A864-A38C1C988A43
+
+CProcessProductPackaging /Users/JKP/Library/MobileDevice/Provisioning\ Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision
+s420336673.159264
+e420336673.160154
+r1
+xProcessProductPackaging
+x/Users/JKP/Library/MobileDevice/Provisioning Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision
+x/Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection220"ProcessProductPackaging /Users/JKP/Library/MobileDevice/Provisioning\ Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision220"ProcessProductPackaging /Users/JKP/Library/MobileDevice/Provisioning\ Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovisionf2d32821d40db941^93002921d40db941^---0#0#1#-19%DVTDocumentLocation2@136"file:///Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision003400eaddffdf42^734"ProcessProductPackaging /Users/JKP/Library/MobileDevice/Provisioning\ Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision    cd /Users/JKP/Development/UPresent/UPresent    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Users/JKP/Library/MobileDevice/Provisioning\ Profiles/D1E6157D-173B-4EEA-AECA-3F55719EE030.mobileprovision -o /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app/embedded.mobileprovision36"5E58EAF1-7566-4D1F-8023-4AF59462D5E6-
+b09BC9FEC-D402-4A46-A5E0-C63C3172F3D3
+
+CTouch /Users/JKP/Development/UPresent/UPresent/DerivedData/UPresent/Build/Products/Debug-iphoneos/UPresent.app
+r0
+

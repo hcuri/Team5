@@ -1,12 +1,30 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 var resultCount = 0;
+var fNames = new Array();
+var lNames = new Array();
+var usernames = new Array();
+var linkedGroup;
+var numSlides;
+var currSlide;
+
+
+
+function getUsername(text) {
+  var regExp = /\(([^)]+)\)/;
+  var matches = regExp.exec(text);
+
+  return matches[1];
+}
 
 function count(obj) {
   var i = 0;
   for (var x in obj)
     if (obj.hasOwnProperty(x))
       i++;
-  return i;
+  if(i == 0)
+    return 0;
+  else
+    return i;
 }
 
 function flashErr(divNum, errMsg) {
@@ -33,12 +51,13 @@ function flashErr(divNum, errMsg) {
 
 $(document).ready(function(){
 
-  var left = (window.width / 2) - 250;
-  $("div#invContainer").css({left: 350});
+  var left = (screen.width / 2) - ($("div#invContainer").width() / 2);
+  var yee = left + "px";
+  $("div#invContainer").css({left: yee});
   
   $("div#fadeout").hide();
   $("div#invContainer").hide();
-
+//
 
   $("#inv").click(function(){
   	$("div#fadeout").show();
@@ -59,7 +78,7 @@ $(document).ready(function(){
   //groupTable
 
   //searching for users
-  $('div#searchBar img').click(function() {
+  $('div#searchBar img#searchBtn').click(function() {
     var searchTxt = $('input#searchBox').val();
 
     if(searchTxt == "")
@@ -71,21 +90,109 @@ $(document).ready(function(){
 
 
   //Create group
-  $("div#searchBar img[src*='img/plusBtn.png']").click(function() {
+  $("div#searchBar img#groupBtn").click(function() {
     var groupTxt = $('input#groupBox').val();
 
     if(groupTxt == "")
       flashErr(2, "Please fill out the group box");
     else if(groupTxt != "") {
-      alert(groupTxt);
+      createGroup();
     }
   });
-  //Adding to group
-  $("td.addToGroup img[src*='img/plusBtn.png']").click(function() {
-    alert("blahblah");
+
+  $("input#cancel").click(function() {
+    $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
+      $("div#fadeout").hide();
+    });
+    $("div#invContainer").animate({opacity: 0.0}, "fast", function(){
+      $("div#invContainer").hide();
+    });
   });
+
+  var checkedGroup = "";
+  $("input#done").click(function() {
+    checkedGroup = $("input[name=groupNum]:checked").parent().text();
+    if(checkedGroup === "") {
+      alert("Please select a group to link with your presentation.");
+    }
+    else {
+      var r=confirm("Link presentation to [" + checkedGroup + "]?");
+      if (r==true) {
+        $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
+          $("div#fadeout").hide();
+        });
+        $("div#invContainer").animate({opacity: 0.0}, "fast", function(){
+          $("div#invContainer").hide();
+        });
+        updatePresentation(checkedGroup);
+      }
+    }
+  });
+
+  //Photo Gallery
+  $.ajax({
+        type: 'GET',
+        url: root_url + 'getSlides' + '/' + $.cookie('pres'),
+        async: true,
+        dataType: "json",
+        success: function(response) { 
+          numSlides = response.numSlides;
+          addImages(response);
+          var carousel = $("#carousel").featureCarousel({
+            // include options like this:
+            // (use quotes only for string values, and no trailing comma after last option)
+            // option: value,
+            // option: value
+            autoPlay: 0
+          });
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }
+    });
+
+    currSlide = 1;
+    $("div#carousel-left").click(function() {
+      if(currSlide == 1)
+        currSlide = numSlides;
+      else
+        currSlide--; 
+    });
+    $("div#carousel-right").click(function() {
+      if(currSlide == numSlides)
+        currSlide = 1;
+      else
+        currSlide++;
+    });
+
+    //Polling
+
+    $("#pollSubmit").click(function() {
+      addPoll();
+    });
+
 });
 
+function addImages(json) {
+  var num = json.numSlides;
+  var slides = new Array();
+  slides = json.slides;
+
+  for(var i =1; i <= num; i++) {
+    var insertImg = "<div class='carousel-feature'><a href='#'><img class='carousel-image' alt='Slide " + i + "'" 
+                    + "src='" + slides[i] + "' /></a><div class='carousel-caption'>"
+                    + "<p>Slide " + i + "</p></div></div>";
+    //var insertImg = "<div class='carousel-feature'><a href='#'><img class='carousel-image' alt='Slide " + 
+    //               i + "' src='" +  slides[i] + "'/></a><div class='carousel-caption'></div></div>";
+    
+    $("div#carousel").append(insertImg);
+    var styles = {
+      width: "450px",
+      height: "230px"
+    };
+    $("div.carousel-feature img").css(styles);
+  }
+}
 
 
 
@@ -93,14 +200,45 @@ $(document).ready(function(){
 /*
 AJAX CALLS TO API
 */
-function createGroup(gform) {
+
+function updatePresentation(groupName) {
+    $.ajax({
+        type: 'POST',
+        url: root_url + 'updatePresentation',
+        data: updateToJSON(groupName),
+        async: true,
+        success: function() {
+            //alert("Update successful");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }
+    });
+}
+
+function updateToJSON(groupName) {
+    return JSON.stringify({
+        "groupName": groupName,
+        "presName": $.cookie('presName')
+    });
+}
+function addGroup(groupName) {
+  var groupTable = $("div#groupTable").html();
+
+  groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groupName + "<input type='radio' name='groupNum' value='1'></div>";
+  $("div#groupTable").html(groupTable);
+}
+function createGroup() {
     $.ajax({
     type: 'POST',
     url: root_url + 'createGroup',
     data: groupFormToJSON(),
     async: true,
-    success: function(){
-      alert('Group created successfully');
+    success: function(response){
+      if(response != 'group_exists')
+        addGroup($("input#groupBox").val());
+      else
+        flashErr(2, "Group already exists");
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -115,40 +253,33 @@ function getGroups() {
     dataType: "json", // data type of response
     async: true,
     success: function() {
-      if(count(groups.responseJSON) == 0)
-        flashErr(1, "Nothing was returned");
-      else {
+      if(count(groups.responseJSON) == 0) 
+        flashErr(1, "You have no groups");
+      else
         displayGroups(groups.responseJSON);
-        //Selecting a group name
-        $("div#gName").click(function() {
-          alert("boom");
-          if($(this).attr('class') === 'selected')
-            $(this).css("background-color","#ffffff");
-          else if($(this).attr('class') !== 'selected')
-            $(this).css("background-color","#ededed");
-          $(this).toggleClass('selected');
-        });
-      }
+        //alert(JSON.stringify(groups.responseJSON));
+      
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
 }
+
 function groupFormToJSON() {
   return JSON.stringify({
-    "groupName": $('#groupName').val()
+    "groupName": $('input#groupBox').val()
   });
 }
 
-function addUserToGroup(auform) {
+function addUserToGroup(rowNum) {
   $.ajax({
       type: 'POST',
       url: root_url + 'addToGroup',
-      data: addUserFormToJSON(),
+      data: addUserFormToJSON(rowNum),
       async: true,
       success: function(){
-        alert('User added successfully');
+        getGroups();
       },
       error: function(jqXHR, textStatus, errorThrown){
         alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -156,53 +287,67 @@ function addUserToGroup(auform) {
   });
 }
 
-function addUserFormToJSON() {
+function addUserFormToJSON(rowNum) {
   return JSON.stringify({
-    "groupName": $.cookie('currentGroup'),
-    "username": $('#username').val() //not sure how this will be passed yet
+    "groupName": $("input[name=groupNum]:checked").parent().text(),
+    "username": usernames[rowNum - 2] //not sure how this will be passed yet
   });
 }
 
-function deleteUserToGroup(auform) {
+function deleteUserFromGroup(elem) {
     $.ajax({
     type: 'POST',
     url: root_url + 'deleteFromGroup',
-    data: delUserFormToJSON(),
+    data: delUserFormToJSON(elem),
     async: true,
-    success: function(){
-      alert('User deleted successfully');
+    success: function() {
+      getGroups();
     },
-    error: function(jqXHR, textStatus, errorThrown){
+    error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
 }
 
-function delUserFormToJSON() {
+function delUserFormToJSON(elem) {
+  var username = $(elem).parent().text();
+  var ind = $(elem).parent().index();
+  var groupName;
+
+  for(var i = ind; i >= 0; i--) {
+    if($(elem).parent().parent().children(":eq(" + i + ")").attr('id') === 'gName') {
+      groupName = $(elem).parent().parent().children(":eq(" + i + ")").text();
+      break;
+    }
+  }
+
   return JSON.stringify({
-    "groupName": $.cookie('currentGroup'),
-    "username": $('#username').val() //not sure how this will be passed yet
+    "groupName": groupName,
+    "username": getUsername(username) //not sure how this will be passed yet
   });
 }
 
-function deleteGroup(gform) {
+function deleteGroup(elem) {
     $.ajax({
     type: 'POST',
     url: root_url + 'deleteGroup',
-    data: delGroupFormToJSON(),
+    data: delGroupFormToJSON(elem),
     async: true,
     success: function(){
       alert('Group deleted successfully');
+      getGroups();
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
 }
+function delGroupFormToJSON(elem) {
+  var groupName = $(elem).parent().text();
+  alert(JSON.stringify({ "groupName": groupName }));
 
-function delgroupFormToJSON() {
   return JSON.stringify({
-    "groupName": $.cookie('currentGroup')
+    "groupName": groupName
   });
 }
 
@@ -226,38 +371,56 @@ function displayUsers(users) {
 
   resultCount = count(users);
   //add entries
+  fNames = [];
+  lNames = [];
+  usernames = [];
   entries = $("div#tableHolder table").children().children();
   for(var i = 1; i < resultCount + 1; i++) {
     var currEntry = entries.eq(i).children();
     for(var j = 0; j < 4; j++) {
       if(j===0) {
         currEntry.eq(j).html(users[i-1].fName);
+        fNames[i- 1] = users[i - 1].fName;
       } else if(j===1) {
         currEntry.eq(j).html(users[i-1].lName);
+        lNames[i- 1] = users[i - 1].lName;
       } else if(j===2) {
         currEntry.eq(j).html(users[i-1].username);
+        usernames[i- 1] = users[i - 1].username;
       } else {
-        currEntry.eq(j).html("<img src='img/plusBtn.png' />");
+        currEntry.eq(j).html("<img src='img/plusBtn.png' id='addToGroup' />");
       }
     }
   }
 }
 
 function displayGroups(groups) {
+  var groupTable;
+
+  if(count(groups) == 0) {
+    groupTable = "";
+    $("div#groupTable").html(groupTable);
+  }
   for(var i = 0; i < count(groups); i++) {
     var numUsers = groups[i].numUsers;
     var users = groups[i].users;
-    var groupTable;
 
     if(i == 0)
-      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'></div>";
+      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
     else
-      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'></div>";
+      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
     for(var j = 0; j < numUsers; j++) {
-      groupTable = groupTable + "<div id='uName'>" + users[j] + " <img src='img/trash.png' /></div>";
+      groupTable = groupTable + "<div id='uName'>" + users[j].name + " (" + users[j].username + ") <img src='img/trash.png' id='userTrash'/></div>";
     }
     $("div#groupTable").html(groupTable);
   }
+
+  $("div#uName img").click(function() {
+    deleteUserFromGroup(this);
+  });
+  $("div#gName img").click(function() {
+    deleteGroup(this);
+  });
 }
 function search(searchTerm) {
   var term = searchTerm.replace(/ /g, '-');
@@ -270,8 +433,14 @@ function search(searchTerm) {
     success: function() {
       if(count(users.responseJSON) == 0)
         flashErr(1, "Nothing was returned");
-      else
+      else {
         displayUsers(users.responseJSON);
+        $("img#addToGroup").click(function(event) {
+          var td = event.target.parentNode.parentNode;
+          var rowNum = $(td).attr('class');
+          addUserToGroup(rowNum);
+        });
+      }
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -286,11 +455,78 @@ $(document).keypress(function(e) {
 
           if(searchTxt == "")
             flashErr(1, "Please fill out the search box");
-          else if(searchTxt != "")
+          else if(searchTxt != "") {
             search(searchTxt);
+          }
         }
         else if($("input#groupBox").is(":focus")) { 
-          var groupName = $('input#groupBox').val();
+          var groupTxt = $('input#groupBox').val();
+
+          if(groupTxt == "")
+            flashErr(2, "Please fill out the group box");
+          else if(groupTxt != "") {
+            createGroup();
+          }
         }
     }
 });
+
+//Polling
+function addPoll() {
+  $.ajax({
+    type: 'POST',
+    url: root_url + 'createPoll',
+    data: pollFormToJSON(),
+    async: true,
+    success: function(){
+
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+    }
+  });
+}
+function pollFormToJSON() {
+  var pollJSON;
+
+  //Set all vars for json
+  var presId = $.cookie('pres');
+  var numOptions = 0;
+  var slideNum = currSlide;
+  var question = $("input#PollQuestion").val();
+  var opt1 = $("input#OptionA").val();
+  var opt2 = $("input#OptionB").val();
+  var opt3 = $("input#OptionC").val();
+  var opt4 = $("input#OptionD").val();
+  var opt5 = $("input#OptionE").val();
+  var opt6 = $("input#OptionF").val();
+  var showResults = $('input#1').prop('checked')
+
+  //Set text vars
+  if(opt1 == '') opt1 = "NULL";
+  if(opt2 == '') opt2 = "NULL";
+  if(opt3 == '') opt3 = "NULL";
+  if(opt4 == '') opt4 = "NULL";
+  if(opt5 == '') opt5 = "NULL";
+  if(opt6 == '') opt6 = "NULL";
+
+  //Count number of options
+  if($('input#showGraph').prop('checked')) showResults = "true";
+  else                                     showResults = "false";
+
+
+  if($('input#1').prop('checked')) numOptions++;
+  if($('input#2').prop('checked')) numOptions++;
+  if($('input#3').prop('checked')) numOptions++;
+  if($('input#4').prop('checked')) numOptions++;
+  if($('input#5').prop('checked')) numOptions++;
+  if($('input#6').prop('checked')) numOptions++;
+
+  //Output the json
+
+  pollJSON = '{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
+              + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
+              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
+  return pollJSON;
+}
+
