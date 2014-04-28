@@ -55,8 +55,48 @@
     </div>
   </div>
   <div id="bottomInfo">
-    <canvas id="results" width="400" height="400"></canvas>
-    <canvas id="results1" width="400" height="400"></canvas>
+    <div id="bInfoData">
+      <table id="pollQuestions">
+        <tr>
+          <th></th>
+          <th>Question</th>
+          <th>Result</th>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Option 1</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td>Option 1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>Option 1</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td>Option 1</td>
+          <td>1</td>
+        </tr>
+      </table>
+    </div>
+    <div id="bInfoGraph">
+    <table id="pollSubmission">
+        <tr>
+          <td id="responseA" class="submitButton">A</td>
+          <td id="responseB" class="submitButton">B</td>
+        </tr>
+         <tr>
+          <td id="responseC" class="submitButton">C</td>
+          <td id="responseD" class="submitButton">D</td>
+        </tr>
+      </table>
+      
+    </div>
   </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>

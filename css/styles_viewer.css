@@ -7,10 +7,6 @@ p {
 	text-align:center;
 }
 
-#tabs ul li {
-	color:#FFF;
-}
-
 #viewer {
 	height:360px;	
 }
@@ -46,40 +42,7 @@ p {
 #content {
 	text-align:center;
 	padding-top:25px;
-	height:600px;	
-}
-
-#tabs {
-	background-color:#ededed;
-	margin:auto;	
-	border:none;
-	border-radius:0px;
-	padding-top:20px;
-	border-top: 0px solid #FF9F00;
-}
-
-#poll {
-	width:300px;
-	height:122px;
-	float:left;
-	border:2px solid black;
-	background-color:#ededed;
-	font-size:10px;
-	text-align:left;
-	padding-left:10px;
-}
-
-#pollResults {
-	width:300px;
-	height:122px;
-	float:right;
-	background-color:red;
-}
-
-#pollR {
-	width:100%;
-	height:100%;
-	border:2px solid black;	
+	height:625px;	
 }
 
 .oLine {
@@ -98,39 +61,32 @@ p {
 	padding-bottom:40px;
 }
 
-/*styling for the tabs*/
-.ui-tabs-vertical {
-	width: 950px;
-	margin-left:20px;
+#bottomInfo {
+	border-top: 1px solid #FF9F00;
+	margin-top:25px;
+	height:200px;
 }
-.ui-tabs-vertical .ui-tabs-nav {
-	background-color:#ededed;
-	border: none;
-	padding: .2em .1em .2em .2em;
-	float: left;
-	width: 85px;
-	height:50px;
+
+#bInfoData {
+	float:left;
+	margin-left:-150px;
+	width:500px;
+	height:200px;
 }
-.ui-tabs-vertical .ui-tabs-nav li {
-	clear: left;
-	width: 100%;
-	border-bottom-width: 1px !important;
-	border-right-width: 0 !important;
-	margin: 0 -1px .2em 0;
+
+#bInfoGraph {
+	float:left;
+	width:500px;
+	height:200px;
+	
 }
-.ui-tabs-vertical .ui-tabs-nav li a {
-	display: block;
+
+#pollQuestions {
+	padding-right:10px;
 }
-.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
-	background-color:#2C17B1;
-	padding-bottom: 0;
-	padding-right: .1em;
-	border-right-width: 1px;
-	border-right-width: 1px;
-}
-.ui-tabs-vertical .ui-tabs-panel {
-	padding: 1em;
-	float: right;
+
+.submitButton {
+	width:50px;
+	height:25px;
 	background-color:red;
 }
-/*end styling for the tabs*/
