@@ -7,6 +7,7 @@ var presID = null;
 var numSlides;
 var poll = false;
 var liveResults = new Array();
+var letters = ['A','B','C','D','E','F'];
 
 $(document).ready(function(e) {
 	
@@ -36,7 +37,7 @@ $(document).ready(function(e) {
 	numSlides = slidesJSON.numSlides;
 	slides = slidesJSON.slides;
 	
-	$("#slideNum").html(currentSlide + "/" + numSlides);
+	$("#slideNum").html(currentSlide + "|" + numSlides);
 	$("#slide").attr("src", slides[currentSlide]);
 	
 	
@@ -46,17 +47,22 @@ $(document).ready(function(e) {
 	google.load("visualization", "1", {packages:["corechart"]});
 	google.setOnLoadCallback(drawChart);
 	function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Answer', 'Amount'],
-          ['A',  6],
-          ['B',  10],
-          ['C',  2],
-          ['D',  3]
-        ]);
+		
+		var raw_data = {'First':0,'A':5,'B':2,'C':7,'D':1};
+		
+		var data = new google.visualization.DataTable();
+		
+		data.addRows(1);
+		var i = 0;
+		for (var index in raw_data) {
+   		 	data.addColumn('number', index);
+    		data.setValue(0, i++, raw_data[index]);
+		}
 
         var options = {
 			legend: {position: 'none'},
-			backgroundColor: "#EDEDED"
+			backgroundColor: "#EDEDED",
+			colors: ['red', 'blue', 'yellow', 'green']
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
