@@ -263,39 +263,43 @@
 
 
   <div id="PollAdderForm">
-    <form id="PollData" action="" method="post" onclick="return addPoll(this)">
       <fieldset>
         <legend>Add Poll</legend>
         <label for="PollQuestion">Question</label>
-        <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50"/>
+        <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" />
         <br>
         <BR>
         Correct<br>
         <label for="OptionA">A</label>
-        <input id="OptionA" name="OptionA" type="text" placeholder="Option A text here" size="50"/>
+        <input id="OptionA" id="OptionA" type="text" placeholder="Option A text here" size="50"/>
+        <input type="checkbox" id="1" name="pollOpt" checked />
         <br>
         <label for="OptionB">B</label>
-        <input id="OptionB" name="OptionB" type="text" placeholder="Option B text here" size="50"/>
+        <input id="OptionB" id="OptionB" type="text" placeholder="Option B text here" size="50"/>
+        <input type="checkbox" id="2" name="pollOpt" checked />
         <br>
         <label for="OptionC">C</label>
-        <input id="OptionC" name="OptionC" type="text" placeholder="Option C text here" size="50"/>
+        <input id="OptionC" id="OptionC" type="text" placeholder="Option C text here" size="50"/>
+        <input type="checkbox" id="3" name="pollOpt" checked />
         <br>
         <label for="OptionD">D</label>
-        <input id="OptionD" name="OptionD" type="text" placeholder="Option D text here" size="50"/>
+        <input id="OptionD" id="OptionD" type="text" placeholder="Option D text here" size="50"/>
+        <input type="checkbox" id="4" name="pollOpt" checked />
         <br>
         <label for="OptionD">E</label>
-        <input id="OptionD" name="OptionE" type="text" placeholder="Option E text here" size="50"/>
+        <input id="OptionD" id="OptionE" type="text" placeholder="Option E text here" size="50"/>
+        <input type="checkbox" id="5" name="pollOpt" />
         <br>
         <label for="OptionD">F</label>
-        <input id="OptionD" name="OptionF" type="text" placeholder="Option F text here" size="50"/>
+        <input id="OptionD" id="OptionF" type="text" placeholder="Option F text here" size="50"/>
+        <input type="checkbox" id="6" name="pollOpt" />
         <br>
         <input id="showGraph"  type="checkbox" name="showGraph" value="true" />
         <label for="showGraph">Show results on presentation?</label>
         <br>
         <br>
-        <input type="submit" value="Add Poll to Slide" />
+        <input type="submit" id="pollSubmit" value="Add Poll to Slide" />
       </fieldset>
-    </form>
   </div>
   <div id="PollInfo">
     <fieldset>

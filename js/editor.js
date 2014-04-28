@@ -169,6 +169,12 @@ $(document).ready(function(){
       alert(currSlide);
     });
 
+    //Polling
+
+    $("#pollSubmit").click(function() {
+      addPoll();
+    });
+
 });
 
 function addImages(json) {
@@ -471,5 +477,63 @@ $(document).keypress(function(e) {
     }
 });
 
-//Photo Gallery display
+//Polling
+function addPoll() {
+  $.ajax({
+    type: 'POST',
+    url: root_url + 'createPoll',
+    data: pollFormToJSON(),
+    async: true,
+    success: function(){
+
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+    }
+  });
+}
+function pollFormToJSON() {
+  var pollJSON;
+
+  //Set all vars for json
+  var presId = $.cookie('pres');
+  var numOptions = 0;
+  var slideNum = currSlide;
+  var question = $("input#PollQuestion").val();
+  var opt1 = $("input#OptionA").val();
+  var opt2 = $("input#OptionB").val();
+  var opt3 = $("input#OptionC").val();
+  var opt4 = $("input#OptionD").val();
+  var opt5 = $("input#OptionE").val();
+  var opt6 = $("input#OptionF").val();
+  var showResults = $('input#1').prop('checked')
+
+  //Set text vars
+  if(opt1 === "") opt1 = "NULL";
+  if(opt2 === "") opt2 = "NULL";
+  if(opt3 === "") opt3 = "NULL";
+  if(opt4 === "") opt4 = "NULL";
+  if(opt5 === "") opt5 = "NULL";
+  if(opt6 === "") opt6 = "NULL";
+
+  //Count number of options
+  if($('input#showGraph').prop('checked')) showResults = "true";
+  else                                     showResults = "false";
+
+
+  if($('input#1').prop('checked')) numOptions++;
+  if($('input#2').prop('checked')) numOptions++;
+  if($('input#3').prop('checked')) numOptions++;
+  if($('input#4').prop('checked')) numOptions++;
+  if($('input#5').prop('checked')) numOptions++;
+  if($('input#6').prop('checked')) numOptions++;
+
+  //Output the json
+
+  pollJSON = '{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
+              + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
+              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
+  alert(pollJSON);
+  return pollJSON;
+}
 

@@ -265,3 +265,7 @@ div#saveSubmit {
     height: 100px;
     padding-top: 20px;
 }
+
+input[type=checkbox] {
+    vertical-align: middle;
+}
