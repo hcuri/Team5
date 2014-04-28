@@ -44,30 +44,34 @@ $(document).ready(function(e) {
 	
 	
 	//TEST INFO FOR GRAPH STUFF
-	google.load("visualization", "1", {packages:["corechart"]});
+	/*google.load("visualization", "1", {packages:["corechart"]});
 	google.setOnLoadCallback(drawChart);
 	function drawChart() {
 		
-		var raw_data = {'First':0,'A':5,'B':2,'C':7,'D':1};
 		
-		var data = new google.visualization.DataTable();
+		var chartData = '{"cols": [{"id":"","label":"Topping","pattern":"","type":"string"},{"id":"","label":"Slices","pattern":"","type":"number"}],"rows": [{"c":[{"v":"Mushrooms","f":null},{"v":3,"f":null}]},{"c":[{"v":"Onions","f":null},{"v":1,"f":null}]},{"c":[{"v":"Olives","f":null},{"v":1,"f":null}]},{"c":[{"v":"Zucchini","f":null},{"v":1,"f":null}]},{"c":[{"v":"Pepperoni","f":null},{"v":2,"f":null}]}]}';
 		
-		data.addRows(1);
-		var i = 0;
-		for (var index in raw_data) {
-   		 	data.addColumn('number', index);
-    		data.setValue(0, i++, raw_data[index]);
-		}
+		var tempData = "[['Response','Number', {role: 'style'}],['A', 5, '#FF0000'],['B', 15, '#FFFF00'],['C', 2, '#FF00FF'],['D', 7, '#000000'],]";
+		
+		var data = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 5, '#FF0000'],
+		['B', 15, '#FFFF00'],
+		['C', 2, '#FF00FF'],
+		['D', 7, '#000000'],]
+		);
+		
+		
+		alert(data[1]);
 
         var options = {
 			legend: {position: 'none'},
 			backgroundColor: "#EDEDED",
-			colors: ['red', 'blue', 'yellow', 'green']
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
         chart.draw(data, options);
-	}
+	}*/
 	
 	
 	//GET POLL INFO IF THERE IS A POLL
