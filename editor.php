@@ -19,6 +19,19 @@
   <script src="js/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jquery.cookie.js"></script>
   <script src="js/editor.js"></script>
+  <!--<script type="text/javascript">
+      $(document).ready(function() {
+        var carousel = $("#carousel").featureCarousel({
+          // include options like this:
+          // (use quotes only for string values, and no trailing comma after last option)
+          // option: value,
+          // option: value
+          autoPlay: 0
+        });
+
+
+      });
+    </script> -->
   <title>UPresent - Editor</title>
 </head>
 <body>
@@ -198,7 +211,7 @@
     </div>
   </div>
 </div>
-<div id="content">
+<div id="content" style="height: 780px;">
   <div id="UPresentTitle">
     <h1><?php echo $_POST['title']; ?></h1>
   </div>
@@ -207,7 +220,7 @@
   <div class="carousel-container">
     
       <div id="carousel">
-        <div class="carousel-feature">
+        <!-- <div class="carousel-feature">
           <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample1.jpg" /></a>
           <div class="carousel-caption">
             <p>
@@ -241,7 +254,7 @@
               The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     
       <div id="carousel-left"><img src="img/arrow-left.png" /></div>
@@ -259,37 +272,42 @@
         <BR>
         Correct<br>
         <label for="OptionA">A</label>
-        <input id="OptionA" name="OptionA" type="text" placeholder="Option A - Answer" size="50"/>
-        <input type="radio" name="options" value="a" checked/>
+        <input id="OptionA" name="OptionA" type="text" placeholder="Option A text here" size="50"/>
         <br>
         <label for="OptionB">B</label>
-        <input id="OptionB" name="OptionB" type="text" placeholder="Option B - Answer" size="50"/>
-        <input type="radio" name="options" value="b" />
+        <input id="OptionB" name="OptionB" type="text" placeholder="Option B text here" size="50"/>
         <br>
         <label for="OptionC">C</label>
-        <input id="OptionC" name="OptionC" type="text" placeholder="Option C - Answer" size="50"/>
-        <input type="radio" name="options" value="c" />
+        <input id="OptionC" name="OptionC" type="text" placeholder="Option C text here" size="50"/>
         <br>
         <label for="OptionD">D</label>
-        <input id="OptionD" name="OptionD" type="text" placeholder="Option D - Answer" size="50"/>
-        <input type="radio" name="options" value="d" />
+        <input id="OptionD" name="OptionD" type="text" placeholder="Option D text here" size="50"/>
+        <br>
+        <label for="OptionD">E</label>
+        <input id="OptionD" name="OptionE" type="text" placeholder="Option E text here" size="50"/>
+        <br>
+        <label for="OptionD">F</label>
+        <input id="OptionD" name="OptionF" type="text" placeholder="Option F text here" size="50"/>
         <br>
         <input id="showGraph"  type="checkbox" name="showGraph" value="true" />
-        <label for="showGraph">Show Poll Graph on next slide?</label>
+        <label for="showGraph">Show results on presentation?</label>
         <br>
         <br>
         <input type="submit" value="Add Poll to Slide" />
       </fieldset>
     </form>
   </div>
-  <div id="Footer">
-    <form id="save" action="user.php" method="post">
-      <input type="submit" id="saveUPresent" value="Save UPresent" />
-      </form>
-      <input type="submit" id="inv" value="Invite Viewers" />
-      <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/> </span>
-    </form>
+  <div id="PollInfo">
+    <fieldset>
+      <legend>Poll Information</legend>
+      This be ya poll
+  </fieldset>
+  </div>
+  <div id="saveSubmit">
+    <input type="submit" id="saveUPresent" value="Save UPresent" />
+    <input type="submit" id="inv" value="Invite Viewers" />
   </div>
 </div>
+<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>

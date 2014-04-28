@@ -115,9 +115,9 @@ Info: 2NF table for poll options
 CREATE TABLE Poll_Options
 (
         pollId                  INT UNSIGNED                    NOT NULL,
-	option_num		VARCHAR(1)			NOT NULL DEFAULT 'Z',
+		option_num				VARCHAR(1)			NOT NULL DEFAULT 'Z',
         option_text             VARCHAR(256)                    NOT NULL,
-	option_results          INT UNSIGNED    		NOT NULL DEFAULT 0,
+		option_results          INT UNSIGNED    		NOT NULL DEFAULT 0,
         FOREIGN KEY             (pollId)			REFERENCES Poll(pollId)
 );
 

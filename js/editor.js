@@ -4,6 +4,8 @@ var fNames = new Array();
 var lNames = new Array();
 var usernames = new Array();
 var linkedGroup;
+var numSlides;
+var currSlide;
 
 
 
@@ -128,8 +130,68 @@ $(document).ready(function(){
       }
     }
   });
+
+  //Photo Gallery
+  $.ajax({
+        type: 'GET',
+        url: root_url + 'getSlides' + '/' + $.cookie('pres'),
+        async: true,
+        dataType: "json",
+        success: function(response) { 
+          numSlides = response.numSlides;
+          addImages(response);
+          var carousel = $("#carousel").featureCarousel({
+            // include options like this:
+            // (use quotes only for string values, and no trailing comma after last option)
+            // option: value,
+            // option: value
+            autoPlay: 0
+          });
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }
+    });
+
+    currSlide = 1;
+    $("div#carousel-left").click(function() {
+      if(currSlide == 1)
+        currSlide = numSlides;
+      else
+        currSlide--; 
+      alert(currSlide);
+    });
+    $("div#carousel-right").click(function() {
+      if(currSlide == numSlides)
+        currSlide = 1;
+      else
+        currSlide++;
+      alert(currSlide);
+    });
+
 });
 
+function addImages(json) {
+  var num = json.numSlides;
+  var slides = new Array();
+  slides = json.slides;
+
+  for(var i =1; i <= num; i++) {
+    alert (i);
+    var insertImg = "<div class='carousel-feature'><a href='#'><img class='carousel-image' alt='Slide " + i + "'" 
+                    + "src='" + slides[i] + "' /></a><div class='carousel-caption'>"
+                    + "<p>Slide " + i + "</p></div></div>";
+    //var insertImg = "<div class='carousel-feature'><a href='#'><img class='carousel-image' alt='Slide " + 
+    //               i + "' src='" +  slides[i] + "'/></a><div class='carousel-caption'></div></div>";
+    
+    $("div#carousel").append(insertImg);
+    var styles = {
+      width: "450px",
+      height: "230px"
+    };
+    $("div.carousel-feature img").css(styles);
+  }
+}
 
 
 
@@ -408,3 +470,6 @@ $(document).keypress(function(e) {
         }
     }
 });
+
+//Photo Gallery display
+
