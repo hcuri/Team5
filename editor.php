@@ -43,7 +43,7 @@
     <center><span>Search Users</span></center>
     <div id="searchBar">
       <input type="text" id="searchBox" />
-      <img src="img/searchBtn.png" />
+      <img id="searchBtn" src="img/searchBtn.png" />
     </div>
     <div id="tableHolder">
       <table>
@@ -168,7 +168,7 @@
   <div id="groups">
     <center><span>My Groups</span></center>
     <div id="searchBar">
-      <input type="text" id="groupBox" /><img src="img/plusBtn.png" />
+      <input type="text" id="groupBox" /><img id="plusBtn" src="img/plusBtn.png" />
       <div id="groupInfo"></div>
     </div>
     <div id="groupTable">

@@ -91,7 +91,7 @@ $(document).ready(function(){
 
 
   //Create group
-  $("div#searchBar img#groupBtn").click(function() {
+  $("div#searchBar img#plusBtn").click(function() {
     var groupTxt = $('input#groupBox').val();
 
     if(groupTxt == "")
