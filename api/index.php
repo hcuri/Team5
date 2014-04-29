@@ -1001,7 +1001,7 @@ function createPoll() {
 }
 
 function submitResponse () {
-    error_log('submitResponse' . "\n", 3, 'var/tmp/php.log');
+    //error_log('submitResponse' . "\n", 3, 'var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $response = json_decode($request->getBody());
     
@@ -1023,10 +1023,10 @@ function submitResponse () {
         $stmtOpRes->execute();
         $opRes = $stmtOpRes->fetch(PDO::FETCH_ASSOC);
         $result = $opRes['option_results'];
-        echo $result;
+        $result++;
         
         $stmt = $db->prepare($sql);
-        $stmt->bindParam("optionResults", $result++);
+        $stmt->bindParam("optionResults", $result);
         $stmt->bindParam("pollId", $pollId['pollId']);
         $stmt->bindParam("choice", $response->response);
         $stmt->execute();
