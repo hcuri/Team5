@@ -38,6 +38,9 @@
   </div>
 </div>
 <!--use JavaScript to pull in current values to fill these textfields-->
+<div id="backgroundScreen">
+  <img src="img/background.jpg" class="stretch">
+</div>
 <div id="content">
   <div id="block">
     <div id="profile">

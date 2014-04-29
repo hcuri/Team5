@@ -33,6 +33,9 @@
     </div>
   </div>
 </div>
+<div id="backgroundScreen">
+  <img src="img/background.jpg" class="stretch">
+</div>
 <div id="content">
   <div id="terms">
       <!--<img src="img/OfficialLogo.png" style="margin-left:250px" />-->

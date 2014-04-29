@@ -36,6 +36,9 @@
     </div>
   </div>
 </div>
+<div id="backgroundScreen">
+  <img src="img/background.jpg" class="stretch">
+</div>
 <div id="content">
   <div id="contact">
     <form id="contact" action="" method="post" onSubmit="return submitContact()">

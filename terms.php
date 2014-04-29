@@ -33,6 +33,9 @@
     </div>
   </div>
 </div>
+<div id="backgroundScreen">
+  <img src="img/background.jpg" class="stretch">
+</div>
 <div id="content">
   <div id="terms">
     <div id="infoHeader">UPresent Terms</div>

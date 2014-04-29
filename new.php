@@ -36,6 +36,9 @@
     </div>
   </div>
 </div>
+<div id="backgroundScreen">
+  <img src="img/background.jpg" class="stretch">
+</div>
 <h1>New UPresent</h1>
 <div id="content">
 <form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation()">
