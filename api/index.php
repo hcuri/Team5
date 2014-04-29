@@ -1072,7 +1072,7 @@ function getPollInfo($presId, $slide) {
         $pollInfo = str_replace("[", "", $pollInfo);
         $pollInfo = str_replace("]", "", $pollInfo);
 
-        $poll = '{"question":"' . $pollQuestion . '"},' . $pollInfo;
+        $poll = '{"question":' . $pollQuestion . '},' . $pollInfo;
 
         echo $poll;
         $db = null;
