@@ -3,7 +3,7 @@
 //if($_SERVER['HTTP_REFERER'] == "http://localhost/UPresent/new.php?") 
 //    require ('php/lib.php');
 //else if($_SERVER['HTTP_REFERER'] == "http://localhost/Upresent/api/index.php")
-    //require_once ('php/lib.php'); 
+    require_once ('/home/tyler/LAMP_sites/UPresent/php/lib.php'); 
     //this needs to be different depending on which page calls the File Parser
 
 class FileParser {
@@ -43,7 +43,7 @@ class FileParser {
 
             foreach ($_FILES["files"]['tmp_name'] as $index => $tmpName) {
 
-                if ((($_FILES["files"]["type"][$index] == "image/gif") || ($_FILES["files"]["type"][$index] == "image/jpeg") || ($_FILES["files"]["type"][$index] == "image/jpg") || ($_FILES["files"]["type"][$index] == "image/pjpeg") || ($_FILES["files"]["type"][$index] == "image/x-png") || ($_FILES["files"]["type"][$index] == "image/png")) && ($_FILES["files"]["size"][$index] < 200000000000)) {
+                if ((($_FILES["files"]["type"][$index] == "image/gif") || ($_FILES["files"]["type"][$index] == "image/jpeg") || ($_FILES["files"]["type"][$index] == "image/jpg") || ($_FILES["files"]["type"][$index] == "image/pjpeg") || ($_FILES["files"]["type"][$index] == "image/x-png") || ($_FILES["files"]["type"][$index] == "image/png")) && ($_FILES["files"]["size"][$index] < 300000000000)) {
                     //echo "Upload: " . $_FILES["files"]['name'][$index] . "<br>";
                     //echo "Type: " . $_FILES["files"]['type'][$index] . "<br>";
                     //echo "Size: " . ($_FILES["files"]['size'][$index] / 1024) . " kB<br>";

@@ -502,7 +502,7 @@ function getSlides($presID) {
                         continue;
                     $URLarray[] = $url . $title . "/" . $file;
 
-                    $pattern = '/\d+/';
+                    $pattern = '/[1-9]\d*/';
                     preg_match($pattern, $file, $matches);
                     //error on below line - no idea why but it affects pulling slides from random presentations
                     //--ANSWER: could be that the file names don't have a number in them...
