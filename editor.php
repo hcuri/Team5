@@ -211,9 +211,9 @@
     </div>
   </div>
 </div>
-<div id="content" style="height: 780px;">
+<div id="content" style="height: 840px;">
   <div id="UPresentTitle">
-    <h1>This is the Title of Your Presentation</h1>
+    <h1><?php echo $_POST['title']; ?></h1>
   </div>
 
   <!--Photo Gallery -->
@@ -252,7 +252,7 @@
           <div class="carousel-caption">
             <p>
               The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
-            </p>
+            <p>
           </div>
         </div> -->
       </div>
@@ -263,53 +263,41 @@
 
 
   <div id="PollAdderForm">
-      <fieldset>
-        <legend>Add Poll</legend>
-        <label for="PollQuestion">Question</label>
+      <div id="pollHead"><div id="pollTitle"><span>Slide Poll</span></div></div>
+      <div id="pollContainer">
+        <label for="PollQuestion">Question</label><br />
         <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" />
         <br>
-        <BR>
+        <br>
         Correct<br>
         <label for="OptionA">A</label>
         <input id="OptionA" id="OptionA" type="text" placeholder="Option A text here" size="50"/>
-        <input type="checkbox" id="1" name="pollOpt" checked />
         <br>
         <label for="OptionB">B</label>
         <input id="OptionB" id="OptionB" type="text" placeholder="Option B text here" size="50"/>
-        <input type="checkbox" id="2" name="pollOpt" checked />
         <br>
         <label for="OptionC">C</label>
         <input id="OptionC" id="OptionC" type="text" placeholder="Option C text here" size="50"/>
-        <input type="checkbox" id="3" name="pollOpt" checked />
         <br>
         <label for="OptionD">D</label>
         <input id="OptionD" id="OptionD" type="text" placeholder="Option D text here" size="50"/>
-        <input type="checkbox" id="4" name="pollOpt" checked />
         <br>
         <label for="OptionE">E</label>
         <input id="OptionE" id="OptionE" type="text" placeholder="Option E text here" size="50"/>
-        <input type="checkbox" id="5" name="pollOpt" />
         <br>
         <label for="OptionF">F</label>
         <input id="OptionF" id="OptionF" type="text" placeholder="Option F text here" size="50"/>
-        <input type="checkbox" id="6" name="pollOpt" />
         <br>
         <input id="showGraph"  type="checkbox" name="showGraph" value="true" />
         <label for="showGraph">Show results on presentation?</label>
         <br>
         <br>
         <input type="submit" id="pollSubmit" value="Add Poll to Slide" />
-      </fieldset>
-  </div>
-  <div id="PollInfo">
-    <fieldset>
-      <legend>Poll Information</legend>
-      This be ya poll
-  </fieldset>
+      </div>
   </div>
   <div id="saveSubmit">
-    <input type="submit" id="saveUPresent" value="Save UPresent" />
     <input type="submit" id="inv" value="Invite Viewers" />
+    <input type="submit" id="saveUPresent" value="Save UPresent" />
   </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
