@@ -18,7 +18,7 @@ var data = new google.visualization.arrayToDataTable([
 var chart;
 var options = {
 			legend: {position: 'none'},
-			backgroundColor: "#EDEDED",
+			backgroundColor: "#FFFFFF",
         };
 
 $(document).ready(function(e) {
@@ -93,8 +93,7 @@ var getCurrSlide = setInterval(function() {
 		});
 		cS = cS.responseJSON;
 		currentSlide = cS.currSlide;
-		//var poll = cS.poll;
-		var poll = true;
+		var poll = cS.poll;
 		updateSlide();
 		
 		if(poll) {
