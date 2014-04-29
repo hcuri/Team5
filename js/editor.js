@@ -344,7 +344,6 @@ function deleteGroup(elem) {
 }
 function delGroupFormToJSON(elem) {
   var groupName = $(elem).parent().text();
-  alert(JSON.stringify({ "groupName": groupName }));
 
   return JSON.stringify({
     "groupName": groupName
@@ -479,7 +478,7 @@ function addPoll() {
     data: pollFormToJSON(),
     async: true,
     success: function(){
-
+      alert("yoyoyo ya poll be created");
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -504,6 +503,7 @@ function pollFormToJSON() {
 
   //Set text vars
   if(opt1 == '') opt1 = "NULL";
+
   if(opt2 == '') opt2 = "NULL";
   if(opt3 == '') opt3 = "NULL";
   if(opt4 == '') opt4 = "NULL";

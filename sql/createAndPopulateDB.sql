@@ -101,7 +101,7 @@ CREATE TABLE Poll
         presId                  INT UNSIGNED                    NOT NULL,
         slideNum                INT UNSIGNED                    NOT NULL,
         question                VARCHAR(256)                    NOT NULL,
-        numOptions              INT UNSIGNED                    NOT NULL
+        numOptions              INT UNSIGNED                    NOT NULL,
         PRIMARY KEY             (pollId),
         FOREIGN KEY		(presId)                        REFERENCES Presentations(presId)
 );

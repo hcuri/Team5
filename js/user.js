@@ -195,7 +195,7 @@ function count(obj) {
 
 function presentUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	$.cookie('pres', presIDs[num-1]);
+	$.cookie('pres', presIDs[num-1], {path: '/'});
         $.ajax({
             type: 'POST',
             url: root_url + 'setCurrentSlide',
@@ -214,7 +214,7 @@ function presentUPresent(num) {
 
 function editUPresent(num) {
 	//call ajax to delete presentation from the parameter
-	$.cookie('pres', presIDs[num-1]);
+	$.cookie('pres', presIDs[num-1], {path: '/'});
         $.cookie('presName', presNames[num-1]);
 	window.location="editor.php";
 	return true;
