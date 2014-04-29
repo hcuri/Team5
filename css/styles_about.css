@@ -1,18 +1,15 @@
 #content {
-	height:460px;
-	width:660px;
-	margin-top:0px;
-	/*margin-bottom:30px;*/
-	background-color:#CCC;
-	
-
+	height:480px;
+	width:640px;
 }
 
 #terms {
 	width:660px;
 	height:460px;
-	margin-left:0px;
+	margin-top:-30px;
+	margin-left:-15px;
 	background-color:white;
+
 
 }
 
