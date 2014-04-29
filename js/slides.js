@@ -100,28 +100,20 @@ var getCurrSlide = setInterval(function() {
 		updateSlide();
 		
 		if(poll) {
-			/*var pollJSON = $.ajax({
+			var pollJSON = $.ajax({
 				type: 'GET',
 				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
 				dataType: "json",
 				async: false,
 			});
 			pollJSON = pollJSON.responseJSON;
-			var q = pollJSON.question;*/
-			var questions = new Array();
-			//questions = pollJSON.questions;
 			
-			questions.push("question 1");
-			questions.push("question 2");
-			questions.push("question 3");
-			questions.push("question 4");
+			var q = pollJSON[0].question;
 			
-			//DISPLAY POLL QUESTIONS
-			//BLAH BLAH BLAH
 			var qS = document.getElementsByClassName("q");
 			
 			for(var i = 0; i < 4; i++) {
-				$(qS[i]).html(questions[i]);
+				$(qS[i]).html(pollJSON[i+1].option_text);
 			}
 			
 		} else {
