@@ -40,6 +40,9 @@ $app->get('/getGroups', 'getGroups');
 
 //Poll functions
 $app->post('/createPoll', 'createPoll');
+$app->post('/submitResponse', 'submitResponse');
+$app->get('/getPollInfo/:presId/:slideNum', 'submitResponse');
+$app->get('/getPollResults/:presId/:slideNum', 'getPollResults');
 
 
 $app->run();
@@ -598,7 +601,7 @@ function getPastPresentations($username) { //doesn't work yet
     }
 }
 
-function getUpcomingPresentations($username) { //doesn't work yet
+function getUpcomingPresentations($username) { 
     $userId = idFromUsername($username);
 
     $groupSql = "SELECT groupId FROM Group_Users WHERE userId = :userId";
@@ -926,6 +929,8 @@ function getGroups() {
     }
 }
 
+/* POLL Functionality */
+
 function createPoll() {
     error_log('addPoll' . "\n", 3, 'var/tmp/php.log');
     $request = Slim::getInstance()->request();
@@ -993,6 +998,67 @@ function createPoll() {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
     }
+}
+
+function submitResponse () {
+    //error_log('submitResponse' . "\n", 3, 'var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $response = json_decode($request->getBody());
+    
+    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
+    $sqlOpRes = "SELECT option_results FROM Poll_Options WHERE pollId = :pollId AND option_num = :choice";
+    $sql = "UPDATE Poll_Options SET option_results = :optionResults WHERE pollId = :pollId AND option_num = :choice";
+
+    try {
+        $db = dbconnect();
+        $stmtPoll = $db->prepare($sqlPollId);
+        $stmtPoll->bindParam("presId", $response->presId);
+        $stmtPoll->bindParam("slide", $response->currSlide);
+        $stmtPoll->execute();
+        $pollId = $stmtPoll->fetch(PDO::FETCH_ASSOC);
+        
+        $stmtOpRes = $db->prepare($sqlOpRes);
+        $stmtOpRes->bindParam("pollId", $pollId['pollId']);
+        $stmtOpRes->bindParam("choice", $response->response);
+        $stmtOpRes->execute();
+        $opRes = $stmtOpRes->fetch(PDO::FETCH_ASSOC);
+        $result = $opRes['option_results'];
+        $result++;
+        
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("optionResults", $result);
+        $stmt->bindParam("pollId", $pollId['pollId']);
+        $stmt->bindParam("choice", $response->response);
+        $stmt->execute();
+        
+        $db = null;
+        
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+}
+
+function getPollInfo($presId, $slide) {
+    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
+    $sql = "SELECT question FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    
+    
+    try {
+        $db = dbconnect();
+        $stmtPollId = $db->prepare($sqlPollId);
+        $stmtPollId->bindParam("presId", $presId);
+        $stmtPollId->bindParam("slide", $slide);
+        $stmtPollId->execute();
+        $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
+        
+        $stmt = $db->prepare($sql);
+        
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+    
 }
 
 function idFromUsername($username) {

@@ -21,10 +21,7 @@ var options = {
 			backgroundColor: "#EDEDED",
         };
 
-$(document).ready(function(e) {
-	
-	google.load("visualization", "1", {packages:["corechart"]});
-	
+$(document).ready(function() {
 	var slideInfo = $.ajax({
 		type: 'GET',
 		url: root_url + "/getPresInfo",
@@ -33,7 +30,6 @@ $(document).ready(function(e) {
 	});
 	slideInfo = slideInfo.responseJSON;
 	presID = slideInfo.presId;
-	//poll = slideInfo.poll;
 	var presName = slideInfo.presName;
 	var author = slideInfo.fName + " " + slideInfo.lName;
 	currentSlide = slideInfo.currSlide;
@@ -74,7 +70,7 @@ $(document).ready(function(e) {
 		
 	//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
 	$(".submitButton").click(function(event) {
-		alert("test");
+		alert("submit button selected");
 		var pollResponse = event.target;
 		pollResponse = $(pollResponse).html();
 		submitResponse(pollResponse);
@@ -92,7 +88,7 @@ function submitResponse(response) {
 	//AJAX POST CALL TO SUBMIT RESPONSE
 	$.ajax({
             type: 'POST',
-            url: root_url + 'submitResponse',
+            url: root_url + '/submitResponse',
             data: submitFormToJSON(response),
             async: false,
             success: function(){
@@ -102,7 +98,7 @@ function submitResponse(response) {
             	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
             }
         });
-	
+			
 	//TEST INFO FOR GRAPH STUFF
 	google.setOnLoadCallback(drawChart);
 	getPollResults();
