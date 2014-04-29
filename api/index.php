@@ -20,6 +20,7 @@ $app->post('/email', 'email');
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
 $app->post('/updatePresentation', 'updateGroupId');
+$app->post('/finishPresentation', 'finishPresentation');
 $app->get('/getPresentations/:username', 'getPresentations');
 $app->get('/getPastPresentations/:username', 'getPastPresentations');
 $app->get('/getUpcomingPresentations/:username', 'getUpcomingPresentations');
@@ -433,6 +434,40 @@ function updateGroupId() {
         $stmt->execute();
 
         echo json_encode($id);
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
+}
+
+function finishPresentation() {
+    error_log('finishPres' . "\n", 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $id = json_decode($request->getBody());
+    
+    $sqlCheck = "SELECT alreadyPresented FROM Presentations WHERE presId = :presId";
+    $sql = "UPDATE Presentations SET alreadyPresented = '1' WHERE presId = :presId";
+    
+    try {
+        $db = dbconnect();
+        $stmtCheck = $db->prepare($sqlCheck);
+        $stmtCheck->bindParam("presId", $id->presId);
+        $stmtCheck->execute();
+        $presented = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+        
+        if($presented['alreadyPresented'] == 0) {
+            $stmt = $db->prepare($sql);
+            //$presented = 1;
+            //$stmt->bindParam("fin", $presented);
+            $stmt->bindParam("presId", $id->presId);
+            $stmt->execute();
+        
+            echo json_encode($stmt->fetch(PDO::FETCH_ASSOC));
+        }
+        else 
+            echo '{"alreadyPresented":"true"}';
+        
         $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');

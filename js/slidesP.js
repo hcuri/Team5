@@ -63,6 +63,10 @@ $(document).ready(function(e) {
 			}
 		}
 	});
+        $("#endPres").click(function() {
+                finishPresentation();
+		window.location = "http://localhost/user.php";
+	});
 });
 
 function updateSlide() {
@@ -102,4 +106,25 @@ function slideFormToJSON() {
 		"presId" : presID,
 		"currSlide": currentSlide
 	});
+}
+
+function finishPresentation() {
+    $.ajax({
+		type: 'POST',
+		url: root_url + 'finishPresentation',
+		data: endFormToJSON(),
+		async: false,
+		success: function(msg){
+			alert(msg);
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert(jqXHR + ' Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
+	});
+}
+
+function endFormToJSON() {
+    return JSON.stringify({
+        "presId" : presID
+    });
 }

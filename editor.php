@@ -1,10 +1,9 @@
 <?php
   require_once("FileParser/FileParser.php"); 
   $FileParser = new FileParser();
-  $FileParser->modifyPresentation($_FILES['files'], $_POST['title']);
-  setcookie('presName', $_POST['title']);
+  $FileParser->modifyPresentation($_FILES['files'], $_COOKIE['presName']);
 
-  $title = $_POST['title'];
+  $title = $_COOKIE['presName'];
 ?>
 
 <!--editor.html-->
@@ -213,7 +212,7 @@
 </div>
 <div id="content" style="height: 840px;">
   <div id="UPresentTitle">
-    <h1><?php echo $_POST['title']; ?></h1>
+    <h1><?php echo $_COOKIE['presName']; ?></h1>
   </div>
 
   <!--Photo Gallery -->

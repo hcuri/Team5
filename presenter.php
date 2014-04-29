@@ -54,6 +54,11 @@
       <div class="oLine"></div>
     </div>
   </div>
+  <div id="endPres">
+    <form id="end" action="user.php">
+      <input id="endUpres" type="submit" value="End UPresent">
+    </form>
+  </div>
   <!--<div id="bottom">
     <div id="presentNotes">
       <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
