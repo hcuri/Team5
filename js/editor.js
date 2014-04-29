@@ -6,6 +6,7 @@ var usernames = new Array();
 var linkedGroup;
 var numSlides;
 var currSlide;
+var polls = new Array();
 
 
 
@@ -137,6 +138,13 @@ $(document).ready(function(){
         dataType: "json",
         success: function(response) { 
           numSlides = response.numSlides;
+
+          //Add 'NONE' to each in polls array
+          polls [0] = "NOT USED";
+          for(var i = 1; i <= numSlides; i++) {
+            polls[i] = "NONE";
+          }
+
           addImages(response);
           var carousel = $("#carousel").featureCarousel({
             // include options like this:
@@ -503,30 +511,28 @@ function pollFormToJSON() {
 
   //Set text vars
   if(opt1 == '') opt1 = "NULL";
-
+  else           numOptions++;
   if(opt2 == '') opt2 = "NULL";
+  else           numOptions++;
   if(opt3 == '') opt3 = "NULL";
+  else           numOptions++;
   if(opt4 == '') opt4 = "NULL";
+  else           numOptions++;
   if(opt5 == '') opt5 = "NULL";
+  else           numOptions++;
   if(opt6 == '') opt6 = "NULL";
+  else           numOptions++;
 
   //Count number of options
   if($('input#showGraph').prop('checked')) showResults = "true";
   else                                     showResults = "false";
 
-
-  if($('input#1').prop('checked')) numOptions++;
-  if($('input#2').prop('checked')) numOptions++;
-  if($('input#3').prop('checked')) numOptions++;
-  if($('input#4').prop('checked')) numOptions++;
-  if($('input#5').prop('checked')) numOptions++;
-  if($('input#6').prop('checked')) numOptions++;
-
   //Output the json
-
   pollJSON = '{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
               + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
+  polls[currSlide] = pollJSON;
+  alert(pollJSON);
   return pollJSON;
 }
 
