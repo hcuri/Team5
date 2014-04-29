@@ -64,7 +64,7 @@ $(document).ready(function(e) {
 			async: false,
 		});
 		pollJSON = pollJSON.responseJSON;
-		var numQs = pollJSON.numSlides;
+		var q = pollJSON.question;
 		var questions = new Array();
 		questions = pollJSON.questions;
 		
@@ -90,8 +90,18 @@ function updateSlide() {
 
 function submitResponse(response) {
 	//AJAX POST CALL TO SUBMIT RESPONSE
-	
-	
+	$.ajax({
+            type: 'POST',
+            url: root_url + 'submitResponse',
+            data: submitFormToJSON(response),
+            async: false,
+            success: function(){
+            	alert("Response Submitted");
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+            	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+            }
+        });
 	
 	//TEST INFO FOR GRAPH STUFF
 	google.setOnLoadCallback(drawChart);
@@ -118,14 +128,14 @@ function getPollResults() {
 		liveResults.pop();
 	}
 	
-	var results = $.ajax({
+	var result = $.ajax({
 		type: 'GET',
 		url: root_url + "/getPollResults/" + presID + "/" + currentSlide,
 		dataType: "json",
 		async: false,
 	});
-	results = results.responseJSON;
-	liveResults = results.results;
+	result = result.responseJSON;
+	liveResults = result.results;
 	
 	for(var i = 0; i < 4; i++) {
 		
@@ -139,4 +149,13 @@ function drawChart() {
 		data.setValue(i, 1, liveResults[i]);
 	}
 	chart.draw(data, options);
+}
+
+// Helper function to serialize all the form fields into a JSON string
+function submitFormToJSON(response) {
+	return JSON.stringify({
+		"presId" : presID,
+		"currSlide" : currentSlide,
+		"response" : response
+	});
 }
