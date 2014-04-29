@@ -534,14 +534,25 @@ function getSlides($presID) {
 
 function getCurrentSlide($presId) {
     $sql = "SELECT currSlide FROM Presentations WHERE presId = :presId";
-
+    $sqlPoll = "SELECT * FROM Poll WHERE presId = :presId AND slideNum = :slide";
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sql);
         $stmt->bindParam("presId", $presId);
         $stmt->execute();
         $pres = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($pres);
+        
+        $stmtPoll = $db->prepare($sqlPoll);
+        $stmtPoll->bindParam("presId", $presId);
+        $stmtPoll->bindParam("slide", $pres['currSlide']);
+        $stmtPoll->execute();
+        $poll = false;
+        if($stmtPoll->rowCount() > 0)
+            $poll = true;
+        
+        echo '{"currSlide":' . $pres['currSlide'] . ',"poll":' . $poll . '}';
+        
+        //echo json_encode($pres);
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
