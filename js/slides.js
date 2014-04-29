@@ -7,9 +7,23 @@ var presID = null;
 var numSlides;
 var poll = false;
 var liveResults = new Array();
-var letters = ['A','B','C','D','E','F'];
+var letters = ['A','B','C','D'];
+var data = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#FF0000'],
+		['B', 0, '#FFFF00'],
+		['C', 0, '#FF00FF'],
+		['D', 0, '#000000'],]
+		);
+var chart;
+var options = {
+			legend: {position: 'none'},
+			backgroundColor: "#EDEDED",
+        };
 
 $(document).ready(function(e) {
+	
+	google.load("visualization", "1", {packages:["corechart"]});
 	
 	var slideInfo = $.ajax({
 		type: 'GET',
@@ -40,40 +54,6 @@ $(document).ready(function(e) {
 	$("#slideNum").html(currentSlide + "|" + numSlides);
 	$("#slide").attr("src", slides[currentSlide]);
 	
-	
-	
-	
-	//TEST INFO FOR GRAPH STUFF
-	/*google.load("visualization", "1", {packages:["corechart"]});
-	google.setOnLoadCallback(drawChart);
-	function drawChart() {
-		
-		
-		var chartData = '{"cols": [{"id":"","label":"Topping","pattern":"","type":"string"},{"id":"","label":"Slices","pattern":"","type":"number"}],"rows": [{"c":[{"v":"Mushrooms","f":null},{"v":3,"f":null}]},{"c":[{"v":"Onions","f":null},{"v":1,"f":null}]},{"c":[{"v":"Olives","f":null},{"v":1,"f":null}]},{"c":[{"v":"Zucchini","f":null},{"v":1,"f":null}]},{"c":[{"v":"Pepperoni","f":null},{"v":2,"f":null}]}]}';
-		
-		var tempData = "[['Response','Number', {role: 'style'}],['A', 5, '#FF0000'],['B', 15, '#FFFF00'],['C', 2, '#FF00FF'],['D', 7, '#000000'],]";
-		
-		var data = new google.visualization.arrayToDataTable([
-		['Response','Number', {role: 'style'}],
-		['A', 5, '#FF0000'],
-		['B', 15, '#FFFF00'],
-		['C', 2, '#FF00FF'],
-		['D', 7, '#000000'],]
-		);
-		
-		
-		alert(data[1]);
-
-        var options = {
-			legend: {position: 'none'},
-			backgroundColor: "#EDEDED",
-        };
-
-        var chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
-        chart.draw(data, options);
-	}*/
-	
-	
 	//GET POLL INFO IF THERE IS A POLL
 	if(poll) {
 		
@@ -92,19 +72,15 @@ $(document).ready(function(e) {
 		//BLAH BLAH BLAH
 	}
 		
-		//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
-		$(".submitButton").click(function(event) {
-			alert("test");
-			var pollResponse = event.target;
-			pollResponse = $(pollResponse).html();
-			submitResponse(pollResponse);
-			clearInterval(getCurrSlide);
-			setInterval(getPollResults, 500);
-		});
-		
-	
-	
-	
+	//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
+	$(".submitButton").click(function(event) {
+		alert("test");
+		var pollResponse = event.target;
+		pollResponse = $(pollResponse).html();
+		submitResponse(pollResponse);
+		//clearInterval(getCurrSlide);
+		//setInterval(getPollResults, 500);
+	});
 });
 
 function updateSlide() {
@@ -112,12 +88,15 @@ function updateSlide() {
 	$("#slideNum").html(currentSlide + "/" + numSlides);
 }
 
-function updateResults() {
-	
-}
-
 function submitResponse(response) {
 	//AJAX POST CALL TO SUBMIT RESPONSE
+	
+	
+	
+	//TEST INFO FOR GRAPH STUFF
+	google.setOnLoadCallback(drawChart);
+	getPollResults();
+	drawChart();
 }
 
 
@@ -134,40 +113,30 @@ var getCurrSlide = setInterval(function() {
 }, 1000);
 
 //CHECK FOR NEW UPDATES TO POLL
-var getPollResults = function () {
-		var results = $.ajax({
-			type: 'GET',
-			url: root_url + "/getPollResults/" + presID + "/" + currentSlide,
-			dataType: "json",
-			async: false,
-		});
-		results = results.responseJSON;
-		liveResults = results.results;
-		updateResults();
+function getPollResults() {
+	while(liveResults.length > 0) {
+		liveResults.pop();
+	}
+	
+	var results = $.ajax({
+		type: 'GET',
+		url: root_url + "/getPollResults/" + presID + "/" + currentSlide,
+		dataType: "json",
+		async: false,
+	});
+	results = results.responseJSON;
+	liveResults = results.results;
+	
+	for(var i = 0; i < 4; i++) {
+		
+	}
 };
 
+function drawChart() {
+	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 
-/*
-
-<canvas id="results" width="475" height="200"></canvas>
-
-
-function displayResultsBar(data) {
-	var ctx = document.getElementById("results").getContext("2d");
-	var newChart = new Chart(ctx).Bar(data);
+	for(var i = 0; i < 4; i++) {
+		data.setValue(i, 1, liveResults[i]);
+	}
+	chart.draw(data, options);
 }
-
-
-	var data = {
-	labels : ["A","B","C","D"],
-	datasets : [
-		{
-			fillColor : "#2C17B1",
-			strokeColor : "#FF9F00",
-			data : [6,2,9,1]
-		}]}
-
-		displayResultsBar(data);
-
-
-*/
