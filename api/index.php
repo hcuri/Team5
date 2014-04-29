@@ -41,7 +41,7 @@ $app->get('/getGroups', 'getGroups');
 //Poll functions
 $app->post('/createPoll', 'createPoll');
 $app->post('/submitResponse', 'submitResponse');
-$app->get('/getPollInfo/:presId/:slideNum', 'submitResponse');
+$app->get('/getPollInfo/:presId/:slideNum', 'getPollInfo');
 $app->get('/getPollResults/:presId/:slideNum', 'getPollResults');
 
 
@@ -1041,7 +1041,8 @@ function submitResponse () {
 
 function getPollInfo($presId, $slide) {
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
-    $sql = "SELECT question FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    $sqlPollQuestion = "SELECT question FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    $sqlPollInfo = "SELECT option_num, option_text FROM Poll_Options WHERE pollId = :pollId";
     
     
     try {
@@ -1051,9 +1052,26 @@ function getPollInfo($presId, $slide) {
         $stmtPollId->bindParam("slide", $slide);
         $stmtPollId->execute();
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
-        
-        $stmt = $db->prepare($sql);
-        
+        $pollId = $pollId['pollId'];
+
+        $stmtPollQuestion = $db->prepare($sqlPollQuestion);
+        $stmtPollQuestion->bindParam("pollId", $pollId);
+        $stmtPollQuestion->bindParam("slide", $slide);
+        $stmtPollQuestion->execute();
+        $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
+        $pollQuestion = $pollQuestion['question'];
+        $pollQuestion = json_encode($pollQuestion);
+
+        $stmtPollInfo = $db->prepare($sqlPollInfo);
+        $stmtPollInfo->bindParam("pollId", $pollId);
+        $stmtPollInfo->execute();
+        $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_ASSOC);
+        $pollInfo = json_encode($pollInfo);
+        $poll = "{" . $pollQuestion . ":" . $pollInfo . "}"; 
+
+        echo $poll;
+        $db = null;
+
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
