@@ -1052,7 +1052,8 @@ function getPollInfo($presId, $slide) {
         $stmtPollId->execute();
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
         
-        $stmt = $db->
+        $stmt = $db->prepare($sql);
+        
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
