@@ -213,7 +213,7 @@
 </div>
 <div id="content" style="height: 780px;">
   <div id="UPresentTitle">
-    <h1><?php echo $_POST['title']; ?></h1>
+    <h1>This is the Title of Your Presentation</h1>
   </div>
 
   <!--Photo Gallery -->
