@@ -163,6 +163,9 @@ img#logo {
 	text-align:center;
 	border-top:2px solid white;
 	font-family: Arial;
+	position: fixed; 
+   	bottom:10px;
+   	width:100%;
 }
 
 #bottom {
