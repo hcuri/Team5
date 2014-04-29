@@ -52,7 +52,6 @@ $(document).ready(function() {
 	
 	//GET POLL INFO IF THERE IS A POLL
 	if(poll) {
-		
 		var pollJSON = $.ajax({
 			type: 'GET',
 			url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
@@ -116,7 +115,7 @@ var getCurrSlide = setInterval(function() {
 		cS = cS.responseJSON;
 		currentSlide = cS.currSlide;
 		updateSlide();
-}, 1000);
+}, 5000);
 
 //CHECK FOR NEW UPDATES TO POLL
 function getPollResults() {
@@ -131,6 +130,7 @@ function getPollResults() {
 		async: false,
 	});
 	result = result.responseJSON;
+	alert(JSON.stringify(result));
 	liveResults = result.results;
 	
 	for(var i = 0; i < 4; i++) {

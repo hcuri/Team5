@@ -1063,7 +1063,7 @@ function getPollInfo($presId, $slide) {
 
 function getPollResults($presId, $slide) {
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
-    $sql = "SELECT option_num, option_results FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    $sql = "SELECT option_num, option_results FROM Poll_Options WHERE pollId = :pollId";
     
     
     try {
@@ -1073,13 +1073,12 @@ function getPollResults($presId, $slide) {
         $stmtPollId->bindParam("slide", $slide);
         $stmtPollId->execute();
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
-
-        $stmt = $db->prepare($sql);
+		$pollId = $pollId['pollId'];
+		
         $stmt = $db->prepare($sql);
         $stmt->bindParam("pollId", $pollId);
-        $stmt->bindParam("slide", $slide);
         $stmt->execute();
-        $pollResults = $stmt->fetchAll();
+        $pollResults = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         echo json_encode($pollResults);
     } catch (PDOException $e) {
