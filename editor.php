@@ -4,6 +4,7 @@
   $FileParser->modifyPresentation($_FILES['files'], $_COOKIE['presName']);
 
   $title = $_COOKIE['presName'];
+ 
 ?>
 
 <!--editor.html-->

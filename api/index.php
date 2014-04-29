@@ -1,8 +1,9 @@
 <?php
 
 require 'Slim/Slim.php';
-require '../php/lib.php';
+require_once('../php/lib.php');
 require '../php/password.php';
+require '../FileParser/FileParser.php';
 
 $app = new Slim();
 
@@ -362,7 +363,7 @@ function email() {
 function addPresentation() {
     error_log('addPresentation' . "\n", 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
-
+    
     $username = $_COOKIE['user'];
     $userId = getUserId($username);
     $rootURL = "upload/" . $_COOKIE['user'] . "/";
@@ -373,6 +374,8 @@ function addPresentation() {
     $sql = "INSERT INTO Presentations VALUES (DEFAULT, :title, :rootURL, :ownerId, :groupId, :presDate, :presTime, DEFAULT, DEFAULT)";
     $sqlId = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :ownerId";
 
+    
+    
     try {
         $db = dbconnect();
 
@@ -384,6 +387,7 @@ function addPresentation() {
             echo '{"error":"true"}';
             return;
         }
+        
         $stmt = $db->prepare($sql);
         $stmt->bindParam("title", $presentation->title);
         $stmt->bindParam("rootURL", $rootURL);
@@ -695,8 +699,8 @@ function deletePresentation() {
     $username = $_COOKIE['user'];
     $userId = getUserId($username);
     $title = $presInfo->title;
-    //$FileParser = new FileParser();
-    //$FileParser->deletePresentation($title);
+    $FileParser = new FileParser();
+    $FileParser->deletePresentation($title);
     $sqlPresId = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :userId";
     $sqlPollCheck = "SELECT pollId FROM Poll WHERE presId = :presId";
     $sqlDelPollOps = "DELETE FROM Poll_Options WHERE pollId = :pollId";
@@ -1065,7 +1069,7 @@ function createPoll() {
 }
 
 function submitResponse () {
-    //error_log('submitResponse' . "\n", 3, 'var/tmp/php.log');
+    error_log('submitResponse' . "\n", 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $response = json_decode($request->getBody());
     

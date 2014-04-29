@@ -1,6 +1,10 @@
 <?php
 
-require_once('php/lib.php');
+//if($_SERVER['HTTP_REFERER'] == "http://localhost/UPresent/new.php?") 
+//    require ('php/lib.php');
+//else if($_SERVER['HTTP_REFERER'] == "http://localhost/Upresent/api/index.php")
+    require_once ('/home/tyler/LAMP_sites/UPresent/php/lib.php'); 
+    //this needs to be different depending on which page calls the File Parser
 
 class FileParser {
 
@@ -12,12 +16,6 @@ class FileParser {
         }
 
         $folder = "upload/" . $_COOKIE['user'] . "/" . $title;
-        $uPresentExists = false;
-        if (is_dir($folder))
-            $uPresentExists = true;
-
-        rrmdir($folder, $uPresentExists);
-//rmdir("upload/" . $_COOKIE['user'] . "/hi");
         mkdir($folder);
         
 
@@ -27,10 +25,10 @@ class FileParser {
             $username = $_COOKIE['user'];
             $userId = getUserId($username);
             try {
-                $sql = "SELECT presId 
-						FROM Presentations 
-						WHERE presName = :title  
-						AND ownerId = :userId;";
+                $sql = "SELECT presId "
+                        . "FROM Presentations "
+                        . "WHERE presName = :title "
+                        . "AND ownerId = :userId;";
                 $db = dbconnect();
                 $stmt = $db->prepare($sql);
                 $stmt->bindParam("title", $title);
@@ -61,17 +59,19 @@ class FileParser {
     }
 
     function deletePresentation($title) {
-        $folder = "upload/" . $_COOKIE['user'] . "/" . $title;
-        rrmdir($folder, true);
+        $folder = "../upload/" . $_COOKIE['user'] . "/" . $title;
+        error_log("\n" . "Delete Presentation Files in " . $folder, 3, "/var/tmp/php.log");
+        rrmdir($folder);
     }
 
     
 }
-function rrmdir($dir, $exists) {
-    error_log("rrmdir" . "\n", 3, "/var/tmp/php.log");
-    rmdir($dir);
+function rrmdir($dir) {
+    error_log("\n" . "rrmdir:" . "\n", 3, "/var/tmp/php.log");
     error_log($dir, 3, "/var/tmp/php.log");
-    if (is_dir($dir)) { // and $exists) {
+    $isDir = is_dir($dir);
+    error_log($isDir, 3, "/var/tmp/php.log");
+    if (is_dir($dir)) { 
         error_log($dir, 3, "/var/tmp/php.log");
         if ($dh = opendir($dir)) {
             while (($file = readdir($dh)) !== false) {
@@ -84,6 +84,9 @@ function rrmdir($dir, $exists) {
             }
         }
         rmdir($dir);
+    }
+    else {
+        error_log(" Failed ", 3, "/var/tmp/php.log");
     }
 }
 ?>
