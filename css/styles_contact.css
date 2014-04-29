@@ -7,11 +7,13 @@
 	height:50px;
 }
 
+
 #contact {
-	margin-left: 100px;
-	/*border:1px solid black;*/
+	margin-top:-20px;
+	margin-left:10px;
 	
 }
+
 
 input#request {
 	border:1px solid #2a2a2a;	

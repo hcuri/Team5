@@ -6,6 +6,7 @@
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_contact.css" rel="stylesheet"/>
+<link href="css/styles_about.css" rel="stylesheet" />
 <link href="css/styles_user.css" rel="stylesheet"/>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
@@ -42,7 +43,7 @@
 <div id="content">
   <div id="contact">
     <form id="contact" action="" method="post" onSubmit="return submitContact()">
-      <h1>Contact UPresent</h1>
+      <h2>Contact UPresent</h2>
       <p>We are here to help you with any questions or comments.</p>
       <label for="username">Username:</label>
       <input id="userN" type="text" name="username" placeholder="Username"/>
