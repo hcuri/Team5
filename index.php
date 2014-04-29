@@ -11,6 +11,9 @@
 </head>
 
 <body>
+  <div id="backgroundScreen">
+    <img src="img/newbackground.jpg" class="stretch">
+  </div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
@@ -37,9 +40,6 @@
 		window.location = "user.php";
 	}
 });</script> 
-</div>
-<div id="backgroundScreen">
-  <img src="img/background.jpg" class="stretch">
 </div>
 <div id="content">
   <div id="info">
