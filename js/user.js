@@ -215,7 +215,7 @@ function presentUPresent(num) {
 function editUPresent(num) {
 	//call ajax to delete presentation from the parameter
 	$.cookie('pres', presIDs[num-1], {path: '/'});
-        $.cookie('presName', presNames[num-1]);
+        $.cookie('presName', presNames[num-1], {path: '/'});
 	window.location="editor.php";
 	return true;
 }
@@ -245,12 +245,12 @@ function deleteFormToJSON(presName) {
 
 //TABLE 2 FUNCTIONS
 function viewUpcomingUPresent(num) {
-	$.cookie('pres', upPresIDs[num-1]);
+	$.cookie('pres', upPresIDs[num-1], {path: '/'});
     window.location="viewer.php";
 	return true;
 }
 function viewPastUPresent(num) {
-	$.cookie('pres', pastPresIDs[num-1]);
+	$.cookie('pres', pastPresIDs[num-1], {path: '/'});
     window.location="afterview.php";
 	return true;
 }

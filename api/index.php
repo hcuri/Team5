@@ -1062,11 +1062,10 @@ function getPollInfo($presId, $slide) {
         $pollQuestion = $pollQuestion['question'];
         $pollQuestion = json_encode($pollQuestion);
 
-
         $stmtPollInfo = $db->prepare($sqlPollInfo);
         $stmtPollInfo->bindParam("pollId", $pollId);
         $stmtPollInfo->execute();
-        $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_ASSOC);
+        $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_OBJ);
         $pollInfo = json_encode($pollInfo);
 
         $pollInfo = str_replace("[", "", $pollInfo);

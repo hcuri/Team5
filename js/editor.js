@@ -75,6 +75,10 @@ $(document).ready(function(){
   		$("div#invContainer").hide();
   	});
   });
+  
+  $("#saveUPresent").click(function() {
+      window.location = "user.php";
+  });
 
   //groupTable
 
@@ -215,8 +219,8 @@ function updatePresentation(groupName) {
         url: root_url + 'updatePresentation',
         data: updateToJSON(groupName),
         async: true,
-        success: function() {
-            //alert("Update successful");
+        success: function(msg) {
+            alert(msg);
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
