@@ -6,7 +6,11 @@
 }*/
 
 body {
-	background-color: #EDEDED;
+	/*background-color: #EDEDED;*/
+	/*background-color:#80C2FA;*/
+	/*background-image:url("http://spasalon.com/wp-content/uploads/2012/02/light-blue-background.jpg");
+	background-repeat:no-repeat;
+	background-attachment: fixed;*/
 	padding: 0px;
 	margin: 0px;
 	font-family: Arial;
@@ -15,6 +19,7 @@ body {
 #logInPane {
 	width:500px;
 	height:50px;
+	margin-top:13px;
 	padding-right:30px;
 	float:right;
 }
@@ -48,19 +53,33 @@ input {
    font-weight:bold;
 }
 
+#backgroundScreen {
+	position:fixed;
+	height:100%;
+	width:100%;
+	z-index:-1;
+}
+
+.stretch {
+	width:100%;
+	height:100%;
+}
+
 img#logo {
 	height: 50px;
 	width: 48px;
-	margin-left: -20px;
+	margin-top:13px;
+	margin-left:-20px;
 }
 #header {
 	margin:auto;
 	width:100%;
 	min-width:1050px;
-	height:50px;
+	height:80px;
 	/*background-color:#275d43;*/
-	background-color:#2C17B1;
-	border-bottom:5px solid #FF9F00;
+	/*background-color:#2C17B1;*/
+	background-color:#103F7C;
+	border-bottom:4px solid #C6CFD4;
 }
 
 #insideHeader {
@@ -112,13 +131,23 @@ img#logo {
 }
 
 #content {
-	padding-top:25px;
+	padding-top:30px;
 	position:relative;
 	margin:auto;
+	/*margin-top:20px;*/
+	margin-bottom:30px;
+	padding-left:20px;
+	padding-right:20px;
+	border-left:4px solid #C6CFD4;
+	border-right:4px solid #C6CFD4;
+	border-bottom:4px solid #C6CFD4;
+	border-radius: 0px 0px 8px 8px;
 	width:1050px;
-	height:600px;
-	background-color:#ededed;
+	height:550px;
+	background-color:white;
+	/*background-color:#ededed;*/
 }
+
 
 #middle {
 	width:auto;
@@ -128,10 +157,10 @@ img#logo {
 	margin:auto;
 	height:50px;
 	width:1050px;
-	color:#000000;
-	font-size:17px;
+	color:white;
+	font-size:20px;
 	text-align:center;
-	border-top:2px solid #2a2a2a;
+	border-top:2px solid white;
 	font-family: Arial;
 }
 

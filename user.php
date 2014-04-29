@@ -15,6 +15,7 @@
 <title>UPresent -- User</title>
 </head>
 <body>
+  <!--<img id="screen" src="img/background.jpg" >-->
 <div id="dialog-confirm" title="Delete UPresent?">
   <div id="deleteName"></div>
 </div>
@@ -39,6 +40,9 @@
       <script>console.log(document.cookie);</script> 
     </div>
   </div>
+</div>
+<div id="backgroundScreen">
+  <img src="img/background.jpg" class="stretch">
 </div>
 <div id="content">
   <div id="tabs1">

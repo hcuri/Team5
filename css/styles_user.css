@@ -11,7 +11,8 @@ table {
 th {
 	font-size: 15px;
 	color:black;
-	background-color:#CCC;	
+	background-color:#CCC;
+
 }
 
 td {
@@ -72,6 +73,13 @@ td {
 
 #leaveGroup {
 	float:left;
+}
+
+#createNew {
+	margin-top:30px;
+	margin-left:110px;
+	height:28px;
+	width:192px;
 }
 
 .trashIcon {

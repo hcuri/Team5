@@ -35,9 +35,9 @@
   <div id="title">
     <h2>Search Results</h2>
   </div>
-	<form id="search">
+	<div id="search">
 		<input type="text" name="search" placeholder="New search">
-	</form>
+	</div>
   <table id="results">
     <tr class="result">
       <td>My</td>
@@ -59,6 +59,21 @@
     </tr>
     <tr class="result">
       <td>killed</td>
+    </tr>
+    <tr class="result">
+      <td>my</td>
+    </tr>
+    <tr class="result">
+      <td>father</td>
+    </tr>
+    <tr class="result">
+      <td>Prepare</td>
+    </tr>
+    <tr class="result">
+      <td>to</td>
+    </tr>
+    <tr class="result">
+      <td>die</td>
     </tr>
   </table>
 </div>
