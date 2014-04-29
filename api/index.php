@@ -1023,10 +1023,10 @@ function submitResponse () {
         $stmtOpRes->execute();
         $opRes = $stmtOpRes->fetch(PDO::FETCH_ASSOC);
         $result = $opRes['option_results'];
-        $result = $result++;
+        echo $result;
         
         $stmt = $db->prepare($sql);
-        $stmt->bindParam("optionResults", $result);
+        $stmt->bindParam("optionResults", $result++);
         $stmt->bindParam("pollId", $pollId['pollId']);
         $stmt->bindParam("choice", $response->response);
         $stmt->execute();
@@ -1051,6 +1051,8 @@ function getPollInfo($presId, $slide) {
         $stmtPollId->bindParam("slide", $slide);
         $stmtPollId->execute();
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
+        
+        $stmt = $db->
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
