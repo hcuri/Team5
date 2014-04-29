@@ -73,8 +73,8 @@ $(document).ready(function() {
 		var pollResponse = event.target;
 		pollResponse = $(pollResponse).html();
 		submitResponse(pollResponse);
-		//clearInterval(getCurrSlide);
-		//setInterval(getPollResults, 500);
+		clearInterval(getCurrSlide);
+		setInterval(getPollResults, 1000);
 	});
 });
 
@@ -101,7 +101,6 @@ function submitResponse(response) {
 	//TEST INFO FOR GRAPH STUFF
 	google.setOnLoadCallback(drawChart);
 	getPollResults();
-	drawChart();
 }
 
 
@@ -130,12 +129,11 @@ function getPollResults() {
 		async: false,
 	});
 	result = result.responseJSON;
-	alert(JSON.stringify(result));
-	liveResults = result.results;
 	
 	for(var i = 0; i < 4; i++) {
-		
+		liveResults.push(result[i].option_results);
 	}
+	drawChart();
 };
 
 function drawChart() {
