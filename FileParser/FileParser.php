@@ -3,7 +3,7 @@
 //if($_SERVER['HTTP_REFERER'] == "http://localhost/UPresent/new.php?") 
 //    require ('php/lib.php');
 //else if($_SERVER['HTTP_REFERER'] == "http://localhost/Upresent/api/index.php")
-    require_once ('/home/tyler/LAMP_sites/UPresent/php/lib.php'); 
+    //require_once ('php/lib.php'); 
     //this needs to be different depending on which page calls the File Parser
 
 class FileParser {

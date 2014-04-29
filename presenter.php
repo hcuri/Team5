@@ -5,6 +5,11 @@
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_presenter.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+    </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.cookie.js"></script>
@@ -59,12 +64,41 @@
       <input id="endUpres" type="submit" value="End UPresent">
     </form>
   </div>
-  <!--<div id="bottom">
-    <div id="presentNotes">
-      <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
+  <div id="bottomInfo">
+    <div id="bInfoData">
+      <table id="pollQuestions">
+        <tr>
+          <td>A</td>
+          <td class="q">test1</td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td class="q">test2</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td class="q">test3</td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td class="q">test4</td>
+        </tr>
+      </table>
     </div>
-    <div id="pollResults"><img id="pollR" src="img/poll.png" /></div>
-  </div>-->
+    <div id="bInfoGraph">
+    <table id="pollSubmission">
+        <tr>
+          <td id="responseA" class="submitButton">A</td>
+          <td id="responseB" class="submitButton">B</td>
+        </tr>
+         <tr>
+          <td id="responseC" class="submitButton">C</td>
+          <td id="responseD" class="submitButton">D</td>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>

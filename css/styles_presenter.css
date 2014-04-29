@@ -89,3 +89,33 @@ p {
 	height:28px;
 	width:192px;
 }
+
+#bottomInfo {
+	border-top: 1px solid #FF9F00;
+	margin-top:25px;
+	height:200px;
+	background-color:yellow;
+}
+
+#bInfoData {
+	float:left;
+	width:500px;
+	height:200px;
+}
+
+#bInfoGraph {
+	float:left;
+	width:500px;
+	height:200px;
+	
+}
+
+#pollQuestions {
+	padding-right:10px;
+}
+
+.submitButton {
+	width:50px;
+	height:25px;
+	background-color:red;
+}

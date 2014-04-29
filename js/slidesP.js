@@ -2,9 +2,24 @@
 
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
-var currentSlide = 1;
-var numSlides;	
+var currentSlide = null;	
 var presID = null;
+var numSlides;
+var poll = false;
+var liveResults = new Array();
+var letters = ['A','B','C','D'];
+var data = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#FF0000'],
+		['B', 0, '#FFFF00'],
+		['C', 0, '#FF00FF'],
+		['D', 0, '#000000'],]
+		);
+var chart;
+var options = {
+			legend: {position: 'none'},
+			backgroundColor: "#EDEDED",
+        };
 
 $(document).ready(function(e) {
 	presID = $.cookie('pres');
@@ -69,6 +84,44 @@ $(document).ready(function(e) {
 	});
 });
 
+var getCurrSlide = setInterval(function() {
+		var cS = $.ajax({
+			type: 'GET',
+			url: root_url + "/getCurrentSlide/" + presID,
+			dataType: "json",
+			async: false,
+		});
+		cS = cS.responseJSON;
+		currentSlide = cS.currSlide;
+		//var poll = cS.poll;
+		var poll = true;
+		updateSlide();
+		
+		if(poll) {
+			var pollJSON = $.ajax({
+				type: 'GET',
+				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
+				dataType: "json",
+				async: false,
+			});
+			pollJSON = pollJSON.responseJSON;
+			
+			var q = pollJSON[0].question;
+			
+			var qS = document.getElementsByClassName("q");
+			
+			for(var i = 0; i < 4; i++) {
+				$(qS[i]).html(pollJSON[i+1].option_text);
+			}
+			setInterval(getPollResults,500);
+			
+		} else {
+			//make poll shit disappear	
+		}
+}, 3000);
+
+
+
 function updateSlide() {
 	$("#slide").attr("src", slides[currentSlide]);
 	
@@ -98,6 +151,35 @@ function updateSlide() {
 		}
 	});
 	
+}
+
+//CHECK FOR NEW UPDATES TO POLL
+function getPollResults() {
+	while(liveResults.length > 0) {
+		liveResults.pop();
+	}
+	
+	var result = $.ajax({
+		type: 'GET',
+		url: root_url + "/getPollResults/" + presID + "/" + currentSlide,
+		dataType: "json",
+		async: false,
+	});
+	result = result.responseJSON;
+	
+	for(var i = 0; i < 4; i++) {
+		liveResults.push(result[i].option_results);
+	}
+	drawChart();
+};
+
+function drawChart() {
+	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
+
+	for(var i = 0; i < 4; i++) {
+		data.setValue(i, 1, liveResults[i]);
+	}
+	chart.draw(data, options);
 }
 
 // Helper function to serialize all the form fields into a JSON string
