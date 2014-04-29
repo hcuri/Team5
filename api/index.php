@@ -1061,6 +1061,34 @@ function getPollInfo($presId, $slide) {
     
 }
 
+function getPollResults($presId, $slide) {
+    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
+    $sql = "SELECT option_num, option_results FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    
+    
+    try {
+        $db = dbconnect();
+        $stmtPollId = $db->prepare($sqlPollId);
+        $stmtPollId->bindParam("presId", $presId);
+        $stmtPollId->bindParam("slide", $slide);
+        $stmtPollId->execute();
+        $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
+
+        $stmt = $db->prepare($sql);
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("pollId", $pollId);
+        $stmt->bindParam("slide", $slide);
+        $stmt->execute();
+        $pollResults = $stmt->fetchAll();
+
+        echo json_encode($pollResults);
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+    
+}
+
 function idFromUsername($username) {
     $sql = "SELECT userId FROM Users WHERE username=:username";
 
