@@ -65,29 +65,20 @@
     <div id="bInfoData">
       <table id="pollQuestions">
         <tr>
-          <th></th>
-          <th>Question</th>
-          <th>Result</th>
-        </tr>
-        <tr>
           <td>A</td>
-          <td>Option 1</td>
-          <td>6</td>
+          <td class="q">test1</td>
         </tr>
         <tr>
           <td>B</td>
-          <td>Option 1</td>
-          <td>2</td>
+          <td class="q">test2</td>
         </tr>
         <tr>
           <td>C</td>
-          <td>Option 1</td>
-          <td>9</td>
+          <td class="q">test3</td>
         </tr>
         <tr>
           <td>D</td>
-          <td>Option 1</td>
-          <td>1</td>
+          <td class="q">test4</td>
         </tr>
       </table>
     </div>

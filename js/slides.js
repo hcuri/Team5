@@ -49,27 +49,9 @@ $(document).ready(function() {
 	
 	$("#slideNum").html(currentSlide + "|" + numSlides);
 	$("#slide").attr("src", slides[currentSlide]);
-	
-	//GET POLL INFO IF THERE IS A POLL
-	if(poll) {
-		var pollJSON = $.ajax({
-			type: 'GET',
-			url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
-			dataType: "json",
-			async: false,
-		});
-		pollJSON = pollJSON.responseJSON;
-		var q = pollJSON.question;
-		var questions = new Array();
-		questions = pollJSON.questions;
-		
-		//DISPLAY POLL QUESTIONS
-		//BLAH BLAH BLAH
-	}
 		
 	//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
 	$(".submitButton").click(function(event) {
-		alert("submit button selected");
 		var pollResponse = event.target;
 		pollResponse = $(pollResponse).html();
 		submitResponse(pollResponse);
@@ -113,7 +95,38 @@ var getCurrSlide = setInterval(function() {
 		});
 		cS = cS.responseJSON;
 		currentSlide = cS.currSlide;
+		//var poll = cS.poll;
+		var poll = true;
 		updateSlide();
+		
+		if(poll) {
+			/*var pollJSON = $.ajax({
+				type: 'GET',
+				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
+				dataType: "json",
+				async: false,
+			});
+			pollJSON = pollJSON.responseJSON;
+			var q = pollJSON.question;*/
+			var questions = new Array();
+			//questions = pollJSON.questions;
+			
+			questions.push("question 1");
+			questions.push("question 2");
+			questions.push("question 3");
+			questions.push("question 4");
+			
+			//DISPLAY POLL QUESTIONS
+			//BLAH BLAH BLAH
+			var qS = document.getElementsByClassName("q");
+			
+			for(var i = 0; i < 4; i++) {
+				$(qS[i]).html(questions[i]);
+			}
+			
+		} else {
+			//make poll shit disappear	
+		}
 }, 5000);
 
 //CHECK FOR NEW UPDATES TO POLL
