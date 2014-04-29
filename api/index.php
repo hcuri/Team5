@@ -697,10 +697,39 @@ function deletePresentation() {
     $title = $presInfo->title;
     //$FileParser = new FileParser();
     //$FileParser->deletePresentation($title);
-
+    $sqlPresId = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :userId";
+    $sqlPollCheck = "SELECT pollId FROM Poll WHERE presId = :presId";
+    $sqlDelPollOps = "DELETE FROM Poll_Options WHERE pollId = :pollId";
+    $sqlDelPoll = "DELETE FROM Poll WHERE presId = :presId";
     $sql = "DELETE FROM Presentations WHERE presName = :title AND ownerId = :userId";
+    
     try {
         $db = dbconnect();
+        $stmtPresId = $db->prepare($sqlPresId);
+        $stmtPresId->bindParam("title", $title);
+        $stmtPresId->bindParam("userId", $userId);
+        $stmtPresId->execute();
+        $pres = $stmtPresId->fetch(PDO::FETCH_ASSOC);
+        $presId = $pres['presId'];
+        
+        $stmtPollCheck = $db->prepare($sqlPollCheck);
+        $stmtPollCheck->bindParam("presId", $presId);
+        $stmtPollCheck->execute();
+        if($stmtPollCheck->rowCount() > 0) {
+            for($i = 0; $i < $stmtPollCheck->rowCount(); $i++) {
+                $poll = $stmtPollCheck->fetch(PDO::FETCH_ASSOC);
+                $pollId = $poll['pollId'];
+                
+                $stmtDelPollOps = $db->prepare($sqlDelPollOps);
+                $stmtDelPollOps->bindParam("pollId", $pollId);
+                $stmtDelPollOps->execute();
+            
+                $stmtDelPoll = $db->prepare($sqlDelPoll);
+                $stmtDelPoll->bindParam("presId", $presId);
+                $stmtDelPoll->execute();
+            }
+        }
+        
         $stmt = $db->prepare($sql);
         $stmt->bindParam("title", $title);
         $stmt->bindParam("userId", $userId);
