@@ -1,5 +1,4 @@
 <?php
-
   function dbconnect() {
     //$username = "katykarm_team5";
     //$password = "team5password";
@@ -36,7 +35,7 @@
       //Do some shit
     }
   }
-  
+
 //if($_SERVER['HTTP_REFERER'] == "http://localhost/UPresent/new.php?") 
 //    require ('php/lib.php');
 //else if($_SERVER['HTTP_REFERER'] == "http://localhost/Upresent/api/index.php")
