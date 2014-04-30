@@ -11,6 +11,7 @@ var pollDone = false;
 var submitted = false;
 var interval = null;
 var show = false;
+var fullS = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -32,8 +33,14 @@ var options = {
 				},
 			},
         };
+var elem = null;
+var openFS = null;
+
 
 $(document).ready(function() {
+	elem = document.getElementById("slide");
+	openFS = elem.requestFullScreen || elem.webkitRequestFullScreen || elem.mozRequestFullScreen;
+
 	var slideInfo = $.ajax({
 		type: 'GET',
 		url: root_url + "/getPresInfo",
@@ -63,13 +70,13 @@ $(document).ready(function() {
 	$("#slide").attr("src", slides[currentSlide]);
 	
 	$("#slide").click(function() {
-		alert("entering full screen");
-		var elem = document.getElementById("slide")
-		, rfs =
-               elem.requestFullScreen
-            || elem.webkitRequestFullScreen
-            || elem.mozRequestFullScreen;
-    	rfs.call(elem);
+		if(fullS) {
+    		document.webkitCancelFullScreen();
+			fullS = false;
+		} else {
+			openFS.call(elem);
+			fullS = true;
+		}
 	});
 });
 
