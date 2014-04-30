@@ -179,12 +179,14 @@ input#done {
     right: 10px;
 }
 div#uErr {
+    font-weight: bold;
     position: absolute;
     bottom: 19px;
     left: 80px;
     color: red;
 }
 div#gErr {
+    font-weight: bold;
     position: absolute;
     bottom: 19px;
     right: 80px;
@@ -272,6 +274,14 @@ div#saveSubmit {
     height: 100px;
     padding-top: 20px;
     margin-left: 43px;
+}
+div#saveSubmit div {
+    font-size: 0.9em;
+    font-weight: bold;
+    float: left;
+    vertical-align: middle;
+    margin-left: 3px;
+    margin-top: 5px;
 }
 
 div#poll {

@@ -3,7 +3,7 @@ var resultCount = 0;
 var fNames = new Array();
 var lNames = new Array();
 var usernames = new Array();
-var linkedGroup;
+var linkedGroup = "";
 var numSlides;
 var currSlide;
 var polls = new Array();
@@ -58,7 +58,6 @@ $(document).ready(function(){
   
   $("div#fadeout").hide();
   $("div#invContainer").hide();
-//
 
   $("#inv").click(function(){
   	$("div#fadeout").show();
@@ -68,6 +67,11 @@ $(document).ready(function(){
     getGroups();
   });
   $("div#fadeout").click(function(){
+    if(linkedGroup === "")
+      $("div#saveSubmit div").html("Presentation not linked to a group");
+    else
+      $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+
   	$("div#fadeout").animate({opacity: 0.0}, "fast", function(){
   		$("div#fadeout").hide();
   	});
@@ -94,18 +98,26 @@ $(document).ready(function(){
   });
 
 
-  //Create group
+  //Group Stuff
+  if(linkedGroup === "")
+    $("div#saveSubmit div").html("Presentation not linked to a group");
+  else
+    $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+
+
   $("div#searchBar img#plusBtn").click(function() {
     var groupTxt = $('input#groupBox').val();
 
     if(groupTxt == "")
-      flashErr(2, "Please fill out the group box");
+      flashErr(1, "Please fill out the group box");
     else if(groupTxt != "") {
       createGroup();
     }
   });
 
   $("input#cancel").click(function() {
+    $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+
     $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
       $("div#fadeout").hide();
     });
@@ -294,8 +306,13 @@ function addUserToGroup(rowNum) {
       url: root_url + 'addToGroup',
       data: addUserFormToJSON(rowNum),
       async: true,
-      success: function(){
-        getGroups();
+      success: function(response){
+        if (response.indexOf("/*/") >= 0)
+          flashErr(1, "User is already in that group");
+        else {
+          flashErr(2, "Adding user to group...");
+          getGroups();
+        }
       },
       error: function(jqXHR, textStatus, errorThrown){
         alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -421,15 +438,16 @@ function displayGroups(groups) {
     var users = groups[i].users;
 
     if(i == 0)
-      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
+      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'><img src='img/trash.png' id='groupTrash' /></div>";
     else
-      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
+      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'><img src='img/trash.png' id='groupTrash' /></div>";
     for(var j = 0; j < numUsers; j++) {
       groupTable = groupTable + "<div id='uName'>" + users[j].name + " (" + users[j].username + ") <img src='img/trash.png' id='userTrash'/></div>";
     }
     $("div#groupTable").html(groupTable);
   }
 
+  $(":radio[value=0]").prop("checked", true)
   $("div#uName img").click(function() {
     deleteUserFromGroup(this);
   });
@@ -454,7 +472,12 @@ function search(searchTerm) {
         $("img#addToGroup").click(function(event) {
           var td = event.target.parentNode.parentNode;
           var rowNum = $(td).attr('class');
-          addUserToGroup(rowNum);
+          if(!$("input:radio[name=groupNum]").is(':checked')) {
+            flashErr(1, "A group is not selected");
+          }
+          else {
+            addUserToGroup(rowNum);
+          }
         });
       }
     },
@@ -472,6 +495,7 @@ $(document).keypress(function(e) {
           if(searchTxt == "")
             flashErr(1, "Please fill out the search box");
           else if(searchTxt != "") {
+            flashErr(2, "Searching...");
             search(searchTxt);
           }
         }
@@ -479,8 +503,9 @@ $(document).keypress(function(e) {
           var groupTxt = $('input#groupBox').val();
 
           if(groupTxt == "")
-            flashErr(2, "Please fill out the group box");
+            flashErr(1, "Please fill out the group box");
           else if(groupTxt != "") {
+            flashErr(2, "Creating group " + groupTxt + "...");
             createGroup();
           }
         }
