@@ -9,6 +9,7 @@ var numSlides;
 var poll = false;
 var pollDone = false;
 var submitted = false;
+var interval = null;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -57,7 +58,8 @@ $(document).ready(function() {
 function updateSlide() {
 	$("#slide").attr("src", slides[currentSlide]);
 	$("#slideNum").html(currentSlide + "/" + numSlides);
-	clearInterval(getPollResults);
+	clearInterval(interval);
+	interval = null;
 }
 
 function submitResponse(response) {
@@ -75,7 +77,7 @@ function submitResponse(response) {
         });
 			
 	//TEST INFO FOR GRAPH STUFF
-	setInterval(getPollResults, 1000);
+	interval = setInterval(getPollResults, 1000);
 }
 
 
