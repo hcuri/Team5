@@ -2,10 +2,12 @@
 
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
-var currentSlide = null;	
+var currentSlide = null;
+var updatedSlide = null;	
 var presID = null;
 var numSlides;
 var poll = false;
+var pollDone = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -20,6 +22,7 @@ var options = {
 			legend: {position: 'none'},
 			backgroundColor: "#FFFFFF",
         };
+var draw = false;
 
 $(document).ready(function(e) {
 	presID = $.cookie('pres');
@@ -47,19 +50,19 @@ $(document).ready(function(e) {
 	
 	$("#slide").click(function() {
                 if(currentSlide < numSlides) {
-                    currentSlide++;
+                    updatedSlide++;
                     updateSlide();
                 }
 	});
 	$("#previous").click(function() {
 		if(currentSlide > 1) {
-		currentSlide--;
+		updatedSlide--;
 		updateSlide();
 		}
 	});
 	$("#next").click(function() {
             if(currentSlide < numSlides) {
-		currentSlide++;
+		updatedSlide++;
 		updateSlide();
             }
 	});
@@ -67,13 +70,13 @@ $(document).ready(function(e) {
 	$(document).keydown(function(e) {
 		if(e.keyCode == 37) {
 			if(currentSlide > 1) {
-				currentSlide--;
+				updatedSlide--;
 				updateSlide();
 			}
 		}
 		if(e.keyCode == 39) {
 			if(currentSlide < numSlides) {
-				currentSlide++;
+				updatedSlide++;
 				updateSlide();
 			}
 		}
@@ -92,17 +95,25 @@ var getCurrSlide = setInterval(function() {
 			async: false,
 		});
 		cS = cS.responseJSON;
-		currentSlide = cS.currSlide;
-		var poll = cS.poll;
-		updateSlide();
-		
+		if(currentSlide !== cS.currSlide){
+			currentSlide = cS.currSlide;
+			updatedSlide = currentSlide;
+			poll = cS.poll;
+			pollDone = !poll;
+			updateSlide();
+		}
+			
 		if(poll) {
 			$( "#content" ).animate({
 				height: 675
-		  	}, 1000, function() {	
+			}, 1000, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
-		  	});
+				$( "#bottomInfo" ).animate({
+					opacity: 1
+				}, 1000, function() {
+				});	
+			});
 			
 			var pollJSON = $.ajax({
 				type: 'GET',
@@ -119,34 +130,46 @@ var getCurrSlide = setInterval(function() {
 			for(var i = 0; i < 4; i++) {
 				$(qS[i]).html(pollJSON[i+1].option_text);
 			}
+		
+			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
+			chart.draw(data, options);
 			setInterval(getPollResults,1000);
+			poll = false;
+			pollDone = false;
 			
-		} else {
-			$("#bottomInfo").css("display", "none");
+		} else if (pollDone) {
+			clearInterval(getPollResults);
+			$( "#bottomInfo" ).animate({
+				opacity: 0
+			}, 1000, function() {
+				$("#bottomInfo").css("display", "none");
+				$("#bInfoData").css("display", "none");
+			});	
 			$( "#content" ).animate({
 				height: 475
-		  	}, 1000, function() {
+			}, 1000, function() {
 				// Animation complete.
-		  	});	
+			});	
+			pollDone = false;
 		}
 }, 1000);
 
 
 
 function updateSlide() {
-	$("#slide").attr("src", slides[currentSlide]);
+	$("#slide").attr("src", slides[updatedSlide]);
 	
-	if(currentSlide < 2) {
-		$("#next").attr("src", slides[currentSlide+1]);
+	if(updatedSlide < 2) {
+		$("#next").attr("src", slides[updatedSlide+1]);
 		$("#previous").attr("src", "");
 		$("#previous").css("background-color", "black");
-	} else if(currentSlide == numSlides) {
-		$("#previous").attr("src", slides[currentSlide-1]);
+	} else if(updatedSlide == numSlides) {
+		$("#previous").attr("src", slides[updatedSlide-1]);
 		$("#next").attr("src", "");
 		$("#next").css("background-color", "black");
 	} else {
-		$("#previous").attr("src", slides[currentSlide-1]);
-		$("#next").attr("src", slides[currentSlide+1]);
+		$("#previous").attr("src", slides[updatedSlide-1]);
+		$("#next").attr("src", slides[updatedSlide+1]);
 	}
 	
 	$.ajax({
@@ -179,26 +202,18 @@ function getPollResults() {
 	result = result.responseJSON;
 	
 	for(var i = 0; i < 4; i++) {
-		liveResults.push(result[i].option_results);
-	}
-	drawChart();
-};
-
-function drawChart() {
-	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
-
-	for(var i = 0; i < 4; i++) {
-		data.setValue(i, 1, liveResults[i]);
+		data.setValue(i, 1, result[i].option_results);
 	}
 	chart.draw(data, options);
-}
+};
 
 // Helper function to serialize all the form fields into a JSON string
-function slideFormToJSON() {
+function slideFormToJSON(pN) {
 	return JSON.stringify({
 		"presId" : presID,
-		"currSlide": currentSlide
+		"currSlide": updatedSlide
 	});
+	
 }
 
 function finishPresentation() {

@@ -98,21 +98,22 @@ p {
 
 #bInfoData {
 	float:left;
-	width:500px;
+	width:525px;
 	height:200px;
 	text-align:left;
 }
 
 #bInfoGraph {
 	float:left;
-	width:500px;
+	width:525px;
 	height:200px;
-	
+	background-color:yellow;	
 }
 
 #pollQuestions {
 	padding-right:10px;
 	padding-left:25px;
+	background-color:#ededed;
 }
 
 .submitButton {
