@@ -529,8 +529,10 @@ function pollFormToJSON() {
   else           numOptions++;
 
   //set show results
-  if($('input#showGraph').prop('checked')) showResults = "true";
-  else                                     showResults = "false";
+  if($('input#showGraph').prop('checked')) 
+      showResults = "true";
+  else                                     
+      showResults = "false";
 
   /*pollJSON = '[{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
