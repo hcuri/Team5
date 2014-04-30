@@ -78,8 +78,8 @@ $(document).ready(function(e) {
 			}
 		}
 	});
-        $("#endPres").click(function() {
-                finishPresentation();
+    $("#endPres").click(function() {
+    	finishPresentation();
 		window.location = "http://localhost/user.php";
 	});
 });

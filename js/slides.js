@@ -55,7 +55,7 @@ $(document).ready(function() {
 		var pollResponse = event.target;
 		pollResponse = $(pollResponse).html();
 		submitResponse(pollResponse);
-		clearInterval(getCurrSlide);
+		setInterval(getCurrSlide, 1000);
 		setInterval(getPollResults, 1000);
 	});
 });
@@ -99,6 +99,14 @@ var getCurrSlide = setInterval(function() {
 		updateSlide();
 		
 		if(poll) {
+			//expand content
+			$( "#content" ).animate({
+				height: 675
+		  	}, 1000, function() {	
+				$("#bottomInfo").css("display", "block");
+				$("#bInfoData").css("display", "block");
+		  	});
+			
 			var pollJSON = $.ajax({
 				type: 'GET',
 				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
@@ -116,9 +124,14 @@ var getCurrSlide = setInterval(function() {
 			}
 			
 		} else {
-			//make poll shit disappear	
+			$("#bottomInfo").css("display", "none");
+			$( "#content" ).animate({
+				height: 475
+		  	}, 1000, function() {
+				// Animation complete.
+		  	});	
 		}
-}, 5000);
+}, 1000);
 
 //CHECK FOR NEW UPDATES TO POLL
 function getPollResults() {

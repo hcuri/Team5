@@ -12,17 +12,12 @@
     </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
-
 <script src="js/main.js"></script>
-<script src="js/viewer.js"></script>
 <script src="js/slides.js"></script>
 <title>UPresent Viewer</title>
 </head>
 
 <body>
-  <div id="backgroundScreen">
-    <img src="img/newbackground.jpg" class="stretch">
-  </div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
