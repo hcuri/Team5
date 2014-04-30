@@ -271,7 +271,7 @@
         <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" />
         <br>
         <br>
-        Correct<br>
+        Options<br>
         <label for="OptionA">A</label>
         <input id="OptionA" id="OptionA" type="text" placeholder="Option A text here" size="50"/>
         <br>

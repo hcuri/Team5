@@ -15,6 +15,7 @@
 <script src="js/jquery.cookie.js"></script>
 <script src="js/main.js"></script>
 <script src="js/slidesP.js"></script>
+<script src="js/fullscreen.js"></script>
 <title>UPresent Presenter</title>
 </head>
 
@@ -48,7 +49,7 @@
       <img id="previous" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
-    <div id="slidePane"> <img id="slide" src=""/></div>
+    <div id="slidePane"><img id="slide" src="" /><img id="fs" src="img/fsBtn.png" /></div>
     <div id="status">
       <div class="oLine"></div>
       <img id="next" class="smallSlide" src=""/>

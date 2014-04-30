@@ -253,6 +253,8 @@ input#saveUPresent {
     border: 1px solid #aaaaaa;
     border-radius: 4px;
     font-size: 1.0em;
+
+    margin-left: 43px;
 }
 div#PollInfo {
     float: right;  
@@ -266,9 +268,10 @@ div#PollInfo {
     }
 
 div#saveSubmit {
-    width: 100%;
+    width: 950px;
     height: 100px;
     padding-top: 20px;
+    margin-left: 43px;
 }
 
 div#poll {
@@ -309,13 +312,23 @@ div#pollTitle {
     }
     div#PollAdderForm input[type=text] {
         width: 600px;
-        margin-left: 10px;
     }
     div#pollContainer {
         margin-left: auto;
         margin-right: auto;
         width: 700px;
+        font-size: 1.2em;
     }
     div#pollContainer label {
-        margin-left: 10px;
+        margin-left: -1px;
     }
+    input#PollQuestion {
+        margin-left:17px;
+    }
+    input#showGraph {
+        vertical-align: middle;
+    }
+
+div#carousel {
+    margin-left: 39px;
+}

@@ -126,3 +126,17 @@ p {
 	height:40px;
 	padding-left:20px;
 }
+
+img#fs {
+	width: 40px;
+	height: 41px;
+
+	background-color: #ffffff;
+	position: absolute;
+	z-index: 100;
+
+	top: 300px;
+	right: 330px;
+
+	cursor: pointer;
+}
