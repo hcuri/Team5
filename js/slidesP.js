@@ -97,6 +97,8 @@ var getCurrSlide = setInterval(function() {
 		updateSlide();
 		
 		if(poll) {
+			$("#content").css("height", 675);
+			$("#bottomInfo").css("display", "block");
 			var pollJSON = $.ajax({
 				type: 'GET',
 				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
@@ -115,7 +117,9 @@ var getCurrSlide = setInterval(function() {
 			setInterval(getPollResults,500);
 			
 		} else {
-			//make poll shit disappear	
+			$("#content").css("height", 600);
+			$("#bottomInfo").css("display", "none");
+			
 		}
 }, 3000);
 
