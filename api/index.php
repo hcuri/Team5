@@ -875,8 +875,10 @@ function addToGroup() {
         $stmt->bindParam("groupId", $groupId);
         $stmt->bindParam("userId", $userId);
         $stmt->execute();
-        if ($stmt->rowCount() > 0)
+        if ($stmt->rowCount() > 0) {
+            echo '{"exists":/*/}';
             return;
+        }
 
         $stmt = $db->prepare($sqlUser);
         $stmt->bindParam("groupId", $groupId);

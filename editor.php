@@ -256,6 +256,7 @@
   </div>
   <div id="saveSubmit">
     <input type="submit" id="inv" value="Invite Viewers" />
+    <div></div>
     <input type="submit" id="saveUPresent" value="Save UPresent" />
   </div>
 </div>
