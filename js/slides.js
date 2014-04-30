@@ -117,12 +117,13 @@ var getCurrSlide = setInterval(function() {
 			});
 			pollJSON = pollJSON.responseJSON;
 			
-			var q = pollJSON[0].question;
+			var q = pollJSON.question;
+			var opts = pollJSON.options;
 			
 			var qS = document.getElementsByClassName("q");
 			
 			for(var i = 0; i < 4; i++) {
-				$(qS[i]).html(pollJSON[i+1].option_text);
+				$(qS[i]).html(opts[letters[i]]);
 			}
 			
 			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton">A</td><td id="responseB" class="submitButton">B</td></tr><tr><td id="responseC" class="submitButton">C</td><td id="responseD" class="submitButton">D</td></tr></table>');

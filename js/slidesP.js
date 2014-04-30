@@ -123,12 +123,13 @@ var getCurrSlide = setInterval(function() {
 			});
 			pollJSON = pollJSON.responseJSON;
 			
-			var q = pollJSON[0].question;
+			var q = pollJSON.question;
+			var opts = pollJSON.options;
 			
 			var qS = document.getElementsByClassName("q");
 			
 			for(var i = 0; i < 4; i++) {
-				$(qS[i]).html(pollJSON[i+1].option_text);
+				$(qS[i]).html(opts[letters[i]]);
 			}
 		
 			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
