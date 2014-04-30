@@ -1011,28 +1011,11 @@ function getGroups() {
 /* POLL Functionality */
 
 function createPoll() {
-    error_log('addPoll' . "\n", 3, 'var/tmp/php.log');
+    error_log('createPoll' . "\n", 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
 
-    echo '{"why":"why"}';
-
-    /*try {
-        $db = dbconnect();
-
-        $sqlCheck = "SELECT * FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
-
-        $stmtCheck = $db->prepare($sqlCheck);
-        $stmtCheck->bindParam("presId", $poll->presId);
-        $stmtCheck->bindParam("slideNum", $poll->slide);
-        $stmtCheck->execute();
-
-        $db = null;
-    } catch (PDOException $e) {
-        $date = date('m/d/Y h:i:s a', time());
-        error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
-        echo '{"error":"' . $e->getMessage() . '"}';
-    }*/
+    echo '{"ok":"ok"}';
 
     /*$optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -1057,26 +1040,11 @@ function createPoll() {
             $stmtNew->bindParam("slideNum", $poll->slide);
             $stmtNew->bindParam("question", $poll->question);
             $stmtNew->bindParam("numOptions", $poll->numOptions);
-
-            try {
-                $stmtNew->execute();
-            } catch (PDOException $e) {
-                $date = date('m/d/Y h:i:s a', time());
-                error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
-                echo '{"error":"' . $e->getMessage() . '"}';
-            }
-            
+            $stmtNew->execute();
             $stmtPollId = $db->prepare($sqlPollId);
             $stmtPollId->bindParam("presId", $poll->presId);
             $stmtPollId->bindParam("slideNum", $poll->slide);
-
-            try{ 
-                $stmtPollId->execute();
-            } catch (PDOException $e) {
-                $date = date('m/d/Y h:i:s a', time());
-                error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
-                echo '{"error":"' . $e->getMessage() . '"}';
-            }
+            $stmtPollId->execute();
             $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
             
             error_log("test", 3, '/var/tmp/php.log');
@@ -1085,14 +1053,7 @@ function createPoll() {
                 $stmtOptions->bindParam("pollId", $pollId['pollId']);
                 $stmtOptions->bindParam("optionNum", $optionNums[$i]);
                 $stmtOptions->bindParam("optionText", $pollId->options[$optionNums[$i]]);
-
-                try {
-                    $stmtOptions->execute();
-                } catch (PDOException $e) {
-                    $date = date('m/d/Y h:i:s a', time());
-                    error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
-                    echo '{"error":"' . $e->getMessage() . '"}';
-                }
+                $stmtOptions->execute();
             }
         }
         else {
@@ -1102,14 +1063,7 @@ function createPoll() {
             $stmtUpdate->bindParam("question", $poll->question);
             $stmtUpdate->bindParam("numOptions", $poll->numOptions);
             $stmtUpdate->bindParam("pollId", $pollId['pollId']);
-
-            try { 
-                $stmtUpdate->execute();
-            } catch (PDOException $e) {
-                $date = date('m/d/Y h:i:s a', time());
-                error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
-                echo '{"error":"' . $e->getMessage() . '"}';
-            }
+            $stmtUpdate->execute();
             
             for($i = 0; $i < $poll->numOptions; $i++) {
                 $stmtOpUpdate = $db->prepare($sqlOpUp);

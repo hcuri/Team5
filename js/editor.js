@@ -501,8 +501,6 @@ function addPoll() {
   });
 }
 function pollFormToJSON() {
-  var pollJSON;
-
   //Set all vars for json
   var presId = $.cookie('pres');
   var numOptions = 0;
@@ -516,7 +514,7 @@ function pollFormToJSON() {
   var opt6 = $("input#OptionF").val();
   var showResults = $('input#1').prop('checked')
 
-  //Set text vars
+  //Set text vars and count options
   if(opt1 == '') opt1 = "NULL";
   else           numOptions++;
   if(opt2 == '') opt2 = "NULL";
@@ -530,17 +528,30 @@ function pollFormToJSON() {
   if(opt6 == '') opt6 = "NULL";
   else           numOptions++;
 
-  //Count number of options
+  //set show results
   if($('input#showGraph').prop('checked')) showResults = "true";
   else                                     showResults = "false";
 
-  //Output the json
   pollJSON = '[{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
               + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}]';
+
   polls[currSlide] = pollJSON;
-  alert(pollJSON);
   return pollJSON;
+
+  /*return JSON.stringify({
+    "presId": presId,
+    "numOptions": numOptions,
+    "question": question,
+    "slide": currSlide,
+    "showResults": showResults,
+    "A": opt1,
+    "B": opt2,
+    "C": opt3,
+    "D": opt4,
+    "E": opt5,
+    "F": opt6,
+  });*/
 }
 
 function getPoll() {
