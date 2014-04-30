@@ -126,6 +126,11 @@ p {
 	width:400px;
 	height:40px;
 	padding-left:20px;
+	font-size:15px;
+}
+
+.question {
+	font-size: 20px;
 }
 
 img#fs {

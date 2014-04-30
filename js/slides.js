@@ -24,6 +24,8 @@ var chart;
 var options = {
 			legend: {position: 'none'},
 			backgroundColor: "#FFFFFF",
+			width: 525,
+			height: 200,
         };
 
 $(document).ready(function() {
@@ -123,6 +125,8 @@ var getCurrSlide = setInterval(function() {
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
 			show = pollJSON.showResults;
+			
+			$(".question").html(q);
 			
 			var qS = document.getElementsByClassName("q");
 			

@@ -68,8 +68,8 @@ p {
 
 #bInfoData {
 	float:left;
-	margin-left:-150px;
-	width:500px;
+	margin-left:-175px;
+	width:525px;
 	height:200px;
 	text-align:left;
 	display:none;
@@ -77,7 +77,7 @@ p {
 
 #bInfoGraph {
 	float:left;
-	width:500px;
+	width:525px;
 	height:200px;
 	
 }
@@ -97,4 +97,9 @@ p {
 	width:400px;
 	height:40px;
 	padding-left:20px;
+	font-size:15px;
+}
+
+.question {
+	font-size: 20px;
 }

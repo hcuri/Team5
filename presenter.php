@@ -64,6 +64,10 @@
   <div id="bottomInfo">
     <div id="bInfoData">
       <table id="pollQuestions">
+      <tr>
+            <th></th>
+              <th class="question"></th>
+            </tr>
         <tr>
           <td>A</td>
           <td class="q"></td>
