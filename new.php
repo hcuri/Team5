@@ -16,9 +16,6 @@
 <title>UPresent -- New</title>
 </head>
 <body>
-  <div id="backgroundScreen">
-    <img src="img/newbackground.jpg" class="stretch">
-  </div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
