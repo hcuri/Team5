@@ -532,14 +532,11 @@ function pollFormToJSON() {
   if($('input#showGraph').prop('checked')) showResults = "true";
   else                                     showResults = "false";
 
-  pollJSON = '[{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
+  /*pollJSON = '[{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
-              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}]';
+              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}]';*/
 
-  polls[currSlide] = pollJSON;
-  return pollJSON;
-
-  /*return JSON.stringify({
+  return JSON.stringify({
     "presId": presId,
     "numOptions": numOptions,
     "question": question,
@@ -551,7 +548,7 @@ function pollFormToJSON() {
     "D": opt4,
     "E": opt5,
     "F": opt6,
-  });*/
+  });
 }
 
 function getPoll() {

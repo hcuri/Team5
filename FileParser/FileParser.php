@@ -1,10 +1,47 @@
 <?php
 
+  function dbconnect() {
+    //$username = "katykarm_team5";
+    //$password = "team5password";
+    $username = "root";
+    $password = "password";
+    
+    try {
+      $conn = new PDO('mysql:host=localhost;dbname=upresent', $username, $password);
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {
+      echo 'ERROR: ' . $e->getMessage();
+    }
+
+    return $conn; 
+    
+  }
+
+  function getUserId($username) {
+    $sql = "SELECT userId FROM Users WHERE username=:username";
+    try {
+      $db = dbconnect();
+      $stmt = $db->prepare($sql);  
+      $stmt->bindParam("username", $username);
+      $stmt->execute();
+      if($stmt->rowCount() == 1) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $userId = $row['userId'];
+      }
+      else 
+        return "SOMESHIT";
+      return $userId;
+      $db = null;
+    } catch(PDOException $e) {
+      //Do some shit
+    }
+  }
+  
 //if($_SERVER['HTTP_REFERER'] == "http://localhost/UPresent/new.php?") 
 //    require ('php/lib.php');
 //else if($_SERVER['HTTP_REFERER'] == "http://localhost/Upresent/api/index.php")
     //require_once ('/home/taylor/sites/UPresent/php/lib.php'); 
-	require_once('/Users/JKP/Development/UPresent/php/lib.php');
+	//require_once('/Users/JKP/Development/UPresent/php/lib.php');
     //this needs to be different depending on which page calls the File Parser
 
 class FileParser {
