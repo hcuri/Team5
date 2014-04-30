@@ -1,6 +1,6 @@
 <?php
   if(!empty($_FILES['files'])) {
-    require_once("FileParser/FileParser.php"); 
+    require_once("api/FileParser.php"); 
     $FileParser = new FileParser();
     $FileParser->modifyPresentation($_FILES['files'], $_COOKIE['presName']);
   }
