@@ -1017,7 +1017,6 @@ function createPoll() {
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
 
-    //echo '{"ok":"ok"}';
 
     $optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -1170,7 +1169,7 @@ function submitResponse () {
 
 function getPollInfo($presId, $slide) {
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
-    $sqlPollQuestion = "SELECT question FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    $sqlPollQuestion = "SELECT question, showResults FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
     $sqlPollInfo = "SELECT option_num, option_text FROM Poll_Options WHERE pollId = :pollId";
     
     
@@ -1192,19 +1191,26 @@ function getPollInfo($presId, $slide) {
             $stmtPollQuestion->bindParam("slide", $slide);
             $stmtPollQuestion->execute();
             $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
+            $pollShowRes = $pollQuestion['showResults'];
             $pollQuestion = $pollQuestion['question'];
             $pollQuestion = json_encode($pollQuestion);
 
             $stmtPollInfo = $db->prepare($sqlPollInfo);
             $stmtPollInfo->bindParam("pollId", $pollId);
             $stmtPollInfo->execute();
-            $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_OBJ);
-            $pollInfo = json_encode($pollInfo);
+            $pollOptions = '{';
+            for($i = 0; $i < $stmtPollInfo->rowCount(); $i++) {
+                $pollInfo = $stmtPollInfo->fetch(PDO::FETCH_ASSOC);
+                if($i != 0)
+                    $pollOptions = $pollOptions . ',';
+                $pollOptions = $pollOptions . '"' . $pollInfo['option_num'] . '":"'
+                        . $pollInfo['option_text'] . '"';
+            }
+            $pollOptions = $pollOptions . '}';
+            //$pollInfo = str_replace("[", "", $pollInfo);
+            //$pollInfo = str_replace("]", "", $pollInfo);
 
-            $pollInfo = str_replace("[", "", $pollInfo);
-            $pollInfo = str_replace("]", "", $pollInfo);
-
-            $poll = '[{"question":' . $pollQuestion . '},' . $pollInfo . ']';
+            $poll = '{"question":' . $pollQuestion . ',"showResults":' . $pollShowRes . ',"options":' . $pollOptions . '}';
 
             echo $poll;
         }

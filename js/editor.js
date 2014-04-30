@@ -162,8 +162,8 @@ $(document).ready(function(){
             alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
         }
     });
-
     currSlide = 1;
+    getPoll();
     $("div#carousel-left").click(function() {
       if(currSlide == 1)
         currSlide = numSlides;
@@ -570,5 +570,49 @@ function getPoll() {
 }
 
 function fillPoll(json) {
-  //alert(JSON.stringify(json));
+    
+  if("poll" in json) {
+      document.getElementById('PollQuestion').value = '';
+      document.getElementById('OptionA').value = '';
+      document.getElementById('OptionB').value = '';
+      document.getElementById('OptionC').value = '';
+      document.getElementById('OptionD').value = '';
+      document.getElementById('OptionE').value = '';
+      document.getElementById('OptionF').value = '';
+      document.getElementById('showGraph').checked = false;
+  }
+  var question = document.getElementById("PollQuestion");
+  if("question" in json)
+    question.value = json.question;
+  
+  var opA = document.getElementById("OptionA");
+  if("A" in json.options)
+    opA.value = json.options.A;
+  
+  var opB = document.getElementById("OptionB");
+  if("B" in json.options)
+    opB.value = json.options.B;
+  
+  var opC = document.getElementById("OptionC");
+  if("C" in json.options)
+    opC.value = json.options.C;
+  
+  var opD = document.getElementById("OptionD");
+  if("D" in json.options)
+    opD.value = json.options.D;
+  
+  var opE = document.getElementById("OptionE");
+  if("E" in json.options)
+    opE.value = json.options.E;
+  
+  var opF = document.getElementById("OptionF");
+  if("F" in json.options)
+    opF.value = json.options.F;
+
+  var showGraph = document.getElementById("showGraph");
+  if("showResults" in json) {
+    if(json.showResults === 1)
+      showGraph.checked = true;
+  }
+    
 }
