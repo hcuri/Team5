@@ -1250,6 +1250,39 @@ function getPollResults($presId, $slide) {
     
 }
 
+//$app->post('/resetPoll/:presId/slideNum', 'resetPoll');
+
+function resetPoll($presId, $slideNum) {
+    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
+    $sqlPollReset = "UPDATE Poll_Options SET option_results = 0 WHERE pollId = :pollId";
+    
+    try {
+        $db = dbconnect();
+        $stmtPollId = $db->prepare($sqlPollId);
+        $stmtPollId->bindParam("presId", $presId);
+        $stmtPollId->bindParam("slide", $slide);
+        $stmtPollId->execute();
+        $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
+
+        if(empty($pollId))
+            echo '{"poll":"empty"}';
+        else {
+            $pollId = $pollId['pollId'];
+
+            $stmtPollReset = $db->prepare($sqlPollReset);
+            $stmtPollReset->bindParam("pollId", $pollId);
+            $stmtPollReset->execute();
+
+            echo '{"poll":"error"}';
+        }
+        $db = null;
+
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+}
+
 function idFromUsername($username) {
     $sql = "SELECT userId FROM Users WHERE username=:username";
 
