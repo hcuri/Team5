@@ -487,11 +487,15 @@ $(document).keypress(function(e) {
     }
 
     //Photo Gallery 
+
+    //Doesn't work
     if(e.which == 37) {
+      alert("sup");
       console.log("left arrow");
       $("#carousel-left").trigger('click');
     } 
     if(e.which == 39) {
+      alert("sup yo");
       console.log("right arrow");
       $("#carousel-right").trigger('click');
     }

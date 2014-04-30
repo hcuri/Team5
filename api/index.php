@@ -45,6 +45,7 @@ $app->post('/createPoll', 'createPoll');
 $app->post('/submitResponse', 'submitResponse');
 $app->get('/getPollInfo/:presId/:slideNum', 'getPollInfo');
 $app->get('/getPollResults/:presId/:slideNum', 'getPollResults');
+$app->post('/resetPoll/:presId/slideNum', 'resetPoll');
 
 
 $app->run();
