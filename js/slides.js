@@ -2,10 +2,12 @@
 
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
-var currentSlide = null;	
+var currentSlide = null;
+var updatedSlide = null;	
 var presID = null;
 var numSlides;
 var poll = false;
+var pollDone = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -96,18 +98,25 @@ var getCurrSlide = setInterval(function() {
 			async: false,
 		});
 		cS = cS.responseJSON;
-		currentSlide = cS.currSlide;
-		var poll = cS.poll;
-		updateSlide();
+		if(currentSlide !== cS.currSlide){
+			currentSlide = cS.currSlide;
+			updatedSlide = currentSlide;
+			poll = cS.poll;
+			pollDone = !poll;
+			updateSlide();
+		}
 		
 		if(poll) {
-			//expand content
 			$( "#content" ).animate({
 				height: 675
-		  	}, 1000, function() {	
+			}, 1000, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
-		  	});
+				$( "#bottomInfo" ).animate({
+					opacity: 1
+				}, 1000, function() {
+				});	
+			});
 			
 			var pollJSON = $.ajax({
 				type: 'GET',
@@ -125,13 +134,25 @@ var getCurrSlide = setInterval(function() {
 				$(qS[i]).html(pollJSON[i+1].option_text);
 			}
 			
-		} else {
-			$("#bottomInfo").css("display", "none");
+			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
+			setInterval(getPollResults,1000);
+			poll = false;
+			pollDone = false;
+			
+		} else if (pollDone) {
+			clearInterval(getPollResults);
+			$( "#bottomInfo" ).animate({
+				opacity: 0
+			}, 1000, function() {
+				$("#bottomInfo").css("display", "none");
+				$("#bInfoData").css("display", "none");
+			});	
 			$( "#content" ).animate({
 				height: 475
-		  	}, 1000, function() {
+			}, 1000, function() {
 				// Animation complete.
-		  	});	
+			});	
+			pollDone = false;
 		}
 }, 1000);
 

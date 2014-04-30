@@ -65,34 +65,23 @@
       <table id="pollQuestions">
         <tr>
           <td>A</td>
-          <td class="q">test1</td>
+          <td class="q"></td>
         </tr>
         <tr>
           <td>B</td>
-          <td class="q">test2</td>
+          <td class="q"></td>
         </tr>
         <tr>
           <td>C</td>
-          <td class="q">test3</td>
+          <td class="q"></td>
         </tr>
         <tr>
           <td>D</td>
-          <td class="q">test4</td>
+          <td class="q"></td>
         </tr>
       </table>
     </div>
     <div id="bInfoGraph">
-    <table id="pollSubmission">
-        <tr>
-          <td id="responseA" class="submitButton">A</td>
-          <td id="responseB" class="submitButton">B</td>
-        </tr>
-         <tr>
-          <td id="responseC" class="submitButton">C</td>
-          <td id="responseD" class="submitButton">D</td>
-        </tr>
-      </table>
-      
     </div>
   </div>
 </div>
