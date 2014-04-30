@@ -45,7 +45,7 @@ $app->post('/createPoll', 'createPoll');
 $app->post('/submitResponse', 'submitResponse');
 $app->get('/getPollInfo/:presId/:slideNum', 'getPollInfo');
 $app->get('/getPollResults/:presId/:slideNum', 'getPollResults');
-$app->post('/resetPoll/:presId/slideNum', 'resetPoll');
+$app->post('/resetPoll', 'resetPoll');
 
 
 $app->run();
@@ -1252,15 +1252,18 @@ function getPollResults($presId, $slide) {
 
 //$app->post('/resetPoll/:presId/slideNum', 'resetPoll');
 
-function resetPoll($presId, $slideNum) {
+function resetPoll() {
+    $request = Slim::getInstance()->request();
+    $poll = json_decode($request->getBody());
+
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
     $sqlPollReset = "UPDATE Poll_Options SET option_results = 0 WHERE pollId = :pollId";
     
     try {
         $db = dbconnect();
         $stmtPollId = $db->prepare($sqlPollId);
-        $stmtPollId->bindParam("presId", $presId);
-        $stmtPollId->bindParam("slide", $slide);
+        $stmtPollId->bindParam("presId", $poll->presId);
+        $stmtPollId->bindParam("slide", $poll->slide);
         $stmtPollId->execute();
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
 

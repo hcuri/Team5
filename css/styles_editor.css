@@ -188,7 +188,7 @@ div#gErr {
     position: absolute;
     bottom: 19px;
     right: 80px;
-    color: red;
+    color: black;
 }
 input[type="radio"] {
     /*float: right;*/
