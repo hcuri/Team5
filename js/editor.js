@@ -169,12 +169,14 @@ $(document).ready(function(){
         currSlide = numSlides;
       else
         currSlide--; 
+      getPoll();
     });
     $("div#carousel-right").click(function() {
       if(currSlide == numSlides)
         currSlide = 1;
       else
         currSlide++;
+      getPoll();
     });
 
     //Polling
@@ -432,6 +434,7 @@ function displayGroups(groups) {
   $("div#gName img").click(function() {
     deleteGroup(this);
   });
+
 }
 function search(searchTerm) {
   var term = searchTerm.replace(/ /g, '-');
@@ -540,3 +543,23 @@ function pollFormToJSON() {
   return pollJSON;
 }
 
+function getPoll() {
+  var slide = currSlide;
+
+  $.ajax({
+    type: 'GET',
+    url: root_url + 'getPollInfo' + '/' + $.cookie('pres') + '/' + slide,
+    dataType: "json", // data type of response
+    async: true,
+    success: function(response) {
+      fillPoll(response);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+    }
+  });
+}
+
+function fillPoll(json) {
+  alert(JSON.stringify(json));
+}
