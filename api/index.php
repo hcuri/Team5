@@ -547,9 +547,9 @@ function getCurrentSlide($presId) {
         $stmtPoll->bindParam("presId", $presId);
         $stmtPoll->bindParam("slide", $pres['currSlide']);
         $stmtPoll->execute();
-        $poll = false;
+        $poll = "false";
         if($stmtPoll->rowCount() > 0)
-            $poll = true;
+            $poll = "true";
         
         echo '{"currSlide":' . $pres['currSlide'] . ',"poll":' . $poll . '}';
         
