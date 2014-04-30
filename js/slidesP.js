@@ -23,6 +23,11 @@ var options = {
 			backgroundColor: "#FFFFFF",
 			width: 525,
 			height: 200,
+			vAxis: {
+				textStyle: {
+					color: 'white',
+				},
+			},
         };
 var draw = false;
 
@@ -220,9 +225,11 @@ function getPollResults() {
 		async: false,
 	});
 	result = result.responseJSON;
+	var rS = document.getElementsByClassName("r");
 	
 	for(var i = 0; i < 4; i++) {
 		data.setValue(i, 1, result[i].option_results);
+		$(rS[i]).html(result[i].option_results);
 	}
 	chart.draw(data, options);
 };

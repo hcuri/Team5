@@ -65,22 +65,27 @@
       	<tr>
         <td><input id="resetPoll" type="button" value="Reset Poll"></td>
         <td class="question"> </td>
+        <td class="result">Results</td>
       	</tr>
         <tr>
           <td>A</td>
           <td class="q"></td>
+          <td class="r"></td>
         </tr>
         <tr>
           <td>B</td>
           <td class="q"></td>
+          <td class="r"></td>
         </tr>
         <tr>
           <td>C</td>
           <td class="q"></td>
+          <td class="r"></td>
         </tr>
         <tr>
           <td>D</td>
           <td class="q"></td>
+          <td class="r"></td>
         </tr>
       </table>
     </div>

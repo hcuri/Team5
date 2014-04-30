@@ -26,6 +26,11 @@ var options = {
 			backgroundColor: "#FFFFFF",
 			width: 525,
 			height: 200,
+			vAxis: {
+				textStyle: {
+					color: 'white',
+				},
+			},
         };
 
 $(document).ready(function() {
