@@ -1016,12 +1016,9 @@ function createPoll() {
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
 
-    $handler = PhpConsole\Handler::getInstance();
-    $handler->start();
-    $handler->debug('called from handler debug', 'some.three.tags');
-    var_dump($poll);
+    echo '{"why":"why"}';
 
-    try {
+    /*try {
         $db = dbconnect();
 
         $sqlCheck = "SELECT * FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
@@ -1036,7 +1033,7 @@ function createPoll() {
         $date = date('m/d/Y h:i:s a', time());
         error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
-    }
+    }*/
 
     /*$optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
 
