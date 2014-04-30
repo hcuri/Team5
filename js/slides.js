@@ -63,6 +63,8 @@ $(document).ready(function() {
 function updateSlide() {
 	$("#slide").attr("src", slides[currentSlide]);
 	$("#slideNum").html(currentSlide + "/" + numSlides);
+	setInterval(getCurrSlide, 1000);
+	clearInterval(getPollResults);
 }
 
 function submitResponse(response) {

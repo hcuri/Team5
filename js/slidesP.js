@@ -97,8 +97,13 @@ var getCurrSlide = setInterval(function() {
 		updateSlide();
 		
 		if(poll) {
-			$("#content").css("height", 675);
-			$("#bottomInfo").css("display", "block");
+			$( "#content" ).animate({
+				height: 675
+		  	}, 1000, function() {	
+				$("#bottomInfo").css("display", "block");
+				$("#bInfoData").css("display", "block");
+		  	});
+			
 			var pollJSON = $.ajax({
 				type: 'GET',
 				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
@@ -114,14 +119,17 @@ var getCurrSlide = setInterval(function() {
 			for(var i = 0; i < 4; i++) {
 				$(qS[i]).html(pollJSON[i+1].option_text);
 			}
-			setInterval(getPollResults,500);
+			setInterval(getPollResults,1000);
 			
 		} else {
-			$("#content").css("height", 600);
 			$("#bottomInfo").css("display", "none");
-			
+			$( "#content" ).animate({
+				height: 475
+		  	}, 1000, function() {
+				// Animation complete.
+		  	});	
 		}
-}, 3000);
+}, 1000);
 
 
 
