@@ -12,10 +12,10 @@ var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
-		['A', 0, '#FF0000'],
-		['B', 0, '#FFFF00'],
-		['C', 0, '#FF00FF'],
-		['D', 0, '#000000'],]
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],
+		['D', 0, '#FF4500'],]
 		);
 var chart;
 var options = {
