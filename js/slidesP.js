@@ -122,6 +122,7 @@ var getCurrSlide = setInterval(function() {
 				async: false,
 			});
 			pollJSON = pollJSON.responseJSON;
+			console.log(JSON.stringify(pollJSON));
 			
 			var q = pollJSON.question;
 			var opts = pollJSON.options;

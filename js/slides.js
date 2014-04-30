@@ -10,6 +10,7 @@ var poll = false;
 var pollDone = false;
 var submitted = false;
 var interval = null;
+var show = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -75,9 +76,11 @@ function submitResponse(response) {
             	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
             }
         });
-			
-	//TEST INFO FOR GRAPH STUFF
-	interval = setInterval(getPollResults, 1000);
+	
+	if(show) {
+		//TEST INFO FOR GRAPH STUFF
+		interval = setInterval(getPollResults, 1000);
+	}
 }
 
 
@@ -119,6 +122,7 @@ var getCurrSlide = setInterval(function() {
 			
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
+			show = pollJSON.showResults;
 			
 			var qS = document.getElementsByClassName("q");
 			
