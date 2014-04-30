@@ -1211,7 +1211,7 @@ function getPollInfo($presId, $slide) {
 
             $poll = '[{"question":' . $pollQuestion . '},' . $pollInfo . ']';
 
-            //echo $poll;
+            echo $poll;
         }
         $db = null;
 
