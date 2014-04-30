@@ -773,11 +773,11 @@ function setPresId() {
 function getPresInfo() {
     error_log('getPresInfo' . "\n", 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
-
+//testing comment
     $presID = $_COOKIE['pres'];
     $sql = "SELECT Presentations.*, Users.fName, Users.lName"
-         . "FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
-         . "WHERE presId = :presId";
+            . " FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
+            . " WHERE presId = :presId";
 
     try {
         $db = dbconnect();
