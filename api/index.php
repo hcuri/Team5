@@ -776,8 +776,8 @@ function getPresInfo() {
 
     $presID = $_COOKIE['pres'];
     $sql = "SELECT Presentations.*, Users.fName, Users.lName"
-            . " FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
-            . " WHERE presId = :presId";
+         . "FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
+         . "WHERE presId = :presId";
 
     try {
         $db = dbconnect();

@@ -50,6 +50,21 @@ function flashErr(divNum, errMsg) {
   }
 }
 
+function getPresInfo() {
+  $.ajax({
+      type: 'GET',
+      url: root_url + 'getPresInfo',
+      async: true,
+      dataType: "json",
+      success: function(response) { 
+        alert(JSON.stringify(response));
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+          alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+      }
+  });
+}
+
 $(document).ready(function(){
 
   var left = (screen.width / 2) - ($("div#invContainer").width() / 2);
@@ -99,6 +114,8 @@ $(document).ready(function(){
 
 
   //Group Stuff
+  getPresInfo();
+
   if(linkedGroup === "")
     $("div#saveSubmit div").html("Presentation not linked to a group");
   else
@@ -236,7 +253,10 @@ function updatePresentation(groupName) {
         data: updateToJSON(groupName),
         async: true,
         success: function(msg) {
-            alert(msg);
+            var response = JSON.parse(msg);
+            var groupName = response.groupName;
+            linkedGroup = groupName;
+            $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
