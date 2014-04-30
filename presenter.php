@@ -63,7 +63,7 @@
     <div id="bInfoData">
       <table id="pollQuestions">
       	<tr>
-        <td></td>
+        <td><input id="resetPoll" type="button" value="Reset Poll"></td>
         <td class="question"> </td>
       	</tr>
         <tr>

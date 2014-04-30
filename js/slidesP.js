@@ -87,6 +87,20 @@ $(document).ready(function(e) {
     	finishPresentation();
 		window.location = "http://localhost/user.php";
 	});
+	$("#resetPoll").click(function() {
+					console.log("reset activated");
+    				$.ajax({
+						type: 'POST',
+						url: root_url + 'resetPoll',
+						data: resetFormToJSON(),
+						async: false,
+						success: function(){
+						},
+						error: function(jqXHR, textStatus, errorThrown){
+							alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+						}
+					});
+				});
 });
 
 var getCurrSlide = setInterval(function() {
@@ -154,21 +168,7 @@ var getCurrSlide = setInterval(function() {
 			$( "#content" ).animate({
 				height: 475
 			}, 1000, function() {
-				$("#bottomInfo").after('<input id="resetPoll" type="submit" value="Reset Poll">');
-				$("#resetPoll").click(function() {
-    				$.ajax({
-						type: 'POST',
-						url: root_url + 'resetPoll',
-						data: resetFormToJSON(),
-						async: false,
-						success: function(){
-							console.log("poll reset");
-						},
-						error: function(jqXHR, textStatus, errorThrown){
-							alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-						}
-					});
-				});
+				//nothing
 			});	
 			pollDone = false;
 		}
