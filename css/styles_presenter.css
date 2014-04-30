@@ -106,14 +106,12 @@ p {
 #bInfoGraph {
 	float:left;
 	width:525px;
-	height:200px;
-	background-color:yellow;	
+	height:200px;	
 }
 
 #pollQuestions {
 	padding-right:10px;
 	padding-left:25px;
-	background-color:#ededed;
 }
 
 .submitButton {

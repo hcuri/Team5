@@ -61,6 +61,16 @@ $(document).ready(function() {
 	
 	$("#slideNum").html(currentSlide + "|" + numSlides);
 	$("#slide").attr("src", slides[currentSlide]);
+	
+	$("#slide").click(function() {
+		alert("entering full screen");
+		var elem = document.getElementById("slide")
+		, rfs =
+               elem.requestFullScreen
+            || elem.webkitRequestFullScreen
+            || elem.mozRequestFullScreen;
+    	rfs.call(elem);
+	});
 });
 
 function updateSlide() {
