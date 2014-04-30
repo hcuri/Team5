@@ -40,7 +40,6 @@
     </div>
   </div>
 </div>
-
 <div id="content">
   <div id="tabs1">
     <ul>

@@ -154,7 +154,21 @@ var getCurrSlide = setInterval(function() {
 			$( "#content" ).animate({
 				height: 475
 			}, 1000, function() {
-				// Animation complete.
+				$("#bottomInfo").after('<input id="resetPoll" type="submit" value="Reset Poll">');
+				$("#resetPoll").click(function() {
+    				$.ajax({
+						type: 'POST',
+						url: root_url + 'resetPoll',
+						data: resetFormToJSON(),
+						async: false,
+						success: function(){
+							console.log("poll reset");
+						},
+						error: function(jqXHR, textStatus, errorThrown){
+							alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+						}
+					});
+				});
 			});	
 			pollDone = false;
 		}
@@ -240,5 +254,12 @@ function finishPresentation() {
 function endFormToJSON() {
     return JSON.stringify({
         "presId" : presID
+    });
+}
+
+function resetFormToJSON() {
+    return JSON.stringify({
+        "presId" : presID,
+		"slide" : currentSlide
     });
 }

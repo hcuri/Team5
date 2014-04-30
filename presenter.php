@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/styles_presenter.css" rel="stylesheet" />
-    <link href="css/jQuery.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_presenter.css" rel="stylesheet" />
+<link href="css/jQuery.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});
     </script>
-    <script src="js/jQuery.js"></script>
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/slidesP.js"></script>
-    <script src="js/fullscreen.js"></script>
-    <title>UPresent Presenter</title>
-    </head>
+<script src="js/jQuery.js"></script>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/main.js"></script>
+<script src="js/slidesP.js"></script>
+<script src="js/fullscreen.js"></script>
+<title>UPresent Presenter</title>
+</head>
 
-    <body>
+<body>
 <div id="header">
-      <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
-          <?php
+      <?php
         $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
                         <input id="logInUsername" type="username" name="username" placeholder="Username" required/>
                         <input id="logInPassword" type="password" name="password" placeholder="Password" required/>
@@ -36,59 +36,57 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
-          <script>console.log(document.cookie);</script> 
-        </div>
-  </div>
     </div>
+  </div>
+</div>
 <div id="content">
-      <div id="viewer">
+  <div id="viewer">
     <div id="info">
-          <div class="oLine"></div>
-          <img id="previous" class="smallSlide" src=""/>
-          <div class="oLine"></div>
-        </div>
+      <div class="oLine"></div>
+      <img id="previous" class="smallSlide" src=""/>
+      <div class="oLine"></div>
+    </div>
     <div id="slidePane"><img id="slide" src="" /><img id="fs" src="img/fsBtn.png" /></div>
     <div id="status">
-          <div class="oLine"></div>
-          <img id="next" class="smallSlide" src=""/>
-          <div class="oLine"></div>
-        </div>
+      <div class="oLine"></div>
+      <img id="next" class="smallSlide" src=""/>
+      <div class="oLine"></div>
+    </div>
   </div>
-      <div id="endPres">
+  <div id="endPres">
     <form id="end" action="user.php">
-          <input id="endUpres" type="submit" value="End UPresent">
-        </form>
+      <input id="endUpres" type="submit" value="End UPresent">
+    </form>
   </div>
-      <div id="bottomInfo">
+  <div id="bottomInfo">
     <div id="bInfoData">
-          <table id="pollQuestions">
+      <table id="pollQuestions">
+      	<tr>
+        <td></td>
+        <td class="question"> </td>
+      	</tr>
         <tr>
-              <th></th>
-              <th class="question"></th>
-            </tr>
+          <td>A</td>
+          <td class="q"></td>
+        </tr>
         <tr>
-              <td>A</td>
-              <td class="q"></td>
-            </tr>
+          <td>B</td>
+          <td class="q"></td>
+        </tr>
         <tr>
-              <td>B</td>
-              <td class="q"></td>
-            </tr>
+          <td>C</td>
+          <td class="q"></td>
+        </tr>
         <tr>
-              <td>C</td>
-              <td class="q"></td>
-            </tr>
-        <tr>
-              <td>D</td>
-              <td class="q"></td>
-            </tr>
+          <td>D</td>
+          <td class="q"></td>
+        </tr>
       </table>
-        </div>
+    </div>
     <div id="bInfoGraph"> </div>
   </div>
-    </div>
+</div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>
