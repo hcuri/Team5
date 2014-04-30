@@ -4,7 +4,6 @@ require 'Slim/Slim.php';
 require_once('../php/lib.php');
 require '../php/password.php';
 require '../FileParser/FileParser.php';
-require_once('../php-console-master/src/PhpConsole/__autoload.php');
 
 $app = new Slim();
 
