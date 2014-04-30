@@ -24,6 +24,7 @@ var options = {
         };
 
 $(document).ready(function() {
+	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 	var slideInfo = $.ajax({
 		type: 'GET',
 		url: root_url + "/getPresInfo",
@@ -51,21 +52,11 @@ $(document).ready(function() {
 	
 	$("#slideNum").html(currentSlide + "|" + numSlides);
 	$("#slide").attr("src", slides[currentSlide]);
-		
-	//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
-	$(".submitButton").click(function(event) {
-		var pollResponse = event.target;
-		pollResponse = $(pollResponse).html();
-		submitResponse(pollResponse);
-		setInterval(getCurrSlide, 1000);
-		setInterval(getPollResults, 1000);
-	});
 });
 
 function updateSlide() {
 	$("#slide").attr("src", slides[currentSlide]);
 	$("#slideNum").html(currentSlide + "/" + numSlides);
-	setInterval(getCurrSlide, 1000);
 	clearInterval(getPollResults);
 }
 
@@ -77,7 +68,6 @@ function submitResponse(response) {
             data: submitFormToJSON(response),
             async: false,
             success: function(){
-            	alert("Response Submitted");
             },
             error: function(jqXHR, textStatus, errorThrown){
             	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -85,8 +75,7 @@ function submitResponse(response) {
         });
 			
 	//TEST INFO FOR GRAPH STUFF
-	google.setOnLoadCallback(drawChart);
-	getPollResults();
+	setInterval(getPollResults, 1000);
 }
 
 
@@ -134,12 +123,19 @@ var getCurrSlide = setInterval(function() {
 				$(qS[i]).html(pollJSON[i+1].option_text);
 			}
 			
-			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
-			setInterval(getPollResults,1000);
+			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton">A</td><td id="responseB" class="submitButton">B</td></tr><tr><td id="responseC" class="submitButton">C</td><td id="responseD" class="submitButton">D</td></tr></table>');
+			//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
+			$(".submitButton").click(function(event) {
+				var pollResponse = event.target;
+				pollResponse = $(pollResponse).html();
+				submitResponse(pollResponse);
+			});
+			
 			poll = false;
 			pollDone = false;
 			
 		} else if (pollDone) {
+			console.log("clearing poll");
 			clearInterval(getPollResults);
 			$( "#bottomInfo" ).animate({
 				opacity: 0
@@ -157,7 +153,8 @@ var getCurrSlide = setInterval(function() {
 }, 1000);
 
 //CHECK FOR NEW UPDATES TO POLL
-function getPollResults() {
+var getPollResults = function() {
+	console.log("getPollResults");
 	while(liveResults.length > 0) {
 		liveResults.pop();
 	}
@@ -171,19 +168,10 @@ function getPollResults() {
 	result = result.responseJSON;
 	
 	for(var i = 0; i < 4; i++) {
-		liveResults.push(result[i].option_results);
-	}
-	drawChart();
-};
-
-function drawChart() {
-	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
-
-	for(var i = 0; i < 4; i++) {
-		data.setValue(i, 1, liveResults[i]);
+		data.setValue(i, 1, result[i].option_results);
 	}
 	chart.draw(data, options);
-}
+};
 
 // Helper function to serialize all the form fields into a JSON string
 function submitFormToJSON(response) {
