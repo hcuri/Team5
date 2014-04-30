@@ -6,9 +6,7 @@
 }*/
 
 body {
-	/*background-color: #EDEDED;*/
-	/*background-color:#80C2FA;*/
-	background-image:url("../img/newbackground.jpg");
+	background-image:url("../img/background.jpg");
 	background-repeat:no-repeat;
 	background-attachment: fixed;
 	padding: 0px;
