@@ -175,14 +175,6 @@
       <div id="groupInfo"></div>
     </div>
     <div id="groupTable">
-      <!--<div id="gName"><img src="img/minusBtn.png" />Group 1<input type="radio" name="groupNum" value="1"></div>
-        <div id="uName">Taylor Bishop <img src="img/trash.png" /></div>
-        <div id="uName">Hector Curi<img src="img/trash.png" /></div>
-        <div id="uName">John Politz<img src="img/trash.png" /></div>
-      <div id="gName"><img src="img/minusBtn.png" />Group 2<input type="radio" name="groupNum" value="2"></div>
-        <div id="uName">Nick Morris<img src="img/trash.png" /></div>
-        <div id="uName">Tyler George<img src="img/trash.png" /></div>
-        <div id="uName">Hector's Mom<img src="img/trash.png" /></div>-->
     </div>
   </div>
   <input id="cancel" type="submit" name="submit" value="Cancel"/>
@@ -208,7 +200,6 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
       <script>console.log(document.cookie);</script> 
     </div>
@@ -223,41 +214,6 @@
   <div class="carousel-container">
     
       <div id="carousel">
-        <!-- <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample1.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample2.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              The background will expand up or down to fit the caption.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample3.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              Images can be placed here as well.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample4.jpg" /></a>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample5.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
-            <p>
-          </div>
-        </div> -->
       </div>
     
       <div id="carousel-left"><img src="img/arrow-left.png" /></div>

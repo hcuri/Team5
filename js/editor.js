@@ -179,6 +179,8 @@ $(document).ready(function(){
       getPoll();
     });
 
+    $()
+
     //Polling
 
     $("#pollSubmit").click(function() {
@@ -482,6 +484,16 @@ $(document).keypress(function(e) {
             createGroup();
           }
         }
+    }
+
+    //Photo Gallery 
+    if(e.which == 37) {
+      console.log("left arrow");
+      $("#carousel-left").trigger('click');
+    } 
+    if(e.which == 39) {
+      console.log("right arrow");
+      $("#carousel-right").trigger('click');
     }
 });
 
