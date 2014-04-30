@@ -1265,7 +1265,7 @@ function resetPoll($presId, $slideNum) {
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
 
         if(empty($pollId))
-            echo '{"poll":"empty"}';
+            echo '{"poll":"error"}';
         else {
             $pollId = $pollId['pollId'];
 
@@ -1273,7 +1273,7 @@ function resetPoll($presId, $slideNum) {
             $stmtPollReset->bindParam("pollId", $pollId);
             $stmtPollReset->execute();
 
-            echo '{"poll":"error"}';
+            echo '{"poll":"empty"}';
         }
         $db = null;
 
