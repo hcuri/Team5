@@ -1,9 +1,9 @@
 <?php
 
 require 'Slim/Slim.php';
-require_once('../php/lib.php');
-require '../php/password.php';
-require '../FileParser/FileParser.php';
+require 'lib.php';
+require 'password.php';
+require 'FileParser.php';
 
 $app = new Slim();
 
