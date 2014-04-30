@@ -8,6 +8,7 @@ var presID = null;
 var numSlides;
 var poll = false;
 var pollDone = false;
+var submitted = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -24,7 +25,6 @@ var options = {
         };
 
 $(document).ready(function() {
-	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 	var slideInfo = $.ajax({
 		type: 'GET',
 		url: root_url + "/getPresInfo",
@@ -128,6 +128,7 @@ var getCurrSlide = setInterval(function() {
 			$(".submitButton").click(function(event) {
 				var pollResponse = event.target;
 				pollResponse = $(pollResponse).html();
+				submitted = true;
 				submitResponse(pollResponse);
 			});
 			
@@ -136,7 +137,6 @@ var getCurrSlide = setInterval(function() {
 			
 		} else if (pollDone) {
 			console.log("clearing poll");
-			clearInterval(getPollResults);
 			$( "#bottomInfo" ).animate({
 				opacity: 0
 			}, 1000, function() {
@@ -149,6 +149,7 @@ var getCurrSlide = setInterval(function() {
 				// Animation complete.
 			});	
 			pollDone = false;
+			submitted = false;
 		}
 }, 1000);
 
@@ -169,6 +170,9 @@ var getPollResults = function() {
 	
 	for(var i = 0; i < 4; i++) {
 		data.setValue(i, 1, result[i].option_results);
+	}
+	if(submitted) {
+		chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 	}
 	chart.draw(data, options);
 };
