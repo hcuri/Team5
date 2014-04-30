@@ -4,6 +4,7 @@ require 'Slim/Slim.php';
 require_once('../php/lib.php');
 require '../php/password.php';
 require '../FileParser/FileParser.php';
+require_once('../php-console-master/src/PhpConsole/__autoload.php');
 
 $app = new Slim();
 
@@ -1014,6 +1015,11 @@ function createPoll() {
     error_log('addPoll' . "\n", 3, 'var/tmp/php.log');
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
+
+    $handler = PhpConsole\Handler::getInstance();
+    $handler->start();
+    $handler->debug('called from handler debug', 'some.three.tags');
+    var_dump($poll);
 
     try {
         $db = dbconnect();

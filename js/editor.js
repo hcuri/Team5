@@ -545,7 +545,6 @@ function pollFormToJSON() {
 
 function getPoll() {
   var slide = currSlide;
-  alert($.cookie('pres'));
   $.ajax({
     type: 'GET',
     url: root_url + 'getPollInfo' + '/' + $.cookie('pres') + '/' + slide,
@@ -553,7 +552,6 @@ function getPoll() {
     async: true,
     success: function(response) {
       fillPoll(response);
-      alert(response);
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n getPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -562,5 +560,5 @@ function getPoll() {
 }
 
 function fillPoll(json) {
-  alert(JSON.stringify(json));
+  //alert(JSON.stringify(json));
 }
