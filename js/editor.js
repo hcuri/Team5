@@ -492,7 +492,7 @@ function addPoll() {
     url: root_url + 'createPoll',
     data: pollFormToJSON(),
     async: true,
-    success: function(){
+    success: function() {
       alert("yoyoyo ya poll be created");
     },
     error: function(jqXHR, textStatus, errorThrown){
@@ -535,9 +535,9 @@ function pollFormToJSON() {
   else                                     showResults = "false";
 
   //Output the json
-  pollJSON = '{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
+  pollJSON = '[{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
-              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
+              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}]';
   polls[currSlide] = pollJSON;
   alert(pollJSON);
   return pollJSON;

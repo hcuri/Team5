@@ -13,13 +13,12 @@ class FileParser {
         $userFolder = "upload/" . $_COOKIE['user'];
         if (!is_dir($userFolder)) {
             mkdir($userFolder);
-            
         }
 
         $folder = "upload/" . $_COOKIE['user'] . "/" . $title;
-        mkdir($folder);
-        
-
+        if(!is_dir($folder)) {
+            mkdir($folder);
+        }
 
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post' && !empty($_FILES)) {
 

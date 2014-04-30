@@ -6,12 +6,9 @@
 }*/
 
 body {
-	/*background-color: #EDEDED;*/
-	/*background-color:#80C2FA;*/
-	/*background-image:url("http://spasalon.com/wp-content/uploads/2012/02/light-blue-background.jpg");
+	background-image:url("../img/background.jpg");
 	background-repeat:no-repeat;
-	background-attachment: fixed;*/
-	/*background-image:url("img/background.jpg");*/
+	background-attachment: fixed;
 	padding: 0px;
 	margin: 0px;
 	font-family: Arial;
@@ -163,7 +160,6 @@ img#logo {
 	text-align:center;
 	border-top:2px solid white;
 	font-family: Arial;
-	position: fixed; 
    	bottom:10px;
    	width:100%;
 }
