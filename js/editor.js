@@ -492,7 +492,7 @@ function addPoll() {
     url: root_url + 'createPoll',
     data: pollFormToJSON(),
     async: true,
-    success: function(){
+    success: function() {
       alert("yoyoyo ya poll be created");
     },
     error: function(jqXHR, textStatus, errorThrown){
@@ -540,7 +540,7 @@ function pollFormToJSON() {
               + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
   polls[currSlide] = pollJSON;
   alert(pollJSON);
-  return pollJSON;
+  return JSON.stringify(pollJSON);
 }
 
 function getPoll() {
