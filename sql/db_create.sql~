@@ -94,7 +94,6 @@ Info:
 	slideNum - Slide number that this poll pops up on
 	question - Question that the poll asks
 	numOptions - Number of options for poll
-	showResults - 0 or 1 if poll results will be shown 
 */
 CREATE TABLE Poll
 (
@@ -103,7 +102,6 @@ CREATE TABLE Poll
         slideNum                INT UNSIGNED                    NOT NULL,
         question                VARCHAR(256)                    NOT NULL,
         numOptions              INT UNSIGNED                    NOT NULL,
-	showResults		BOOLEAN				NOT NULL DEFAULT TRUE,
         PRIMARY KEY             (pollId),
         FOREIGN KEY		(presId)                        REFERENCES Presentations(presId)
 );
