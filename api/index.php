@@ -1015,7 +1015,24 @@ function createPoll() {
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
 
-    $optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
+    try {
+        $db = dbconnect();
+
+        $sqlCheck = "SELECT * FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
+
+        $stmtCheck = $db->prepare($sqlCheck);
+        $stmtCheck->bindParam("presId", $poll->presId);
+        $stmtCheck->bindParam("slideNum", $poll->slide);
+        $stmtCheck->execute();
+
+        $db = null;
+    } catch (PDOException $e) {
+        $date = date('m/d/Y h:i:s a', time());
+        error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+
+    /*$optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
 
     $sqlNew = "INSERT INTO Poll VALUES (DEFAULT, :presId, :slideNum, :question, :numOptions)";
     $sqlUpdate = "UPDATE Poll SET question = :question, numOptions = :numOptions WHERE pollId = :pollId";
@@ -1031,19 +1048,33 @@ function createPoll() {
         $stmtCheck->bindParam("presId", $poll->presId);
         $stmtCheck->bindParam("slideNum", $poll->slide);
         $stmtCheck->execute();
-        if ($stmtCheck->rowCount() > 0) {
+        if ($stmtCheck->rowCount() == 0) {
 
             $stmtNew = $db->prepare($sqlNew);
             $stmtNew->bindParam("presId", $poll->presId);
             $stmtNew->bindParam("slideNum", $poll->slide);
             $stmtNew->bindParam("question", $poll->question);
             $stmtNew->bindParam("numOptions", $poll->numOptions);
-            $stmtNew->execute();
+
+            try {
+                $stmtNew->execute();
+            } catch (PDOException $e) {
+                $date = date('m/d/Y h:i:s a', time());
+                error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+                echo '{"error":"' . $e->getMessage() . '"}';
+            }
             
             $stmtPollId = $db->prepare($sqlPollId);
             $stmtPollId->bindParam("presId", $poll->presId);
             $stmtPollId->bindParam("slideNum", $poll->slide);
-            $stmtPollId->execute();
+
+            try{ 
+                $stmtPollId->execute();
+            } catch (PDOException $e) {
+                $date = date('m/d/Y h:i:s a', time());
+                error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+                echo '{"error":"' . $e->getMessage() . '"}';
+            }
             $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
             
             error_log("test", 3, '/var/tmp/php.log');
@@ -1052,7 +1083,14 @@ function createPoll() {
                 $stmtOptions->bindParam("pollId", $pollId['pollId']);
                 $stmtOptions->bindParam("optionNum", $optionNums[$i]);
                 $stmtOptions->bindParam("optionText", $pollId->options[$optionNums[$i]]);
-                $stmtOptions->execute();
+
+                try {
+                    $stmtOptions->execute();
+                } catch (PDOException $e) {
+                    $date = date('m/d/Y h:i:s a', time());
+                    error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+                    echo '{"error":"' . $e->getMessage() . '"}';
+                }
             }
         }
         else {
@@ -1062,21 +1100,36 @@ function createPoll() {
             $stmtUpdate->bindParam("question", $poll->question);
             $stmtUpdate->bindParam("numOptions", $poll->numOptions);
             $stmtUpdate->bindParam("pollId", $pollId['pollId']);
-            $stmtUpdate->execute();
+
+            try { 
+                $stmtUpdate->execute();
+            } catch (PDOException $e) {
+                $date = date('m/d/Y h:i:s a', time());
+                error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+                echo '{"error":"' . $e->getMessage() . '"}';
+            }
             
             for($i = 0; $i < $poll->numOptions; $i++) {
                 $stmtOpUpdate = $db->prepare($sqlOpUp);
                 $stmtOpUpdate->bindParam("optionText", $poll->options[$optionNums[$i]]);
                 $stmtOpUpdate->bindParam("pollId", $pollId['pollId']);
-                $stmtOpUpdate->execute();
+
+                try {
+                    $stmtOpUpdate->execute();
+                } catch (PDOException $e) {
+                    $date = date('m/d/Y h:i:s a', time());
+                    error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+                    echo '{"error":"' . $e->getMessage() . '"}';
+                }
             }
         }
 
         $db = null;
     } catch (PDOException $e) {
-        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        $date = date('m/d/Y h:i:s a', time());
+        error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
-    }
+    }*/
 }
 
 function submitResponse () {
@@ -1131,35 +1184,39 @@ function getPollInfo($presId, $slide) {
         $stmtPollId->bindParam("slide", $slide);
         $stmtPollId->execute();
         $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
-        $pollId = $pollId['pollId'];
 
-        $stmtPollQuestion = $db->prepare($sqlPollQuestion);
-        $stmtPollQuestion->bindParam("pollId", $pollId);
-        $stmtPollQuestion->bindParam("slide", $slide);
-        $stmtPollQuestion->execute();
-        $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
-        $pollQuestion = $pollQuestion['question'];
-        $pollQuestion = json_encode($pollQuestion);
+        if(empty($pollId))
+            echo '{"poll":"empty"}';
+        else {
+            $pollId = $pollId['pollId'];
 
-        $stmtPollInfo = $db->prepare($sqlPollInfo);
-        $stmtPollInfo->bindParam("pollId", $pollId);
-        $stmtPollInfo->execute();
-        $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_OBJ);
-        $pollInfo = json_encode($pollInfo);
+            $stmtPollQuestion = $db->prepare($sqlPollQuestion);
+            $stmtPollQuestion->bindParam("pollId", $pollId);
+            $stmtPollQuestion->bindParam("slide", $slide);
+            $stmtPollQuestion->execute();
+            $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
+            $pollQuestion = $pollQuestion['question'];
+            $pollQuestion = json_encode($pollQuestion);
 
-        $pollInfo = str_replace("[", "", $pollInfo);
-        $pollInfo = str_replace("]", "", $pollInfo);
+            $stmtPollInfo = $db->prepare($sqlPollInfo);
+            $stmtPollInfo->bindParam("pollId", $pollId);
+            $stmtPollInfo->execute();
+            $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_OBJ);
+            $pollInfo = json_encode($pollInfo);
 
-        $poll = '[{"question":' . $pollQuestion . '},' . $pollInfo . ']';
+            $pollInfo = str_replace("[", "", $pollInfo);
+            $pollInfo = str_replace("]", "", $pollInfo);
 
-        echo $poll;
+            $poll = '[{"question":' . $pollQuestion . '},' . $pollInfo . ']';
+
+            //echo $poll;
+        }
         $db = null;
 
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
     }
-    
 }
 
 function getPollResults($presId, $slide) {
