@@ -12,6 +12,7 @@ var submitted = false;
 var interval = null;
 var show = false;
 var fullS = false;
+var backToFS = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -129,6 +130,11 @@ var getCurrSlide = setInterval(function() {
 		}
 		
 		if(poll) {
+			if(fullS) {
+				document.webkitCancelFullScreen();
+				fullS = false;
+				backToFS = true;
+			}
 			$( "#content" ).animate({
 				height: 675
 			}, 500, function() {	
@@ -184,7 +190,7 @@ var getCurrSlide = setInterval(function() {
 				}, 500, function() {
 					// Animation complete.
 				});	
-			});	
+			});
 			
 			pollDone = false;
 			submitted = false;

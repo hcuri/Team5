@@ -33,6 +33,10 @@ var draw = false;
 
 $(document).ready(function(e) {
 	presID = $.cookie('pres');
+	
+	$("#bottomInfo").css("display", "none");
+	$("#bInfoData").css("display", "none");
+	$("#content").css("height", "475");
  
   	$("#previous").css("background-color", "black");
 	$("#previous").removeAttr("src");
