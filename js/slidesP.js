@@ -127,12 +127,12 @@ var getCurrSlide = setInterval(function() {
 		if(poll) {
 			$( "#content" ).animate({
 				height: 675
-			}, 1000, function() {	
+			}, 500, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
 				$( "#bottomInfo" ).animate({
 					opacity: 1
-				}, 1000, function() {
+				}, 500, function() {
 				});	
 			});
 			
@@ -166,15 +166,16 @@ var getCurrSlide = setInterval(function() {
 			clearInterval(getPollResults);
 			$( "#bottomInfo" ).animate({
 				opacity: 0
-			}, 1000, function() {
-				$("#bottomInfo").css("display", "none");
+			}, 500, function() {
 				$("#bInfoData").css("display", "none");
-			});	
-			$( "#content" ).animate({
-				height: 475
-			}, 1000, function() {
+				$("#bottomInfo").css("display", "none");
+				$( "#content" ).animate({
+					height: 475
+				}, 500, function() {
 				//nothing
+				});	
 			});	
+			
 			pollDone = false;
 		}
 }, 1000);
