@@ -43,14 +43,16 @@
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
-      <input type="text" name="title" id="title" required/>
+      <input type="text" name="title" id="title" required />
       <br/>
       <label for="date">Date?</label>
-      <input type="date" name="date" id="date"></input>
+      <input type="date" name="date" id="date" required />
       <br/>
       <label for="time">Time?</label>
-      <input type="time" name="time" id="time"></input>
-      <!--Code input?--> 
+      <input type="time" name="time" id="time" required />
+      
+      <!-- Error Message -->
+      <div id="errBox"></div>
     </div>
     <div id="divider"></div>
     <div id="fileinfo">
