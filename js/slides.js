@@ -12,6 +12,7 @@ var submitted = false;
 var interval = null;
 var show = false;
 var fullS = false;
+var backToFS = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
@@ -40,6 +41,10 @@ var openFS = null;
 $(document).ready(function() {
 	elem = document.getElementById("slide");
 	openFS = elem.requestFullScreen || elem.webkitRequestFullScreen || elem.mozRequestFullScreen;
+	
+	$("#bottomInfo").css("display", "none");
+	$("#bInfoData").css("display", "none");
+	$("#content").css("height", "475");
 
 	var slideInfo = $.ajax({
 		type: 'GET',
@@ -125,14 +130,19 @@ var getCurrSlide = setInterval(function() {
 		}
 		
 		if(poll) {
+			if(fullS) {
+				document.webkitCancelFullScreen();
+				fullS = false;
+				backToFS = true;
+			}
 			$( "#content" ).animate({
 				height: 675
-			}, 1000, function() {	
+			}, 500, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
 				$( "#bottomInfo" ).animate({
 					opacity: 1
-				}, 1000, function() {
+				}, 500, function() {
 				});	
 			});
 			
@@ -172,15 +182,16 @@ var getCurrSlide = setInterval(function() {
 			console.log("clearing poll");
 			$( "#bottomInfo" ).animate({
 				opacity: 0
-			}, 1000, function() {
-				$("#bottomInfo").css("display", "none");
+			}, 500, function() {
 				$("#bInfoData").css("display", "none");
-			});	
-			$( "#content" ).animate({
-				height: 475
-			}, 1000, function() {
-				// Animation complete.
-			});	
+				$("#bottomInfo").css("display", "none");
+				$( "#content" ).animate({
+					height: 475
+				}, 500, function() {
+					// Animation complete.
+				});	
+			});
+			
 			pollDone = false;
 			submitted = false;
 		}

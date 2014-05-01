@@ -68,9 +68,9 @@
       <h3>Profile Preview</h3>
       <img src="img/identicon.png" alt="Profile Picture">
       <div id="geninfo">
-        <h2 id="fullName">Larry Brown</h2>
-        <h3 id="userName">jackjp</h3>
-        <h5 id="userEmail">lbrown@smu.edu</h5>
+        <h2 id="fullName"></h2>
+        <h3 id="userName"></h3>
+        <h5 id="userEmail"></h5>
       </div>
     </div>
   </div>

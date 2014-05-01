@@ -1,19 +1,27 @@
-<!--afterview.html-->
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-<link href="css/styles_afterview.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_presenter.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+    </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
-<script src="js/editor.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/main.js"></script>
-<title>UPresent - Afterview</title>
+<script src="js/slidesAF.js"></script>
+<script src="js/fullscreen.js"></script>
+<title>UPresent Presenter</title>
 </head>
+
 <body>
 <div id="header">
-  <div id="insideHeader"><A HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
+  <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
       <?php
         $logInForm =  '<form id="login" action="user.php" method="post" onSubmit="return checkLogin(this)">
@@ -28,74 +36,57 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
-      <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
-
-<div id="content"> 
-  
-  <!--Title-->
-  <div id="UPresentTitle">
-    <h1>Lecture 11 By Chris Raley</h1>
-  </div>
-  
-  <!--Left Side Content-->
-  <div id="LeftCol">
-    <div id="Slides"> <img src="img/coverview.png" /> </div>
-    <!--<div id="NoteSection">
-      <form id="notes">
-        <fieldset>
-          <legend>Notes</legend>
-          <textarea id="notesection">       
-            You can still type or correct your notes here after you watch the presentation.
-            They will be stored automatically along the specific slide that you were viewing at the moment.
-          </textarea>
-        </fieldset>
-      </form>
-    </div>-->
-  </div>
-  <!--<div id="vline"></div>-->
-  
-  <!--Right Side-->
-  <!--<div id="RightCol">
-    <div id="Chat">
-      <fieldset>
-        <legend>Viewers Chat</legend>
-        <textarea id="chatHistory"> <!--rows="15" cols="63"
-          User1: I really liked Raley's UPresent
-                                      
-          User2: Yeah, he's awesome!
-                                      
-          User3: I have something important to say to all. "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                      
-          User1: That's boring
-        </textarea>
-        <form id="chatForm">
-          <input id="chatInput" type="text" name="chatInput" placeholder="You can comment and chat here" size="50"/>
-          <input id="chatSubmit" type="button" value="Send"/>
-        </form>
-      </fieldset>
-    </div>-->
-    <div id="Options">
-      <input id="download" type="button" value="Download Slides" />
-      <form id="contactPresenter" action="contact.php">
-        <input id="contact" type="submit" value="Contact Presenter" />
-      </form>
+<div id="content">
+  <div id="viewer">
+    <div id="info">
+      <div class="oLine"></div>
+      <img id="previous" class="smallSlide" src=""/>
+      <div class="oLine"></div>
+    </div>
+    <div id="slidePane"><img id="slide" src="" /><img id="fs" src="img/fsBtn.png" /></div>
+    <div id="status">
+      <div class="oLine"></div>
+      <img id="next" class="smallSlide" src=""/>
+      <div class="oLine"></div>
     </div>
   </div>
-  
-
-  <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
-  <!--Footer-->
-  <!--<div id="Footer">
-    <form id="save">
-      <input type="button" id="home" value="Home" onclick="window.location='user.php'" />
-      <span id="LogoMessage">Created with <img id="bottomlogo" src="img/logoS.png"/></span>
-    </form>
-  </div>-->
+  <div id="bottomInfo">
+    <div id="bInfoData">
+      <table id="pollQuestions">
+      	<tr>
+        <td></td>
+        <td class="question"> </td>
+        <td class="result">Results</td>
+      	</tr>
+        <tr>
+          <td>A</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+      </table>
+    </div>
+    <div id="bInfoGraph"> </div>
+  </div>
 </div>
+<div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>
 </html>
