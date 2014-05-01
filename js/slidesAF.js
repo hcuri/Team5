@@ -133,18 +133,20 @@ function getCurrSlide() {
 				$(qS[i]).html(opts[letters[i]]);
 			}
 		} else {
-			
-			$( "#bottomInfo" ).clearQueue().animate({
-				opacity: 0
-			}, 500, function() {
-				$("#bInfoData").css("display", "none");
-				$("#bottomInfo").css("display", "none");
-				$( "#content" ).animate({
-					height: 475
+			var closed = $("#content").css("height");
+			if(closed !== "475px") {
+				$( "#bottomInfo" ).clearQueue().animate({
+					opacity: 0
 				}, 500, function() {
-				//nothing
-				});	
-			});
+					$("#bInfoData").css("display", "none");
+					$("#bottomInfo").css("display", "none");
+					$( "#content" ).animate({
+						height: 475
+					}, 500, function() {
+					//nothing
+					});	
+				});
+			}
 		}
 }
 
