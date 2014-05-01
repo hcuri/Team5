@@ -179,16 +179,18 @@ input#done {
     right: 10px;
 }
 div#uErr {
+    font-weight: bold;
     position: absolute;
     bottom: 19px;
     left: 80px;
     color: red;
 }
 div#gErr {
+    font-weight: bold;
     position: absolute;
     bottom: 19px;
     right: 80px;
-    color: red;
+    color: black;
 }
 input[type="radio"] {
     /*float: right;*/
@@ -253,6 +255,8 @@ input#saveUPresent {
     border: 1px solid #aaaaaa;
     border-radius: 4px;
     font-size: 1.0em;
+
+    margin-left: 43px;
 }
 div#PollInfo {
     float: right;  
@@ -266,9 +270,18 @@ div#PollInfo {
     }
 
 div#saveSubmit {
-    width: :100%;
+    width: 950px;
     height: 100px;
     padding-top: 20px;
+    margin-left: 43px;
+}
+div#saveSubmit div {
+    font-size: 0.9em;
+    font-weight: bold;
+    float: left;
+    vertical-align: middle;
+    margin-left: 3px;
+    margin-top: 5px;
 }
 
 div#poll {
@@ -309,13 +322,23 @@ div#pollTitle {
     }
     div#PollAdderForm input[type=text] {
         width: 600px;
-        margin-left: 10px;
     }
     div#pollContainer {
         margin-left: auto;
         margin-right: auto;
         width: 700px;
+        font-size: 1.2em;
     }
     div#pollContainer label {
-        margin-left: 10px;
+        margin-left: -1px;
     }
+    input#PollQuestion {
+        margin-left:17px;
+    }
+    input#showGraph {
+        vertical-align: middle;
+    }
+
+div#carousel {
+    margin-left: 39px;
+}

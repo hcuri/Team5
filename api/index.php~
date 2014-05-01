@@ -45,7 +45,6 @@ $app->post('/createPoll', 'createPoll');
 $app->post('/submitResponse', 'submitResponse');
 $app->get('/getPollInfo/:presId/:slideNum', 'getPollInfo');
 $app->get('/getPollResults/:presId/:slideNum', 'getPollResults');
-$app->post('/resetPoll', 'resetPoll');
 
 
 $app->run();
@@ -548,10 +547,8 @@ function getCurrentSlide($presId) {
         $stmtPoll->bindParam("slide", $pres['currSlide']);
         $stmtPoll->execute();
         $poll = "false";
-        if($stmtPoll->rowCount() > 0) 
+        if($stmtPoll->rowCount() > 0)
             $poll = "true";
-        else
-             $poll = "false";
         
         echo '{"currSlide":' . $pres['currSlide'] . ',"poll":' . $poll . '}';
         
@@ -773,7 +770,7 @@ function setPresId() {
 function getPresInfo() {
     error_log('getPresInfo' . "\n", 3, '/var/tmp/php.log');
     $request = Slim::getInstance()->request();
-//testing comment
+
     $presID = $_COOKIE['pres'];
     $sql = "SELECT Presentations.*, Users.fName, Users.lName"
             . " FROM Presentations INNER JOIN Users ON Presentations.ownerId = Users.userId"
@@ -875,10 +872,8 @@ function addToGroup() {
         $stmt->bindParam("groupId", $groupId);
         $stmt->bindParam("userId", $userId);
         $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            echo '{"exists":/*/}';
+        if ($stmt->rowCount() > 0)
             return;
-        }
 
         $stmt = $db->prepare($sqlUser);
         $stmt->bindParam("groupId", $groupId);
@@ -1020,36 +1015,24 @@ function createPoll() {
     $request = Slim::getInstance()->request();
     $poll = json_decode($request->getBody());
 
+    echo '{"ok":"ok"}';
 
-    $optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
+    /*$optionNums = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-    $sqlNew = "INSERT INTO Poll VALUES (DEFAULT, :presId, :slideNum, :question, :numOptions, :showResults)";
-    $sqlUpdate = "UPDATE Poll SET question = :question, numOptions = :numOptions, showResults = :showResults WHERE pollId = :pollId";
+    $sqlNew = "INSERT INTO Poll VALUES (DEFAULT, :presId, :slideNum, :question, :numOptions)";
+    $sqlUpdate = "UPDATE Poll SET question = :question, numOptions = :numOptions WHERE pollId = :pollId";
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
     $sqlOp = "INSERT INTO Poll_Options VALUES (:pollId, :optionNum, :optionText, DEFAULT)";
-    $sqlOpUp = "UPDATE Poll_Options SET option_text = :optionText WHERE pollId = :pollId AND option_num = :opNum";
+    $sqlOpUp = "UPDATE Poll_Options SET optionText = :optionText WHERE pollId = :pollId";
     $sqlCheck = "SELECT * FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
 
-    $insertNewOps = false;
-    $showRes = false;
-    if($poll->showResults == "true")
-        $showRes = true;
-    else
-        $showRes = false;
-    
     try {
         $db = dbconnect();
 
-        //check for existing poll on that slide
         $stmtCheck = $db->prepare($sqlCheck);
         $stmtCheck->bindParam("presId", $poll->presId);
         $stmtCheck->bindParam("slideNum", $poll->slide);
         $stmtCheck->execute();
-        $existingPoll = $stmtCheck->fetch(PDO::FETCH_ASSOC);
-        if($poll->numOptions > $existingPoll['numOptions'])
-            $insertNewOps = true;
-           
-        //if not one create new
         if ($stmtCheck->rowCount() == 0) {
 
             $stmtNew = $db->prepare($sqlNew);
@@ -1057,68 +1040,42 @@ function createPoll() {
             $stmtNew->bindParam("slideNum", $poll->slide);
             $stmtNew->bindParam("question", $poll->question);
             $stmtNew->bindParam("numOptions", $poll->numOptions);
-            $stmtNew->bindParam("showResults", $showRes);
             $stmtNew->execute();
             $stmtPollId = $db->prepare($sqlPollId);
             $stmtPollId->bindParam("presId", $poll->presId);
             $stmtPollId->bindParam("slideNum", $poll->slide);
             $stmtPollId->execute();
             $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
-                       
-            //add all poll options
+            
+            error_log("test", 3, '/var/tmp/php.log');
             for ($i = 0; $i < $poll->numOptions; $i++) {
-                $opTxt = $poll->$optionNums[$i];
                 $stmtOptions = $db->prepare($sqlOp);
                 $stmtOptions->bindParam("pollId", $pollId['pollId']);
                 $stmtOptions->bindParam("optionNum", $optionNums[$i]);
-                $stmtOptions->bindParam("optionText", $opTxt);
+                $stmtOptions->bindParam("optionText", $pollId->options[$optionNums[$i]]);
                 $stmtOptions->execute();
-                error_log("test", 3, '/var/tmp/php.log');
             }
         }
-        
-        //if poll exists on that slide
         else {
+            $pollId = $stmtCheck->fetch(PDO::FETCH_ASSOC);
             
-            
-            //update poll
             $stmtUpdate = $db->prepare($sqlUpdate);
             $stmtUpdate->bindParam("question", $poll->question);
             $stmtUpdate->bindParam("numOptions", $poll->numOptions);
-            $stmtUpdate->bindParam("showResults", $showRes);
-            $stmtUpdate->bindParam("pollId", $existingPoll['pollId']);
+            $stmtUpdate->bindParam("pollId", $pollId['pollId']);
             $stmtUpdate->execute();
             
-            //update poll options
-            $prevMaxOp = 0;
-            if($insertNewOps) {
-                for($i = 0; $i < $existingPoll['numOptions']; $i++) {
-                    $opTxt = $poll->$optionNums[$i];
-                    $stmtOpUp = $db->prepare($sqlOpUp);
-                    $stmtOpUp->bindParam("pollId", $existingPoll['pollId']);
-                    $stmtOpUp->bindParam("opNum", $optionNums[$i]);
-                    $stmtOpUp->bindParam("optionText", $opTxt);
-                    $stmtOpUp->execute();
-                    if($i == $existingPoll['numOptions']-1)
-                        $prevMaxOp = $i + 1;
-                }
-                for($i = $prevMaxOp; $i < $poll->numOptions; $i++) {
-                    $opTxt = $poll->$optionNums[$i];
-                    $stmtOptions = $db->prepare($sqlOp);
-                    $stmtOptions->bindParam("pollId", $existingPoll['pollId']);
-                    $stmtOptions->bindParam("optionNum", $optionNums[$i]);
-                    $stmtOptions->bindParam("optionText", $opTxt);
-                    $stmtOptions->execute();
-                }
-            }
-            else {
-                for($i = 0; $i < $poll->numOptions; $i++) {
-                    $opTxt = $poll->$optionNums[$i];
-                    $stmtOpUp = $db->prepare($sqlOpUp);
-                    $stmtOpUp->bindParam("optionText", $opTxt);
-                    $stmtOpUp->bindParam("pollId", $existingPoll['pollId']);
-                    $stmtOpUp->bindParam("opNum", $optionNums[$i]);
-                    $stmtOpUp->execute();
+            for($i = 0; $i < $poll->numOptions; $i++) {
+                $stmtOpUpdate = $db->prepare($sqlOpUp);
+                $stmtOpUpdate->bindParam("optionText", $poll->options[$optionNums[$i]]);
+                $stmtOpUpdate->bindParam("pollId", $pollId['pollId']);
+
+                try {
+                    $stmtOpUpdate->execute();
+                } catch (PDOException $e) {
+                    $date = date('m/d/Y h:i:s a', time());
+                    error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
+                    echo '{"error":"' . $e->getMessage() . '"}';
                 }
             }
         }
@@ -1128,7 +1085,7 @@ function createPoll() {
         $date = date('m/d/Y h:i:s a', time());
         error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
-    }
+    }*/
 }
 
 function submitResponse () {
@@ -1172,7 +1129,7 @@ function submitResponse () {
 
 function getPollInfo($presId, $slide) {
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
-    $sqlPollQuestion = "SELECT question, showResults FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    $sqlPollQuestion = "SELECT question FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
     $sqlPollInfo = "SELECT option_num, option_text FROM Poll_Options WHERE pollId = :pollId";
     
     
@@ -1194,26 +1151,19 @@ function getPollInfo($presId, $slide) {
             $stmtPollQuestion->bindParam("slide", $slide);
             $stmtPollQuestion->execute();
             $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
-            $pollShowRes = $pollQuestion['showResults'];
             $pollQuestion = $pollQuestion['question'];
             $pollQuestion = json_encode($pollQuestion);
 
             $stmtPollInfo = $db->prepare($sqlPollInfo);
             $stmtPollInfo->bindParam("pollId", $pollId);
             $stmtPollInfo->execute();
-            $pollOptions = '{';
-            for($i = 0; $i < $stmtPollInfo->rowCount(); $i++) {
-                $pollInfo = $stmtPollInfo->fetch(PDO::FETCH_ASSOC);
-                if($i != 0)
-                    $pollOptions = $pollOptions . ',';
-                $pollOptions = $pollOptions . '"' . $pollInfo['option_num'] . '":"'
-                        . $pollInfo['option_text'] . '"';
-            }
-            $pollOptions = $pollOptions . '}';
-            //$pollInfo = str_replace("[", "", $pollInfo);
-            //$pollInfo = str_replace("]", "", $pollInfo);
+            $pollInfo = $stmtPollInfo->fetchAll(PDO::FETCH_OBJ);
+            $pollInfo = json_encode($pollInfo);
 
-            $poll = '{"question":' . $pollQuestion . ',"showResults":' . $pollShowRes . ',"options":' . $pollOptions . '}';
+            $pollInfo = str_replace("[", "", $pollInfo);
+            $pollInfo = str_replace("]", "", $pollInfo);
+
+            $poll = '[{"question":' . $pollQuestion . '},' . $pollInfo . ']';
 
             echo $poll;
         }
@@ -1250,42 +1200,6 @@ function getPollResults($presId, $slide) {
         echo '{"error":"' . $e->getMessage() . '"}';
     }
     
-}
-
-//$app->post('/resetPoll/:presId/slideNum', 'resetPoll');
-
-function resetPoll() {
-    $request = Slim::getInstance()->request();
-    $poll = json_decode($request->getBody());
-
-    $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
-    $sqlPollReset = "UPDATE Poll_Options SET option_results = 0 WHERE pollId = :pollId";
-    
-    try {
-        $db = dbconnect();
-        $stmtPollId = $db->prepare($sqlPollId);
-        $stmtPollId->bindParam("presId", $poll->presId);
-        $stmtPollId->bindParam("slide", $poll->slide);
-        $stmtPollId->execute();
-        $pollId = $stmtPollId->fetch(PDO::FETCH_ASSOC);
-
-        if(empty($pollId))
-            echo '{"poll":"error"}';
-        else {
-            $pollId = $pollId['pollId'];
-
-            $stmtPollReset = $db->prepare($sqlPollReset);
-            $stmtPollReset->bindParam("pollId", $pollId);
-            $stmtPollReset->execute();
-
-            echo '{"poll":"empty"}';
-        }
-        $db = null;
-
-    } catch (PDOException $e) {
-        error_log($e->getMessage(), 3, '/var/tmp/php.log');
-        echo '{"error":"' . $e->getMessage() . '"}';
-    }
 }
 
 function idFromUsername($username) {

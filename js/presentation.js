@@ -1,5 +1,7 @@
 function createPresentation() {
 	var bool = false;
+        var title = $('#title').val();
+        $.cookie('presName', title, {path: '/'});
 	$.ajax({
 		type: 'POST',
 		url: root_url + 'addPresentation',
@@ -9,7 +11,7 @@ function createPresentation() {
 		success: function(msg){
                         if(msg.error == "false")
                             bool = true;
-                        else
+                        else 
                             alert("You already have a presentation with this name");
 		},
 		error: function(jqXHR, textStatus, errorThrown){

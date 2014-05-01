@@ -6,12 +6,10 @@
 }*/
 
 body {
-	/*background-color: #EDEDED;*/
-	/*background-color:#80C2FA;*/
-	/*background-image:url("http://spasalon.com/wp-content/uploads/2012/02/light-blue-background.jpg");
+	background-image:url("../img/background.jpg");
 	background-repeat:no-repeat;
-	background-attachment: fixed;*/
-	/*background-image:url("img/background.jpg");*/
+	background-attachment: fixed;
+	background-size:100% 100%;
 	padding: 0px;
 	margin: 0px;
 	font-family:Arial;
@@ -26,7 +24,7 @@ body {
 }
 #login {
 	padding-top:40px;
-	margin-top: -30px;
+	margin-top: -45px;
 	float:right;
 }
 #login input {
@@ -35,7 +33,6 @@ body {
 #logout {
 	text-align: center;
 	color:#ededed;
-	margin-top: 10px;
 	float:right;
 }
 #logoutUsername {
@@ -69,14 +66,13 @@ input {
 img#logo {
 	height: 50px;
 	width: 48px;
-	margin-top:13px;
 	margin-left:-20px;
 }
 #header {
 	margin:auto;
 	width:100%;
 	min-width:1050px;
-	height:80px;
+	height:50px;
 	/*background-color:#275d43;*/
 	/*background-color:#2C17B1;*/
 	background-color:#103F7C;
@@ -163,7 +159,6 @@ img#logo {
 	text-align:center;
 	border-top:2px solid white;
 	font-family: Arial;
-	position: fixed; 
    	bottom:10px;
    	width:100%;
 }
@@ -208,4 +203,12 @@ a:hover {
 a:active {
     text-decoration: none;
     color: inherit;
+}
+
+input[type=button] {
+	cursor: pointer;
+}
+
+input[type=submit] {
+	cursor: pointer;
 }

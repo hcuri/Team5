@@ -3,7 +3,7 @@ var resultCount = 0;
 var fNames = new Array();
 var lNames = new Array();
 var usernames = new Array();
-var linkedGroup;
+var linkedGroup = "";
 var numSlides;
 var currSlide;
 var polls = new Array();
@@ -50,6 +50,21 @@ function flashErr(divNum, errMsg) {
   }
 }
 
+function getPresInfo() {
+  $.ajax({
+      type: 'GET',
+      url: root_url + 'getPresInfo',
+      async: true,
+      dataType: "json",
+      success: function(response) { 
+        alert(JSON.stringify(response));
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+          alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+      }
+  });
+}
+
 $(document).ready(function(){
 
   var left = (screen.width / 2) - ($("div#invContainer").width() / 2);
@@ -58,7 +73,6 @@ $(document).ready(function(){
   
   $("div#fadeout").hide();
   $("div#invContainer").hide();
-//
 
   $("#inv").click(function(){
   	$("div#fadeout").show();
@@ -68,6 +82,11 @@ $(document).ready(function(){
     getGroups();
   });
   $("div#fadeout").click(function(){
+    if(linkedGroup === "")
+      $("div#saveSubmit div").html("Presentation not linked to a group");
+    else
+      $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+
   	$("div#fadeout").animate({opacity: 0.0}, "fast", function(){
   		$("div#fadeout").hide();
   	});
@@ -94,18 +113,28 @@ $(document).ready(function(){
   });
 
 
-  //Create group
+  //Group Stuff
+  getPresInfo();
+
+  if(linkedGroup === "")
+    $("div#saveSubmit div").html("Presentation not linked to a group");
+  else
+    $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+
+
   $("div#searchBar img#plusBtn").click(function() {
     var groupTxt = $('input#groupBox').val();
 
     if(groupTxt == "")
-      flashErr(2, "Please fill out the group box");
+      flashErr(1, "Please fill out the group box");
     else if(groupTxt != "") {
       createGroup();
     }
   });
 
   $("input#cancel").click(function() {
+    $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+
     $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
       $("div#fadeout").hide();
     });
@@ -162,20 +191,24 @@ $(document).ready(function(){
             alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
         }
     });
-
     currSlide = 1;
+    getPoll();
     $("div#carousel-left").click(function() {
       if(currSlide == 1)
         currSlide = numSlides;
       else
         currSlide--; 
+      getPoll();
     });
     $("div#carousel-right").click(function() {
       if(currSlide == numSlides)
         currSlide = 1;
       else
         currSlide++;
+      getPoll();
     });
+
+    $()
 
     //Polling
 
@@ -220,7 +253,10 @@ function updatePresentation(groupName) {
         data: updateToJSON(groupName),
         async: true,
         success: function(msg) {
-            alert(msg);
+            var response = JSON.parse(msg);
+            var groupName = response.groupName;
+            linkedGroup = groupName;
+            $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -290,8 +326,13 @@ function addUserToGroup(rowNum) {
       url: root_url + 'addToGroup',
       data: addUserFormToJSON(rowNum),
       async: true,
-      success: function(){
-        getGroups();
+      success: function(response){
+        if (response.indexOf("/*/") >= 0)
+          flashErr(1, "User is already in that group");
+        else {
+          flashErr(2, "Adding user to group...");
+          getGroups();
+        }
       },
       error: function(jqXHR, textStatus, errorThrown){
         alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -417,21 +458,23 @@ function displayGroups(groups) {
     var users = groups[i].users;
 
     if(i == 0)
-      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
+      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'><img src='img/trash.png' id='groupTrash' /></div>";
     else
-      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='1'><img src='img/trash.png' id='groupTrash' /></div>";
+      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'><img src='img/trash.png' id='groupTrash' /></div>";
     for(var j = 0; j < numUsers; j++) {
       groupTable = groupTable + "<div id='uName'>" + users[j].name + " (" + users[j].username + ") <img src='img/trash.png' id='userTrash'/></div>";
     }
     $("div#groupTable").html(groupTable);
   }
 
+  $(":radio[value=0]").prop("checked", true)
   $("div#uName img").click(function() {
     deleteUserFromGroup(this);
   });
   $("div#gName img").click(function() {
     deleteGroup(this);
   });
+
 }
 function search(searchTerm) {
   var term = searchTerm.replace(/ /g, '-');
@@ -449,7 +492,12 @@ function search(searchTerm) {
         $("img#addToGroup").click(function(event) {
           var td = event.target.parentNode.parentNode;
           var rowNum = $(td).attr('class');
-          addUserToGroup(rowNum);
+          if(!$("input:radio[name=groupNum]").is(':checked')) {
+            flashErr(1, "A group is not selected");
+          }
+          else {
+            addUserToGroup(rowNum);
+          }
         });
       }
     },
@@ -467,6 +515,7 @@ $(document).keypress(function(e) {
           if(searchTxt == "")
             flashErr(1, "Please fill out the search box");
           else if(searchTxt != "") {
+            flashErr(2, "Searching...");
             search(searchTxt);
           }
         }
@@ -474,11 +523,26 @@ $(document).keypress(function(e) {
           var groupTxt = $('input#groupBox').val();
 
           if(groupTxt == "")
-            flashErr(2, "Please fill out the group box");
+            flashErr(1, "Please fill out the group box");
           else if(groupTxt != "") {
+            flashErr(2, "Creating group " + groupTxt + "...");
             createGroup();
           }
         }
+    }
+
+    //Photo Gallery 
+
+    //Doesn't work
+    if(e.which == 37) {
+      alert("sup");
+      console.log("left arrow");
+      $("#carousel-left").trigger('click');
+    } 
+    if(e.which == 39) {
+      alert("sup yo");
+      console.log("right arrow");
+      $("#carousel-right").trigger('click');
     }
 });
 
@@ -489,17 +553,15 @@ function addPoll() {
     url: root_url + 'createPoll',
     data: pollFormToJSON(),
     async: true,
-    success: function(){
+    success: function() {
       alert("yoyoyo ya poll be created");
     },
     error: function(jqXHR, textStatus, errorThrown){
-      alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+      alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
 }
 function pollFormToJSON() {
-  var pollJSON;
-
   //Set all vars for json
   var presId = $.cookie('pres');
   var numOptions = 0;
@@ -513,7 +575,7 @@ function pollFormToJSON() {
   var opt6 = $("input#OptionF").val();
   var showResults = $('input#1').prop('checked')
 
-  //Set text vars
+  //Set text vars and count options
   if(opt1 == '') opt1 = "NULL";
   else           numOptions++;
   if(opt2 == '') opt2 = "NULL";
@@ -527,16 +589,91 @@ function pollFormToJSON() {
   if(opt6 == '') opt6 = "NULL";
   else           numOptions++;
 
-  //Count number of options
-  if($('input#showGraph').prop('checked')) showResults = "true";
-  else                                     showResults = "false";
+  //set show results
+  if($('input#showGraph').prop('checked')) 
+      showResults = "true";
+  else                                     
+      showResults = "false";
 
-  //Output the json
-  pollJSON = '{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
+  /*pollJSON = '[{"presId":"' + presId + '","numOptions":"' + numOptions + '", "question":"' + question + '", "slide":"' 
               + currSlide + '", "showResults":"' + showResults + '", "options":{ "A":"' + opt1 + '", "B":"' + opt2 + '", "C":"' + opt3 + '", "D":"' + opt4
-              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}';
-  polls[currSlide] = pollJSON;
-  alert(pollJSON);
-  return pollJSON;
+              + '", "E":"' + opt5 + '", "F":"' + opt6 + '"}}]';*/
+
+  return JSON.stringify({
+    "presId": presId,
+    "numOptions": numOptions,
+    "question": question,
+    "slide": currSlide,
+    "showResults": showResults,
+    "A": opt1,
+    "B": opt2,
+    "C": opt3,
+    "D": opt4,
+    "E": opt5,
+    "F": opt6,
+  });
 }
 
+function getPoll() {
+  var slide = currSlide;
+  $.ajax({
+    type: 'GET',
+    url: root_url + 'getPollInfo' + '/' + $.cookie('pres') + '/' + slide,
+    dataType: "json", // data type of response
+    async: true,
+    success: function(response) {
+      fillPoll(response);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      alert('Something went wrong\n getPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+    }
+  });
+}
+
+function fillPoll(json) {
+    
+  if("poll" in json) {
+      document.getElementById('PollQuestion').value = '';
+      document.getElementById('OptionA').value = '';
+      document.getElementById('OptionB').value = '';
+      document.getElementById('OptionC').value = '';
+      document.getElementById('OptionD').value = '';
+      document.getElementById('OptionE').value = '';
+      document.getElementById('OptionF').value = '';
+      document.getElementById('showGraph').checked = false;
+  }
+  var question = document.getElementById("PollQuestion");
+  if("question" in json)
+    question.value = json.question;
+  
+  var opA = document.getElementById("OptionA");
+  if("A" in json.options)
+    opA.value = json.options.A;
+  
+  var opB = document.getElementById("OptionB");
+  if("B" in json.options)
+    opB.value = json.options.B;
+  
+  var opC = document.getElementById("OptionC");
+  if("C" in json.options)
+    opC.value = json.options.C;
+  
+  var opD = document.getElementById("OptionD");
+  if("D" in json.options)
+    opD.value = json.options.D;
+  
+  var opE = document.getElementById("OptionE");
+  if("E" in json.options)
+    opE.value = json.options.E;
+  
+  var opF = document.getElementById("OptionF");
+  if("F" in json.options)
+    opF.value = json.options.F;
+
+  var showGraph = document.getElementById("showGraph");
+  if("showResults" in json) {
+    if(json.showResults === 1)
+      showGraph.checked = true;
+  }
+    
+}

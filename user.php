@@ -15,9 +15,6 @@
 <title>UPresent -- User</title>
 </head>
 <body>
-  <div id="backgroundScreen">
-    <img src="img/newbackground.jpg" class="stretch">
-  </div>
 <div id="dialog-confirm" title="Delete UPresent?">
   <div id="deleteName"></div>
 </div>
@@ -43,7 +40,6 @@
     </div>
   </div>
 </div>
-
 <div id="content">
   <div id="tabs1">
     <ul>

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_presenter.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+    </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.cookie.js"></script>
-<script src="js/viewer.js"></script>
 <script src="js/main.js"></script>
 <script src="js/slidesP.js"></script>
+<script src="js/fullscreen.js"></script>
 <title>UPresent Presenter</title>
 </head>
 
 <body>
-  <div id="backgroundScreen">
-    <img src="img/newbackground.jpg" class="stretch">
-  </div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
@@ -34,9 +36,7 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
-      <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
@@ -47,19 +47,50 @@
       <img id="previous" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
-    <div id="slidePane"> <img id="slide" src=""/></div>
+    <div id="slidePane"><img id="slide" src="" /><img id="fs" src="img/fsBtn.png" /></div>
     <div id="status">
       <div class="oLine"></div>
       <img id="next" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
   </div>
-  <!--<div id="bottom">
-    <div id="presentNotes">
-      <textarea rows="5" cols="50" placeholder="Enter Notes Here..."> </textarea>
+  <div id="endPres">
+    <form id="end" action="user.php">
+      <input id="endUpres" type="submit" value="End UPresent">
+    </form>
+  </div>
+  <div id="bottomInfo">
+    <div id="bInfoData">
+      <table id="pollQuestions">
+      	<tr>
+        <td><input id="resetPoll" type="button" value="Reset Poll"></td>
+        <td class="question"> </td>
+        <td class="result">Results</td>
+      	</tr>
+        <tr>
+          <td>A</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td class="q"></td>
+          <td class="r"></td>
+        </tr>
+      </table>
     </div>
-    <div id="pollResults"><img id="pollR" src="img/poll.png" /></div>
-  </div>-->
+    <div id="bInfoGraph"> </div>
+  </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>
 </body>

@@ -51,7 +51,7 @@ p {
 #content {
 	text-align:center;
 	padding-top:25px;
-	height:600px;	
+	height:675px;	
 }
 
 #pollResults {
@@ -81,4 +81,66 @@ p {
 	width:150px;
 	height:85px;
 	border:1px solid #000;
+}
+
+#endPres {
+	margin-top:30px;
+	margin-left:110px;
+	height:28px;
+	width:192px;
+}
+
+#bottomInfo {
+	border-top: 1px solid #FF9F00;
+	margin-top:25px;
+	height:200px;
+}
+
+#bInfoData {
+	float:left;
+	width:525px;
+	height:200px;
+	text-align:left;
+}
+
+#bInfoGraph {
+	float:left;
+	width:525px;
+	height:200px;	
+}
+
+#pollQuestions {
+	padding-right:10px;
+	padding-left:25px;
+}
+
+.submitButton {
+	width:50px;
+	height:25px;
+	background-color:red;
+}
+
+.q {
+	width:400px;
+	height:40px;
+	padding-left:20px;
+	font-size:15px;
+}
+
+.question {
+	font-size: 20px;
+}
+
+img#fs {
+	width: 40px;
+	height: 41px;
+
+	background-color: #ffffff;
+	position: absolute;
+	z-index: 100;
+
+	top: 300px;
+	right: 330px;
+
+	cursor: pointer;
 }

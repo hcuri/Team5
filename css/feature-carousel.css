@@ -72,13 +72,13 @@
 }
 #carousel-left {
   position:absolute;
-  bottom:33px;
-  left:220px;
+  bottom:20px;
+  left:240px;
   cursor:pointer;
 }
 #carousel-right {
   position:absolute;
-  bottom:33px;
-  right:220px;
+  bottom:20px;
+  right:170px;
   cursor:pointer;
 }

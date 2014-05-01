@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_viewer.css" rel="stylesheet" />
-<link href="css/jQuery.css" rel="stylesheet" /><script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+<link href="css/jQuery.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});
     </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
-
 <script src="js/main.js"></script>
-<script src="js/viewer.js"></script>
 <script src="js/slides.js"></script>
 <title>UPresent Viewer</title>
 </head>
 
 <body>
-  <div id="backgroundScreen">
-    <img src="img/newbackground.jpg" class="stretch">
-  </div>
 <div id="header">
   <div id="insideHeader"><A id="logoLink" HREF="index.php"><img id="logo" src="img/OfficialMiniLogo.png"/></A>
     <div id="logInPane">
@@ -38,9 +34,7 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
-      <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
@@ -65,35 +59,38 @@
     <div id="bInfoData">
       <table id="pollQuestions">
         <tr>
+          <th></th>
+          <th class="question"></th>
+        </tr>
+        <tr>
           <td>A</td>
-          <td class="q">test1</td>
+          <td class="q"></td>
         </tr>
         <tr>
           <td>B</td>
-          <td class="q">test2</td>
+          <td class="q"></td>
         </tr>
         <tr>
           <td>C</td>
-          <td class="q">test3</td>
+          <td class="q"></td>
         </tr>
         <tr>
           <td>D</td>
-          <td class="q">test4</td>
+          <td class="q"></td>
         </tr>
       </table>
     </div>
     <div id="bInfoGraph">
-    <table id="pollSubmission">
+      <table id="pollSubmission">
         <tr>
           <td id="responseA" class="submitButton">A</td>
           <td id="responseB" class="submitButton">B</td>
         </tr>
-         <tr>
+        <tr>
           <td id="responseC" class="submitButton">C</td>
           <td id="responseD" class="submitButton">D</td>
         </tr>
       </table>
-      
     </div>
   </div>
 </div>

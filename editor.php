@@ -1,10 +1,12 @@
 <?php
-  require_once("FileParser/FileParser.php"); 
-  $FileParser = new FileParser();
-  $FileParser->modifyPresentation($_FILES['files'], $_POST['title']);
-  setcookie('presName', $_POST['title']);
+  if(!empty($_FILES['files'])) {
+    require_once("api/FileParser.php"); 
+    $FileParser = new FileParser();
+    $FileParser->modifyPresentation($_FILES['files'], $_COOKIE['presName']);
+  }
 
-  $title = $_POST['title'];
+  $title = $_COOKIE['presName'];
+ 
 ?>
 
 <!--editor.html-->
@@ -18,6 +20,7 @@
   <script src="js/jQuery.js"></script>
   <script src="js/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jquery.cookie.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/editor.js"></script>
   <!--<script type="text/javascript">
       $(document).ready(function() {
@@ -172,14 +175,6 @@
       <div id="groupInfo"></div>
     </div>
     <div id="groupTable">
-      <!--<div id="gName"><img src="img/minusBtn.png" />Group 1<input type="radio" name="groupNum" value="1"></div>
-        <div id="uName">Taylor Bishop <img src="img/trash.png" /></div>
-        <div id="uName">Hector Curi<img src="img/trash.png" /></div>
-        <div id="uName">John Politz<img src="img/trash.png" /></div>
-      <div id="gName"><img src="img/minusBtn.png" />Group 2<input type="radio" name="groupNum" value="2"></div>
-        <div id="uName">Nick Morris<img src="img/trash.png" /></div>
-        <div id="uName">Tyler George<img src="img/trash.png" /></div>
-        <div id="uName">Hector's Mom<img src="img/trash.png" /></div>-->
     </div>
   </div>
   <input id="cancel" type="submit" name="submit" value="Cancel"/>
@@ -205,56 +200,20 @@
         else {
           echo $logInForm;
         }
-        //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
       <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
-<div id="content" style="height: 840px;">
+<div id="content" style="height: 880px;">
   <div id="UPresentTitle">
-    <h1><?php echo $_POST['title']; ?></h1>
+    <h1><?php echo $_COOKIE['presName']; ?></h1>
   </div>
 
   <!--Photo Gallery -->
   <div class="carousel-container">
     
       <div id="carousel">
-        <!-- <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample1.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample2.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              The background will expand up or down to fit the caption.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample3.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              Images can be placed here as well.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample4.jpg" /></a>
-        </div>
-        <div class="carousel-feature">
-          <a href="#"><img class="carousel-image" alt="Image Caption" src="img/sample5.jpg" /></a>
-          <div class="carousel-caption">
-            <p>
-              The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
-            <p>
-          </div>
-        </div> -->
       </div>
     
       <div id="carousel-left"><img src="img/arrow-left.png" /></div>
@@ -269,7 +228,7 @@
         <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" />
         <br>
         <br>
-        Correct<br>
+        Options<br>
         <label for="OptionA">A</label>
         <input id="OptionA" id="OptionA" type="text" placeholder="Option A text here" size="50"/>
         <br>
@@ -297,6 +256,7 @@
   </div>
   <div id="saveSubmit">
     <input type="submit" id="inv" value="Invite Viewers" />
+    <div></div>
     <input type="submit" id="saveUPresent" value="Save UPresent" />
   </div>
 </div>

@@ -2,26 +2,45 @@
 
 var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
-var currentSlide = null;	
+var currentSlide = null;
+var updatedSlide = null;	
 var presID = null;
 var numSlides;
 var poll = false;
+var pollDone = false;
+var submitted = false;
+var interval = null;
+var show = false;
+var fullS = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D'];
 var data = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
-		['A', 0, '#FF0000'],
-		['B', 0, '#FFFF00'],
-		['C', 0, '#FF00FF'],
-		['D', 0, '#000000'],]
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],
+		['D', 0, '#FF4500'],]
 		);
 var chart;
 var options = {
 			legend: {position: 'none'},
-			backgroundColor: "#EDEDED",
+			backgroundColor: "#FFFFFF",
+			width: 525,
+			height: 200,
+			vAxis: {
+				textStyle: {
+					color: 'white',
+				},
+			},
         };
+var elem = null;
+var openFS = null;
+
 
 $(document).ready(function() {
+	elem = document.getElementById("slide");
+	openFS = elem.requestFullScreen || elem.webkitRequestFullScreen || elem.mozRequestFullScreen;
+
 	var slideInfo = $.ajax({
 		type: 'GET',
 		url: root_url + "/getPresInfo",
@@ -49,20 +68,23 @@ $(document).ready(function() {
 	
 	$("#slideNum").html(currentSlide + "|" + numSlides);
 	$("#slide").attr("src", slides[currentSlide]);
-		
-	//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
-	$(".submitButton").click(function(event) {
-		var pollResponse = event.target;
-		pollResponse = $(pollResponse).html();
-		submitResponse(pollResponse);
-		clearInterval(getCurrSlide);
-		setInterval(getPollResults, 1000);
+	
+	$("#slide").click(function() {
+		if(fullS) {
+    		document.webkitCancelFullScreen();
+			fullS = false;
+		} else {
+			openFS.call(elem);
+			fullS = true;
+		}
 	});
 });
 
 function updateSlide() {
 	$("#slide").attr("src", slides[currentSlide]);
 	$("#slideNum").html(currentSlide + "/" + numSlides);
+	clearInterval(interval);
+	interval = null;
 }
 
 function submitResponse(response) {
@@ -73,16 +95,16 @@ function submitResponse(response) {
             data: submitFormToJSON(response),
             async: false,
             success: function(){
-            	alert("Response Submitted");
             },
             error: function(jqXHR, textStatus, errorThrown){
             	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
             }
         });
-			
-	//TEST INFO FOR GRAPH STUFF
-	google.setOnLoadCallback(drawChart);
-	getPollResults();
+	
+	if(show) {
+		//TEST INFO FOR GRAPH STUFF
+		interval = setInterval(getPollResults, 1000);
+	}
 }
 
 
@@ -94,12 +116,26 @@ var getCurrSlide = setInterval(function() {
 			async: false,
 		});
 		cS = cS.responseJSON;
-		currentSlide = cS.currSlide;
-		//var poll = cS.poll;
-		var poll = true;
-		updateSlide();
+		if(currentSlide !== cS.currSlide){
+			currentSlide = cS.currSlide;
+			updatedSlide = currentSlide;
+			poll = cS.poll;
+			pollDone = !poll;
+			updateSlide();
+		}
 		
 		if(poll) {
+			$( "#content" ).animate({
+				height: 675
+			}, 1000, function() {	
+				$("#bottomInfo").css("display", "block");
+				$("#bInfoData").css("display", "block");
+				$( "#bottomInfo" ).animate({
+					opacity: 1
+				}, 1000, function() {
+				});	
+			});
+			
 			var pollJSON = $.ajax({
 				type: 'GET',
 				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
@@ -108,21 +144,51 @@ var getCurrSlide = setInterval(function() {
 			});
 			pollJSON = pollJSON.responseJSON;
 			
-			var q = pollJSON[0].question;
+			var q = pollJSON.question;
+			var opts = pollJSON.options;
+			show = pollJSON.showResults;
+			
+			$(".question").html(q);
 			
 			var qS = document.getElementsByClassName("q");
 			
 			for(var i = 0; i < 4; i++) {
-				$(qS[i]).html(pollJSON[i+1].option_text);
+				$(qS[i]).html(opts[letters[i]]);
 			}
 			
-		} else {
-			//make poll shit disappear	
+			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton">A</td><td id="responseB" class="submitButton">B</td></tr><tr><td id="responseC" class="submitButton">C</td><td id="responseD" class="submitButton">D</td></tr></table>');
+			//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
+			$(".submitButton").click(function(event) {
+				var pollResponse = event.target;
+				pollResponse = $(pollResponse).html();
+				submitted = true;
+				submitResponse(pollResponse);
+			});
+			
+			poll = false;
+			pollDone = false;
+			
+		} else if (pollDone) {
+			console.log("clearing poll");
+			$( "#bottomInfo" ).animate({
+				opacity: 0
+			}, 1000, function() {
+				$("#bottomInfo").css("display", "none");
+				$("#bInfoData").css("display", "none");
+			});	
+			$( "#content" ).animate({
+				height: 475
+			}, 1000, function() {
+				// Animation complete.
+			});	
+			pollDone = false;
+			submitted = false;
 		}
-}, 5000);
+}, 1000);
 
 //CHECK FOR NEW UPDATES TO POLL
-function getPollResults() {
+var getPollResults = function() {
+	console.log("getPollResults");
 	while(liveResults.length > 0) {
 		liveResults.pop();
 	}
@@ -136,19 +202,13 @@ function getPollResults() {
 	result = result.responseJSON;
 	
 	for(var i = 0; i < 4; i++) {
-		liveResults.push(result[i].option_results);
+		data.setValue(i, 1, result[i].option_results);
 	}
-	drawChart();
-};
-
-function drawChart() {
-	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
-
-	for(var i = 0; i < 4; i++) {
-		data.setValue(i, 1, liveResults[i]);
+	if(submitted) {
+		chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 	}
 	chart.draw(data, options);
-}
+};
 
 // Helper function to serialize all the form fields into a JSON string
 function submitFormToJSON(response) {
