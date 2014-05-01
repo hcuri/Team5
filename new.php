@@ -64,7 +64,7 @@
   </div>
   <div id="bottomBlock">
     <div id="buttons">
-      <input type="submit" name="create" value="Create UPresent"/>
+      <input type="submit" name="create" value="Create UPresent" onSubmit="return checkForm()" />
       <input type="button" name="cancel" value="Cancel" onclick="window.location='user.php'"/>
     </div>
   </div>
