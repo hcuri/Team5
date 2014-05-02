@@ -9,6 +9,9 @@
 
 /* Layout helpers
 ----------------------------------*/
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,600italic);
+
 .ui-helper-hidden {
 	display: none;
 }
@@ -761,6 +764,8 @@ button.ui-button::-moz-focus-inner {
 	float: left;
 	padding: .5em 1em;
 	text-decoration: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 900;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
 	margin-bottom: -1px;
@@ -795,7 +800,6 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
 	font-size: 1.1em;
 }
 .ui-widget .ui-widget {
@@ -805,8 +809,6 @@ body .ui-tooltip {
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1em;
 }
 .ui-widget-content {
 	border: 1px solid #aaaaaa;

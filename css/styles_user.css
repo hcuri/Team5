@@ -1,11 +1,14 @@
 @charset "UTF-8";
 /* CSS Document */
 
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,600italic);
+
 table {
 	font-size: 12px;
 	text-align:center;	
 	border:1px solid #2a2a2a;
 	overflow:auto;
+	font-size:14px;
 }
 
 th {
@@ -23,6 +26,7 @@ td {
 	width:40%;
 	height:300px;
 	float:left;	
+	font-weight:400;
 }
 
 #divider {
