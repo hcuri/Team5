@@ -12,7 +12,7 @@
 <script src="js/jquery.cookie.js"></script>
 <script src="js/user.js"></script>
 <script src="js/main.js"></script>
-<title>UPresent -- User</title>
+<title>User's UPresents Page</title>
 </head>
 <body>
 <div id="dialog-confirm" title="Delete UPresent?">

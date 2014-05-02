@@ -12,7 +12,7 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/main.js"></script>
 <script src="js/contact.js"></script>
-<title>UPresent -- Contact Us</title>
+<title>Contact Team5!</title>
 </head>
 <body>
 <div id="header">

@@ -16,7 +16,7 @@
 <script src="js/main.js"></script>
 <script src="js/slidesP.js"></script>
 <script src="js/fullscreen.js"></script>
-<title>UPresent Presenter</title>
+<title>Presenting Presentation</title>
 </head>
 
 <body>

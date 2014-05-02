@@ -7,7 +7,7 @@
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
-<title>UPresent.org</title>
+<title>UPresent - Revolutionizing Presentations in the Classroom</title>
 </head>
 
 <body>

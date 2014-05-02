@@ -7,7 +7,7 @@
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
-<title>UPresent - Privacy</title>
+<title>Our Privacy Policy</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 <div id="content">
   <div id="terms">
     <div id="infoHeader">UPresent Privacy</div>
-    <div id="infoContent">Here is where UPresent.org is going to explain how user information is processed and kept private from organizations like NSA, CIA, etc; in order to keep our users happy and safe.</div>
+    <div id="infoContent">UPresent is licensed under the DMCA of 2012 - you may use the software at will, but cannot change the code or publish it in any way, shape, or form.</div>
   </div>
   
 </div>

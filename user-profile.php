@@ -12,7 +12,7 @@
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/user_profile.js"></script>
   <script src="js/main.js"></script>
-  <title>UPresent -- User Profile</title>
+  <title>User Profile</title>
 </head>
 <body>
 <div id="header">

@@ -57,7 +57,7 @@ function getPresInfo() {
       async: true,
       dataType: "json",
       success: function(response) { 
-        alert(JSON.stringify(response));
+        document.title = 'Editing "' + response.presName + '"';
       },
       error: function(jqXHR, textStatus, errorThrown){
           alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);

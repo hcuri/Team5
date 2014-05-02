@@ -35,7 +35,7 @@
 
       });
     </script> -->
-  <title>UPresent - Editor</title>
+  <title>Edit UPresent</title>
 </head>
 <body>
 
