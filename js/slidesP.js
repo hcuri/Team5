@@ -94,7 +94,6 @@ $(document).ready(function(e) {
 	});
     $("#endPres").click(function() {
     	finishPresentation();
-		window.location = "http://localhost/user.php";
 	});
 	$("#resetPoll").click(function() {
 					console.log("reset activated");
@@ -254,11 +253,11 @@ function finishPresentation() {
 		url: root_url + 'finishPresentation',
 		data: endFormToJSON(),
 		async: false,
-		success: function(msg){
-			alert(msg);
+		success: function(){
+			//DONT DO NOTHIN
 		},
 		error: function(jqXHR, textStatus, errorThrown){
-			alert(jqXHR + ' Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+			console.log(jqXHR + ' Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
 		}
 	});
 }

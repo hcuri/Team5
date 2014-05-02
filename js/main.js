@@ -26,8 +26,6 @@ function checkLogin(lForm) {
 
 
 function logout() {
-	alert("sup");
-	
 	var check = $.ajax({
 		type: 'GET',
 		url: root_url + 'logout',
