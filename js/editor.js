@@ -45,6 +45,22 @@ function flashErr(divNum, errMsg) {
       $("div#gErr").animate({opacity: 0.0}, "slow");
     });
   }
+  else if(divNum == 3) {
+    $('div#qErr').text("");
+    $('div#qErr').css({opacity: 0.0});
+    $('div#qErr').text(errMsg);
+    $("div#qErr").animate({opacity: 1.0}, "slow", function(){
+      $("div#qErr").animate({opacity: 0.0}, "slow");
+    });
+  }
+  else if(divNum == 4) {
+    $('div#oErr').text("");
+    $('div#oErr').css({opacity: 0.0});
+    $('div#oErr').text(errMsg);
+    $("div#oErr").animate({opacity: 1.0}, "slow", function(){
+      $("div#oErr").animate({opacity: 0.0}, "slow");
+    });
+  }
   else {
     alert("Internal error. You just broke the internet.");
   }
@@ -214,7 +230,22 @@ $(document).ready(function(){
     //Polling
 
     $("#pollSubmit").click(function() {
-      addPoll();
+      var q = $("input#PollQuestion").val();
+      var a = $("input#OptionA").val();
+      var b = $("input#OptionB").val();
+      var c = $("input#OptionC").val();
+      var d = $("input#OptionD").val();
+      var e = $("input#OptionE").val();
+      var f = $("input#OptionF").val();
+
+      if(q == "") {
+        flashErr(3, "Please add a question.");
+      }
+      else if(a == "" && b == "" && c == "" && d == "" && e == "" && f == "") {
+        flashErr(4, "Please add at least one option.");
+      }
+      else
+        addPoll();
     });
 
 });
@@ -555,7 +586,7 @@ function addPoll() {
     data: pollFormToJSON(),
     async: true,
     success: function() {
-      alert("yoyoyo ya poll be created");
+      alert("Poll add to presentation");
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);

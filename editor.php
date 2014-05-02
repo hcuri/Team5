@@ -225,12 +225,13 @@
       <div id="pollHead"><div id="pollTitle"><span>Slide Poll</span></div></div>
       <div id="pollContainer">
         <label for="PollQuestion">Question</label><br />
-        <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" />
+        <input id="PollQuestion" type="text" name="PollQuestion" placeholder="Write your question here" size="50" /><div id="qErr"></div>
         <br>
         <br>
         Options<br>
         <label for="OptionA">A</label>
         <input id="OptionA" id="OptionA" type="text" placeholder="Option A text here" size="50"/>
+        <div id="oErr"></div>
         <br>
         <label for="OptionB">B</label>
         <input id="OptionB" id="OptionB" type="text" placeholder="Option B text here" size="50"/>

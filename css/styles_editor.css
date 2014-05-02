@@ -342,3 +342,19 @@ div#pollTitle {
 div#carousel {
     margin-left: 39px;
 }
+
+div#qErr {
+    position: absolute;
+    top: 494px;
+    right: 140px;
+    font-size: 0.8em;
+    color: red;
+}
+div#oErr {
+    position: absolute;
+    top: 583px;
+    right: 90px;
+    font-size: 0.8em;
+    float: right;
+    color: red;
+}
