@@ -10,10 +10,9 @@
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.cookie.js"></script>
-<script src="js/new.js"></script>
 <script src="js/main.js"></script>
 <script src="js/presentation.js"></script>
-<title>UPresent -- New</title>
+<title>New Presentation</title>
 </head>
 <body>
 <div id="header">
@@ -33,20 +32,19 @@
           echo $logInForm;
         }
       ?>
-      <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
 <h1>New UPresent</h1>
 <div id="content">
-<form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation()">
+<form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation();">
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" required />
       <br/>
       <label for="date">Date?</label>
-      <input type="date" name="date" id="date" required />
+      <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" required />
       <br/>
       <label for="time">Time?</label>
       <input type="time" name="time" id="time" required />
@@ -64,7 +62,7 @@
   </div>
   <div id="bottomBlock">
     <div id="buttons">
-      <input type="submit" name="create" value="Create UPresent" onSubmit="return checkForm()" />
+      <input type="submit" name="create" value="Create UPresent" />
       <input type="button" name="cancel" value="Cancel" onclick="window.location='user.php'"/>
     </div>
   </div>
