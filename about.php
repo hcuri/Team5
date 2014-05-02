@@ -7,7 +7,7 @@
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
-<title>UPresent - About</title>
+<title>About UPresent</title>
 </head>
 
 <body>

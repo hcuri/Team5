@@ -48,6 +48,21 @@ $(document).ready(function(e) {
 	slidesJSON = slidesJSON.responseJSON;
 	numSlides = slidesJSON.numSlides;
 	slides = slidesJSON.slides;
+
+	$.ajax({
+		type: 'GET',
+		url: root_url + "/getPresInfo",
+		dataType: "json",
+		async: true,
+		success: function(response) { 
+        	$("div#titleAFView").text(response.presName);
+        	document.title = response.presName + " Afterview";
+      	},
+      	error: function(jqXHR, textStatus, errorThrown){
+          	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+      	}
+	});
+
 	
 	$("#slide").attr("src", slides[1]);
         if(numSlides > 1)

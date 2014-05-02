@@ -16,7 +16,7 @@
 <script src="js/main.js"></script>
 <script src="js/slidesAF.js"></script>
 <script src="js/fullscreen.js"></script>
-<title>UPresent Presenter</title>
+<title>Past Presentation</title>
 </head>
 
 <body>
@@ -41,13 +41,14 @@
   </div>
 </div>
 <div id="content">
+  <div id="titleAFView"></div>
   <div id="viewer">
     <div id="info">
       <div class="oLine"></div>
       <img id="previous" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
-    <div id="slidePane"><img id="slide" src="" /><img id="fs" src="img/fsBtn.png" /></div>
+    <div id="slidePane"><img id="slide" src="" /></div>
     <div id="status">
       <div class="oLine"></div>
       <img id="next" class="smallSlide" src=""/>
