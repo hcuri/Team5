@@ -184,7 +184,8 @@ $(document).ready(function(){
             // (use quotes only for string values, and no trailing comma after last option)
             // option: value,
             // option: value
-            autoPlay: 0
+            autoPlay: 0,
+            trackerSummation: false
           });
         },
         error: function(jqXHR, textStatus, errorThrown){

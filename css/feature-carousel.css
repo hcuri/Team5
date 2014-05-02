@@ -39,6 +39,7 @@
   color:white;
 }
 .tracker-summation-container {
+  display: none;
   position:absolute;
   color:white;
   right:48px;
@@ -48,6 +49,7 @@
   background-color:#000;
 }
 .tracker-individual-container {
+  display: none;
   position:absolute;
   color:white;
   right:48px;

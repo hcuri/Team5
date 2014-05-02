@@ -205,7 +205,7 @@
     </div>
   </div>
 </div>
-<div id="content" style="height: 880px;">
+<div id="content" style="height: 930px;">
   <div id="UPresentTitle">
     <h1><?php echo $_COOKIE['presName']; ?></h1>
   </div>
