@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/* CSS Document */
+
+table {
+	font-size: 12px;
+	text-align:center;	
+	border:1px solid #2a2a2a;
+	overflow:auto;
+}
+
+th {
+	font-size: 15px;
+	color:black;
+	background-color:#CCC;
+
+}
+
+td {
+	height:30px;
+}
+
+#tabs1 {
+	width:40%;
+	height:300px;
+	float:left;	
+}
+
+#divider {
+	margin-left:16px;
+	height:305px;
+	border:1px solid black;
+	float:left;	
+}
+
+#tabs2 {
+	width:55%;
+	height:300px;
+	float:right;	
+}
+
+#tabs3 {
+	width:40%;
+	height:250px;
+	margin-top:40px;
+	margin-left:30px;
+	float:left;
+}
+
+#deleteName {
+	width:auto;
+	height:auto;
+	font-size: 15px;
+}
+
+
+#groupStuff {
+	float:left;
+	margin-top:2%;
+	margin-left:-20px;
+}
+
+#createGroup {
+	float:left;
+}
+
+#searchGroup {
+	float:left;
+}
+
+#addtoGroup {
+	float:left;
+}
+
+#leaveGroup {
+	float:left;
+}
+
+#createNew {
+	margin-top:30px;
+	margin-left:110px;
+	height:28px;
+	width:192px;
+}
+
+.trashIcon {
+	width:25px;
+	height:25px;
+}
+
+.erase {
+	width:75px;
+}
+
+.edit {
+	width:75px;
+}
+
+.title {
+	width:200px;
+}
+
+.view {
+	width:75px;
+}
+
+.author {
+	width:150px;
+}
+
+.date {
+	width:100px;
+}
+
+/*styling for the tabs*/
+.ui-tabs-vertical {
+	width: 950px;
+	margin-left:20px;
+}
+.ui-tabs-vertical .ui-tabs-nav {
+	background-color:#ededed;
+	border: none;
+	padding: .2em .1em .2em .2em;
+	float: left;
+	width: 85px;
+	height:50px;
+}
+.ui-tabs-vertical .ui-tabs-nav li {
+	clear: left;
+	width: 100%;
+	border-bottom-width: 1px !important;
+	border-right-width: 0 !important;
+	margin: 0 -1px .2em 0;
+}
+.ui-tabs-vertical .ui-tabs-nav li a {
+	display: block;
+}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+	background-color:#4486f7;
+	color:white;
+	padding-bottom: 0;
+	padding-right: .1em;
+	border-right-width: 1px;
+	border-right-width: 1px;
+}
+.ui-tabs-vertical .ui-tabs-panel {
+	padding: 1em;
+	float: right;
+	width: 40em;
+	background-color:red;
+}
+
+
+
+#tabs1 tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#tabs2 tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#tabs3 tr:nth-child(odd) {
+	background-color: #ededed;
+}
+/*end styling for the tabs*/
