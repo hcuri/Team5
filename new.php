@@ -35,9 +35,9 @@
     </div>
   </div>
 </div>
-<h1>New UPresent</h1>
 <div id="content">
 <form id="createNew" action="editor.php" method="post" enctype="multipart/form-data" onSubmit="return createPresentation();">
+  <div id="newHeader">New UPresent</div>
   <div id="block">
     <div id="info">
       <label for="title">Title:</label>
