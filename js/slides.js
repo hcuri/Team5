@@ -132,7 +132,6 @@ var getCurrSlide = setInterval(function() {
 			if(fullS) {
 				document.webkitCancelFullScreen();
 				fullS = false;
-				backToFS = true;
 			}
 			$( "#content" ).animate({
 				height: 675
