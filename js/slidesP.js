@@ -49,6 +49,7 @@ $(document).ready(function(e) {
 	slidesJSON = slidesJSON.responseJSON;
 	numSlides = slidesJSON.numSlides;
 	slides = slidesJSON.slides;
+	$("div#presTitle").text($.cookie('presName'));
 
 	$("#slide").attr("src", slides[1]);
         if(numSlides > 1)

@@ -219,3 +219,9 @@ input[type=button] {
 input[type=submit] {
 	cursor: pointer;
 }
+
+div#presTitle {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+	font-weight: 900;
+}
