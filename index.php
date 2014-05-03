@@ -43,7 +43,7 @@
 <div id="content">
   <div id="info">
     <div id="infoHeader">Welcome to UPresent!</div>
-    <div id="infoContent"> UPresent is an in-browser software service that lets you upload your presentations online and share them with the entire class. Just upload you presentation, join a group, and watch as it displays across everyone in the session!</div>
+    <div id="infoContent"> UPresent is an in-browser software service that lets you upload your presentations online and share them with the entire class. Just upload your presentation, add a group, and watch as it displays across everyone in the session!</div>
     <IMG SRC="img/OfficialLogo.png" /> </div>
   <div id="signUpWindow">
     <div id="signUpHeader">Sign Up!</div>

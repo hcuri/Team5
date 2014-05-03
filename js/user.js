@@ -21,6 +21,7 @@ $(document).ready(function() {
 	});
 	
 	var userN = $("#logoutUsername").html();
+	document.title = userN + "'s UPresents";
 	var pres = $.ajax({
 		type: 'GET',
 		url: root_url + "getPresentations/" + userN,
