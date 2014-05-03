@@ -1193,8 +1193,8 @@ function getPollInfo($presId, $slide) {
             $stmtPollQuestion->execute();
             $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
             $pollShowRes = $pollQuestion['showResults'];
-            $pollQuestion = $pollQuestion['question'];
             $pollNumOps = $pollQuestion['numOptions'];
+            $pollQuestion = $pollQuestion['question'];
             $pollQuestion = json_encode($pollQuestion);
 
             $stmtPollInfo = $db->prepare($sqlPollInfo);
