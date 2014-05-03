@@ -53,8 +53,8 @@ class FileParser {
         }
     }
 
-    function deletePresentation($title) {
-        $folder = "../upload/" . $_COOKIE['user'] . "/" . $title;
+    function deletePresentation($title, $username) {
+        $folder = "../upload/" . $username . "/" . $title;
         error_log("\n" . "Delete Presentation Files in " . $folder, 3, "/var/tmp/php.log");
         rrmdir($folder);
     }
