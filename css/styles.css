@@ -165,6 +165,7 @@ img#logo {
 	text-align:center;
 	border-top:2px solid white;
    	bottom:10px;
+   	position:absolute;
    	width:100%;
 }
 
