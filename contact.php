@@ -41,15 +41,23 @@
   <div id="contact">
     <form id="contact" action="" method="post" onSubmit="return submitContact()">
       <h2>Contact UPresent</h2>
-      <p>We are here to help you with any questions or comments.</p>
-      <label for="username">Username:</label>
-      <input id="userN" type="text" name="username" placeholder="Username"/>
+      <div id="uDiv">
+        <label for="username" id="uHead">Username:</label>
+
+        <?php
+          if (!empty($_COOKIE['user']))  echo '<div id="usernameContact">' . $_COOKIE['user'] . '</div>';
+          else                           echo '<input id="userN" type="text" name="username" placeholder="Username" size="50" />';
+        ?>
+      </div>
       <br/>
-      <label for="subject">Subject:</label>
-      <input id="subject" type="text" name="subject" placeholder="Subject"/>
+      <div id="subDiv">
+        <label for="subject" id="subHead">Subject:</label>
+        <input id="subject" type="text" name="subject" placeholder="Subject" size="50" />
+      </div>
       <br/>
-      <textarea id="message" wrap="hard">
-			</textarea>
+      <label>Message:</label>
+      <br/>
+      <textarea id="message" wrap="hard"></textarea>
       <br/>
       <input id="request" type="submit" value="Send Request"/>
     </form>

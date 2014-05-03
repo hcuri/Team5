@@ -27,10 +27,32 @@ input#request {
 textarea#message {
 	border:1px solid #2a2a2a;
 	border-radius:4px;
-	height:200px;
+	height:265px;
 	width:600px;
 	margin-bottom:5px;
 	margin-left:1px;
-
+	margin-top: 10px;
+	resize: none;
 }
 
+#uHead {
+	vertical-align: middle;
+}
+#subHead {
+	vertical-align: middle;
+}
+
+input#userN {
+	float: right;
+	margin-right: 12px;
+}
+input#subject {
+	float: right;
+	margin-right: 12px;
+}
+#usernameContact {
+	color: blue;
+	float: right;
+	margin-right: 14px;
+	font-weight: bold;
+}

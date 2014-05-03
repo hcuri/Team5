@@ -26,3 +26,18 @@ textarea#message {
 
 }
 
+#uHead {
+	margin-top: 10px;
+}
+#subHead {
+
+}
+
+input#userN {
+	float: right;
+	padding-left: 30px;
+}
+input#subject {
+	float: right;
+	margin-left: 40px;
+}
