@@ -162,7 +162,7 @@ var getCurrSlide = setInterval(function() {
 			
 			var qS = document.getElementsByClassName("q");
 			
-			var tableContents = '<tr><th></th><th class="question"></th></tr>';
+			var tableContents = '<tr><th></th><th class="question">' + q +'</th></tr>';
 			
 			for(var i = 0; i < numQ; i++) {
 				tableContents += '<tr><td>' + letters[i] + '</td><td class="q">' + opts[letters[i]] + '</td></tr>';

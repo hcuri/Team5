@@ -8,7 +8,7 @@ var numSlides;
 var poll = false;
 var pollDone = false;
 var liveResults = new Array();
-var letters = ['A','B','C','D'];
+var letters = ['A','B','C','D','E','F'];
 var data = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
 		['A', 0, '#32CD32'],
@@ -150,14 +150,19 @@ var getCurrSlide = setInterval(function() {
 
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
+			var numQ = pollJSON.numOptions;
 
 			$(".question").html(q);
 
 			var qS = document.getElementsByClassName("q");
 
-			for(var i = 0; i < 4; i++) {
-				$(qS[i]).html(opts[letters[i]]);
+			var tableContents = '<tr><th></th><th class="question">' + q +'</th></tr>';
+			
+			for(var i = 0; i < numQ; i++) {
+				tableContents += '<tr><td>' + letters[i] + '</td><td class="q">' + opts[letters[i]] + '</td></tr>';
 			}
+			
+			$("#bInfoData").html(tableContents);
 
 			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 			chart.draw(data, options);
