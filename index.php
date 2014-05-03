@@ -8,7 +8,7 @@
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
-<script src="js/index_validation.js"></script>
+<script src="js/index_validation.js"></script> 
 <title>UPresent - Revolutionizing Presentations in the Classroom</title>
 </head>
 

@@ -1,5 +1,13 @@
-function parseDate(date) {
+function parseDate(date, time) {
 	var d = new Date();
+
+	//parsing time
+	var tHours = parseInt(d.getHours());
+	var tMins = parseInt(d.getMinutes());
+	var gHours = parseInt(time.match(/.+?(?=:)/));
+	var gMins = new Array();
+	var gMins = time.match(/:(\d+)/);
+	gMins = parseInt(gMins[1]);
 
 	//Make sure year is valid
 	var year = date.match(/\d*/);
@@ -30,6 +38,20 @@ function parseDate(date) {
 			else if(gMonth == fMonth) {
 				if(gDay < fDay)
 					flashErr("You cannot give a presentation in the past!");
+				else if(gDay == fDay) {
+					if(gHours < tHours) {
+						flashErr("You cannot give a presentation in the past!");
+					}
+					else if(gHours == tHours) {
+						if(gMins < tMins || gMins == tMins) {
+							flashErr("You cannot give a presentation in the past!");
+						}
+						else
+							bool = true;
+					}
+					else
+						bool = true;
+				} 
 				else
 					bool = true;
 			}
@@ -57,9 +79,21 @@ function createPresentation() {
     var date = $("input#date").val();
     var time = $("input#time").val();
 
-    alert(root_url);
-
-    if(parseDate(date)) {
+    var inp = document.getElementById('files');
+    var count = 0;
+    for (var i = 0; i < inp.files.length; ++i) {
+        count++;
+        if(count > 20)
+            break;
+    }
+    
+    if (count > 20) {
+        flashErr("You can only upload presentations with 20 slides or less.");
+        document.getElementById('files').focus();
+        return false;
+    }
+   
+    if(parseDate(date, time)) {
     	var bool = false;
 
     	$.cookie('presName', title, {path: '/'});

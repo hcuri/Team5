@@ -8,19 +8,24 @@ p {
 }
 
 #viewer {
-	height:360px;	
+	height:360px;
+	
 }
 
 #info {
 	float:left;
 	width:100px;
-	height:400px;
-	padding-left:50px;
-	padding-right:25px;
+	height:350px;
+	padding-left:30px;
+	padding-right:30px;
+	margin-top:4px;
+	margin-right:10px;
+	
 }
 
 #slidePane {
 	float:left;
+	margin-top:4px;
 	width:700px;
 	height:350px;
 }
@@ -32,16 +37,23 @@ p {
 }
 
 #status {
-	padding-right:50px;
-	padding-left:25px;
-	float:right;
+	position:relative;
+	padding-right:30px;
+	padding-left:30px;
+	margin-top:4px;
+	margin-left:882px;
+	/*float:right;*/
 	width:100px;	
+	height:350px;
+	
 }
 
 #content {
 	text-align:center;
 	padding-top:25px;
-	height:625px;	
+	width:1050px;
+	height:700px;	
+	background-color: white;
 	overflow: visible !important;
 }
 
@@ -65,6 +77,7 @@ p {
 	border-top: 1px solid #FF9F00;
 	margin-top:25px;
 	height:200px;
+	border:1px solid black;
 }
 
 #bInfoData {

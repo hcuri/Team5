@@ -13,7 +13,14 @@ $('input[type=text], textarea').each(function(){
 });
 
 function checkLogin(lForm) {
+        var usernameRegex = /^[a-zA-Z0-9\-]+$/;
 	var username = lForm.logInUsername.value;
+        var validUsername = username.match(usernameRegex);
+        if (validUsername == null) {
+            alert("The username you entered is not valid.");
+            $("#logInUsername").focus();
+            return false;
+        }
 	var pw = lForm.logInPassword.value;
 	var check = $.ajax({
 		type: 'GET',
@@ -52,13 +59,43 @@ function logout() {
 }
 
 function checkRegister(pform) {
-	var username = pform.signUpUsername.value;
+        var fNameRegex = /^[a-zA-Z\- ]+[^\s]$/;
+        var lNameRegex = /^[a-zA-Z\-]+[^\s]$/;
+        var usernameRegex = /^[a-zA-Z0-9\-]+$/;
+        var validFName = pform.signUpFname.value.match(fNameRegex);
+        var validLName = pform.signUpLname.value.match(lNameRegex);
+        if (validFName == null) {
+            alert("Your first name is not valid. Only characters A-Z, a-z, '-' and spaces are  acceptable. Also ensure your entry does not end with any whitespace.");
+            $("#signUpFname").focus();
+            return false;
+        }
+        if (validLName == null) {
+            alert("Your last name is not valid. Only characters A-Z, a-z and '-' are  acceptable. Also ensure your entry does not end with any whitespace.");
+            $("#signUpLname").focus();
+            return false;
+        }
+        var username = pform.signUpUsername.value;
+        var validUsername = username.match(usernameRegex);
+        if (validUsername == null) {
+            alert("Your username is not valid. Only characters A-Z, a-z, 0-9 and '-' are  acceptable.");
+            $("#signUpUsername").focus();
+            return false;
+        }
 	var email = pform.signUpEmail.value;
 	var pwd = pform.signUpPassword.value;
 	var pwdC = pform.signUpPasswordC.value
 	
 	if(pwd!==pwdC) {
-		alert("Password and Confirm Password Do Not Match");
+		alert("Password and Confirm Password do not match");
+		var obj = document.getElementById("signUpPassword");
+		obj.value = obj.defaultValue;
+		obj.focus();
+		obj = document.getElementById("signUpPasswordC");
+		obj.value = obj.defaultValue;
+		return false;
+	}
+	else if(pwd.length < 8) {
+		alert("Password must be at least 8 characters long");
 		var obj = document.getElementById("signUpPassword");
 		obj.value = obj.defaultValue;
 		obj.focus();

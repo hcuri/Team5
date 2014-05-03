@@ -100,3 +100,10 @@
     float:right;
     margin-top:-30px;
 }
+
+#goBack {
+	margin-top:30px;
+	margin-left:110px;
+	height:28px;
+	width:192px;
+}

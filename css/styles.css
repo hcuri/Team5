@@ -165,6 +165,7 @@ img#logo {
 	text-align:center;
 	border-top:2px solid white;
    	bottom:10px;
+   	position:absolute;
    	width:100%;
 }
 
@@ -218,4 +219,10 @@ input[type=button] {
 
 input[type=submit] {
 	cursor: pointer;
+}
+
+div#presTitle {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+	font-weight: 900;
 }

@@ -42,6 +42,7 @@
   </div>
 </div>
 <div id="content">
+  <div id="presTitle"></div>
   <div id="viewer">
     <div id="info">
       <div class="oLine"></div>

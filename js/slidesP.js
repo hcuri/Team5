@@ -8,7 +8,7 @@ var numSlides;
 var poll = false;
 var pollDone = false;
 var liveResults = new Array();
-var letters = ['A','B','C','D'];
+var letters = ['A','B','C','D','E','F'];
 var data = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
 		['A', 0, '#32CD32'],
@@ -29,9 +29,16 @@ var options = {
 			},
         };
 var draw = false;
+var elem = null;
+var openFS = null;
+var fullS = false;
+var backToFS = false;
 
 $(document).ready(function(e) {
 	presID = $.cookie('pres');
+	
+	elem = document.getElementById("slide");
+	openFS = elem.requestFullScreen || elem.webkitRequestFullScreen || elem.mozRequestFullScreen;
 
 	$("#bottomInfo").css("display", "none");
 	$("#bInfoData").css("display", "none");
@@ -49,6 +56,7 @@ $(document).ready(function(e) {
 	slidesJSON = slidesJSON.responseJSON;
 	numSlides = slidesJSON.numSlides;
 	slides = slidesJSON.slides;
+	$("div#presTitle").text($.cookie('presName'));
 
 	$("#slide").attr("src", slides[1]);
         if(numSlides > 1)
@@ -57,6 +65,16 @@ $(document).ready(function(e) {
             $("#next").attr("src", ""); //need contingincy for this
             $("#next").css("background-color", "black");
         }
+	$("#slide").click(function() {
+		if(fullS) {
+    		document.webkitCancelFullScreen();
+			fullS = false;
+		} else {
+			openFS.call(elem);
+			updatedSlide--;
+			fullS = true;
+		}
+	});
 
 	$("#slide").click(function() {
                 if(currentSlide < numSlides) {
@@ -108,6 +126,7 @@ $(document).ready(function(e) {
 						}
 					});
 				});
+	
 });
 
 var getCurrSlide = setInterval(function() {
@@ -127,6 +146,10 @@ var getCurrSlide = setInterval(function() {
 		}
 
 		if(poll) {
+			if(fullS) {
+				document.webkitCancelFullScreen();
+				fullS = false;
+			}
 			$( "#content" ).animate({
 				height: 675
 			}, 500, function() {	
@@ -149,14 +172,19 @@ var getCurrSlide = setInterval(function() {
 
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
+			var numQ = pollJSON.numOptions;
 
 			$(".question").html(q);
 
 			var qS = document.getElementsByClassName("q");
 
-			for(var i = 0; i < 4; i++) {
-				$(qS[i]).html(opts[letters[i]]);
+			var tableContents = '<tr><th></th><th class="question">' + q +'</th></tr>';
+			
+			for(var i = 0; i < numQ; i++) {
+				tableContents += '<tr><td>' + letters[i] + '</td><td class="q">' + opts[letters[i]] + '</td></tr>';
 			}
+			
+			$("#bInfoData").html(tableContents);
 
 			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 			chart.draw(data, options);

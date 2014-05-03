@@ -159,13 +159,15 @@ div#groupTable {
         cursor: pointer;
     }
     img[src="img/trash.png"] {
-        width: 13px;
-        height: 13px;
-        float: right;
+        width: 14px;
+        height: 14px;
         cursor: pointer;
+        margin-top: 10px;
+        margin-right: 5px;
     }
-    img#groupTrash {
-        float: left;
+    div#uName img[src="img/trash.png"] {
+        margin-top: 6px;
+        vertical-align: -2px;
     }
 
 input#cancel {
