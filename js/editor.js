@@ -307,8 +307,11 @@ function updateToJSON(groupName) {
 function addGroup(groupName) {
   var groupTable = $("div#groupTable").html();
 
-  groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groupName + "<input type='radio' name='groupNum' value='1'></div>";
+  groupTable = groupTable + "<div id='gName'><img src='img/trash.png' id='groupTrash'/>" + groupName + "<input type='radio' name='groupNum' value='1'></div>";
   $("div#groupTable").html(groupTable);
+
+  //Select radio Button
+  $('input[name=groupNum]:last').prop("checked", true);
 }
 function createGroup() {
     $.ajax({
@@ -335,11 +338,7 @@ function getGroups() {
     dataType: "json", // data type of response
     async: true,
     success: function() {
-      if(count(groups.responseJSON) == 0) 
-        flashErr(1, "You have no groups");
       displayGroups(groups.responseJSON);
-        //alert(JSON.stringify(groups.responseJSON));
-      
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert('Something went wrong\n search() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
