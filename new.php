@@ -13,7 +13,7 @@
 <script src="js/jquery.cookie.js"></script>
 <script src="js/main.js"></script>
 <script src="js/presentation.js"></script>
-<title>New Presentation</title>
+<title>New UPresent</title>
 </head>
 <body>
 <div id="header">
@@ -49,15 +49,14 @@
       <br/>
       <label for="time">Time?</label>
       <input type="time" name="time" id="time" required />
-      
-      <!-- Error Message -->
-      <div id="errBox"></div>
     </div>
     <div id="divider"></div>
     <div id="fileinfo">
       <p>Please upload Folder of Images:</p>
       <br/>
       <span id="fileUpload"><input type="file" name="files[]" id="files" multiple directory webkitdirectory mozdirectory required></span>
+      <!-- Error Message -->
+      <div id="errBox"></div>
     </div>
     <br/>
   </div>
