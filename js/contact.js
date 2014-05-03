@@ -1,25 +1,47 @@
 var root_url = "http://localhost/UPresent/api/index.php/";
 
-function submitContact() {
-    $.ajax({
-        type: 'POST',
-        url: root_url + 'email',
-        data: contactFormToJSON(),
-        async: true,
-	success: function(){
-            alert('Email sent successfully');
-	},
-        error: function(jqXHR, textStatus, errorThrown){
-            alert(jqXHR + 'Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
-        }
+function flashErr(errMsg) {
+    $('div#cErr span').text("");
+    $('div#cErr span').css({opacity: 0.0});
+    $('div#cErr span').text(errMsg);
+    $("div#cErr span").animate({opacity: 1.0}, "slow", function(){
+      $("div#cErr span").delay(3000).animate({opacity: 0.0}, "slow");
     });
-    return true;
 }
 
-    function contactFormToJSON() {
-    return JSON.stringify({
-        "name": $('#userN').val(),
-        "subject": $('#subject').val(),
-        "message": $('#message').val()        
-    });
+function submitContact() {
+    var msg = $("#message").val();
+    if(msg === "") {
+        flashErr("   Please fill out the message field.");
+        return false;
+    }
+    else {
+        $.ajax({
+            type: 'POST',
+            url: root_url + 'email',
+            data: contactFormToJSON(),
+            async: true
+        });
+        alert("Email sent successfully");
+        return true;
+    }
+}
+
+function contactFormToJSON() {
+    var cookie = $.cookie('user');
+
+    if(typeof cookie === 'undefined') {
+        return JSON.stringify({
+            "name": $('#userN').val(),
+            "subject": $('#subject').val(),
+            "message": $('#message').val()        
+        });
+    }
+    else {
+        return JSON.stringify({
+            "name": $.cookie('user'),
+            "subject": $('#subject').val(),
+            "message": $('#message').val()        
+        });
+    }
 }   

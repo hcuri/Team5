@@ -10,6 +10,7 @@
 <link href="css/styles_user.css" rel="stylesheet"/>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/main.js"></script>
 <script src="js/contact.js"></script>
 <title>Contact Team5!</title>
@@ -33,33 +34,32 @@
         }
         //echo '<SCRIPT TYPE="text/javascript">alert("' . $_COOKIE["user"] . '");</SCRIPT>';
       ?>
-      <script>console.log(document.cookie);</script> 
     </div>
   </div>
 </div>
 <div id="content">
   <div id="contact">
-    <form id="contact" action="" method="post" onSubmit="return submitContact()">
+    <form id="contact" action="index.php" method="post" onSubmit="return submitContact()">
       <h2>Contact UPresent</h2>
       <div id="uDiv">
         <label for="username" id="uHead">Username:</label>
 
         <?php
           if (!empty($_COOKIE['user']))  echo '<div id="usernameContact">' . $_COOKIE['user'] . '</div>';
-          else                           echo '<input id="userN" type="text" name="username" placeholder="Username" size="50" />';
+          else                           echo '<input id="userN" type="text" name="username" placeholder="Username" size="50" required />';
         ?>
       </div>
       <br/>
       <div id="subDiv">
         <label for="subject" id="subHead">Subject:</label>
-        <input id="subject" type="text" name="subject" placeholder="Subject" size="50" />
+        <input id="subject" type="text" name="subject" placeholder="Subject" size="50" required />
       </div>
       <br/>
       <label>Message:</label>
       <br/>
       <textarea id="message" wrap="hard"></textarea>
       <br/>
-      <input id="request" type="submit" value="Send Request"/>
+      <div id="cErr"><input id="request" type="submit" value="Send Email" /><span></span></div>
     </form>
   </div>
 </div>

@@ -56,3 +56,7 @@ input#subject {
 	margin-right: 14px;
 	font-weight: bold;
 }
+
+#cErr {
+	color: red;
+}

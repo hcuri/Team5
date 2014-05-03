@@ -347,16 +347,16 @@ function email() {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
 
-    $to = 'tyler.george@live.com'; //admin@upresent.org';
+    $to = 'no-reply@upresent.org'; //admin@upresent.org';
     $subject = $email->subject;
     $message = $email->message;
     $headers = 'From: ' . $from . "\r\n" .
-            'Reply-To: ' . $from . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+               'Reply-To: ' . $from . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
     if (mail($to, $subject, $message, $headers))
-        echo '"sent":true';
+        echo '{"sent":true}';
     else
-        echo '"sent":false';
+        echo '{"sent":false}';
 }
 
 /* PRESENTATION FUNCTIONALITY */
