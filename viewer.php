@@ -59,26 +59,6 @@
   <div id="bottomInfo">
     <div id="bInfoData">
       <table id="pollQuestions">
-        <tr>
-          <th></th>
-          <th class="question"></th>
-        </tr>
-        <tr>
-          <td>A</td>
-          <td class="q"></td>
-        </tr>
-        <tr>
-          <td>B</td>
-          <td class="q"></td>
-        </tr>
-        <tr>
-          <td>C</td>
-          <td class="q"></td>
-        </tr>
-        <tr>
-          <td>D</td>
-          <td class="q"></td>
-        </tr>
       </table>
     </div>
     <div id="bInfoGraph">
