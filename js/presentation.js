@@ -1,5 +1,13 @@
-function parseDate(date) {
+function parseDate(date, time) {
 	var d = new Date();
+
+	//parsing time
+	var tHours = parseInt(d.getHours());
+	var tMins = parseInt(d.getMinutes());
+	var gHours = parseInt(time.match(/.+?(?=:)/));
+	var gMins = new Array();
+	var gMins = time.match(/:(\d+)/);
+	gMins = parseInt(gMins[1]);
 
 	//Make sure year is valid
 	var year = date.match(/\d*/);
@@ -30,6 +38,20 @@ function parseDate(date) {
 			else if(gMonth == fMonth) {
 				if(gDay < fDay)
 					flashErr("You cannot give a presentation in the past!");
+				else if(gDay == fDay) {
+					if(gHours < tHours) {
+						flashErr("You cannot give a presentation in the past!");
+					}
+					else if(gHours == tHours) {
+						if(gMins < tMins || gMins == tMins) {
+							flashErr("You cannot give a presentation in the past!");
+						}
+						else
+							bool = true;
+					}
+					else
+						bool = true;
+				} 
 				else
 					bool = true;
 			}
@@ -71,7 +93,7 @@ function createPresentation() {
         return false;
     }
    
-    if(parseDate(date)) {
+    if(parseDate(date, time)) {
     	var bool = false;
 
     	$.cookie('presName', title, {path: '/'});
