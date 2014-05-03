@@ -159,9 +159,8 @@ div#groupTable {
         cursor: pointer;
     }
     img[src="img/trash.png"] {
-        width: 13px;
-        height: 13px;
-        float: right;
+        width: 14px;
+        height: 14px;
         cursor: pointer;
     }
     img#groupTrash {

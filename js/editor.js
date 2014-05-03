@@ -337,8 +337,7 @@ function getGroups() {
     success: function() {
       if(count(groups.responseJSON) == 0) 
         flashErr(1, "You have no groups");
-      else
-        displayGroups(groups.responseJSON);
+      displayGroups(groups.responseJSON);
         //alert(JSON.stringify(groups.responseJSON));
       
     },
@@ -492,9 +491,9 @@ function displayGroups(groups) {
     var users = groups[i].users;
 
     if(i == 0)
-      groupTable = "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'><img src='img/trash.png' id='groupTrash' /></div>";
+      groupTable = "<div id='gName'><img src='img/trash.png' id='groupTrash' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'></div>";
     else
-      groupTable = groupTable + "<div id='gName'><img src='img/minusBtn.png' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'><img src='img/trash.png' id='groupTrash' /></div>";
+      groupTable = groupTable + "<div id='gName'><img src='img/trash.png' id='groupTrash' />" + groups[i].groupName + "<input type='radio' name='groupNum' value='" + i + "'></div>";
     for(var j = 0; j < numUsers; j++) {
       groupTable = groupTable + "<div id='uName'>" + users[j].name + " (" + users[j].username + ") <img src='img/trash.png' id='userTrash'/></div>";
     }
