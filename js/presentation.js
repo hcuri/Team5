@@ -88,7 +88,7 @@ function createPresentation() {
     }
     
     if (count > 20) {
-        alert("You can only upload presentations with 20 slides or less.");
+        flashErr("You can only upload presentations with 20 slides or less.");
         document.getElementById('files').focus();
         return false;
     }
