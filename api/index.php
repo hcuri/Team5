@@ -463,12 +463,10 @@ function finishPresentation() {
         
         if($presented['alreadyPresented'] == 0) {
             $stmt = $db->prepare($sql);
-            //$presented = 1;
-            //$stmt->bindParam("fin", $presented);
             $stmt->bindParam("presId", $id->presId);
             $stmt->execute();
         
-            echo json_encode($stmt->fetch(PDO::FETCH_ASSOC));
+            echo json_encode($presented);
         }
         else 
             echo '{"alreadyPresented":"true"}';

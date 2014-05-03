@@ -252,8 +252,8 @@ function finishPresentation() {
 		url: root_url + 'finishPresentation',
 		data: endFormToJSON(),
 		async: false,
-		success: function(){
-			//DONT DO NOTHIN
+		success: function(msg){
+			//alert(msg); //no longer throws error
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			console.log(jqXHR + ' Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
