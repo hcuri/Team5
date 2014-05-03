@@ -249,7 +249,8 @@ function deleteUPresent(num) {
 // Helper function to serialize all the form fields into a JSON string
 function deleteFormToJSON(presName) {
 	return JSON.stringify({
-		"title" : presName
+		"title" : presName,
+                "username" : $.cookie('user')
 	});
 }
 

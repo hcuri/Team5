@@ -708,7 +708,7 @@ function deletePresentation() {
     $request = Slim::getInstance()->request();
 
     $presInfo = json_decode($request->getBody());
-    $username = $_COOKIE['user'];
+    $username = $presInfo->username;
     $userId = getUserId($username);
     $title = $presInfo->title;
     $FileParser = new FileParser();
