@@ -712,7 +712,7 @@ function deletePresentation() {
     $userId = getUserId($username);
     $title = $presInfo->title;
     $FileParser = new FileParser();
-    $FileParser->deletePresentation($title);
+    $FileParser->deletePresentation($title, $username);
     $sqlPresId = "SELECT presId FROM Presentations WHERE presName = :title AND ownerId = :userId";
     $sqlPollCheck = "SELECT pollId FROM Poll WHERE presId = :presId";
     $sqlDelPollOps = "DELETE FROM Poll_Options WHERE pollId = :pollId";
