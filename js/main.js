@@ -86,7 +86,16 @@ function checkRegister(pform) {
 	var pwdC = pform.signUpPasswordC.value
 	
 	if(pwd!==pwdC) {
-		alert("Password and Confirm Password Do Not Match");
+		alert("Password and Confirm Password do not match");
+		var obj = document.getElementById("signUpPassword");
+		obj.value = obj.defaultValue;
+		obj.focus();
+		obj = document.getElementById("signUpPasswordC");
+		obj.value = obj.defaultValue;
+		return false;
+	}
+	else if(pwd.length < 8) {
+		alert("Password must be at least 8 characters long");
 		var obj = document.getElementById("signUpPassword");
 		obj.value = obj.defaultValue;
 		obj.focus();
