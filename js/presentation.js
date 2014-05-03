@@ -57,8 +57,20 @@ function createPresentation() {
     var date = $("input#date").val();
     var time = $("input#time").val();
 
-    alert(root_url);
-
+    var inp = document.getElementById('files');
+    var count = 0;
+    for (var i = 0; i < inp.files.length; ++i) {
+        count++;
+        if(count > 20)
+            break;
+    }
+    
+    if (count > 20) {
+        alert("You can only upload presentations with 20 slides or less.");
+        document.getElementById('files').focus();
+        return false;
+    }
+   
     if(parseDate(date)) {
     	var bool = false;
 
