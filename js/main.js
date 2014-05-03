@@ -44,10 +44,10 @@ function logout() {
 	check = check.loggedOut;
 	if(check == true) {
 		alert("Successfully logged out");
-		window.location = "http://localhost/UPresent/index.php";
+		window.location = root_root_url + "index.php";
 	}
 	else {
-		window.location = "http://localhost/UPresent/index.php";
+		window.location = root_root_url + "index.php";
 	}
 }
 
