@@ -60,9 +60,6 @@
         <br/>
         <input type="submit" name="update" value="Update Profile"/>
       </form>
-      <form id="return" name="home" action="user.php">
-        <input type="submit" name="home" value="Home" />
-      </form>
     </div>
     <div id="divider"></div>
     <div id="preview">
