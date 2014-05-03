@@ -39,8 +39,10 @@ $(document).ready(function() {
 	
 	
 	//fill current table
+	alert(numUPres);
 	if(numUPres > 6) {
-		for(var i = 7; i < numUPres; i++) {
+		alert(numUPres);
+		for(var i = 7; i <= numUPres; i++) {
 			$('table#current tr:last').after('<tr class="' + i + '"><td class="title"></td><td class="present"></td><td class="edit"></td><td class="erase"></td></tr>');
 		}
 	}
@@ -118,7 +120,7 @@ $(document).ready(function() {
 	
 	if(numUPres > 6) {
 		var addNum = numUPres - 6;
-		for(var i = addNum; i < numUPres; i++) {
+		for(var i = addNum; i <= numUPres; i++) {
 			$('table#upcoming tr:last').after('<tr class="' + i + '"><td class="title"></td><td class="present"></td><td class="edit"></td><td class="erase"></td></tr>');
 		}
 	}
@@ -166,7 +168,7 @@ $(document).ready(function() {
 	
 	if(numUPres > 6) {
 		var addNum = numUPres - 6;
-		for(var i = addNum; i < numUPres; i++) {
+		for(var i = addNum; i <= numUPres; i++) {
 			$('table#past tr:last').after('<tr class="' + i + '"><td class="title"></td><td class="present"></td><td class="edit"></td><td class="erase"></td></tr>');
 		}
 	}
