@@ -82,8 +82,7 @@ function getPresInfo() {
 }
 
 $(document).ready(function(){
-
-  var left = (screen.width / 2) - ($("div#invContainer").width() / 2);
+  var left = ($(window).width() / 2) - ($("div#invContainer").width() / 2);
   var yee = left + "px";
   $("div#invContainer").css({left: yee});
   
@@ -91,6 +90,10 @@ $(document).ready(function(){
   $("div#invContainer").hide();
 
   $("#inv").click(function(){
+    var left = ($(window).width() / 2) - ($("div#invContainer").width() / 2);
+    var yee = left + "px";
+    $("div#invContainer").css({left: yee});
+
   	$("div#fadeout").show();
   	$("div#invContainer").show();
     $("div#fadeout").animate({opacity: 0.7}, "fast");
