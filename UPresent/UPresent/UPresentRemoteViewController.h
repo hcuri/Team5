@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "String.h"
 
-@interface UPresentRemoteViewController : UIViewController
+@interface UPresentRemoteViewController : UIViewController <UIAlertViewDelegate>
 
 @property(nonatomic) NSString *myTitle;
 @property(nonatomic) NSString *myId;

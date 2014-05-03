@@ -35,6 +35,11 @@ NSMutableArray *idsArray;
 {
     [super viewDidLoad];
     
+    UIImage *backgroundImage = [UIImage imageNamed:@"background"];
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    [self.view insertSubview:backgroundImageView atIndex:0];
+    
     NSLog(@"%@",self.username);
     
     @try {

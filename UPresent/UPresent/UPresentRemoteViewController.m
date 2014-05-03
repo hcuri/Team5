@@ -24,6 +24,7 @@
 @synthesize totalSlides;
 @synthesize myId;
 int max;
+NSNumber *current = 0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +39,11 @@ int max;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIImage *backgroundImage = [UIImage imageNamed:@"background"];
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    [self.view insertSubview:backgroundImageView atIndex:0];
     self.title.text = myTitle;
     [self getTotalSlides];
     self.currentSlide.text = [NSString stringWithFormat:@"%d",[self getCurrentSlide]];
@@ -48,7 +54,7 @@ int max;
     int curr = [self getCurrentSlide];
     
     if (curr==1) {
-        [self alertStatus:@"You are at the First Slide" :@"Can't Go Back" :0];
+        [self alertStatus:@"You are currently at the first slide." :@"Can't Go Back" :0];
     } else
         --curr;
     
@@ -62,7 +68,7 @@ int max;
     int curr = [self getCurrentSlide];
     
     if (curr == max) {
-        [self alertStatus:@"You are at the Last Slide" :@"Can't Go Forward" :0];
+        [self alertStatus:@"You are currently at the last slide." :@"Can't Go Forward" :0];
     } else
         ++curr;
     
@@ -70,6 +76,115 @@ int max;
     [self setCurrSlide:curr];
     currentSlide.text = [NSString stringWithFormat:@"%d",curr];
 
+}
+- (IBAction)resetPoll:(id)sender {
+    @try {
+        
+        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/index.php/resetPoll",RootURL]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        
+        NSString*post =[NSString stringWithFormat:@"{\"presId\":%@,\"slide\":%d}",myId,current.intValue];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+        
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        
+        
+        //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        
+        if ([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ==> %@", responseData);
+            
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+            [self alertStatus:@"Connection Failed" :@"Please Try Again" :0];
+        }
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+        [self alertStatus:@"Restting Poll Failed." :@"Error" :0];
+    }
+
+    
+}
+
+- (IBAction)endPresentation:(id)sender {
+    
+    UIAlertView* message = [[UIAlertView alloc]
+                            initWithTitle: @"End Presentation?"
+                            message: @"The afterview screen will be displayed to the viewers."
+                            delegate: self
+                            cancelButtonTitle: @"Cancel"
+                            otherButtonTitles: @"End", nil];
+    
+    [message show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == alertView.cancelButtonIndex) {
+        // Cancel was tapped
+    } else if (buttonIndex == alertView.firstOtherButtonIndex) {
+        // The other button was tapped
+        @try {
+            
+            NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/index.php/finishPresentation",RootURL]];
+            
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+            [request setURL:url];
+            [request setHTTPMethod:@"POST"];
+            
+            NSString*post =[NSString stringWithFormat:@"{\"presId\":%@}",myId];
+            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+            
+            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:postData];
+            
+            
+            
+            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+            
+            NSError *error = [[NSError alloc] init];
+            NSHTTPURLResponse *response = nil;
+            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            NSLog(@"Response code: %ld", (long)[response statusCode]);
+            
+            if ([response statusCode] >= 200 && [response statusCode] < 300)
+            {
+                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                NSLog(@"Response ==> %@", responseData);
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            } else {
+                if (error) NSLog(@"Error: %@", error);
+                [self alertStatus:@"Connection Failed" :@"Please Try Again" :0];
+            }
+            
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+            [self alertStatus:@"Ending Presentations Failed." :@"Error" :0];
+        }
+    }
 }
 
 - (void) setCurrSlide: (int) slideNumber
@@ -169,7 +284,6 @@ int max;
 
 - (int) getCurrentSlide
 {
-    NSNumber *current = 0;
     @try {
         
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/index.php/getCurrentSlide/%@",RootURL,myId]];

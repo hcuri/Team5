@@ -12,15 +12,23 @@
 @interface UPresentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
 
 @end
 
 @implementation UPresentViewController
+@synthesize loginButton;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UIImage *backgroundImage = [UIImage imageNamed:@"background"];
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    [self.view insertSubview:backgroundImageView atIndex:0];
 }
 
 - (IBAction)login:(id)sender {
@@ -103,17 +111,26 @@
     [alertView show];
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.usernameTextField) {
+        [textField resignFirstResponder];
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if (textField == self.passwordTextField) {
+        [textField resignFirstResponder];
+        [self login:loginButton];
+    }
     return YES;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (IBAction)backgroundTap:(id)sender {
     [self.view endEditing:YES];
