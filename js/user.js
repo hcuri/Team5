@@ -17,7 +17,7 @@ $(document).ready(function() {
 	$("#tabs1").tabs();
 	$( "#tabs2" ).tabs();
 	$("#newPres").click(function() {
-		window.location = "http://localhost/new.php";
+		window.location = root_root_url + "new.php";
 	});
 	
 	var userN = $("#logoutUsername").html();
@@ -217,7 +217,7 @@ function presentUPresent(num) {
             	alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
             }
         });
-        window.location="presenter.php";
+        window.location=root_root_url + "presenter.php";
 	return true;
 }
 

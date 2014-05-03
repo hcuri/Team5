@@ -1,5 +1,3 @@
-var root_url = "http://localhost/UPresent/api/index.php/";
-
 function flashErr(errMsg) {
     $('div#cErr span').text("");
     $('div#cErr span').css({opacity: 0.0});

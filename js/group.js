@@ -1,5 +1,3 @@
-var root_url = "http://localhost/UPresent/api/index.php/";
-
 function count(obj) {
   var i = 0;
   for (var x in obj)

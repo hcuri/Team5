@@ -1,7 +1,5 @@
 // JavaScript Document
 
-var root_url = "http://localhost/api/index.php/";
-
 $(document).ready(function() {
     var info = $.ajax({
 		type: 'GET',

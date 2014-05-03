@@ -1,6 +1,5 @@
 // JavaScript Document
 
-var root_url = "http://localhost/UPresent/api/index.php";
 var slides = new Array();
 var currentSlide = 1;	
 var presID = null;

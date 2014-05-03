@@ -17,6 +17,7 @@
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/jQuery.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/feature-carousel.css" charset="utf-8" />
+  <script src="js/root_url.js"></script>
   <script src="js/jQuery.js"></script>
   <script src="js/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jquery.cookie.js"></script>

@@ -57,15 +57,7 @@ function createPresentation() {
     var date = $("input#date").val();
     var time = $("input#time").val();
 
-    alert($("files").files.length);
-
-
-    if($("files").files.length > 20) {
-    	flashErr("You can only upload a 20-slide presentation.");
-    	return false;
-    }
-
-    return false;
+    alert(root_url);
 
     if(parseDate(date)) {
     	var bool = false;

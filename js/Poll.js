@@ -1,5 +1,3 @@
-var root_url = "http://localhost/UPresent/api/index.php/";
-
 $(document).ready(function(){
     
     var info = [];

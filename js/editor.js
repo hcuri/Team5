@@ -1,4 +1,3 @@
-var root_url = "http://localhost/UPresent/api/index.php/";
 var resultCount = 0;
 var fNames = new Array();
 var lNames = new Array();

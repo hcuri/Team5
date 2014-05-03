@@ -5,6 +5,7 @@
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_presenter.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
+<script src="js/root_url.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
       // Load the Visualization API and the piechart package.

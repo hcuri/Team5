@@ -1,3 +1,4 @@
+<script src="js/root_url.js"></script>
 <script src="js/jQuery.js"></script>
 <script src="js/Poll.js"></script>
 

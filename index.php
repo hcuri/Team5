@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<script src="js/root_url.js"></script>
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
