@@ -61,6 +61,7 @@
   list-style:none;
 }
 .tracker-individual-container .tracker-individual-blip {
+  display: none;
   margin:0 3px;
   padding:0 3px;
   color:white;
