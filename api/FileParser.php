@@ -35,7 +35,10 @@ class FileParser {
                 error_log($e->getMessage(), 3, '/var/tmp/php.log');
                 echo '{"error":{"text":' . $e->getMessage() . '}}';
             }
-
+            $total = count($_FILES['files']['tmp_name']);
+            if ($total > 20) {
+                return;
+            }
             foreach ($_FILES["files"]['tmp_name'] as $index => $tmpName) {
 
                 if (($_FILES["files"]["type"][$index] == "image/gif") || ($_FILES["files"]["type"][$index] == "image/jpeg") || ($_FILES["files"]["type"][$index] == "image/jpg") || ($_FILES["files"]["type"][$index] == "image/pjpeg") || ($_FILES["files"]["type"][$index] == "image/x-png") || ($_FILES["files"]["type"][$index] == "image/png")) {

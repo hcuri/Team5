@@ -1170,7 +1170,7 @@ function submitResponse () {
 
 function getPollInfo($presId, $slide) {
     $sqlPollId = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slide";
-    $sqlPollQuestion = "SELECT question, showResults FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
+    $sqlPollQuestion = "SELECT question, numOptions, showResults FROM Poll WHERE pollId = :pollId AND slideNum = :slide";
     $sqlPollInfo = "SELECT option_num, option_text FROM Poll_Options WHERE pollId = :pollId";
     
     
@@ -1193,6 +1193,7 @@ function getPollInfo($presId, $slide) {
             $stmtPollQuestion->execute();
             $pollQuestion = $stmtPollQuestion->fetch(PDO::FETCH_ASSOC);
             $pollShowRes = $pollQuestion['showResults'];
+            $pollNumOps = $pollQuestion['numOptions'];
             $pollQuestion = $pollQuestion['question'];
             $pollQuestion = json_encode($pollQuestion);
 
@@ -1211,7 +1212,7 @@ function getPollInfo($presId, $slide) {
             //$pollInfo = str_replace("[", "", $pollInfo);
             //$pollInfo = str_replace("]", "", $pollInfo);
 
-            $poll = '{"question":' . $pollQuestion . ',"showResults":' . $pollShowRes . ',"options":' . $pollOptions . '}';
+            $poll = '{"question":' . $pollQuestion . ',"numOptions":' . $pollNumOps .  ',"showResults":' . $pollShowRes . ',"options":' . $pollOptions . '}';
 
             echo $poll;
         }
