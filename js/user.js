@@ -38,10 +38,13 @@ $(document).ready(function() {
 	
 	
 	//fill current table
-	var entries = $("#current").children().children();
 	if(numUPres > 6) {
-		numUPres = 6;
+		for(var i = 7; i < numUPres; i++) {
+			$('table#current tr:last').after('<tr class="' + i + '"><td class="title"></td><td class="present"></td><td class="edit"></td><td class="erase"></td></tr>');
+		}
 	}
+
+	var entries = $("#current").children().children();
 	for(var i = 0; i < numUPres; i++) {
 		var currEntry = entries.eq(i).children();
 		for(var j = 0; j < 4; j++) {
@@ -113,7 +116,10 @@ $(document).ready(function() {
 	}
 	
 	if(numUPres > 6) {
-		numUPres = 6;
+		var addNum = numUPres - 6;
+		for(var i = addNum; i < numUPres; i++) {
+			$('table#upcoming tr:last').after('<tr class="' + i + '"><td class="title"></td><td class="present"></td><td class="edit"></td><td class="erase"></td></tr>');
+		}
 	}
 	//fill upcoming table
 	var entries = $("#upcoming").children().children();
@@ -158,7 +164,10 @@ $(document).ready(function() {
 	}
 	
 	if(numUPres > 6) {
-		numUPres = 6;
+		var addNum = numUPres - 6;
+		for(var i = addNum; i < numUPres; i++) {
+			$('table#past tr:last').after('<tr class="' + i + '"><td class="title"></td><td class="present"></td><td class="edit"></td><td class="erase"></td></tr>');
+		}
 	}
 	//fill past presentation table
 	//BASE OFF THIS

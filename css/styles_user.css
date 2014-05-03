@@ -7,7 +7,6 @@ table {
 	font-size: 12px;
 	text-align:center;	
 	border:1px solid #2a2a2a;
-	overflow:auto;
 	font-size:14px;
 }
 
@@ -168,3 +167,19 @@ td {
 	background-color: #ededed;
 }
 /*end styling for the tabs*/
+
+#tabs1-1 {
+	overflow-y: scroll;
+    overflow-x: hidden;
+    height: 213px;
+}
+#tabs2-1 {
+	overflow-y: scroll;
+    overflow-x: hidden;
+    height: 213px;
+}
+#tabs2-2 {
+	overflow-y: scroll;
+    overflow-x: hidden;
+    height: 213px;
+}
