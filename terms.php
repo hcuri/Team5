@@ -3,10 +3,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles_home.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_about.css" rel="stylesheet" />
+<script src="js/root_url.js"></script>
 <script src="js/jQuery.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/main.js"></script>
-<title>UPresent - Terms</title>
+<title>The UPresent Terms of Use</title>
 </head>
 
 <body>
@@ -34,8 +36,8 @@
 </div>
 <div id="content">
   <div id="terms">
-    <div id="infoHeader"><br><br>UPresent Terms</div>
-    <div id="infoContent"><br>Here is where UPresent.org is going to have its terms of use in order to avoid uneccesary litigations from angry users.</div>
+    <div id="infoHeader" style="width: 400px">The UPresent Terms of Use</div>
+    <div id="infoContent">UPresent is free to use, but no underlying code may be changed and reproduced to be licensed under another name besides Team 5.</div>
   </div>
   
 </div>
