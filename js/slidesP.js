@@ -9,12 +9,41 @@ var poll = false;
 var pollDone = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D','E','F'];
-var data = new google.visualization.arrayToDataTable([
+var data;
+var data2 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],]
+		);
+var data3 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],]
+		);
+var data4 = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
 		['A', 0, '#32CD32'],
 		['B', 0, '#1C86EE'],
 		['C', 0, '#FFA500'],
 		['D', 0, '#FF4500'],]
+		);
+var data5 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],
+		['D', 0, '#FF4500'],
+		['E', 0, '#FFD700'],]
+		);
+var data6 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],
+		['D', 0, '#FF4500'],
+		['E', 0, '#FFD700'],
+		['F', 0, '#CD00CD'],]
 		);
 var chart;
 var options = {
@@ -187,7 +216,32 @@ var getCurrSlide = setInterval(function() {
 			$("#bInfoData").html(tableContents);
 
 			chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
+			
+			//SWITCH
+			
+			switch(numQ) {
+				case 1:
+					data = data1;
+					break;
+				case 2:
+					data = data2;
+					break;
+				case 3:
+					data = data3;
+					break;
+				case 4:
+					data = data4;
+					break;
+				case 5:
+					data = data5;
+					break;
+				case 6:
+					data = data6;
+					break;
+			}
+				
 			chart.draw(data, options);
+			
 			setInterval(getPollResults,1000);
 			poll = false;
 			pollDone = false;
