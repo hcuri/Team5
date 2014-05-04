@@ -247,7 +247,7 @@ var getCurrSlide = setInterval(function() {
 				
 			chart.draw(data, options);
 			
-			setInterval(getPollResults,500);
+			setInterval(getPollResults,1000);
 			poll = false;
 			pollDone = false;
 
@@ -267,7 +267,7 @@ var getCurrSlide = setInterval(function() {
 
 			pollDone = false;
 		}
-}, 500);
+}, 1000);
 
 
 
