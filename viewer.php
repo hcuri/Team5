@@ -57,6 +57,11 @@
       <div class="oLine"></div>
     </div>
   </div>
+    <div id="goBack">
+      <form id="new" action="user.php">
+        <input id="newPres" type="submit" value="Back to Home">
+      </form>
+    </div>
   <div id="bottomInfo">
     <div id="bInfoData">
       <table id="pollQuestions">

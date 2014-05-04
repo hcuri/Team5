@@ -131,3 +131,11 @@ p {
 #bInfoData tr td{
 	padding-left: 30px;
 }
+
+#goBack {
+	margin-top:30px;
+	margin-left: auto; 
+        margin-right: auto;
+	height:28px;
+	width:192px;
+}
