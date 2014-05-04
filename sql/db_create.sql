@@ -13,7 +13,6 @@ Info:
 	username - Username of user
 	email - Email address of user
 	password - User's hashed password
-	NotesURL - Drive URL to this user's notes doc
 */
 CREATE TABLE Users  
 (
@@ -24,8 +23,7 @@ CREATE TABLE Users
 	email 			VARCHAR(255)			NOT NULL,
 	password 		VARCHAR(256) 			NOT NULL,
 	organization	VARCHAR(256)			NOT NULL,
-	schoolID		VARCHAR(256)			NOT NULL,
-	NotesURL		VARCHAR(255)			NOT NULL,			
+	schoolID		VARCHAR(256)			NOT NULL,			
 	PRIMARY KEY 		(userId)
 );
 
@@ -35,7 +33,6 @@ Info:
 	groupId - Auto incremented
 	groupName - Name of group the owner chose when making it
 	ownerId - userId of owner of group
-	Code - 4-digit alphanumeric code to join the group when searching for it
 */
 CREATE TABLE Groups
 (
