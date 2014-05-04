@@ -1,4 +1,6 @@
-//blah blah blah
+if($.cookie('user') == null) {
+    window.location = "index.php";
+}
 $(document).ready(function(e) {
     if($("#logout").length === 1) {
 		$("#logoLink").attr("href", "user.php");
