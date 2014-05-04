@@ -136,6 +136,8 @@ function registerUser() {
 
 function logoutUser() {
     setcookie("user", "", time() - 3600, '/');
+    setcookie("pres", "", time() - 3600, '/');
+    setcookie("presName", "", time() - 3600, '/');
     echo '{"loggedOut": "true"}';
 }
 

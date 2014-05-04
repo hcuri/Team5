@@ -11,6 +11,7 @@
   <script src="js/root_url.js"></script>
   <script src="js/jQuery.js"></script>
   <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery.cookie.js"></script>
   <script src="js/user_profile.js"></script>
   <script src="js/main.js"></script>
   <title>User Profile</title>

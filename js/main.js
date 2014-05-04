@@ -1,5 +1,8 @@
 if($.cookie('user') == null) {
-    window.location = "index.php";
+    
+    if(window.location.hostname + window.location.pathname !== root_root_root_url + "contact.php"){
+        window.location = "index.php";
+    }
 }
 $(document).ready(function(e) {
     if($("#logout").length === 1) {

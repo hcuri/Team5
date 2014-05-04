@@ -13,6 +13,7 @@
     </script>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/main.js"></script>
 <script src="js/slides.js"></script>
 <title>Viewing Presentation</title>
