@@ -240,7 +240,6 @@
                         <outlet property="currentSlide" destination="8gl-q8-kcK" id="fbJ-js-3fH"/>
                         <outlet property="nextButton" destination="aUS-pV-JMA" id="lvL-al-imb"/>
                         <outlet property="prevButton" destination="NtY-tG-pNr" id="AMM-h8-cna"/>
-                        <outlet property="resetPollButton" destination="KSw-9N-wFa" id="X6G-Ll-4Sc"/>
                         <outlet property="slideImage" destination="56A-Hi-rKd" id="bsG-L9-ESx"/>
                         <outlet property="title" destination="ja2-el-zRk" id="7Xo-II-7ZS"/>
                         <outlet property="totalSlides" destination="5Px-Q0-7NR" id="EVX-Su-MjS"/>

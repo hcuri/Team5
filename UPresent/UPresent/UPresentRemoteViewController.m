@@ -37,6 +37,7 @@ NSDictionary *currJson;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
     if (self) {
         // Custom initialization
     }
@@ -47,6 +48,7 @@ NSDictionary *currJson;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     
     UIImage *backgroundImage = [UIImage imageNamed:@"background"];
     UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
