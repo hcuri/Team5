@@ -6,13 +6,47 @@ var presID = null;
 var numSlides;
 var poll = false;
 var liveResults = new Array();
-var letters = ['A','B','C','D'];
-var data = new google.visualization.arrayToDataTable([
+var letters = ['A','B','C','D','E','F'];
+var numQ;
+var data;
+var data1 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],]
+		);
+var data2 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],]
+		);
+var data3 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],]
+		);
+var data4 = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
 		['A', 0, '#32CD32'],
 		['B', 0, '#1C86EE'],
 		['C', 0, '#FFA500'],
 		['D', 0, '#FF4500'],]
+		);
+var data5 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],
+		['D', 0, '#FF4500'],
+		['E', 0, '#FFD700'],]
+		);
+var data6 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],
+		['B', 0, '#1C86EE'],
+		['C', 0, '#FFA500'],
+		['D', 0, '#FF4500'],
+		['E', 0, '#FFD700'],
+		['F', 0, '#CD00CD'],]
 		);
 var chart;
 var options = {
@@ -124,7 +158,6 @@ function getCurrSlide() {
 		}
 			
 		if(poll) {
-			getPollResults();
 			$( "#content" ).clearQueue().animate({
 				height: 700
 			}, 500, function() {	
@@ -138,15 +171,42 @@ function getCurrSlide() {
 			
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
-                        numQ = pollJSON.numOptions;
+            numQ = pollJSON.numOptions;
 			
 			$(".question").html(q);
 			
 			var qS = document.getElementsByClassName("q");
 			
+			var tableContents = '<tr><th></th><th class="question">' + q +'</th></tr>';
+			
 			for(var i = 0; i < numQ; i++) {
-				$(qS[i]).html(opts[letters[i]]);
+				tableContents += '<tr><td>' + letters[i] + ':</td><td class="q">' + opts[letters[i]] + '</td></tr>';
 			}
+			
+			switch(numQ) {
+				case 1:
+					data = data1;
+					break;
+				case 2:
+					data = data2;
+					break;
+				case 3:
+					data = data3;
+					break;
+				case 4:
+					data = data4;
+					break;
+				case 5:
+					data = data5;
+					break;
+				case 6:
+					data = data6;
+					break;
+			}
+			
+			getPollResults();
+			
+			$("#bInfoData").html(tableContents);
 		} else {
 			var closed = $("#content").css("height");
 			if(closed !== "475px") {
