@@ -235,7 +235,7 @@ var getCurrSlide = setInterval(function() {
 			pollDone = false;
 			
 		} else if (pollDone) {
-			console.log("clearing poll");
+			clearInterval(getPollResults);
 			$( "#bottomInfo" ).animate({
 				opacity: 0
 			}, 500, function() {
