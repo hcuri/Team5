@@ -90,13 +90,15 @@ p {
 
 #bInfoGraph {
 	float:right;
-	margin-top: 10px;
-	margin-right: 10px;
+}
+table#pollSubmission {
+	margin-left: 55px;
+	margin-top: 25px;
 }
 
 #pollQuestions {
-	padding-right:10px;
-	padding-left:25px;
+	padding-right:5px;
+	padding-left:5px;
 }
 
 .submitButton {
@@ -122,7 +124,7 @@ p {
 }
 
 .question {
-	font-size: 20px;
+	font-size: 30px;
 	margin-left: -30px;
 }
 
