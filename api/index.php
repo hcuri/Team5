@@ -44,6 +44,7 @@ $app->get('/getGroups', 'getGroups');
 
 //Poll functions
 $app->post('/createPoll', 'createPoll');
+$app->post('/removePoll', 'removePoll');
 $app->post('/submitResponse', 'submitResponse');
 $app->get('/getPollInfo/:presId/:slideNum', 'getPollInfo');
 $app->get('/getPollResults/:presId/:slideNum', 'getPollResults');
@@ -817,10 +818,11 @@ function deletePresentation() {
                 $stmtDelPollOps->bindParam("pollId", $pollId);
                 $stmtDelPollOps->execute();
             
-                $stmtDelPoll = $db->prepare($sqlDelPoll);
-                $stmtDelPoll->bindParam("presId", $presId);
-                $stmtDelPoll->execute();
+                
             }
+            $stmtDelPoll = $db->prepare($sqlDelPoll);
+            $stmtDelPoll->bindParam("presId", $presId);
+            $stmtDelPoll->execute();
         }
         
         $stmt = $db->prepare($sql);
@@ -1204,6 +1206,47 @@ function createPoll() {
         error_log($date . ":" . $e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":"' . $e->getMessage() . '"}';
     }
+}
+
+function removePoll() {
+    error_log('createPoll' . "\n", 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $poll = json_decode($request->getBody());
+    $presId = $poll->presId;
+    $slideNum = $poll->slideNum;
+    
+    $sqlPollCheck = "SELECT pollId FROM Poll WHERE presId = :presId AND slideNum = :slideNum";
+    $sqlDelPollOps = "DELETE FROM Poll_Options WHERE pollId = :pollId";
+    $sqlDelPoll = "DELETE FROM Poll WHERE presId = :presId";
+    
+    try {
+        $db = dbconnect();
+        $stmtPollCheck = $db->prepare($sqlPollCheck);
+        $stmtPollCheck->bindParam("presId", $presId);
+        $stmtPollCheck->bindParam("slideNum", $slideNum);
+        $stmtPollCheck->execute();
+        if($stmtPollCheck->rowCount() > 0) {
+            for($i = 0; $i < $stmtPollCheck->rowCount(); $i++) {
+                $pollToBeDeleted = $stmtPollCheck->fetch(PDO::FETCH_ASSOC);
+                $pollId = $pollToBeDeleted['pollId'];
+                
+                $stmtDelPollOps = $db->prepare($sqlDelPollOps);
+                $stmtDelPollOps->bindParam("pollId", $pollId);
+                $stmtDelPollOps->execute();
+            
+                
+            }
+            $stmtDelPoll = $db->prepare($sqlDelPoll);
+            $stmtDelPoll->bindParam("presId", $presId);
+            $stmtDelPoll->execute();
+        }
+        echo $json_encode($poll);
+        $db= null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":"' . $e->getMessage() . '"}';
+    }
+    
 }
 
 function submitResponse () {
