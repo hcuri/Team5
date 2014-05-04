@@ -13,6 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *currentSlide;
 @property (weak, nonatomic) IBOutlet UILabel *totalSlides;
 @property (weak, nonatomic) IBOutlet UIImageView *slideImage;
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 
 @end
@@ -30,6 +32,7 @@
 int max;
 NSNumber *current = 0;
 NSDictionary *slides;
+NSDictionary *currJson;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +55,15 @@ NSDictionary *slides;
     self.title.text = myTitle;
     [self getTotalSlides];
     self.currentSlide.text = [NSString stringWithFormat:@"%d",[self getCurrentSlide]];
+    
+    if (self.currentSlide.text.intValue==1) {
+        self.prevButton.hidden = TRUE;
+    } else if (self.currentSlide.text.intValue==totalSlides.text.intValue){
+        self.nextButton.hidden = TRUE;
+    } else {
+        self.prevButton.hidden = FALSE;
+        self.nextButton.hidden = FALSE;
+    }
     
     
 //    NSLog(@"%@",slides[@"slides"][@"1"]);
@@ -220,6 +232,20 @@ NSDictionary *slides;
 
 - (void) setCurrSlide: (int) slideNumber
 {
+    if (slideNumber==1) {
+        self.prevButton.hidden = TRUE;
+    } else if (slideNumber==totalSlides.text.intValue){
+        self.nextButton.hidden = TRUE;
+    } else {
+        self.prevButton.hidden = FALSE;
+        self.nextButton.hidden = FALSE;
+    }
+    
+    NSLog(@"%@",currJson[@"poll"]);
+    
+    
+        
+        
     @try {
         
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/index.php/setCurrentSlide",RootURL]];
@@ -339,12 +365,12 @@ NSDictionary *slides;
             NSLog(@"Response ==> %@", responseData);
             
             NSError *error = nil;
-            NSDictionary *json = [NSJSONSerialization
+            currJson = [NSJSONSerialization
                                   JSONObjectWithData:urlData
                                   options:NSJSONReadingMutableContainers
                                   error:&error];
             
-            current = json[@"currSlide"];
+            current = currJson[@"currSlide"];
             
         } else {
             if (error) NSLog(@"Error: %@", error);
