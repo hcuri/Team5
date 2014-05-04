@@ -83,7 +83,7 @@ $(document).ready(function(e) {
 
 	var slidesJSON = $.ajax({
 		type: 'GET',
-		url: root_url + "/getSlides/" + presID,
+		url: root_url + "getSlides/" + presID,
 		dataType: "json",
 		async: false,
 	});
@@ -166,7 +166,7 @@ $(document).ready(function(e) {
 var getCurrSlide = setInterval(function() {
 		var cS = $.ajax({
 			type: 'GET',
-			url: root_url + "/getCurrentSlide/" + presID,
+			url: root_url + "getCurrentSlide/" + presID,
 			dataType: "json",
 			async: false,
 		});
@@ -197,7 +197,7 @@ var getCurrSlide = setInterval(function() {
 
 			var pollJSON = $.ajax({
 				type: 'GET',
-				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
+				url: root_url + "getPollInfo/" + presID + "/" + currentSlide,
 				dataType: "json",
 				async: false,
 			});
@@ -310,7 +310,7 @@ function getPollResults() {
 
 	var result = $.ajax({
 		type: 'GET',
-		url: root_url + "/getPollResults/" + presID + "/" + currentSlide,
+		url: root_url + "getPollResults/" + presID + "/" + currentSlide,
 		dataType: "json",
 		async: false,
 	});
