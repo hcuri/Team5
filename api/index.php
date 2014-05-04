@@ -4,6 +4,7 @@ require 'Slim/Slim.php';
 require 'lib.php';
 require 'password.php';
 require 'FileParser.php';
+require 'PHPMailer/class.phpmailer.php';
 
 $app = new Slim();
 
@@ -110,7 +111,7 @@ function registerUser() {
     $request = Slim::getInstance()->request();
     $user = json_decode($request->getBody());
     $pass = password_hash($user->pass, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE', 'NONE')";
+    $sql = "INSERT INTO Users VALUES (DEFAULT, :fName, :lName, :username, :email, :pass, 'NONE', 'NONE')";
     try {
         $db = dbconnect();
         $stmt = $db->prepare($sql);
@@ -348,13 +349,18 @@ function email() {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
 
-    $to = 'tyler.george@live.com'; //admin@upresent.org';
-    $subject = $email->subject;
-    $message = $email->message;
-    $headers = 'From: ' . $from . "\r\n" .
-               'Reply-To: ' . $from . "\r\n" .
-               'X-Mailer: PHP/' . phpversion();
-    if (mail($to, $subject, $message, $headers))
+    $mail = new PHPMailer();    
+    $mail->IsHTML(true);
+    $mail->SetFrom($from);
+    $mail->AddReplyTo($from); //set from & reply-to headers
+    $mail->AddAddress('tbgeorge@smu.edu'); //set destination address
+        
+    $mail->Subject=$email->subject; //set subject    
+    $mail->Body=$email->message; //set body content
+    //$mail->AddAttachment('filepath', 'filename'); //attach file 
+
+   // $mail->AltBody = "Can't see this message? Please view in HTML\n\n";
+    if ($mail->Send())
         echo '{"sent":true}';
     else
         echo '{"sent":false}';
@@ -404,17 +410,22 @@ function notifyGroup() {
             $member = $stmtGroupMembers->fetch(PDO::FETCH_ASSOC);
             $memberEmail = $member['email'];
             
-            $to = $memberEmail; 
-            $subject = $ownerName . " has invited you to a UPresent";
-            $message = $ownerName . " has invited you to view his UPresent - " . $presName . " on " . $presDate . ".";
-            error_log("error: to: " . $to . " sub: " . $subject . " msg: " . $message, 3, '/var/tmp/php.log');
-            $headers = 'From: no-reply@upresent.org' . "\r\n" .
-                       'Reply-To: no-reply@upresent.org' . "\r\n" .
-                       'X-Mailer: PHP/' . phpversion();
-             error_log("error: head: " . $headers, 3, '/var/tmp/php.log');
-            mail($to, $subject, $message, $headers);
-                   
             
+            $mail = new PHPMailer();    
+            $mail->IsHTML(true);
+            $mail->SetFrom('no-reply@upresent.org');
+            $mail->AddReplyTo('no-reply@upresent.org'); //set from & reply-to headers
+            $mail->AddAddress($memberEmail); //set destination address
+        
+            $mail->Subject=$ownerName . " has invited you to a UPresent!"; //set subject    
+            $mail->Body=$ownerName . " has invited you to view his UPresent - " . $presName . " on " . $presDate . "."; //set body content
+            //$mail->AddAttachment('filepath', 'filename'); //attach file 
+
+            // $mail->AltBody = "Can't see this message? Please view in HTML\n\n";
+            if ($mail->Send())
+                echo '{"sent":true}';
+            else
+                echo '{"sent":false}';  
         }
         
         $db = null;

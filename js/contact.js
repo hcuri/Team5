@@ -20,10 +20,10 @@ function submitContact() {
             data: contactFormToJSON(),
             async: true,
             success: function(msg) {
-                alert(msg);
+                //alert(msg);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-			alert('Something went wrong\n email() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+			//alert('Something went wrong\n email() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
 		}
         });
         alert("Email sent successfully");
