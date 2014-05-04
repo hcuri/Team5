@@ -100,6 +100,7 @@ NSDictionary *currJson;
     self.slideImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     
 }
+
 - (IBAction)nextSlide:(id)sender {
     
     int curr = [self getCurrentSlide];
@@ -236,8 +237,10 @@ NSDictionary *currJson;
 {
     if (slideNumber==1) {
         self.prevButton.hidden = TRUE;
+        self.nextButton.hidden = FALSE;
     } else if (slideNumber==totalSlides.text.intValue){
         self.nextButton.hidden = TRUE;
+        self.prevButton.hidden = FALSE;
     } else {
         self.prevButton.hidden = FALSE;
         self.nextButton.hidden = FALSE;
