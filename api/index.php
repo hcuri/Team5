@@ -358,7 +358,7 @@ function email() {
     $mail->IsHTML(true);
     $mail->SetFrom($from);
     $mail->AddReplyTo($from); //set from & reply-to headers
-    $mail->AddAddress('tbgeorge@smu.edu'); //set destination address
+    $mail->AddAddress('no-reply@upresent.org'); //set destination address
         
     $mail->Subject=$email->subject; //set subject    
     $mail->Body=$email->message; //set body content
