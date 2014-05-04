@@ -287,7 +287,8 @@ var getPollResults = function() {
 	result = result.responseJSON;
 	
 	for(var i = 0; i < numQ; i++) {
-		data.setValue(i, 1, result[i].option_results);
+		var resultIndex = result[i].option_num;
+		data.setValue(letters.indexOf(resultIndex), 1, result[i].option_results);
 	}
 	
 	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
