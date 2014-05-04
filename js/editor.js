@@ -114,6 +114,7 @@ $(document).ready(function(){
   });
   
   $("#saveUPresent").click(function() {
+      emailGroup();
       window.location = "user.php";
   });
 
@@ -708,4 +709,25 @@ function fillPoll(json) {
       showGraph.checked = true;
   }
     
+}
+
+function emailGroup() {
+    var groupJson = JSON.stringify({
+        "groupName" : linkedGroup,
+        "owner" : $.cookie('user'),
+        "presName" : $.cookie('presName')
+    });
+    
+    $.ajax({
+        type: 'POST',
+        url: root_url + 'notifyGroup',
+        data: groupJson,
+        async: false,
+        success: function() {
+            alert(linkedGroup + " has been notified of this UPresent");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong' + "\n" + 'notify() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }   
+    });
 }

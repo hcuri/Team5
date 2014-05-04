@@ -18,9 +18,15 @@ function submitContact() {
             type: 'POST',
             url: root_url + 'email',
             data: contactFormToJSON(),
-            async: true
+            async: true,
+            success: function(msg) {
+                alert(msg);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+			alert('Something went wrong\n email() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+		}
         });
-        alert("Email sent successfully");
+        //alert("Email sent successfully");
         return true;
     }
 }

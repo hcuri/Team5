@@ -17,6 +17,7 @@ $app->get('/search/:term', 'search');
 $app->post('/postUserInfo', 'postUserInfo');
 $app->post('/register', 'registerUser');
 $app->post('/email', 'email');
+$app->post('/notifyGroup', 'notifyGroup');
 
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
@@ -347,7 +348,7 @@ function email() {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
 
-    $to = 'no-reply@upresent.org'; //admin@upresent.org';
+    $to = 'tyler.george@live.com'; //admin@upresent.org';
     $subject = $email->subject;
     $message = $email->message;
     $headers = 'From: ' . $from . "\r\n" .
@@ -358,6 +359,68 @@ function email() {
     else
         echo '{"sent":false}';
 }
+
+function notifyGroup() {
+    error_log('notify' . "\n", 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $notify = json_decode($request->getBody());
+    $groupName = $notify->groupName;
+    $ownerId = idFromUsername($notify->owner);
+    $presName = $notify->presName;
+    
+    $sqlPresDate = "SELECT presDate, PresTime FROM Presentations WHERE presName = :presName AND ownerId = :ownerId";
+    $sqlOwnerName = "SELECT fName, lName FROM Users WHERE userId = :userId";
+    $sqlGroupId = "SELECT groupId FROM Groups WHERE ownerId = :ownerId AND groupName = :groupName";
+    $sqlGroupMembers = "SELECT email FROM Users INNER JOIN Group_Users ON Users.userId = Group_Users.userId WHERE groupId = :groupId";
+    
+    try {
+        $db = dbconnect();
+        
+        $stmtPresDate = $db->prepare($sqlPresDate);
+        $stmtPresDate->bindParam("presName", $presName);
+        $stmtPresDate->bindParam("ownerId", $ownerId);
+        $stmtPresDate->execute();
+        $pres = $stmtPresDate->fetch(PDO::FETCH_ASSOC);
+        $presDate = $pres['presDate'] . ' at ' . $pres['PresTime'];
+        
+        $stmtOwnerName = $db->prepare($sqlOwnerName);
+        $stmtOwnerName->bindParam("userId", $ownerId);
+        $stmtOwnerName->execute();
+        $owner = $stmtOwnerName->fetch(PDO::FETCH_ASSOC);
+        $ownerName = $owner['fName'] . " " . $owner['lName'];
+
+        $stmtGroupId = $db->prepare($sqlGroupId);
+        $stmtGroupId->bindParam("ownerId", $ownerId);
+        $stmtGroupId->bindParam("groupName", $groupName);
+        $stmtGroupId->execute();
+        $group = $stmtGroupId->fetch(PDO::FETCH_ASSOC);
+        $groupId = $group['groupId'];
+        
+        $stmtGroupMembers = $db->prepare($sqlGroupMembers);
+        $stmtGroupMembers->bindParam("groupId", $groupId);
+        $stmtGroupMembers->execute();
+
+        for($i = 0; $i < $stmtGroupMembers->rowCount(); $i++){
+            $member = $stmtGroupMembers->fetch(PDO::FETCH_ASSOC);
+            $memberEmail = $member['email'];
+             
+            $to = $memberEmail; 
+            $subject = $ownerName . " has invited you to a UPresent";
+            $message = $ownerName . " has invited you to view his UPresent - " 
+                       . $presName . " on " . $presDate . ".";
+            $headers = 'From: no-reply@upresent.org' . "\r\n" .
+                       'Reply-To: no-reply@upresent.org' . "\r\n" .
+                       'X-Mailer: PHP/' . phpversion();
+            mail($to, $subject, $message, $headers);   
+        }
+        
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
+}
+
 
 /* PRESENTATION FUNCTIONALITY */
 
@@ -601,7 +664,7 @@ function getPresentations($username) {
     }
 }
 
-function getPastPresentations($username) { //doesn't work yet
+function getPastPresentations($username) { 
     $userId = idFromUsername($username);
 
     $groupSql = "SELECT groupId FROM Group_Users WHERE userId = :userId";
