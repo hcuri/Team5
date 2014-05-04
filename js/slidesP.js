@@ -9,7 +9,12 @@ var poll = false;
 var pollDone = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D','E','F'];
+var numQ;
 var data;
+var data1 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],]
+		);
 var data2 = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
 		['A', 0, '#32CD32'],
@@ -78,7 +83,7 @@ $(document).ready(function(e) {
 
 	var slidesJSON = $.ajax({
 		type: 'GET',
-		url: root_url + "getSlides/" + presID,
+		url: root_url + "/getSlides/" + presID,
 		dataType: "json",
 		async: false,
 	});
@@ -161,7 +166,7 @@ $(document).ready(function(e) {
 var getCurrSlide = setInterval(function() {
 		var cS = $.ajax({
 			type: 'GET',
-			url: root_url + "getCurrentSlide/" + presID,
+			url: root_url + "/getCurrentSlide/" + presID,
 			dataType: "json",
 			async: false,
 		});
@@ -192,7 +197,7 @@ var getCurrSlide = setInterval(function() {
 
 			var pollJSON = $.ajax({
 				type: 'GET',
-				url: root_url + "getPollInfo/" + presID + "/" + currentSlide,
+				url: root_url + "/getPollInfo/" + presID + "/" + currentSlide,
 				dataType: "json",
 				async: false,
 			});
@@ -201,7 +206,7 @@ var getCurrSlide = setInterval(function() {
 
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
-			var numQ = pollJSON.numOptions;
+			numQ = pollJSON.numOptions;
 
 			$(".question").html(q);
 
@@ -305,14 +310,14 @@ function getPollResults() {
 
 	var result = $.ajax({
 		type: 'GET',
-		url: root_url + "getPollResults/" + presID + "/" + currentSlide,
+		url: root_url + "/getPollResults/" + presID + "/" + currentSlide,
 		dataType: "json",
 		async: false,
 	});
 	result = result.responseJSON;
 	var rS = document.getElementsByClassName("r");
 
-	for(var i = 0; i < 4; i++) {
+	for(var i = 0; i < numQ; i++) {
 		data.setValue(i, 1, result[i].option_results);
 		$(rS[i]).html(result[i].option_results);
 	}

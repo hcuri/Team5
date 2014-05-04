@@ -15,6 +15,10 @@ var backToFS = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D','E','F'];
 var data;
+var data1 = new google.visualization.arrayToDataTable([
+		['Response','Number', {role: 'style'}],
+		['A', 0, '#32CD32'],]
+		);
 var data2 = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
 		['A', 0, '#32CD32'],
@@ -218,7 +222,7 @@ var getCurrSlide = setInterval(function() {
 			
 			$("#bInfoData").html(tableContents);
 			
-			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton">A</td><td id="responseB" class="submitButton">B</td></tr><tr><td id="responseC" class="submitButton">C</td><td id="responseD" class="submitButton">D</td></tr></table>');
+			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton">A</td><td id="responseB" class="submitButton">B</td></tr><tr><td id="responseC" class="submitButton">C</td><td id="responseD" class="submitButton">D</td></tr><tr><td id="responseE" class="submitButton">E</td><td id="responseF" class="submitButton">F</td></tr></table>');
 			//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
 			$(".submitButton").click(function(event) {
 				var pollResponse = event.target;
