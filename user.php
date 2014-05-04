@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="css/styles_user.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles_user.css" rel="stylesheet" />
 <link href="css/jQuery.css" rel="stylesheet" />
 <!--<link href="css/jquery-ui-1.10.4.css" rel="stylesheet" />-->
 <script src="js/root_url.js"></script>
@@ -42,6 +42,11 @@
   </div>
 </div>
 <div id="content">
+<div id="createNew">
+      <form id="new" action="new.php">
+        <input id="newPres" type="submit" value="Create New UPresent">
+      </form>
+    </div>
   <div id="tabs1">
     <ul>
       <li><a href="#tabs1-1">My UPresents</a></li>
@@ -85,11 +90,6 @@
           <td class="erase"></td>
         </tr>
       </table>
-    </div>
-    <div id="createNew">
-      <form id="new" action="new.php">
-        <input id="newPres" type="submit" value="Create New UPresent">
-      </form>
     </div>
   </div>
   <div id="divider"></div>
