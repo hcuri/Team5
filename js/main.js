@@ -1,3 +1,6 @@
+if(window.location.href.indexOf("www.") > -1)
+	window.location = "upresent.org";
+
 if($.cookie('user') == null) {
     if(window.location.hostname + window.location.pathname !== root_root_root_url + "contact.php"){
         window.location = "index.php";
