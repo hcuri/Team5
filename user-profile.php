@@ -59,7 +59,7 @@
         <label for="id">School/Organization ID:</label>
         <input id="orgID" type="text" name="id"/>
         <br/>
-        <input type="submit" name="update" value="Update Profile"/>
+        <input id="update" type="submit" name="update" value="Update Profile"/>
       </form>
     </div>
     <div id="divider"></div>

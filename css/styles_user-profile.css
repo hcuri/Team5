@@ -58,8 +58,7 @@ label {
 	text-align: left;
 }
 
-input {
+input#update {
 	width:200px;
-
 }
 
