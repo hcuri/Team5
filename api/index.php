@@ -23,6 +23,7 @@ $app->post('/notifyGroup', 'notifyGroup');
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
 $app->post('/updatePresentation', 'updateGroupId');
+$app->post('/removeGroupFromPres', 'removeGroupFromPres');
 $app->get('/getGroupName/:presId', 'getGroupName');
 $app->post('/finishPresentation', 'finishPresentation');
 $app->get('/getPresentations/:username', 'getPresentations');
@@ -518,6 +519,27 @@ function updateGroupId() {
         $stmt->execute();
 
         echo json_encode($id);
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
+}
+
+function removeGroupFromPres() {
+    error_log('updateGroupId' . "\n", 3, '/var/tmp/php.log');
+    $request = Slim::getInstance()->request();
+    $id = json_decode($request->getBody());
+    
+    $presId = $id->presId;
+    
+    $sql = "UPDATE Presentations SET groupId = '0' WHERE presId = :presId";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("presId", $presId);
+        $stmt->execute();
         $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');

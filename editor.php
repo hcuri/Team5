@@ -259,6 +259,7 @@
   </div>
   <div id="saveSubmit">
     <input type="submit" id="inv" value="Invite Viewers" />
+    <input type="submit" id="unlink" value="Unlink Group" />
     <div></div>
     <input type="submit" id="saveUPresent" value="Save UPresent" />
   </div>

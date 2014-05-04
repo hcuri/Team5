@@ -243,6 +243,10 @@ input[type="radio"] {
 input#inv {
     float: left;
 }
+
+input#unlink {
+    float: left;
+}
 input#saveUPresent {
     float: right;
 }
@@ -257,7 +261,7 @@ input#saveUPresent {
     border: 1px solid #aaaaaa;
     border-radius: 4px;
     font-size: 1.0em;
-
+    margin-bottom: 10px;
     margin-left: 43px;
 }
 div#PollInfo {

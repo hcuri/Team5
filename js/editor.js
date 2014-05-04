@@ -99,6 +99,9 @@ $(document).ready(function(){
     $("div#invContainer").animate({opacity: 1.0}, "fast");
     getGroups();
   });
+  $("#unlink").click(function() {
+      removeGroupFromPres();
+  });
   $("div#fadeout").click(function(){
     if(linkedGroup === "")
       $("div#saveSubmit div").html("Presentation not linked to a group");
@@ -297,6 +300,8 @@ function getLinkedGroup() {
         linkedGroup = groupName;
         $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
     }
+    if(linkedGroup === "")
+        $("div#saveSubmit div").html("Presentation not linked to a group");
    
 }
 function updatePresentation(groupName) {
@@ -313,6 +318,26 @@ function updatePresentation(groupName) {
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('Something went wrong\nregister() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }
+    });
+}
+
+function removeGroupFromPres() {
+    var jsonRemGroup = JSON.stringify({
+        "presId": $.cookie('pres')
+    });
+    $.ajax({
+        type: 'POST',
+        url: root_url + 'removeGroupFromPres',
+        data: jsonRemGroup,
+        async: true,
+        success: function() {
+            linkedGroup = "";
+            $("div#saveSubmit div").html("Presentation not linked to a group");
+
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong\nremoveGroup() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
         }
     });
 }
