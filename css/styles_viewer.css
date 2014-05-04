@@ -77,22 +77,21 @@ p {
 	border-top: 1px solid #FF9F00;
 	margin-top:100px;
 	height:200px;
-	border:1px solid black;
+	border-top: 1px solid #FF9F00;
 }
 
 #bInfoData {
 	float:left;
-	width:525px;
+	width:523px;
 	height:200px;
 	text-align:left;
 	display:none;
 }
 
 #bInfoGraph {
-	float:left;
-	width:525px;
-	height:200px;
-	
+	float:right;
+	margin-top: 10px;
+	margin-right: 10px;
 }
 
 #pollQuestions {
@@ -101,19 +100,32 @@ p {
 }
 
 .submitButton {
-	width:50px;
-	height:25px;
-	background-color:red;
-	cursor: pointer;
+
 }
+
+#ASubmit, #BSubmit, #CSubmit, #DSubmit, #ESubmit, #FSubmit {
+	width: 70px;
+}
+#ASubmit { background-color: #32CD32; }
+#BSubmit { background-color: #1C86EE; }
+#CSubmit { background-color: #FFA500; }
+#DSubmit { background-color: #FF4500; }
+#ESubmit { background-color: #FFD700; }
+#FSubmit { background-color: #CD00CD; }
+
 
 .q {
 	width:400px;
-	height:40px;
+	height:10px;
 	padding-left:20px;
 	font-size:15px;
 }
 
 .question {
 	font-size: 20px;
+	margin-left: -30px;
+}
+
+#bInfoData tr td{
+	padding-left: 30px;
 }

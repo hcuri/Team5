@@ -166,7 +166,7 @@ var getCurrSlide = setInterval(function() {
 				document.webkitCancelFullScreen();
 			}
 			$( "#content" ).animate({
-				height: 800
+				height: 700
 			}, 500, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
@@ -196,7 +196,7 @@ var getCurrSlide = setInterval(function() {
 			var tableContents = '<tr><th></th><th class="question">' + q +'</th></tr>';
 			
 			for(var i = 0; i < numQ; i++) {
-				tableContents += '<tr><td>' + letters[i] + '</td><td class="q">' + opts[letters[i]] + '</td></tr>';
+				tableContents += '<tr><td>' + letters[i] + ':</td><td class="q">' + opts[letters[i]] + '</td></tr>';
 			}
 			
 			switch(numQ) {
@@ -222,11 +222,11 @@ var getCurrSlide = setInterval(function() {
 			
 			$("#bInfoData").html(tableContents);
 			
-			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton">A</td><td id="responseB" class="submitButton">B</td></tr><tr><td id="responseC" class="submitButton">C</td><td id="responseD" class="submitButton">D</td></tr><tr><td id="responseE" class="submitButton">E</td><td id="responseF" class="submitButton">F</td></tr></table>');
+			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton"><input type="submit" value="A" id="ASubmit" /></td><td id="responseB" class="submitButton"><input type="submit" value="B" id="BSubmit" /></td></tr><tr><td id="responseC" class="submitButton"><input type="submit" value="C" id="CSubmit" /></td><td id="responseD" class="submitButton"><input type="submit" value="D" id="DSubmit" /></td></tr><tr><td id="responseE" class="submitButton"><input type="submit" value="E" id="ESubmit" /></td><td id="responseF" class="submitButton"><input type="submit" value="F" id="FSubmit" /></td></tr></table>');
 			//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
 			$(".submitButton").click(function(event) {
 				var pollResponse = event.target;
-				pollResponse = $(pollResponse).html();
+				pollResponse = $(pollResponse).val();
 				submitted = true;
 				submitResponse(pollResponse);
 			});
@@ -235,7 +235,7 @@ var getCurrSlide = setInterval(function() {
 			pollDone = false;
 			
 		} else if (pollDone) {
-			clearInterval(getPollResults);
+			console.log("clearing poll");
 			$( "#bottomInfo" ).animate({
 				opacity: 0
 			}, 500, function() {

@@ -49,7 +49,7 @@
       <img id="previous" class="smallSlide" src=""/>
       <div class="oLine"></div>
     </div>
-    <div id="slidePane"><img id="slide" src="" /><img id="fs" src="img/fsBtn.png" /></div>
+    <div id="slidePane"><img id="slide" src="" /></div>
     <div id="status">
       <div class="oLine"></div>
       <img id="next" class="smallSlide" src=""/>
