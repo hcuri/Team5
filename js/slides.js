@@ -144,7 +144,7 @@ function submitResponse(response) {
 		$("#bInfoGraph").animate({
 			opacity: 0
 		}, 500, function() {
-			interval = setInterval(getPollResults, 1000);
+			interval = setInterval(getPollResults, 500);
 		});
 		
 	}
@@ -266,7 +266,7 @@ var getCurrSlide = setInterval(function() {
 			pollDone = false;
 			submitted = false;
 		}
-}, 1000);
+}, 500);
 
 //CHECK FOR NEW UPDATES TO POLL
 var getPollResults = function() {
