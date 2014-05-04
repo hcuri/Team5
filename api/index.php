@@ -23,6 +23,7 @@ $app->post('/notifyGroup', 'notifyGroup');
 //Presentation functions
 $app->post('/addPresentation', 'addPresentation');
 $app->post('/updatePresentation', 'updateGroupId');
+$app->get('/getGroupName/:presId', 'getGroupName');
 $app->post('/finishPresentation', 'finishPresentation');
 $app->get('/getPresentations/:username', 'getPresentations');
 $app->get('/getPastPresentations/:username', 'getPastPresentations');
@@ -517,6 +518,24 @@ function updateGroupId() {
         $stmt->execute();
 
         echo json_encode($id);
+        $db = null;
+    } catch (PDOException $e) {
+        error_log($e->getMessage(), 3, '/var/tmp/php.log');
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+    }
+}
+
+function getGroupName($presId) {
+    
+    $sql = "SELECT groupName FROM Groups INNER JOIN Presentations ON Groups.groupId = Presentations.groupId WHERE presId = :presId";
+    
+    try {
+        $db = dbconnect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("presId", $presId);
+        $stmt->execute();
+        $pres = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($pres);
         $db = null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');

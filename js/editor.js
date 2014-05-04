@@ -114,7 +114,8 @@ $(document).ready(function(){
   });
   
   $("#saveUPresent").click(function() {
-      emailGroup();
+      if(linkedGroup != "")
+        emailGroup();
       window.location = "user.php";
   });
 
@@ -169,8 +170,6 @@ $(document).ready(function(){
       alert("Please select a group to link with your presentation.");
     }
     else {
-      var r=confirm("Link presentation to [" + checkedGroup + "]?");
-      if (r==true) {
         $("div#fadeout").animate({opacity: 0.0}, "fast", function(){
           $("div#fadeout").hide();
         });
@@ -178,7 +177,7 @@ $(document).ready(function(){
           $("div#invContainer").hide();
         });
         updatePresentation(checkedGroup);
-      }
+      
     }
   });
 
@@ -255,7 +254,7 @@ $(document).ready(function(){
         removePoll();
         getPoll();
     });
-
+    getLinkedGroup();
 });
 
 function addImages(json) {
@@ -285,7 +284,21 @@ function addImages(json) {
 /*
 AJAX CALLS TO API
 */
-
+function getLinkedGroup() {
+    var groupName = $.ajax({
+        type: 'GET',
+        url: root_url + 'getGroupName/' + $.cookie('pres'),
+        dataType: "json", // data type of response
+        async: false     
+    });
+    groupName = groupName.responseJSON;
+    if(!$.isEmptyObject(groupName)) {
+        groupName = groupName.groupName;
+        linkedGroup = groupName;
+        $("div#saveSubmit div").html("Presentation linked to " + linkedGroup);
+    }
+   
+}
 function updatePresentation(groupName) {
     $.ajax({
         type: 'POST',
