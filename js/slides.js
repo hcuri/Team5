@@ -14,6 +14,7 @@ var fullS = false;
 var backToFS = false;
 var liveResults = new Array();
 var letters = ['A','B','C','D','E','F'];
+var numQ;
 var data;
 var data1 = new google.visualization.arrayToDataTable([
 		['Response','Number', {role: 'style'}],
@@ -140,7 +141,12 @@ function submitResponse(response) {
 	
 	if(show) {
 		//TEST INFO FOR GRAPH STUFF
-		interval = setInterval(getPollResults, 1000);
+		$("#bInfoGraph").animate({
+			opacity: 0
+		}, 500, function() {
+			interval = setInterval(getPollResults, 1000);
+		});
+		
 	}
 }
 
@@ -186,7 +192,7 @@ var getCurrSlide = setInterval(function() {
 			
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
-			var numQ = pollJSON.numOptions;
+			numQ = pollJSON.numOptions;
 			show = pollJSON.showResults;
 			
 			$(".question").html(q);
@@ -222,7 +228,16 @@ var getCurrSlide = setInterval(function() {
 			
 			$("#bInfoData").html(tableContents);
 			
-			$("#bInfoGraph").html('<table id="pollSubmission"><tr><td id="responseA" class="submitButton"><input type="submit" value="A" id="ASubmit" /></td><td id="responseB" class="submitButton"><input type="submit" value="B" id="BSubmit" /></td></tr><tr><td id="responseC" class="submitButton"><input type="submit" value="C" id="CSubmit" /></td><td id="responseD" class="submitButton"><input type="submit" value="D" id="DSubmit" /></td></tr><tr><td id="responseE" class="submitButton"><input type="submit" value="E" id="ESubmit" /></td><td id="responseF" class="submitButton"><input type="submit" value="F" id="FSubmit" /></td></tr></table>');
+			var buttonData = "";
+			buttonData += '<h2>Choose a Response:</h2><table id="pollSubmission"><tr>';
+			
+			for(var i = 0; i < numQ; i++) {
+				buttonData += '<td id="response' + letters[i] + '" class="submitButton"><input type="submit" value="' + letters[i] + '" id="' + letters[i] + 'Submit" /></td>';
+			}
+			
+			buttonData += '</tr></table>';
+			
+			$("#bInfoGraph").html(buttonData);
 			//ADD CLICK LISTENERS TO ALL SUBMISSION BUTTONS
 			$(".submitButton").click(function(event) {
 				var pollResponse = event.target;
@@ -268,11 +283,20 @@ var getPollResults = function() {
 	});
 	result = result.responseJSON;
 	
-	for(var i = 0; i < 4; i++) {
+	for(var i = 0; i < numQ; i++) {
 		data.setValue(i, 1, result[i].option_results);
 	}
+	
 	chart = new google.visualization.ColumnChart(document.getElementById('bInfoGraph'));
 	chart.draw(data, options);
+	
+	var opacity = $("#bInfoGraph").css("opacity");
+	if(opacity == 0){
+		$("#bInfoGraph").animate({
+			opacity: 1
+		}, 500, function() {
+		});
+	}
 };
 
 // Helper function to serialize all the form fields into a JSON string

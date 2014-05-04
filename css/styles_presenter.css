@@ -98,7 +98,8 @@ p {
 
 #bInfoData {
 	float:left;
-	width:525px;
+	padding-left:50px;
+	width:475px;
 	height:200px;
 	text-align:left;
 }

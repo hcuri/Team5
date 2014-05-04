@@ -82,28 +82,22 @@ p {
 
 #bInfoData {
 	float:left;
-	width:523px;
+	padding-left:25px;
+	width:498px;
 	height:200px;
 	text-align:left;
 	display:none;
 }
 
 #bInfoGraph {
-	float:right;
+	float:left;
 }
-table#pollSubmission {
-	margin-left: 55px;
-	margin-top: 25px;
-}
-
 #pollQuestions {
 	padding-right:5px;
 	padding-left:5px;
 }
 
-.submitButton {
-
-}
+.submitButton:hover {color:#ededed;}  /* mouse over link */
 
 #ASubmit, #BSubmit, #CSubmit, #DSubmit, #ESubmit, #FSubmit {
 	width: 70px;
@@ -114,6 +108,12 @@ table#pollSubmission {
 #DSubmit { background-color: #FF4500; }
 #ESubmit { background-color: #FFD700; }
 #FSubmit { background-color: #CD00CD; }
+#ASubmit:hover { background-color: #ededed; }
+#BSubmit:hover { background-color: #ededed; }
+#CSubmit:hover { background-color: #ededed; }
+#DSubmit:hover { background-color: #ededed; }
+#ESubmit:hover { background-color: #ededed; }
+#FSubmit:hover { background-color: #ededed; }
 
 
 .q {

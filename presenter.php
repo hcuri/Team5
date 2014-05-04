@@ -64,34 +64,10 @@
   <div id="bottomInfo">
     <div id="bInfoData">
       <table id="pollQuestions">
-      	<tr>
-        <td><input id="resetPoll" type="button" value="Reset Poll"></td>
-        <td class="question"> </td>
-        <td class="result">Results</td>
-      	</tr>
-        <tr>
-          <td>A</td>
-          <td class="q"></td>
-          <td class="r"></td>
-        </tr>
-        <tr>
-          <td>B</td>
-          <td class="q"></td>
-          <td class="r"></td>
-        </tr>
-        <tr>
-          <td>C</td>
-          <td class="q"></td>
-          <td class="r"></td>
-        </tr>
-        <tr>
-          <td>D</td>
-          <td class="q"></td>
-          <td class="r"></td>
-        </tr>
       </table>
     </div>
     <div id="bInfoGraph"> </div>
+    <div id="resetP"><input id="resetPoll" type="button" value="Reset Poll"></div>
   </div>
 </div>
 <div id="footer">UPresent 2014 | <a href="about.php">About</a> | <a href="terms.php">Terms</a> | <a href="privacy.php">Privacy</a> | <a href="contact.php">Contact</a></div>

@@ -185,7 +185,7 @@ var getCurrSlide = setInterval(function() {
 				fullS = false;
 			}
 			$( "#content" ).animate({
-				height: 800
+				height: 725
 			}, 500, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");

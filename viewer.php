@@ -62,20 +62,6 @@
       </table>
     </div>
     <div id="bInfoGraph">
-      <table id="pollSubmission">
-        <tr>
-          <td id="responseA" class="submitButton">A</td>
-          <td id="responseB" class="submitButton">B</td>
-        </tr>
-        <tr>
-          <td id="responseC" class="submitButton">C</td>
-          <td id="responseD" class="submitButton">D</td>
-        </tr>
-        <tr>
-          <td id="responseE" class="submitButton">E</td>
-          <td id="responseF" class="submitButton">F</td>
-        </tr>
-      </table>
     </div>
   </div>
 </div>
