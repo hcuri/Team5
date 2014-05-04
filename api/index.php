@@ -403,15 +403,18 @@ function notifyGroup() {
         for($i = 0; $i < $stmtGroupMembers->rowCount(); $i++){
             $member = $stmtGroupMembers->fetch(PDO::FETCH_ASSOC);
             $memberEmail = $member['email'];
-             
+            
             $to = $memberEmail; 
             $subject = $ownerName . " has invited you to a UPresent";
-            $message = $ownerName . " has invited you to view his UPresent - " 
-                       . $presName . " on " . $presDate . ".";
+            $message = $ownerName . " has invited you to view his UPresent - " . $presName . " on " . $presDate . ".";
+            error_log("error: to: " . $to . " sub: " . $subject . " msg: " . $message, 3, '/var/tmp/php.log');
             $headers = 'From: no-reply@upresent.org' . "\r\n" .
                        'Reply-To: no-reply@upresent.org' . "\r\n" .
                        'X-Mailer: PHP/' . phpversion();
-            mail($to, $subject, $message, $headers);   
+             error_log("error: head: " . $headers, 3, '/var/tmp/php.log');
+            mail($to, $subject, $message, $headers);
+                   
+            
         }
         
         $db = null;

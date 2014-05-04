@@ -724,10 +724,10 @@ function emailGroup() {
         data: groupJson,
         async: true,
         success: function() {
-            alert(linkedGroup + " has been notified of this UPresent");
+            //alert(linkedGroup + " has been notified of this UPresent");
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert('Something went wrong' + "\n" + 'notify() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+            //alert('Something went wrong' + "\n" + 'notify() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
         }   
     });
     alert(linkedGroup + " has been notified of this UPresent");
