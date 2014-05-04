@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *currentSlide;
 @property (weak, nonatomic) IBOutlet UILabel *totalSlides;
+@property (weak, nonatomic) IBOutlet UIImageView *slideImage;
 
 
 @end
@@ -23,8 +24,12 @@
 @synthesize currentSlide;
 @synthesize totalSlides;
 @synthesize myId;
+@synthesize username;
+
+
 int max;
 NSNumber *current = 0;
+NSDictionary *slides;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +52,19 @@ NSNumber *current = 0;
     self.title.text = myTitle;
     [self getTotalSlides];
     self.currentSlide.text = [NSString stringWithFormat:@"%d",[self getCurrentSlide]];
+    
+    
+//    NSLog(@"%@",slides[@"slides"][@"1"]);
+    
+    NSString *fileURI = [slides[@"slides"][self.currentSlide.text] stringByReplacingOccurrencesOfString:@" "
+                                                                                                withString:@"%20"];
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",RootURL,fileURI]];
+    self.slideImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    
+    [self.slideImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.slideImage.layer setBorderWidth: 1.0];
+    
+    
 }
 
 - (IBAction)previousSlide:(id)sender {
@@ -62,6 +80,11 @@ NSNumber *current = 0;
     [self setCurrSlide:curr];
     currentSlide.text = [NSString stringWithFormat:@"%d",curr];
     
+    NSString *fileURI = [slides[@"slides"][self.currentSlide.text] stringByReplacingOccurrencesOfString:@" "
+                                                                                             withString:@"%20"];
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",RootURL,fileURI]];
+    self.slideImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    
 }
 - (IBAction)nextSlide:(id)sender {
     
@@ -75,8 +98,15 @@ NSNumber *current = 0;
     //call method to set current slide with curr
     [self setCurrSlide:curr];
     currentSlide.text = [NSString stringWithFormat:@"%d",curr];
+    
+    
+    NSString *fileURI = [slides[@"slides"][self.currentSlide.text] stringByReplacingOccurrencesOfString:@" "
+                                                                                             withString:@"%20"];
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",RootURL,fileURI]];
+    self.slideImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 
 }
+
 - (IBAction)resetPoll:(id)sender {
     @try {
         
@@ -86,7 +116,8 @@ NSNumber *current = 0;
         [request setURL:url];
         [request setHTTPMethod:@"POST"];
         
-        NSString*post =[NSString stringWithFormat:@"{\"presId\":%@,\"slide\":%d}",myId,current.intValue];
+        NSString*post =[NSString stringWithFormat:@"{\"presId\":%@,\"slide\":%@}",myId,currentSlide.text];
+        NSLog(@"%@",post);
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
         
@@ -259,24 +290,25 @@ NSNumber *current = 0;
             NSLog(@"Response ==> %@", responseData);
             
             NSError *error = nil;
-            NSDictionary *json = [NSJSONSerialization
+            slides = [NSJSONSerialization
                              JSONObjectWithData:urlData
                              options:NSJSONReadingMutableContainers
                              error:&error];
             
-            totalSlides.text = json[@"numSlides"];
-            total = json[@"numSlides"];
+            totalSlides.text = slides[@"numSlides"];
+            
+            total = slides[@"numSlides"];
             max = [total intValue];
             
         } else {
             if (error) NSLog(@"Error: %@", error);
-            [self alertStatus:@"Connection Failed" :@"Sign in Failed" :0];
+            [self alertStatus:@"Connection Failed" :@"Try Again" :0];
         }
         
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Reading Presentations Failed." :@"Error" :0];
+        [self alertStatus:@"Loading Presentation Failed." :@"Error" :0];
     }
 
     return total;

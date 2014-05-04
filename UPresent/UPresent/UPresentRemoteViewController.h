@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "String.h"
 
 @interface UPresentRemoteViewController : UIViewController <UIAlertViewDelegate>
 
 @property(nonatomic) NSString *myTitle;
 @property(nonatomic) NSString *myId;
+@property(nonatomic) NSString *username;
 
 
 @end

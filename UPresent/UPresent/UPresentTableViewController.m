@@ -190,6 +190,7 @@ NSMutableArray *idsArray;
         UPresentRemoteViewController *destViewController = [segue destinationViewController];
         destViewController.myTitle = [titlesArray objectAtIndex:[indexPath row]];
         destViewController.myId = [idsArray objectAtIndex:[indexPath row]];
+        destViewController.username = self.username;
 
     }
 }
