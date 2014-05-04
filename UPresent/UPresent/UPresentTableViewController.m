@@ -31,14 +31,24 @@ NSMutableArray *idsArray;
     return self;
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"background"];
-    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
-    backgroundImageView.image=backgroundImage;
-    [self.view insertSubview:backgroundImageView atIndex:0];
+    UIButton* fakeButton = (UIButton *) [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"smallIcon.png"]];
+    UIBarButtonItem *fakeButtonItem = [[UIBarButtonItem alloc] initWithCustomView:fakeButton];
+    self.navigationItem.leftBarButtonItem = fakeButtonItem;
+    
+    
+//    UIImage *backgroundImage = [UIImage imageNamed:@"background"];
+//    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+//    backgroundImageView.image=backgroundImage;
+//    [self.view insertSubview:backgroundImageView atIndex:0];
     
     NSLog(@"%@",self.username);
     
