@@ -254,6 +254,7 @@
         <br>
         <br>
         <input type="submit" id="pollSubmit" value="Add Poll to Slide" />
+        <input type="submit" id="pollDelete" value="Remove Poll from Slide" />
       </div>
   </div>
   <div id="saveSubmit">

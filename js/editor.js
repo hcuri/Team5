@@ -250,6 +250,11 @@ $(document).ready(function(){
       else
         addPoll();
     });
+    
+    $("#pollDelete").click(function() {
+        removePoll();
+        getPoll();
+    });
 
 });
 
@@ -587,12 +592,32 @@ function addPoll() {
     data: pollFormToJSON(),
     async: true,
     success: function() {
-      alert("Poll add to presentation");
+      alert("Poll added to presentation");
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
     }
   });
+}
+
+function removePoll() {
+    var jsonPoll = JSON.stringify({
+        "presId" : $.cookie('pres'),
+        "slideNum" : currSlide
+    });
+    
+    $.ajax({
+        type: 'POST',
+        url: root_url + 'removePoll',
+        data: jsonPoll,
+        async: false,
+        success: function() {
+            alert("Poll removed from presentation");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
+        }
+    });
 }
 function pollFormToJSON() {
   //Set all vars for json

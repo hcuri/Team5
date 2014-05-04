@@ -1240,7 +1240,7 @@ function removePoll() {
             $stmtDelPoll->bindParam("presId", $presId);
             $stmtDelPoll->execute();
         }
-        echo $json_encode($poll);
+        echo json_encode($poll);
         $db= null;
     } catch (PDOException $e) {
         error_log($e->getMessage(), 3, '/var/tmp/php.log');
