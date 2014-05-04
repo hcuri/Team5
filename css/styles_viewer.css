@@ -23,6 +23,7 @@ p {
 	
 }
 
+
 #slidePane {
 	float:left;
 	margin-top:4px;
@@ -42,7 +43,6 @@ p {
 	padding-left:30px;
 	margin-top:4px;
 	margin-left:882px;
-	/*float:right;*/
 	width:100px;	
 	height:350px;
 	
@@ -60,7 +60,7 @@ p {
 .oLine {
 	margin:auto;
 	width:0px;
-	border:1px solid #ededed;
+	border:1px solid #FF9F00;
 	height:100px;
 	padding-top:5px;
 }

@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/styles_viewer.css" rel="stylesheet" />
+
 <link href="css/jQuery.css" rel="stylesheet" />
 <script src="js/root_url.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
