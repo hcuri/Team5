@@ -202,7 +202,8 @@ input[type="radio"] {
 
 #UPresentTitle {
     text-align: center;
-    text-decoration: underline;
+    font-weight: 900;
+    text-decoration: none;
 }
 #LogoMessage {
     float: right;

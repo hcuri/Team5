@@ -103,6 +103,15 @@ function checkRegister(pform) {
 		obj.value = obj.defaultValue;
 		return false;
 	}
+        else if(pwd.length > 16) {
+            alert("Password can be at most 16 characters long");
+            var obj = document.getElementById("signUpPassword");
+            obj.value = obj.defaultValue;
+            obj.focus();
+            obj = document.getElementById("signUpPasswordC");
+            obj.value = obj.defaultValue;
+            return false;
+        }
 
 	var check = $.ajax({
 		type: 'GET',

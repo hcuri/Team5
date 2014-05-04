@@ -42,6 +42,10 @@ label {
 	text-align:center;
 }
 
+input#files {
+    height: 22px;
+}
+
 #bottomBlock {
 	width:700px;
 	height:45px;
