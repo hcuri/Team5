@@ -616,7 +616,7 @@ function addPoll() {
     data: pollFormToJSON(),
     async: true,
     success: function() {
-      //alert("Poll added to presentation");
+      alert("Poll added to slide " + currSlide);
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
