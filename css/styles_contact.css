@@ -60,3 +60,7 @@ input#subject {
 #cErr {
 	color: red;
 }
+
+#content {
+	height:500px;
+}
