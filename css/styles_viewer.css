@@ -52,7 +52,7 @@ p {
 	text-align:center;
 	padding-top:25px;
 	width:1050px;
-	height:700px;	
+	height:650px;	
 	background-color: white;
 	overflow: visible !important;
 }
@@ -75,7 +75,7 @@ p {
 
 #bottomInfo {
 	border-top: 1px solid #FF9F00;
-	margin-top:100px;
+	margin-top:25px;
 	height:200px;
 	border-top: 1px solid #FF9F00;
 }

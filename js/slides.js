@@ -175,7 +175,7 @@ var getCurrSlide = setInterval(function() {
 				document.webkitCancelFullScreen();
 			}
 			$( "#content" ).animate({
-				height: 700
+				height: 650
 			}, 500, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
