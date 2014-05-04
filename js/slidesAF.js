@@ -151,10 +151,16 @@ function getCurrSlide() {
 		});
 		pollJSON = pollJSON.responseJSON;
 		var isEmpty = pollJSON.poll;
+		var temp = pollJSON.showResults;
+		
 		if(isEmpty === "empty") {
 			poll = false;
 		} else {
 			poll = true;		
+		}
+		
+		if(!temp) {
+			poll = false;
 		}
 			
 		if(poll) {
