@@ -722,7 +722,7 @@ function emailGroup() {
         type: 'POST',
         url: root_url + 'notifyGroup',
         data: groupJson,
-        async: false,
+        async: true,
         success: function() {
             alert(linkedGroup + " has been notified of this UPresent");
         },
@@ -730,4 +730,5 @@ function emailGroup() {
             alert('Something went wrong' + "\n" + 'notify() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
         }   
     });
+    alert(linkedGroup + " has been notified of this UPresent");
 }

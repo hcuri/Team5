@@ -26,7 +26,7 @@ function submitContact() {
 			alert('Something went wrong\n email() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
 		}
         });
-        //alert("Email sent successfully");
+        alert("Email sent successfully");
         return true;
     }
 }
