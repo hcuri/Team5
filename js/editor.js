@@ -463,7 +463,7 @@ function deleteGroup(elem) {
     data: delGroupFormToJSON(elem),
     async: true,
     success: function(){
-      alert('Group deleted successfully');
+      //alert('Group deleted successfully');
       getGroups();
     },
     error: function(jqXHR, textStatus, errorThrown){
@@ -606,20 +606,6 @@ $(document).keypress(function(e) {
           }
         }
     }
-
-    //Photo Gallery 
-
-    //Doesn't work
-    if(e.which == 37) {
-      alert("sup");
-      console.log("left arrow");
-      $("#carousel-left").trigger('click');
-    } 
-    if(e.which == 39) {
-      alert("sup yo");
-      console.log("right arrow");
-      $("#carousel-right").trigger('click');
-    }
 });
 
 //Polling
@@ -630,7 +616,7 @@ function addPoll() {
     data: pollFormToJSON(),
     async: true,
     success: function() {
-      alert("Poll added to presentation");
+      //alert("Poll added to presentation");
     },
     error: function(jqXHR, textStatus, errorThrown){
       alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
@@ -650,7 +636,7 @@ function removePoll() {
         data: jsonPoll,
         async: false,
         success: function() {
-            alert("Poll removed from presentation");
+            //alert("Poll removed from presentation");
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('Something went wrong\naddPoll() error: ' + textStatus + "\nerrorThrown: " + errorThrown);
