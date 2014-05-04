@@ -147,7 +147,10 @@ function submitResponse(response) {
 			interval = setInterval(getPollResults, 500);
 		});
 		
-	}
+	} else {
+            pollDone = true;
+            getCurrSlide;
+        }
 }
 
 

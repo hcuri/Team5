@@ -126,7 +126,7 @@ function getCurrSlide() {
 		if(poll) {
 			getPollResults();
 			$( "#content" ).clearQueue().animate({
-				height: 675
+				height: 700
 			}, 500, function() {	
 				$("#bottomInfo").css("display", "block");
 				$("#bInfoData").css("display", "block");
@@ -138,12 +138,13 @@ function getCurrSlide() {
 			
 			var q = pollJSON.question;
 			var opts = pollJSON.options;
+                        numQ = pollJSON.numOptions;
 			
 			$(".question").html(q);
 			
 			var qS = document.getElementsByClassName("q");
 			
-			for(var i = 0; i < 4; i++) {
+			for(var i = 0; i < numQ; i++) {
 				$(qS[i]).html(opts[letters[i]]);
 			}
 		} else {
@@ -197,7 +198,7 @@ function getPollResults() {
 	
 	var rS = document.getElementsByClassName("r");
 	
-	for(var i = 0; i < 4; i++) {
+	for(var i = 0; i < numQ; i++) {
 		data.setValue(i, 1, result[i].option_results);
 		$(rS[i]).html(result[i].option_results);
 	}
