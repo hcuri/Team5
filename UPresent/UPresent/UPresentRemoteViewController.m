@@ -60,8 +60,10 @@ NSDictionary *currJson;
     
     if (self.currentSlide.text.intValue==1) {
         self.prevButton.hidden = TRUE;
+        self.nextButton.hidden = FALSE;
     } else if (self.currentSlide.text.intValue==totalSlides.text.intValue){
         self.nextButton.hidden = TRUE;
+        self.prevButton.hidden = FALSE;
     } else {
         self.prevButton.hidden = FALSE;
         self.nextButton.hidden = FALSE;
